@@ -17,7 +17,7 @@ const ContactUs = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <div className="flex justify-between gap-8 w-full px-8 py-16 bg-black">
+    <div className="flex justify-between gap-8 w-full px-8 py-16">
       {contactUsData.map((item, index) => {
         const isHovered = hoveredIndex === index;
         const isOtherHovered = hoveredIndex !== null && hoveredIndex !== index;
@@ -41,32 +41,31 @@ const ContactUs = () => {
             }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
-            {/* Avatar - Icon from Lucide */}
-            <motion.div
-              className="absolute top-4 left-4 w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-md"
-              initial={{ scale: 0 }}
-              animate={{
-                scale: isHovered ? 1.2 : 0,
-                opacity: isHovered ? 1 : 0,
-              }}
-              transition={{ type: "spring", stiffness: 250, damping: 15 }}
-            >
-              <AvatarIcon className="text-black" size={24} />
-            </motion.div>
+            {/* Avatar + Title Row */}
+<div className="flex items-center mb-8">
+  <motion.div
+    className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md mr-2"
+    initial={{ scale: 0, opacity: 0 }}
+    animate={{
+      scale: isHovered ? 1 : 0,
+      opacity: isHovered ? 0.8 : 0,
+    }}
+    transition={{ type: "spring", stiffness: 250, damping: 15 }}
+  >
+    <AvatarIcon className="text-black" size={20} />
+  </motion.div>
 
-            {/* Border glow element */}
-            <span
-              className={`absolute bottom-0 left-0 w-full bg-gradient-to-t from-white/20 to-transparent transition-all duration-300`}
-            />
+  <motion.h2
+    className="text-3xl font-semibold transition-all duration-300"
+    animate={{
+      x: isHovered ? 10 : 0, // Push right slightly when avatar is visible
+    }}
+    transition={{ type: "spring", stiffness: 250, damping: 20 }}
+  >
+    {item.title}
+  </motion.h2>
+</div>
 
-            {/* Title */}
-            <h2
-              className={`text-3xl font-semibold mb-8 z-10 relative transition-all duration-300 ${
-                isHovered ? "ml-16" : "ml-0"
-              }`}
-            >
-              {item.title}
-            </h2>
 
             {/* Text */}
             <p
