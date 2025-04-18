@@ -5,21 +5,24 @@ export const navItems = [
     { name: "Contact", link: "#contact" },
   ];
 
-  export const contactUsData = [
-    {
-      title: "General Inquiries",
-      text: "Got questions? We're here to help with any general information you need.",
-    },
-    {
-      title: "Technical Support",
-      text: "Having issues? Our tech team is ready to assist you anytime.",
-    },
-    {
-      title: "Partnerships",
-      text: "Interested in working with us? Let’s talk about collaboration.",
-    },
-  ];
-  
+export const contactUsData = [
+  {
+    title: "General Inquiries",
+    text: "Got questions? We're here to help with any general information you need.",
+    avatarType: "BookOpen", 
+  },
+  {
+    title: "Technical Support",
+    text: "Having issues? Our tech team is ready to assist you anytime.",
+    avatarType: "Video",
+  },
+  {
+    title: "Partnerships",
+    text: "Interested in working with us? Let’s talk about collaboration.",
+    avatarType: "Code", 
+  },
+];
+
   
   export const gridItems = [
     {
