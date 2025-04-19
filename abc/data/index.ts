@@ -5,6 +5,14 @@ export const navItems = [
     { name: "Contact", link: "#contact" },
   ];
 
+  export const heroImage = {
+    src: "/header/ABC.png",
+    alt: "Africa's Blockchain Club",
+    width: 800, 
+    height: 800,
+  };
+  
+
 export const aboutText = [
   {
     title1: "Our",
@@ -29,10 +37,10 @@ export const aboutImages = [
     alt: "Our Mission",
   },
   {
-    src: "/About/bgEle.png",
-    inverted: "/About/bgElewhite.png", 
-    width: 530,
-    height: 530,
+    src: "/About/whiteElephant.png",
+    inverted: "/About/bg1.png", 
+    width: 310,
+    height: 310,
     alt: "Our Vision",
   },
 ];
