@@ -4,18 +4,16 @@ import { useState } from "react";
 import { forms } from "@/data/index";
 
 export default function Carousel() {
-  const [activeForm, setActiveForm] = useState("researcher"); // Default is 'researcher'
+  const [activeForm, setActiveForm] = useState("researcher");
   const [formData, setFormData] = useState({});
   const [alert, setAlert] = useState({ message: "", type: "", visible: false });
   const [isInitialLoad, setIsInitialLoad] = useState(true);
-  const [showForm, setShowForm] = useState(false); // NEW: Added form visibility state
+  const [showForm, setShowForm] = useState(false);
 
   const handleButtonClick = (key) => {
     if (activeForm === key) {
-      // Toggle form visibility when clicking same button
       setShowForm(!showForm);
     } else {
-      // Show form when clicking different button
       setActiveForm(key);
       setShowForm(true);
     }
@@ -40,15 +38,13 @@ export default function Carousel() {
 
       if (response.ok) {
         setAlert({
-          message:
-            "Thank you for reaching out! Your submission was successful. A verification email has been sent to you.",
+          message: "Thank you for reaching out! Your submission was successful.",
           type: "success",
           visible: true,
         });
       } else {
         setAlert({
-          message:
-            "Your request has failed. Please check your email and try again.",
+          message: "Your request has failed. Please check your email and try again.",
           type: "error",
           visible: true,
         });
@@ -77,22 +73,20 @@ export default function Carousel() {
       </div>
 
       <div className="flex space-x-4 mt-6 relative">
-        {Object.keys(forms).map((key, index) => {
+        {/* Permanent spillover effects */}
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[120px] h-[60px] bg-blue-500 opacity-10 blur-xl rounded-full z-0" />
+        <div className="absolute left-1/3 top-1/2 -translate-y-1/2 w-[120px] h-[60px] bg-blue-500 opacity-10 blur-xl rounded-full z-0" />
+        <div className="absolute right-1/3 top-1/2 -translate-y-1/2 w-[120px] h-[60px] bg-blue-500 opacity-10 blur-xl rounded-full z-0" />
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[120px] h-[60px] bg-blue-500 opacity-10 blur-xl rounded-full z-0" />
+
+        {Object.keys(forms).map((key) => {
           const isActive = activeForm === key;
           const isResearcher = key === "researcher";
 
-          const baseClass =
-            "px-6 py-3 font-semibold rounded-lg transition-all duration-300 relative z-10";
-
-          let extraClass = "";
-
-          if (isActive) {
-            extraClass = "bg-blue-500 shadow-lg shadow-blue-500 text-white";
-          } else if (isInitialLoad && isResearcher) {
-            extraClass = "bg-blue-500 shadow-lg shadow-blue-500 text-white";
-          } else {
-            extraClass = "bg-[#1B1B1B] text-gray-300";
-          }
+          const baseClass = "px-6 py-3 font-semibold rounded-lg transition-all duration-300 relative z-10";
+          const extraClass = isActive || (isInitialLoad && isResearcher)
+            ? "bg-blue-500 shadow-lg shadow-blue-500 text-white"
+            : "bg-[#1B1B1B] text-gray-300";
 
           return (
             <button
@@ -104,17 +98,8 @@ export default function Carousel() {
             </button>
           );
         })}
-
-        {/* Spillover effect behind the left and right buttons */}
-        {isInitialLoad && activeForm === "researcher" && (
-          <>
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[120px] h-[60px] bg-blue-500 opacity-20 blur-xl rounded-full z-0" />
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[120px] h-[60px] bg-blue-500 opacity-20 blur-xl rounded-full z-0" />
-          </>
-        )}
       </div>
 
-      {/* ONLY CHANGE: Added showForm condition */}
       {showForm && activeForm && (
         <div className="mt-6 w-full max-w-[600px] mx-auto">
           <div className="p-6 rounded-2xl text-black">
@@ -128,13 +113,9 @@ export default function Carousel() {
                     onChange={handleChange}
                     className="w-full p-3 bg-[#F1E8D6] rounded-lg"
                   >
-                    <option value="" disabled selected>
-                      {field.placeholder}
-                    </option>
+                    <option value="" disabled selected>{field.placeholder}</option>
                     {field.options.map((option) => (
-                      <option key={option} value={option}>
-                        {option}
-                      </option>
+                      <option key={option} value={option}>{option}</option>
                     ))}
                   </select>
                 ) : field.type === "textarea" ? (
@@ -169,10 +150,7 @@ export default function Carousel() {
 
       {alert.visible && (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div
-            className={`px-6 py-4 rounded-lg shadow-lg text-center w-96 
-              ${alert.type === "success" ? "bg-[#D8CFC4] text-black" : "bg-[#D8CFC4] text-black"}`}
-          >
+          <div className={`px-6 py-4 rounded-lg shadow-lg text-center w-96 ${alert.type === "success" ? "bg-[#D8CFC4]" : "bg-[#D8CFC4]"}`}>
             <p>{alert.message}</p>
             <button
               className="mt-3 px-4 py-2 bg-white text-black rounded-lg hover:bg-gray-200"
