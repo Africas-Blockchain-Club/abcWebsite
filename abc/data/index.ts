@@ -5,6 +5,19 @@ export const navItems = [
     { name: "Contact", link: "#contact" },
   ];
 
+  export const teamImages = [
+    { src: "/team/1.JPG", alt: "Team Member 1" }, 
+    { src: "/team/3.jpg", alt: "Team Member 3" },
+    { src: "/team/4.jpg", alt: "Team Member 4" }, 
+    { src: "/team/5.jpg", alt: "Team Member 5" }, 
+    { src: "/team/6.jpg", alt: "Team Member 6" }, 
+    { src: "/team/7.jpg", alt: "Team Member 7" },
+    { src: "/team/8.jpg", alt: "Team Member 8" }, 
+    { src: "/team/9.jpg", alt: "Team Member 9" },
+    { src: "/team/10.jpg", alt: "Team Member 10" }, 
+    { src: "/team/11.jpg", alt: "Team Member 11" }, 
+  ];
+  
   export const contactUsData = [
     {
       title: "Web3 Fundamentals",

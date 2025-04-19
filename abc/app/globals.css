@@ -1,5 +1,7 @@
 @import "tailwindcss";
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @theme inline {
   --color-background: var(--background);
@@ -7,7 +9,6 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
-
 
 body {
   background: linear-gradient(to bottom, darkblue, purple);
@@ -20,13 +21,70 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 255, 0.6), 0 0 20px rgba(0, 0, 255, 0.6);
     transition: box-shadow 0.3s ease-in-out;
   }
-  
+
   .glow-effect:hover {
     box-shadow: 0 0 15px rgba(0, 0, 255, 0.8), 0 0 25px rgba(0, 0, 255, 0.8);
   }
 
   .spillover-glow-effect {
-    box-shadow: 0 0 8px rgba(59, 130, 246, 0.5); /* Subtle blue shadow for spillover */
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
     transition: box-shadow 0.3s ease-in-out;
+  }
+
+  @keyframes carousel {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-carousel {
+    display: flex;
+    width: max-content;
+    animation: carousel 30s linear infinite;
+    transform-style: preserve-3d;
+  }
+
+  .skewed-carousel {
+    transform: rotateY(-15deg);
+    will-change: transform;
+  }
+
+  .perspective-\[800px\] {
+    perspective: 800px;
+  }
+
+  @keyframes carousel {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-carousel {
+    display: flex;
+    width: max-content;
+    animation: carousel 30s linear infinite;
+    transform-style: preserve-3d;
+  }
+
+  .animate-carousel-fast {
+    display: flex;
+    width: max-content;
+    animation: carousel 27s linear infinite; /* 10% faster than 30s */
+    transform-style: preserve-3d;
+  }
+
+  .skewed-carousel {
+    transform: rotateY(-15deg);
+    will-change: transform;
+  }
+
+  .perspective-\[800px\] {
+    perspective: 800px;
   }
 }

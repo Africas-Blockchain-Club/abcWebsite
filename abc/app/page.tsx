@@ -4,6 +4,8 @@ import { FloatingNav } from "@/components/ui/FloatingNavbar";
 import ContactUs from "@/components/ui/contactUs";
 import Carousel from "@/components/ui/Carousel"; 
 import SecretElephant from "@/components/secretElephant"; 
+import Team from "@/components/Team";
+
 
 export default function Home() {
   return (
@@ -25,11 +27,14 @@ export default function Home() {
           <Carousel />
         </div>
 
+        
+
         {/* <div className="pt-32 px-8">
           <SecretElephant />
         </div> */}
+         <Team />
 
-        
+
 
         {Array(100)
           .fill(null)
