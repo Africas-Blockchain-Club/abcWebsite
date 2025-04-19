@@ -9,7 +9,7 @@ export default function Home() {
       <main
         className=""
         style={{
-          background: "linear-gradient(to left, darkblue, purple)",
+          background: "#1B1B1B",
           minHeight: "300vh",
         }}
       >

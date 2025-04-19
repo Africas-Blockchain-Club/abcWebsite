@@ -5,23 +5,24 @@ export const navItems = [
     { name: "Contact", link: "#contact" },
   ];
 
-export const contactUsData = [
-  {
-    title: "General Inquiries",
-    text: "Got questions? We're here to help with any general information you need.",
-    avatarType: "BookOpen", 
-  },
-  {
-    title: "Technical Support",
-    text: "Having issues? Our tech team is ready to assist you anytime.",
-    avatarType: "Video",
-  },
-  {
-    title: "Partnerships",
-    text: "Interested in working with us? Let’s talk about collaboration.",
-    avatarType: "Code", 
-  },
-];
+  export const contactUsData = [
+    {
+      title: "Web3 Fundamentals",
+      text: "A comprehensive guide to the basics of Web3 development.",
+      avatarType: "BookOpen",
+    },
+    {
+      title: "Smart Contract Development",
+      text: "Learn how to write and deploy smart contracts on various blockchains.",
+      avatarType: "Code",
+    },
+    {
+      title: "DApp Architecture",
+      text: "Understand the architecture of decentralized applications.",
+      avatarType: "Video",
+    },
+  ];
+  
 
   
   export const gridItems = [
