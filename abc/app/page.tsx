@@ -6,13 +6,12 @@ import Carousel from "@/components/ui/Carousel";
 import SecretElephant from "@/components/secretElephant"; 
 import Team from "@/components/Team";
 import About from "@/components/About";
+import Hero from "@/components/Hero";
 
 export default function Home() {
   return (
     <div className="relative">
       {/* Background with Code Snippet */}
-      
-
       <main
         className=""
         style={{
@@ -20,7 +19,12 @@ export default function Home() {
           minHeight: "300vh",
         }}
       >
+
         <FloatingNav navItems={navItems} />
+
+        <div className="pt-32 px-8">
+          <Hero />
+        </div>
 
         <div className="pt-32 px-8">
           <ContactUs />

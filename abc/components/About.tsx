@@ -26,9 +26,11 @@ export default function FullscreenCarousel() {
           return (
             <div
               key={index}
-              className="min-w-[400px] max-w-[600px] h-full flex flex-col items-center justify-center text-white snap-start pt-16 pb-10 rounded-2xl overflow-hidden border-2 border-blue-500 shadow-[0_0_30px_10px_rgba(59,130,246,0.5)]"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
+              className={`min-w-[400px] max-w-[600px] h-full flex flex-col items-center justify-center snap-start pt-16 pb-10 rounded-2xl overflow-hidden border-2 border-blue-500 shadow-[0_0_30px_10px_rgba(59,130,246,0.5)] transition-all duration-300 ease-in-out ${
+                isHovered ? "bg-amber-50 text-black" : "bg-transparent text-white"
+              }`}
             >
               <div className="mb-6 rounded-full overflow-hidden">
                 <Image
@@ -40,14 +42,14 @@ export default function FullscreenCarousel() {
                 />
               </div>
 
-              <dt className="text-5xl font-Plush text-white text-center">
+              <dt className="text-5xl font-Plush text-center transition-colors duration-300">
                 {item.title1}
               </dt>
-              <dt className="text-5xl font-Plush text-white text-center mt-4">
+              <dt className="text-5xl font-Plush text-center mt-4 transition-colors duration-300">
                 {item.title2}
               </dt>
-              <dd className="mt-6 text-xl font-Plush text-white text-center max-w-xl px-4">
-                {item.description}
+              <dd className="mt-6 text-xl font-mono text-center max-w-xl px-4 transition-colors duration-300">
+                _{item.description}_
               </dd>
             </div>
           );
