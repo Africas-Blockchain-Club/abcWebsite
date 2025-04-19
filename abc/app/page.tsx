@@ -5,11 +5,14 @@ import ContactUs from "@/components/ui/contactUs";
 import Carousel from "@/components/ui/Carousel"; 
 import SecretElephant from "@/components/secretElephant"; 
 import Team from "@/components/Team";
-
+import About from "@/components/About";
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="relative">
+      {/* Background with Code Snippet */}
+      
+
       <main
         className=""
         style={{
@@ -27,23 +30,30 @@ export default function Home() {
           <Carousel />
         </div>
 
-        
-
         {/* <div className="pt-32 px-8">
           <SecretElephant />
         </div> */}
         
-         <div className="pt-32 px-8">
-         <Team />
+        <div className="pt-32 px-8">
+          <Team />
+        </div>
+        
+        <div className="pt-32 px-8">
+          <About />
         </div>
 
 
+        <div className="code-bg pt-32 px-8">
+        <pre className="text-white text-xs md:text-sm font-mono code-snippet">
+          {`pragma solidity ^0.8.0;
 
-        {Array(100)
-          .fill(null)
-          .map((_, i) => (
-            <p key={i}>.</p>
-          ))}
+contract MySmartContract {
+    // MIT License
+    string public license = "MIT";
+    // Other contract declarations...
+}`}
+        </pre>
+      </div>
       </main>
     </div>
   );

@@ -5,6 +5,26 @@ export const navItems = [
     { name: "Contact", link: "#contact" },
   ];
 
+export const aboutText = [
+  {
+    title1: "Our",
+    title2: "Mission",
+    description:
+      "To empower developers with the knowledge and tools needed to build the decentralized future of Africa.",
+  },
+  {
+    title1: "Our",
+    title2: "Vision",
+    description:
+      "A world where blockchain technology is accessible to all and drives positive change in African societies.",
+  },
+];
+
+export const aboutImages = [
+  "/ABC.png",
+  "/background/bg1.png",
+];
+
   export const teamImages = [
     { src: "/team/1.JPG", alt: "Team Member 1" }, 
     { src: "/team/3.jpg", alt: "Team Member 3" },
