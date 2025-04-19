@@ -7,7 +7,6 @@ import { aboutText, aboutImages } from "@/data";
 export default function FullscreenCarousel() {
   return (
     <div className="min-h-screen">
-      
       {/* Header Section */}
       <div className="flex flex-col items-center justify-center text-center py-8">
         <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
@@ -26,14 +25,16 @@ export default function FullscreenCarousel() {
             key={index}
             className="min-w-[400px] max-w-[600px] h-full flex flex-col items-center justify-center text-white snap-start pt-16 pb-10 rounded-2xl overflow-hidden border-4 border-white"
           >
-            <div className="w-64 h-64 mb-6 rounded-full overflow-hidden">
-              <Image
-                src={aboutImages[index]}
-                alt={`${item.title1} ${item.title2}`}
-                width={300}
-                height={300}
-              />
-            </div>
+            <div className="mb-6 rounded-full overflow-hidden">
+  <Image
+    src={aboutImages[index].src}
+    alt={aboutImages[index].alt}
+    width={aboutImages[index].width}
+    height={aboutImages[index].height}
+    className="rounded-full"
+  />
+</div>
+
             <dt className="text-5xl font-Plush text-white text-center">
               {item.title1}
             </dt>

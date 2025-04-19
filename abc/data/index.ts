@@ -21,8 +21,18 @@ export const aboutText = [
 ];
 
 export const aboutImages = [
-  "/ABC.png",
-  "/background/bg1.png",
+  {
+    src: "/About/whiteABC.png",
+    width: 300,
+    height: 300,
+    alt: "Our Mission",
+  },
+  {
+    src: "/About/bgEle.png",
+    width: 530,
+    height: 530,
+    alt: "Our Vision",
+  },
 ];
 
   export const teamImages = [
@@ -56,7 +66,6 @@ export const aboutImages = [
     },
   ];
 
-// Define types for the forms structure
 interface Field {
   name: string;
   placeholder: string;
