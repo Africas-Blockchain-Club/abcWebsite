@@ -9,7 +9,7 @@ export default function Team() {
     <div className="relative w-full overflow-hidden py-10">
       {/* Giant Text Overlay */}
       <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
-        <h2 className="text-white text-6xl md:text-8xl font-bold opacity-90 drop-shadow-lg">
+        <h2 className="text-white text-6xl md:text-8xl font-text opacity-90 drop-shadow-lg">
           Meet the Team
         </h2>
       </div>

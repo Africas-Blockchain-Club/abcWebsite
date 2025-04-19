@@ -32,7 +32,10 @@ export default function Home() {
         {/* <div className="pt-32 px-8">
           <SecretElephant />
         </div> */}
+        
+         <div className="pt-32 px-8">
          <Team />
+        </div>
 
 
 
