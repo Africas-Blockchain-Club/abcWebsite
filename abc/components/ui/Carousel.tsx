@@ -100,9 +100,13 @@ export default function Carousel() {
         })}
       </div>
 
-      {showForm && activeForm && (
-        <div className="mt-6 w-full max-w-[600px] mx-auto">
-          <div className="p-6 rounded-2xl text-black">
+      <div
+        className={`mt-6 w-full max-w-[600px] mx-auto transition-all duration-[1000ms] ease-in-out ${
+          showForm ? "border-1 border-[#F4F4F4] p-1 rounded-2xl" : "border-1 border-transparent"
+        }`}
+      >
+        {showForm && activeForm && (
+          <div className="p-6 rounded-2xl text-white">
             <h1 className="text-2xl font-bold mb-4">{forms[activeForm]?.text}</h1>
             <form onSubmit={handleSubmit} className="space-y-4">
               {forms[activeForm]?.fields.map((field) =>
@@ -111,7 +115,7 @@ export default function Carousel() {
                     key={field.name}
                     name={field.name}
                     onChange={handleChange}
-                    className="w-full p-3 bg-[#F1E8D6] rounded-lg"
+                    className="w-full p-3 bg-[#6B7280] rounded-lg"
                   >
                     <option value="" disabled selected>{field.placeholder}</option>
                     {field.options.map((option) => (
@@ -124,7 +128,7 @@ export default function Carousel() {
                     name={field.name}
                     onChange={handleChange}
                     placeholder={field.placeholder}
-                    className="w-full p-3 bg-[#F1E8D6] rounded-lg h-32"
+                    className="w-full p-3 bg-[#6B7280] rounded-lg h-32"
                   />
                 ) : (
                   <input
@@ -133,7 +137,7 @@ export default function Carousel() {
                     type={field.type}
                     onChange={handleChange}
                     placeholder={field.placeholder}
-                    className="w-full p-3 bg-[#F1E8D6] rounded-lg"
+                    className="w-full p-3 bg-[#6B7280] rounded-lg"
                   />
                 )
               )}
@@ -145,8 +149,8 @@ export default function Carousel() {
               </button>
             </form>
           </div>
-        </div>
-      )}
+        )}
+      </div>
 
       {alert.visible && (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50">
