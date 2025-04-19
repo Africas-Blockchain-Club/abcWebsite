@@ -22,7 +22,65 @@ export const navItems = [
       avatarType: "Video",
     },
   ];
+
+// Define types for the forms structure
+interface Field {
+  name: string;
+  placeholder: string;
+  type: "text" | "email" | "select" | "textarea";
+  options?: string[];
+}
+
+interface Form {
+  text: string;
+  fields: Field[];
+}
+
+type FormsData = {
+  developer: Form;
+  researcher: Form;
+  partner: Form;
+};
   
+
+export const forms: FormsData = {
+  developer: {
+    text: "Hire a skilled developer for your project.",
+    fields: [
+      { name: "name", placeholder: "Your Name", type: "text" },
+      { name: "email", placeholder: "Your Email", type: "email" },
+      { name: "linkedin", placeholder: "LinkedIn Profile", type: "text" },
+      { name: "association", placeholder: "Company/Organization", type: "text" },
+      { name: "developerType", placeholder: "Type of Developer", type: "select", options: ["Frontend", "Backend", "Blockchain Developer", "Fullstack"] },
+      { name: "employmentKind", placeholder: "Kind of Employment", type: "select", options: ["Remote", "On-site"] },
+      { name: "employmentDuration", placeholder: "Duration of Employment", type: "select", options: ["0-6 months", "6-12 months", "More than 1 year"] },
+      { name: "employmentType", placeholder: "Employment Type", type: "select", options: ["Part-time", "Full-time"] },
+      { name: "message", placeholder: "Additional Message", type: "textarea" },
+    ],
+  },
+  researcher: {
+    text: "Collaborate with top researchers in your field.",
+    fields: [
+      { name: "name", placeholder: "Your Name", type: "text" },
+      { name: "email", placeholder: "Your Email", type: "email" },
+      { name: "linkedin", placeholder: "LinkedIn Profile", type: "text" },
+      { name: "association", placeholder: "Company/Organization", type: "text" },
+      { name: "workType", placeholder: "Type of Work", type: "select", options: ["Test Product", "Research Market", "Teach Blockchain", "Design a Curriculum", "Conduct Case Studies", "Analyze Blockchain Trends", "Develop Educational Content"] },
+      { name: "message", placeholder: "Additional Message", type: "textarea" },
+    ],
+  },
+  partner: {
+    text: "Build strong partnerships with us.",
+    fields: [
+      { name: "name", placeholder: "Your Name", type: "text" },
+      { name: "email", placeholder: "Your Email", type: "email" },
+      { name: "linkedin", placeholder: "LinkedIn Profile", type: "text" },
+      { name: "association", placeholder: "Company/Organization", type: "text" },
+      { name: "partnershipType", placeholder: "Type of Partnership", type: "select", options: ["Host a Blockchain Function", "Be a Guest Speaker", "Sponsor Us", "Collaborate on Research", "Offer Internship Programs", "Provide Funding"] },
+      { name: "message", placeholder: "Additional Message", type: "textarea" },
+    ],
+  },
+};
 
   
   export const gridItems = [
@@ -207,4 +265,3 @@ export const navItems = [
       img: "/link.svg",
     },
   ];
-  
