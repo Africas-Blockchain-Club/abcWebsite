@@ -23,12 +23,14 @@ export const aboutText = [
 export const aboutImages = [
   {
     src: "/About/whiteABC.png",
+    inverted: "/About/ABC.png", 
     width: 300,
     height: 300,
     alt: "Our Mission",
   },
   {
     src: "/About/bgEle.png",
+    inverted: "/About/bgElewhite.png", 
     width: 530,
     height: 530,
     alt: "Our Vision",
