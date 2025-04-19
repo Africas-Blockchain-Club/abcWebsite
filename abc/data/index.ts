@@ -12,6 +12,26 @@ export const navItems = [
     height: 800,
   };
   
+  // data/index.ts
+
+export const projectsData = [
+  {
+    title: "Decentralized Medical Records",
+    description: "An IPFS-based system for securely storing and retrieving patient data on-chain.",
+    image: "/projects/med-records.png",
+  },
+  {
+    title: "African Stablecoin Study",
+    description: "An in-depth analysis of the feasibility and impact of region-specific stablecoins.",
+    image: "/projects/stablecoin.png",
+  },
+  {
+    title: "Smart Contracts for Agriculture",
+    description: "Improving transparency and efficiency in supply chains using blockchain.",
+    image: "/projects/agro-smart.png",
+  },
+];
+
 
 export const aboutText = [
   {
