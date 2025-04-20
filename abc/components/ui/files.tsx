@@ -22,8 +22,8 @@ export default function ProjectsDrawer() {
           </div>
         </div>
 
-        {/* Scrollable project files */}
-        <div className="flex overflow-x-auto pl-2 pr-6 gap-[-16rem] items-end">
+        {/* Individual modals */}
+        <div className="flex gap-6 overflow-x-auto pr-6 ">
           {projectsData.map((project, index) => {
             const isHovered = hoveredIndex === index;
 
@@ -31,10 +31,9 @@ export default function ProjectsDrawer() {
               <div
                 key={index}
                 className={clsx(
-                  "flex-shrink-0 w-[80vw] lg:w-[20rem] h-[30vh] relative rounded-xl bg-[#111] z-10 shadow-2xl transition-transform duration-300 ease-in-out",
+                  "flex-shrink-0 w-[80vw] lg:w-[20rem] h-[100%] bg-[#111] rounded-xl shadow-2xl transition-transform duration-300 ease-in-out relative z-10",
                   {
                     "z-30 -translate-y-4 rotate-x-2": isHovered,
-                    "translate-x-[-80px]": index !== 0 && index !== projectsData.length - 1,
                   }
                 )}
                 style={{
@@ -69,7 +68,7 @@ export default function ProjectsDrawer() {
                 <h3 className="text-xl font-semibold mb-2 text-white z-10 relative px-4">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 text-sm px-4">
+                <p className="text-gray-400 text-sm px-4 pb-4">
                   {project.description.length > 80
                     ? `${project.description.slice(0, 117)}...`
                     : project.description}

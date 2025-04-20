@@ -15,39 +15,51 @@ export const navItems = [
   export const projectsData = [
     {
       title: "SAM: Smart Asset Management",
-      description:
-        "A research paper exploring blockchain-driven solutions for automating asset lifecycle management.",
-      image: "/ABCwork/samCover.jpg",
+      description: "A research paper exploring blockchain-driven solutions for automating asset lifecycle management.",
+      image: "/abcWork/sam6.png",
+      link: "/vision",
     },
     {
       title: "Gamification in Blockchain Education",
-      description:
-        "This research analyzes how game mechanics can enhance blockchain learning platforms for better engagement.",
-      image: "/ABCwork/gameMel.png",
+      description: "This research analyzes how game mechanics can enhance blockchain learning platforms for better engagement.",
+      image: "/abcWork/gameMel.png",
+      link: "/vision",
     },
     {
       title: "BioHealth DApp",
-      description:
-        "A software prototype focused on managing personal health records securely using decentralized storage.",
-      image: "/ABCwork/BioHealth.jpg",
+      description: "A software prototype focused on managing personal health records securely using decentralized storage.",
+      image: "/abcWork/BioHealth.jpg",
+      link: "/page3",
     },
     {
       title: "DeFi Strategies: A Case Study",
-      description:
-        "This paper evaluates popular decentralized finance mechanisms and their economic implications.",
-      image: "/ABCwork/bybit.jpg",
+      description: "This paper evaluates popular decentralized finance mechanisms and their economic implications.",
+      image: "/abcWork/bybit.jpg",
+      link: "/vision",
     },
     {
-      title: "Cross-Platform Wallet Integration",
-      description:
-        "A software task focused on unifying user experience across various crypto wallets and platforms.",
-      image: "/ABCwork/placeholder.jpg",
+      title: "Decentralized Voting System",
+      description: "A secure and transparent platform enabling users to cast votes on various proposals and elections.",
+      image: "/abcWork/cryptovote.svg",
+      link: "https://cryptovotes.vercel.app/",
     },
     {
-      title: "Privacy Layer for Smart Contracts",
-      description:
-        "A prototype introducing a plug-and-play privacy module for Ethereum-based smart contracts.",
-      image: "/ABCwork/placeholder.jpg",
+      title: "SpxceDrive - Sharing Encrypted Files",
+      description: "A cutting-edge platform using advanced encryption to ensure your file-sharing remains secure and private.",
+      image: "/abcWork/spxcedrive.png",
+      link: "https://spxce.vercel.app/",
+    },
+    {
+      title: "7EduPact - Decentralized Education",
+      description: "Transforming global education with a secure and decentralized platform that empowers students and educators.",
+      image: "/abcWork/7edupact.svg",
+      link: "https://7-edu-pact.vercel.app/",
+    },
+    {
+      title: "Decentralized Agriculture Marketplace",
+      description: "Empowering farmers and streamlining the supply chain through a transparent blockchain marketplace.",
+      image: "/abcWork/harvestchain.svg",
+      link: "/ui.apple.com",
     },
   ];
   
