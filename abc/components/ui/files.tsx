@@ -37,7 +37,7 @@ export default function ProjectsDrawer() {
 
         {/* Description card */}
         <div 
-          className="flex-shrink-0 h-full text-white p-6 shadow-md w-[280px] flex flex-col justify-end"
+          className="flex-shrink-0 h-full text-white p-6 shadow-md w-[240px] flex flex-col justify-end"
           style={{
             border: "4px solid transparent",
             borderRadius: "0.5rem",
@@ -76,8 +76,12 @@ export default function ProjectsDrawer() {
                   transform: isNextCard ? "translateX(4rem)" : "none",
                   transformStyle: "preserve-3d",
                   transformOrigin: "bottom left",
-                  boxShadow: 
-                    "0 60px 160px rgba(0, 0, 0, 0.95), 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 255, 255, 0.2), inset 0 0 6px rgba(255, 255, 255, 0.25)",
+                  boxShadow: `
+          0 80px 160px rgba(0, 0, 0, 0.95),
+          0 40px 100px rgba(0, 0, 0, 0.8),
+          0 0 100px rgba(0, 0, 0, 1),
+          inset 0 0 60px rgba(0, 0, 0, 0.9)
+        `,
                 }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
@@ -90,17 +94,18 @@ export default function ProjectsDrawer() {
                   }}
                 />
 
-                {/* Image */}
-                {project.image && (
-                  <div className="relative w-full h-2/3 mb-4 rounded overflow-hidden z-10">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                )}
+              {/* Image */}
+              {project.image && (
+                <div className="relative w-full h-[35vh] mb-4 rounded-xl overflow-hidden z-10">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    layout="fill"
+                    className="z-10 bg-cover sm:w-64 w-[60vw] overflow-hidden h-full lg:h-[15vh] lg:rounded-lg absolute object-cover"
+                  />
+                </div>
+              )}
+
 
                 {/* Content */}
                 <h3 className="text-xl font-semibold mb-2 text-white z-10 relative px-4">
