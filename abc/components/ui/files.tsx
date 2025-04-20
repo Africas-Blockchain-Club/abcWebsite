@@ -26,35 +26,34 @@ export default function ProjectsDrawer() {
         <div className="flex overflow-x-auto pr-6">
           {projectsData.map((project, index) => {
             const isHovered = hoveredIndex === index;
+            const isNextCard = hoveredIndex !== null && index === hoveredIndex + 1;
 
             return (
-                <div
+              <div
                 key={index}
                 className={clsx(
-                  "flex-shrink-0 h-[100%] bg-[#111] rounded-xl transition-transform duration-300 ease-in-out border-2 border-gray-700 p-4 relative",
+                  "flex-shrink-0 h-[100%] bg-[#111] rounded-xl transition-all duration-300 ease-in-out border-2 border-gray-700 p-4 relative",
                   {
-                    "z-30 -translate-y-4 rotate-x-2": isHovered,
+                    "z-50": isHovered,
                   }
                 )}
                 style={{
-                    width: "25rem",
-                    marginLeft: index === 0 ? "0" : "-1cm",
-                    zIndex: index + 10,
-                    transformStyle: "preserve-3d",
-                    transformOrigin: "bottom left",
-                    boxShadow: `
-                        0 40px 120px rgba(0, 0, 0, 0.95),
-                        0 20px 60px rgba(0, 0, 0, 0.75),
-                        0 0 30px rgba(255, 255, 255, 0.15),
-                        inset 0 0 4px rgba(255, 255, 255, 0.25)
-                        `,
-
-
-                  }}                  
+                  width: "25rem",
+                  marginLeft: index === 0 ? "0" : "-2cm",
+                  zIndex: index + 10,
+                  transform: isNextCard ? "translateX(4rem)" : "none",
+                  transformStyle: "preserve-3d",
+                  transformOrigin: "bottom left",
+                  boxShadow: `
+                    0 60px 160px rgba(0, 0, 0, 0.95),
+                    0 30px 80px rgba(0, 0, 0, 0.8),
+                    0 0 40px rgba(255, 255, 255, 0.2),
+                    inset 0 0 6px rgba(255, 255, 255, 0.25)
+                  `,
+                }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
-              
                 {/* Lighting effect */}
                 <div
                   className="absolute inset-0 pointer-events-none z-0 rounded-xl"
@@ -80,7 +79,7 @@ export default function ProjectsDrawer() {
                   {project.title}
                 </h3>
                 <p className="text-gray-400 text-sm px-4 pb-4">
-                  {project.description.length > 80
+                  {project.description.length > 50
                     ? `${project.description.slice(0, 117)}...`
                     : project.description}
                 </p>
