@@ -23,7 +23,7 @@ export default function ProjectsDrawer() {
 
       {/* Main modal moved down */}
       <div
-      className="w-full bg-black flex py-10 gap-8 w-[680px] items-stretch min-h-[30vh] h-[80vh] relative z-10 rounded-xl"
+      className="w-full bg-[#1B1B1B] flex py-10 gap-8 w-[680px] items-stretch min-h-[30vh] h-[80vh] relative z-10 rounded-xl"
       style={{
         marginTop: '4cm',
         boxShadow: `
@@ -64,7 +64,7 @@ export default function ProjectsDrawer() {
               <div
                 key={index}
                 className={clsx(
-                  "flex-shrink-0 h-[100%] bg-[#111] rounded-xl transition-all duration-300 ease-in-out border-2 border-gray-700 p-4 relative",
+                  "flex-shrink-0 h-[100%] bg-[#1B1B1B] rounded-xl transition-all duration-300 ease-in-out border-2 border-gray-700 p-4 relative",
                   {
                     "z-50": isHovered,
                   }
