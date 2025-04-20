@@ -68,16 +68,35 @@ export default function Carousel() {
   return (
     <div className="relative w-full flex flex-col items-center justify-center text-white p-10">
       <div className="text-center max-w-xl text-lg text-white">
-        <h2 className="text-3xl font-bold mb-3">Work With Us</h2>
-        <p>Choose an option below to get started.</p>
+      <h2 className="text-4xl font-extrabold mb-6 flex gap-4 justify-center">
+  <span className="bg-white text-black px-3 py-1">Work</span>
+  <span className="bg-white text-black px-3 py-1">With</span>
+  <span className="bg-white text-black px-3 py-1">Us</span>
+</h2>
+
+
+
+<p className="text-2xl font-semibold mt-2 whitespace-nowrap">
+  <span
+    className="inline-block bg-white text-black px-4 py-2"
+    style={{
+      lineHeight: '1.3',
+    }}
+  >
+    Choose an option below to get started.
+  </span>
+</p>
+
+
+
       </div>
 
-      <div className="flex space-x-4 mt-6 relative">
-        {/* Permanent spillover effects */}
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[120px] h-[60px] bg-blue-500 opacity-10 blur-xl rounded-full z-0" />
-        <div className="absolute left-1/3 top-1/2 -translate-y-1/2 w-[120px] h-[60px] bg-blue-500 opacity-10 blur-xl rounded-full z-0" />
-        <div className="absolute right-1/3 top-1/2 -translate-y-1/2 w-[120px] h-[60px] bg-blue-500 opacity-10 blur-xl rounded-full z-0" />
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[120px] h-[60px] bg-blue-500 opacity-10 blur-xl rounded-full z-0" />
+      {/* Button container with stronger glowing backdrop */}
+      <div className="relative flex space-x-4 mt-6 z-10">
+        {/* Enhanced glow */}
+        <div className="absolute inset-0 -z-10 pointer-events-none">
+          <div className="w-full h-full rounded-2xl bg-yellow-500 opacity-80 blur-[100px] shadow-[0_0_300px_180px_rgba(234,179,8,0.75)] scale-125" />
+        </div>
 
         {Object.keys(forms).map((key) => {
           const isActive = activeForm === key;
@@ -85,7 +104,7 @@ export default function Carousel() {
 
           const baseClass = "px-6 py-3 font-semibold rounded-lg transition-all duration-300 relative z-10";
           const extraClass = isActive || (isInitialLoad && isResearcher)
-            ? "bg-blue-500 shadow-lg shadow-blue-500 text-white"
+            ? "bg-yellow-500 shadow-lg shadow-yellow-500 text-white"
             : "bg-[#1B1B1B] text-gray-300";
 
           return (

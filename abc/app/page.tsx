@@ -15,7 +15,7 @@ export default function Home() {
     <div className="relative">
       <main className="relative z-0" style={{ background: "#1B1B1B" }}>
 {/* Circle Background + Stronger Fade */}
-<div className="absolute top-[16%] left-1/2 w-[80vw] h-[80vw] bg-orange-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 z-0 overflow-hidden">
+<div className="absolute top-[15.5%] left-1/2 w-[80vw] h-[80vw] bg-yellow-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 z-0 overflow-hidden">
   <div className="absolute inset-0 bg-gradient-to-b from-[#1B1B1B00] via-[#1B1B1B99] to-[#1B1B1B]" />
 </div>
         {/* Floating Nav stays on top */}
@@ -26,11 +26,11 @@ export default function Home() {
         </div>
 
         <div className="pt-32 px-8 space-y-32">
-        <ContactUs />
         <Carousel />
         <Team />
         <About />
         <ProjectsDrawer />
+        <ContactUs />
         <MakeUpCode />
       </div>
       </main>

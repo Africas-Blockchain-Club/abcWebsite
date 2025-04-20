@@ -12,7 +12,7 @@ export default function ProjectsDrawer() {
     <div className="relative w-full left-0 right-0 px-10 z-50 overflow-hidden">
       {/* Giant Scrolling Text - Now with smooth infinite scroll */}
       <div className="absolute top-0 left-0 w-full overflow-hidden z-0 pointer-events-none">
-        <div className="scrolling-text animate-marquee-fast text-orange-500 font-bold  whitespace-nowrap">
+        <div className="scrolling-text animate-marquee-fast text-yellow-500 font-bold  whitespace-nowrap">
           {Array(4).fill("Projects & Research Papers /").map((text, i) => (
             <span key={i} className="mx-8 text-[17vw] leading-[0.8]">
               {text}
@@ -43,7 +43,7 @@ export default function ProjectsDrawer() {
             borderRadius: "0.5rem",
             background: 
               "linear-gradient(#111, #111) padding-box, " +
-              "linear-gradient(135deg, #f97316,rgb(6, 17, 171)) border-box"
+              "linear-gradient(135deg,rgb(219, 242, 14),rgb(6, 17, 171)) border-box"
           }}
         >
           <div>
@@ -77,7 +77,7 @@ export default function ProjectsDrawer() {
                   transformStyle: "preserve-3d",
                   transformOrigin: "bottom left",
                   boxShadow: `
-          0 80px 160px rgba(0, 0, 0, 0.95),
+          0 80px 160px rgba(184, 209, 20, 0.95),
           0 40px 100px rgba(0, 0, 0, 0.8),
           0 0 100px rgba(0, 0, 0, 1),
           inset 0 0 60px rgba(0, 0, 0, 0.9)
