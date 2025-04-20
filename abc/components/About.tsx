@@ -28,13 +28,13 @@ export default function FullscreenCarousel() {
   key={index}
   className="min-w-[400px] max-w-[600px] h-full flex flex-col items-center justify-center snap-start pt-16 pb-10 rounded-2xl overflow-hidden border-2 border-yellow-500 shadow-[0_0_30px_10px_rgba(234,179,8,0.75)] bg-transparent text-white"
 >
-  <div className="mb-6 rounded-full overflow-hidden">
+  <div className="mb-6  overflow-hidden">
     <Image
       src={aboutImages[index].src}
       alt={aboutImages[index].alt}
       width={aboutImages[index].width}
       height={aboutImages[index].height}
-      className="rounded-full"
+      className=""
     />
   </div>
 

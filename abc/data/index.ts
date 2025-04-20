@@ -88,7 +88,7 @@ export const aboutImages = [
     alt: "Our Mission",
   },
   {
-    src: "/About/whiteElephant.png",
+    src: "/About/7.png",
     inverted: "/About/bg1.png", 
     width: 310,
     height: 310,
