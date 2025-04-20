@@ -1,31 +1,84 @@
 "use client";
 
+import { useState } from "react";
 import { projectsData } from "@/data";
 import Image from "next/image";
+import clsx from "clsx";
 
 export default function ProjectsDrawer() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
-    <div className="flex overflow-x-auto px-6 py-12 gap-[-6rem] relative">
-      {projectsData.map((project, index) => (
-        <div
-          key={index}
-          className="flex-shrink-0 w-1/3 min-w-[280px] transform transition-transform duration-300 hover:scale-105 -ml-20 relative z-10 shadow-xl bg-white rounded-xl p-4"
-          style={{ zIndex: projectsData.length - index }}
-        >
-          {project.image && (
-            <div className="relative h-40 w-full mb-4 rounded overflow-hidden">
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                className="object-cover"
-              />
-            </div>
-          )}
-          <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-          <p className="text-gray-600 text-sm">{project.description}</p>
+    <div className="relative w-full left-0 right-0 px-10 z-50">
+      {/* Modal wrapper */}
+      <div className="w-full bg-black/90 shadow-[0_0_40px_rgba(255,255,255,0.1)] backdrop-blur-md flex py-10 gap-8 items-stretch min-h-[35vh] h-[80vh]">
+        {/* Description card */}
+        <div className="flex-shrink-0 h-full bg-[#111] text-white p-6 shadow-md w-[280px] flex flex-col justify-between">
+          <div>
+            <h2 className="text-2xl font-bold mb-3">Projects & Research</h2>
+            <p className="text-sm text-gray-400">
+              Discover our latest work—cutting-edge blockchain projects and insightful research papers.
+            </p>
+          </div>
         </div>
-      ))}
+
+        {/* Scrollable project files */}
+        <div className="flex overflow-x-auto pl-2 pr-6 gap-[-16rem] items-end">
+          {projectsData.map((project, index) => {
+            const isHovered = hoveredIndex === index;
+
+            return (
+              <div
+                key={index}
+                className={clsx(
+                  "flex-shrink-0 w-[80vw] lg:w-[20rem] h-[30vh] relative rounded-xl bg-[#111] z-10 shadow-2xl transition-transform duration-300 ease-in-out",
+                  {
+                    "z-30 -translate-y-4 rotate-x-2": isHovered,
+                    "translate-x-[-80px]": index !== 0 && index !== projectsData.length - 1,
+                  }
+                )}
+                style={{
+                  transformStyle: "preserve-3d",
+                  transformOrigin: "bottom left",
+                  boxShadow: "0 6px 16px rgba(255, 255, 255, 0.08)",
+                }}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
+                {/* Lighting effect */}
+                <div
+                  className="absolute inset-0 pointer-events-none z-0 rounded-xl"
+                  style={{
+                    background: `radial-gradient(ellipse at bottom left, rgba(255, 255, 255, 0.08), transparent 60%)`,
+                  }}
+                />
+
+                {/* Image */}
+                {project.image && (
+                  <div className="relative w-full h-2/3 mb-4 rounded overflow-hidden z-10">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                )}
+
+                {/* Content */}
+                <h3 className="text-xl font-semibold mb-2 text-white z-10 relative px-4">
+                  {project.title}
+                </h3>
+                <p className="text-gray-400 text-sm px-4">
+                  {project.description.length > 80
+                    ? `${project.description.slice(0, 117)}...`
+                    : project.description}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }

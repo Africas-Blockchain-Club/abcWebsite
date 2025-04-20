@@ -12,26 +12,45 @@ export const navItems = [
     height: 800,
   };
   
-  // data/index.ts
-
-export const projectsData = [
-  {
-    title: "Decentralized Medical Records",
-    description: "An IPFS-based system for securely storing and retrieving patient data on-chain.",
-    image: "/projects/med-records.png",
-  },
-  {
-    title: "African Stablecoin Study",
-    description: "An in-depth analysis of the feasibility and impact of region-specific stablecoins.",
-    image: "/projects/stablecoin.png",
-  },
-  {
-    title: "Smart Contracts for Agriculture",
-    description: "Improving transparency and efficiency in supply chains using blockchain.",
-    image: "/projects/agro-smart.png",
-  },
-];
-
+  export const projectsData = [
+    {
+      title: "SAM: Smart Asset Management",
+      description:
+        "A research paper exploring blockchain-driven solutions for automating asset lifecycle management.",
+      image: "/ABCwork/samCover.jpg",
+    },
+    {
+      title: "Gamification in Blockchain Education",
+      description:
+        "This research analyzes how game mechanics can enhance blockchain learning platforms for better engagement.",
+      image: "/ABCwork/gameMel.png",
+    },
+    {
+      title: "BioHealth DApp",
+      description:
+        "A software prototype focused on managing personal health records securely using decentralized storage.",
+      image: "/ABCwork/BioHealth.jpg",
+    },
+    {
+      title: "DeFi Strategies: A Case Study",
+      description:
+        "This paper evaluates popular decentralized finance mechanisms and their economic implications.",
+      image: "/ABCwork/bybit.jpg",
+    },
+    {
+      title: "Cross-Platform Wallet Integration",
+      description:
+        "A software task focused on unifying user experience across various crypto wallets and platforms.",
+      image: "/ABCwork/placeholder.jpg",
+    },
+    {
+      title: "Privacy Layer for Smart Contracts",
+      description:
+        "A prototype introducing a plug-and-play privacy module for Ethereum-based smart contracts.",
+      image: "/ABCwork/placeholder.jpg",
+    },
+  ];
+  
 
 export const aboutText = [
   {
