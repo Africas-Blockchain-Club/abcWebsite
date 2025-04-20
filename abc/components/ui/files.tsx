@@ -1,18 +1,63 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { projectsData } from "@/data";
 import Image from "next/image";
 import clsx from "clsx";
 
 export default function ProjectsDrawer() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const animateText = () => {
+      if (textRef.current) {
+        const animation = textRef.current.animate(
+          [
+            { transform: 'translateX(0)' },
+            { transform: 'translateX(-50%)' }
+          ],
+          {
+            duration: 20000,
+            iterations: Infinity
+          }
+        );
+        return () => animation.cancel();
+      }
+    };
+
+    const cleanup = animateText();
+    return cleanup;
+  }, []);
 
   return (
-    <div className="relative w-full left-0 right-0 px-10 z-50">
-      {/* Modal wrapper */}
-      <div className="w-full backdrop-blur-md flex py-10 gap-8 items-stretch min-h-[30vh] h-[80vh]">
-        {/* Description card - now on the left with gradient border */}
+    <div className="relative w-full left-0 right-0 px-10 z-50 overflow-hidden">
+      {/* Giant text carousel */}
+      <div 
+        ref={textRef}
+        className="absolute top-0 left-0 w-[200vw] z-0 pointer-events-none"
+        style={{
+          fontSize: '25vw',
+          lineHeight: '0.8',
+          opacity: 0.5,
+          mixBlendMode: 'overlay',
+          // Shows more of the text since modal is pushed down
+          transform: 'translateY(0)'
+        }}
+      >
+        <div className="flex whitespace-nowrap text-white font-black">
+          {Array(10).fill("PROJECTS & RESEARCH PAPERS").map((text, i) => (
+            <span key={i} className="mx-8">{text}</span>
+          ))}
+        </div>
+      </div>
+
+      {/* Main modal moved down by 3cm (≈113px) */}
+      <div 
+        className="w-full bg-black flex py-10 gap-8 shadow-md w-[680px] items-stretch min-h-[30vh] h-[80vh] relative z-10"
+        style={{ marginTop: '4cm' }} // This pushes everything down
+      >
+        {/* Description card */}
         <div 
           className="flex-shrink-0 h-full text-white p-6 shadow-md w-[280px] flex flex-col justify-end"
           style={{
@@ -20,7 +65,7 @@ export default function ProjectsDrawer() {
             borderRadius: "0.5rem",
             background: 
               "linear-gradient(#111, #111) padding-box, " +
-              "linear-gradient(135deg, #f97316, #7c2d12) border-box"
+              "linear-gradient(135deg, #f97316,rgb(6, 17, 171)) border-box"
           }}
         >
           <div>
