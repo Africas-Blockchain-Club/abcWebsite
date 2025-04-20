@@ -153,3 +153,19 @@ body::before {
     transform: translateY(-100%);
   }
 }
+/* Add this to your global CSS */
+@keyframes marquee-fast {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-30%); }
+}
+
+.animate-marquee-fast {
+  animation: marquee-fast 20s linear infinite;
+  display: flex;
+  width: fit-content;
+}
+
+.scrolling-text {
+  display: flex;
+  will-change: transform; /* Improves performance */
+}
