@@ -22,28 +22,39 @@ export default function ProjectsDrawer() {
           </div>
         </div>
 
-        {/* Individual modals */}
-        <div className="flex gap-6 overflow-x-auto pr-6 ">
+        {/* Scrollable modals */}
+        <div className="flex overflow-x-auto pr-6">
           {projectsData.map((project, index) => {
             const isHovered = hoveredIndex === index;
 
             return (
-              <div
+                <div
                 key={index}
                 className={clsx(
-                  "flex-shrink-0 w-[80vw] lg:w-[20rem] h-[100%] bg-[#111] rounded-xl shadow-2xl transition-transform duration-300 ease-in-out relative z-10",
+                  "flex-shrink-0 h-[100%] bg-[#111] rounded-xl transition-transform duration-300 ease-in-out border-2 border-gray-700 p-4 relative",
                   {
                     "z-30 -translate-y-4 rotate-x-2": isHovered,
                   }
                 )}
                 style={{
-                  transformStyle: "preserve-3d",
-                  transformOrigin: "bottom left",
-                  boxShadow: "0 6px 16px rgba(255, 255, 255, 0.08)",
-                }}
+                    width: "25rem",
+                    marginLeft: index === 0 ? "0" : "-1cm",
+                    zIndex: index + 10,
+                    transformStyle: "preserve-3d",
+                    transformOrigin: "bottom left",
+                    boxShadow: `
+                        0 40px 120px rgba(0, 0, 0, 0.95),
+                        0 20px 60px rgba(0, 0, 0, 0.75),
+                        0 0 30px rgba(255, 255, 255, 0.15),
+                        inset 0 0 4px rgba(255, 255, 255, 0.25)
+                        `,
+
+
+                  }}                  
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
+              
                 {/* Lighting effect */}
                 <div
                   className="absolute inset-0 pointer-events-none z-0 rounded-xl"
