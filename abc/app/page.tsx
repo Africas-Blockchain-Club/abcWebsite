@@ -25,29 +25,14 @@ export default function Home() {
           <Hero />
         </div>
 
-        <div className="pt-32 px-8">
-          <ContactUs />
-        </div>
-
-        <div className="pt-32 px-8">
-          <Carousel />
-        </div>
-
-        <div className="pt-32 px-8">
-          <Team />
-        </div>
-
-        <div className="pt-32 px-8">
-          <About />
-        </div>
-
-        <div className="pt-32 px-8">
-          <ProjectsDrawer />
-        </div>
-
-        <div className="pt-32 px-8">
-          <MakeUpCode />
-        </div>
+        <div className="pt-32 px-8 space-y-32">
+        <ContactUs />
+        <Carousel />
+        <Team />
+        <About />
+        <ProjectsDrawer />
+        <MakeUpCode />
+      </div>
       </main>
     </div>
   );
