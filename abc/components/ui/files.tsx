@@ -1,62 +1,40 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { projectsData } from "@/data";
 import Image from "next/image";
 import clsx from "clsx";
 
 export default function ProjectsDrawer() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const textRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const animateText = () => {
-      if (textRef.current) {
-        const animation = textRef.current.animate(
-          [
-            { transform: 'translateX(0)' },
-            { transform: 'translateX(-50%)' }
-          ],
-          {
-            duration: 20000,
-            iterations: Infinity
-          }
-        );
-        return () => animation.cancel();
-      }
-    };
-
-    const cleanup = animateText();
-    return cleanup;
-  }, []);
 
   return (
     <div className="relative w-full left-0 right-0 px-10 z-50 overflow-hidden">
-      {/* Giant text carousel */}
-      <div 
-        ref={textRef}
-        className="absolute top-0 left-0 w-[200vw] z-0 pointer-events-none"
-        style={{
-          fontSize: '25vw',
-          lineHeight: '0.8',
-          opacity: 0.5,
-          mixBlendMode: 'overlay',
-          // Shows more of the text since modal is pushed down
-          transform: 'translateY(0)'
-        }}
-      >
-        <div className="flex whitespace-nowrap text-white font-black">
-          {Array(10).fill("PROJECTS & RESEARCH PAPERS").map((text, i) => (
-            <span key={i} className="mx-8">{text}</span>
+      {/* Giant Scrolling Text - Now with smooth infinite scroll */}
+      <div className="absolute top-0 left-0 w-full overflow-hidden z-0 pointer-events-none">
+        <div className="scrolling-text animate-marquee-fast text-orange-500 font-bold  whitespace-nowrap">
+          {Array(4).fill("Projects & Research Papers /").map((text, i) => (
+            <span key={i} className="mx-8 text-[17vw] leading-[0.8]">
+              {text}
+            </span>
           ))}
         </div>
       </div>
 
-      {/* Main modal moved down by 3cm (≈113px) */}
-      <div 
-        className="w-full bg-black flex py-10 gap-8 shadow-md w-[680px] items-stretch min-h-[30vh] h-[80vh] relative z-10"
-        style={{ marginTop: '4cm' }} // This pushes everything down
-      >
+      {/* Main modal moved down */}
+      <div
+      className="w-full bg-black flex py-10 gap-8 w-[680px] items-stretch min-h-[30vh] h-[80vh] relative z-10 rounded-xl"
+      style={{
+        marginTop: '4cm',
+        boxShadow: `
+          0 80px 160px rgba(0, 0, 0, 0.95),
+          0 40px 100px rgba(0, 0, 0, 0.8),
+          0 0 100px rgba(0, 0, 0, 1),
+          inset 0 0 60px rgba(0, 0, 0, 0.9)
+        `,
+      }}
+    >
+
         {/* Description card */}
         <div 
           className="flex-shrink-0 h-full text-white p-6 shadow-md w-[280px] flex flex-col justify-end"
