@@ -11,9 +11,18 @@ export default function ProjectsDrawer() {
   return (
     <div className="relative w-full left-0 right-0 px-10 z-50">
       {/* Modal wrapper */}
-      <div className="w-full bg-black/90 shadow-[0_0_40px_rgba(255,255,255,0.1)] backdrop-blur-md flex py-10 gap-8 items-stretch min-h-[35vh] h-[80vh]">
-        {/* Description card */}
-        <div className="flex-shrink-0 h-full bg-[#111] text-white p-6 shadow-md w-[280px] flex flex-col justify-between">
+      <div className="w-full backdrop-blur-md flex py-10 gap-8 items-stretch min-h-[30vh] h-[80vh]">
+        {/* Description card - now on the left with gradient border */}
+        <div 
+          className="flex-shrink-0 h-full text-white p-6 shadow-md w-[280px] flex flex-col justify-end"
+          style={{
+            border: "4px solid transparent",
+            borderRadius: "0.5rem",
+            background: 
+              "linear-gradient(#111, #111) padding-box, " +
+              "linear-gradient(135deg, #f97316, #7c2d12) border-box"
+          }}
+        >
           <div>
             <h2 className="text-2xl font-bold mb-3">Projects & Research</h2>
             <p className="text-sm text-gray-400">
@@ -44,12 +53,8 @@ export default function ProjectsDrawer() {
                   transform: isNextCard ? "translateX(4rem)" : "none",
                   transformStyle: "preserve-3d",
                   transformOrigin: "bottom left",
-                  boxShadow: `
-                    0 60px 160px rgba(0, 0, 0, 0.95),
-                    0 30px 80px rgba(0, 0, 0, 0.8),
-                    0 0 40px rgba(255, 255, 255, 0.2),
-                    inset 0 0 6px rgba(255, 255, 255, 0.25)
-                  `,
+                  boxShadow: 
+                    "0 60px 160px rgba(0, 0, 0, 0.95), 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 255, 255, 0.2), inset 0 0 6px rgba(255, 255, 255, 0.25)",
                 }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
@@ -58,7 +63,7 @@ export default function ProjectsDrawer() {
                 <div
                   className="absolute inset-0 pointer-events-none z-0 rounded-xl"
                   style={{
-                    background: `radial-gradient(ellipse at bottom left, rgba(255, 255, 255, 0.08), transparent 60%)`,
+                    background: "radial-gradient(ellipse at bottom left, rgba(255, 255, 255, 0.08), transparent 60%)",
                   }}
                 />
 
@@ -69,7 +74,7 @@ export default function ProjectsDrawer() {
                       src={project.image}
                       alt={project.title}
                       fill
-                      className="object-cover"
+                      className="object-contain"
                     />
                   </div>
                 )}

@@ -8,6 +8,7 @@ import Team from "@/components/Team";
 import About from "@/components/About";
 import Hero from "@/components/Hero";
 import ProjectsDrawer from "@/components/ui/files";
+import MakeUpCode from "@/components/ui/codeMakeUp";
 
 export default function Home() {
   return (
@@ -50,6 +51,11 @@ export default function Home() {
         <div className="pt-32 px-8">
           <ProjectsDrawer />
         </div>
+
+        <div className="pt-32 px-8">
+          <MakeUpCode />
+        </div>
+
 
         <div className="code-bg pt-32 px-8">
         <pre className="text-white text-xs md:text-sm font-mono code-snippet">
