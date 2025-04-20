@@ -18,13 +18,12 @@ export default function Home() {
         className=""
         style={{
           background: "#1B1B1B",
-          minHeight: "300vh",
         }}
       >
 
         <FloatingNav navItems={navItems} />
 
-        <div className="pt-32 px-8">
+        <div className=" px-8">
           <Hero />
         </div>
 
@@ -56,18 +55,6 @@ export default function Home() {
           <MakeUpCode />
         </div>
 
-
-        <div className="code-bg pt-32 px-8">
-        <pre className="text-white text-xs md:text-sm font-mono code-snippet">
-          {`pragma solidity ^0.8.0;
-
-contract MySmartContract {
-    // MIT License
-    string public license = "MIT";
-    // Other contract declarations...
-}`}
-        </pre>
-      </div>
       </main>
     </div>
   );
