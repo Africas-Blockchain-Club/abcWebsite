@@ -8,8 +8,8 @@ export const navItems = [
   export const heroImage = {
     src: "/header/ABC.png",
     alt: "Africa's Blockchain Club",
-    width: 800, 
-    height: 800,
+    width: 1000, 
+    height: 10000,
   };
   
   export const projectsData = [
