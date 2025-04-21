@@ -6,6 +6,7 @@ import { useRef, useEffect } from "react";
 
 const TestimonialCard = ({ text, name, role }: any) => (
   <div className="bg-white text-black p-6 rounded-[30px] w-[460px] text-left shadow-[0_10px_50px_rgba(0,0,0,0.35)] ">
+    
     <p className="text-sm italic mb-4 leading-relaxed">{text}</p>
     <div className="flex items-center gap-4">
       <div className="w-[80px] h-[80px] flex items-center justify-center bg-gray-200 rounded-full">
@@ -35,53 +36,58 @@ export default function TestimonialsPage() {
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className="min-h-screen flex items-center justify-center relative overflow-hidden px-40" // Added horizontal padding
-    >
-      {/* Top testimonial */}
-      <div className="absolute top-[2cm] left-1/2 transform -translate-x-1/2">
-        <TestimonialCard {...testimonials.find(t => t.id === "top")} />
+    <div className="flex flex-col items-center">
+      {/* Header outside the main container */}
+      <h1 className="text-6xl font-semibold mb-16 bg-gradient-to-t from-yellow-400 to-white text-transparent bg-clip-text">A Word From Our Founders</h1>
+      
+      <div
+        ref={containerRef}
+        className="min-h-screen flex items-center justify-center relative overflow-hidden px-40 w-full"
+      >
+        {/* Top testimonial */}
+        <div className="absolute top-[2cm] left-1/2 transform -translate-x-1/2">
+          <TestimonialCard {...testimonials.find(t => t.id === "top")} />
+        </div>
+
+        {/* Bottom testimonial */}
+        <div className="absolute bottom-[2cm] left-1/2 transform -translate-x-1/2">
+          <TestimonialCard {...testimonials.find(t => t.id === "bottom")} />
+        </div>
+
+        {/* Left testimonial */}
+        <div className="absolute left-0 top-1/2 transform -translate-y-1/2">
+          <TestimonialCard {...testimonials.find(t => t.id === "left")} />
+        </div>
+
+        {/* Right testimonial */}
+        <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
+          <TestimonialCard {...testimonials.find(t => t.id === "right")} />
+        </div>
+
+        {/* Empty modals */}
+        <EmptyModal className="absolute top-[-0.5cm] left-[0cm]" />
+        <EmptyModal className="absolute top-[-0.5cm] right-[0cm]" />
+        <EmptyModal className="absolute bottom-[-0.5cm] left-[0cm]" />
+        <EmptyModal className="absolute bottom-[-0.5cm] right-[0cm]" />
+
+        {/* Soft black fade overlays */}
+        <FadeOverlay
+          className="top-0 left-0 w-full h-[20%]"
+          gradient="bg-gradient-to-b from-black/60 to-transparent"
+        />
+        <FadeOverlay
+          className="bottom-0 left-0 w-full h-[20%]"
+          gradient="bg-gradient-to-t from-black/60 to-transparent"
+        />
+        <FadeOverlay
+          className="top-0 left-0 h-full w-[20%]"
+          gradient="bg-gradient-to-r from-black/60 to-transparent"
+        />
+        <FadeOverlay
+          className="top-0 right-0 h-full w-[20%]"
+          gradient="bg-gradient-to-l from-black/60 to-transparent"
+        />
       </div>
-
-      {/* Bottom testimonial */}
-      <div className="absolute bottom-[2cm] left-1/2 transform -translate-x-1/2">
-        <TestimonialCard {...testimonials.find(t => t.id === "bottom")} />
-      </div>
-
-      {/* Left testimonial */}
-      <div className="absolute left-0 top-1/2 transform -translate-y-1/2">
-        <TestimonialCard {...testimonials.find(t => t.id === "left")} />
-      </div>
-
-      {/* Right testimonial */}
-      <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
-        <TestimonialCard {...testimonials.find(t => t.id === "right")} />
-      </div>
-
-      {/* Empty modals */}
-      <EmptyModal className="absolute top-[-0.5cm] left-[0cm]" />
-      <EmptyModal className="absolute top-[-0.5cm] right-[0cm]" />
-      <EmptyModal className="absolute bottom-[-0.5cm] left-[0cm]" />
-      <EmptyModal className="absolute bottom-[-0.5cm] right-[0cm]" />
-
-      {/* Soft black fade overlays */}
-      <FadeOverlay
-        className="top-0 left-0 w-full h-[20%]"
-        gradient="bg-gradient-to-b from-black/60 to-transparent"
-      />
-      <FadeOverlay
-        className="bottom-0 left-0 w-full h-[20%]"
-        gradient="bg-gradient-to-t from-black/60 to-transparent"
-      />
-      <FadeOverlay
-        className="top-0 left-0 h-full w-[20%]"
-        gradient="bg-gradient-to-r from-black/60 to-transparent"
-      />
-      <FadeOverlay
-        className="top-0 right-0 h-full w-[20%]"
-        gradient="bg-gradient-to-l from-black/60 to-transparent"
-      />
     </div>
   );
 }
