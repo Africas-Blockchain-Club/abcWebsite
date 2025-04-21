@@ -7,6 +7,7 @@ import SecretElephant from "@/components/secretElephant";
 import Team from "@/components/Team";
 import About from "@/components/About";
 import Hero from "@/components/Hero";
+import Testimonials from "@/components/aWordFromOurSponsor";
 import ProjectsDrawer from "@/components/ui/files";
 import MakeUpCode from "@/components/ui/codeMakeUp";
 
@@ -29,6 +30,7 @@ export default function Home() {
         <Carousel />
         <Team />
         <About />
+        <Testimonials />
         <ProjectsDrawer />
         <ContactUs />
         <MakeUpCode />

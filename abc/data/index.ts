@@ -5,6 +5,40 @@ export const navItems = [
     { name: "Contact", link: "#contact" },
   ];
 
+  // data/index.ts
+
+export const testimonials = [
+  {
+    id: "top",
+    text: "This platform has significantly enhanced our productivity by providing powerful tools that allow us to analyze blockchain data seamlessly. It's perfect for teams looking for a reliable and easy-to-use platform for efficient solutions.",
+    name: "Karabo",
+    role: "Blockchain Developer",
+    image: "/reviewers/alex.jpg",
+  },
+  {
+    id: "bottom",
+    text: "The user interface is incredibly smooth and intuitive. We have been able to complete tasks faster and more efficiently. The platform's features are really well thought out and help us manage our projects seamlessly, even under tight deadlines.",
+    name: "Denzel",
+    role: "Product Manager",
+    image: "/reviewers/sara.jpg",
+  },
+  {
+    id: "left",
+    text: "An amazing platform that’s both powerful and user-friendly. It has truly transformed the way we approach and execute blockchain-based projects. The customer support is outstanding, and the platform's reliability gives us confidence in our work.",
+    name: "Sanidile M'remi",
+    role: "UX Designer",
+    image: "/reviewers/michael.jpg",
+  },
+  {
+    id: "right",
+    text: "Highly recommend this tool for anyone involved in blockchain development or smart contract auditing. It is not only reliable and secure but also has excellent customer support that resolves issues quickly, making it an indispensable tool for my work.",
+    name: "Maite",
+    role: "Smart Contract Auditor",
+    image: "/reviewers/fatima.jpg",
+  },
+];
+
+
   export const heroImage = {
     src: "/header/ABC.png",
     alt: "Africa's Blockchain Club",
