@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Twitter, Github, Linkedin, Send } from "lucide-react";
+import { Mail, X, Github, Linkedin, Send } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -24,13 +24,13 @@ const Footer = () => {
 
           {/* Social Icons */}
           <div className="flex gap-6">
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-              <Twitter className="w-6 h-6 hover:text-white transition" />
+            <a href="https://x.com/africasblock" target="_blank" rel="noopener noreferrer">
+              <X className="w-6 h-6 hover:text-white transition" />
             </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/Africas-Blockchain-Club" target="_blank" rel="noopener noreferrer">
               <Github className="w-6 h-6 hover:text-white transition" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/company/africa-s-blockchain-club/" target="_blank" rel="noopener noreferrer">
               <Linkedin className="w-6 h-6 hover:text-white transition" />
             </a>
             <a href="https://telegram.org" target="_blank" rel="noopener noreferrer">
