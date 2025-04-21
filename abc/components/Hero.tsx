@@ -32,13 +32,19 @@ export default function Hero() {
 <div className="relative w-[40vw] h-[67vw]">
   <div className="absolute top-[55%] left-[40%] transform -translate-y-1/2">
     <div className="flex gap-4">
-      <Link href="/#events">
-        <Button size="lg" className="bg-[#4A4A4A] hover:bg-[#D8CFC4] text-white">
+      <Link href="/#events" passHref>
+        <Button
+          size="lg"
+          className="bg-black text-white hover:bg-yellow-500 transition-colors duration-300"
+        >
           Get Started
         </Button>
       </Link>
-      <Link href="/#events">
-        <Button size="lg" variant="outline" className="bg-[#4A4A4A] hover:bg-[#D8CFC4] text-white">
+      <Link href="/#events" passHref>
+        <Button
+          size="lg"
+          className="bg-black text-white hover:bg-yellow-500 transition-colors duration-300"
+        >
           Learn More
         </Button>
       </Link>
