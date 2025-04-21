@@ -38,7 +38,7 @@ export default function TestimonialsPage() {
   return (
     <div className="flex flex-col items-center">
       {/* Header outside the main container */}
-      <h1 className="text-6xl font-semibold mb-16 bg-gradient-to-t from-yellow-400 to-white text-transparent bg-clip-text">A Word From Our Founders</h1>
+      <h1 className="text-6xl font-semibold mb-16 bg-gradient-to-t from-white to-yellow-500 text-transparent bg-clip-text">A Word From Our Founders</h1>
       
       <div
         ref={containerRef}
