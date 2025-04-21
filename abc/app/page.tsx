@@ -2,8 +2,7 @@ import Image from "next/image";
 import { navItems } from "@/data";
 import { FloatingNav } from "@/components/ui/FloatingNavbar";
 import Learn from "@/components/ui/EducationalResourcesSection";
-import Carousel from "@/components/ui/Collaborate"; 
-import SecretElephant from "@/components/secretElephant"; 
+import Collaborate from "@/components/ui/Collaborate"; 
 import Team from "@/components/Team";
 import About from "@/components/About";
 import Hero from "@/components/Hero";
@@ -28,7 +27,6 @@ export default function Home() {
           <Hero />
         </div>
 
-          <Carousel />
           <Team />
           <About />
           <div className="pb-40 pt-20">  
@@ -39,7 +37,10 @@ export default function Home() {
           </div>
           <Learn />
           {/* <MakeUpCode /> */}
+          <Collaborate />
+
           <ImageTextCard />
+
           <Footer />
       </main>
     </div>
