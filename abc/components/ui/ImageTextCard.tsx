@@ -6,10 +6,18 @@ import { useState, useRef } from "react";
 
 const ImageTextCard = () => {
   return (
-    <div className="pb-40 pt-20 flex gap-10 justify-center flex-wrap">
-      {imageCards.map((card, idx) => (
-        <FinalCard key={idx} card={card} />
-      ))}
+    <div className="pb-40 pt-20">
+      {/* Upcoming Events Header */}
+      <div className="text-center mb-16">
+        <h2 className="text-6xl font-semibold mb-16 bg-gradient-to-t from-white to-yellow-500 text-transparent bg-clip-text">Upcoming/Ongoing Events</h2>
+      </div>
+
+      {/* Cards Container */}
+      <div className="flex gap-10 justify-center flex-wrap">
+        {imageCards.map((card, idx) => (
+          <FinalCard key={idx} card={card} />
+        ))}
+      </div>
     </div>
   );
 };
