@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { forms } from "@/data/index";
 
-export default function Carousel() {
+export default function Collaborate() {
   const [activeForm, setActiveForm] = useState("researcher");
   const [formData, setFormData] = useState({});
   const [alert, setAlert] = useState({ message: "", type: "", visible: false });
@@ -67,6 +67,7 @@ export default function Carousel() {
 
   return (
     <div className="relative w-full flex flex-col items-center justify-center text-white p-10">
+      <div className="h-[100vh]" />
       <div className="text-center max-w-xl text-lg text-white">
       <h2 className="text-4xl font-extrabold mb-6 flex gap-4 justify-center">
   <span className="bg-white text-black px-3 py-1">Work</span>

@@ -10,6 +10,7 @@ export default function ProjectsDrawer() {
 
   return (
     <div className="relative w-full left-0 right-0 px-10 z-50 overflow-hidden">
+      
       {/* Giant Scrolling Text - Now with smooth infinite scroll */}
       <div className="absolute top-0 left-0 w-full overflow-hidden z-0 pointer-events-none">
         <div className="scrolling-text animate-marquee-fast text-yellow-500 font-bold  whitespace-nowrap">

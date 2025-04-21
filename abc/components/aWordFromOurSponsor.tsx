@@ -2,11 +2,11 @@
 
 import { User } from "lucide-react";
 import { testimonials } from "@/data";
-import { useEffect, useRef } from "react";
+import { useRef, useEffect } from "react";
 
 const TestimonialCard = ({ text, name, role }: any) => (
-  <div className="bg-white text-black p-6 rounded-[30px] w-[460px] text-left shadow-[0_10px_50px_rgba(0,0,0,0.35)]">
-    <p className="text-sm italic mb-4 leading-relaxed">{`"${text}"`}</p>
+  <div className="bg-white text-black p-6 rounded-[30px] w-[460px] text-left shadow-[0_10px_50px_rgba(0,0,0,0.35)] ">
+    <p className="text-sm italic mb-4 leading-relaxed">{text}</p>
     <div className="flex items-center gap-4">
       <div className="w-[80px] h-[80px] flex items-center justify-center bg-gray-200 rounded-full">
         <User size={40} className="text-gray-600" />
@@ -30,41 +30,14 @@ const FadeOverlay = ({ className, gradient }: { className: string; gradient: str
 export default function TestimonialsPage() {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Create IntersectionObserver to detect when the testimonials section is in the viewport
   useEffect(() => {
-    const handleScrollEffect = () => {
-      if (containerRef.current) {
-        containerRef.current.style.transition = "transform 0.5s ease-in-out";
-        containerRef.current.style.transform = "translateY(-40px)"; // Slight scroll effect (about 4cm)
-      }
-    };
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            handleScrollEffect(); // Trigger effect when section is in view
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current); // Observe the container
-    }
-
-    return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current); // Clean up observer
-      }
-    };
+    // Remove IntersectionObserver logic as animation is no longer needed
   }, []);
 
   return (
     <div
       ref={containerRef}
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden px-40" // Added horizontal padding
     >
       {/* Top testimonial */}
       <div className="absolute top-[2cm] left-1/2 transform -translate-x-1/2">
