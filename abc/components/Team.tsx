@@ -8,12 +8,13 @@ export default function Team() {
   return (
     <div className="relative w-full overflow-hidden py-[20vh] pt-[43vh]">
       {/* Giant Text Overlay */}
-      <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
-        <h2 className="text-white text-6xl md:text-8xl font-text opacity-90 drop-shadow-lg">
-          Meet the Team
-        </h2>
-      </div>
-
+      <div className="absolute inset-0 z-10 flex items-center justify-start ml-[50px] pointer-events-none py-[20vh] pt-[43vh]">
+  <h2 className="text-white text-6xl md:text-8xl font-text opacity-90 drop-shadow-lg leading-tight">
+    <span>Meet the</span>
+    <br />
+    <span>Team</span>
+  </h2>
+</div>
       {/* Dark Overlay over Carousel */}
       <div className="absolute inset-0 opacity-40 z-0 pointer-events-none" />
 
