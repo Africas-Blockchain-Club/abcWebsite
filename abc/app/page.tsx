@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { navItems } from "@/data";
 import { FloatingNav } from "@/components/ui/FloatingNavbar";
-import Learn from "@/components/ui/learn";
+import Learn from "@/components/ui/EducationalResourcesSection";
 import Carousel from "@/components/ui/Collaborate"; 
 import SecretElephant from "@/components/secretElephant"; 
 import Team from "@/components/Team";
