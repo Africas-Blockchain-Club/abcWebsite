@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Team() {
   return (
-    <div className="relative w-full overflow-hidden py-[30vh]">
+    <div className="relative w-full overflow-hidden py-[20vh] pt-[43vh]">
       {/* Giant Text Overlay */}
       <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
         <h2 className="text-white text-6xl md:text-8xl font-text opacity-90 drop-shadow-lg">
