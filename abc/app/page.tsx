@@ -10,6 +10,7 @@ import Hero from "@/components/Hero";
 import Testimonials from "@/components/aWordFromOurSponsor";
 import ProjectsDrawer from "@/components/ui/files";
 import MakeUpCode from "@/components/ui/codeMakeUp";
+import ImageTextCard from "@/components/ui/ImageTextCard";
 
 export default function Home() {
   return (
@@ -37,6 +38,7 @@ export default function Home() {
           </div>
           <Learn />
           {/* <MakeUpCode /> */}
+          <ImageTextCard />
       </main>
     </div>
   );

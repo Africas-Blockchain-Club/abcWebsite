@@ -5,20 +5,19 @@ export const navItems = [
     { name: "Contact", link: "#contact" },
   ];
 
-  // data/index.ts
 
 export const testimonials = [
   {
     id: "top",
     text: "This platform has significantly enhanced our productivity by providing powerful tools that allow us to analyze blockchain data seamlessly. It's perfect for teams looking for a reliable and easy-to-use platform for efficient solutions.",
-    name: "Karabo",
+    name: "Karabon Kayak",
     role: "Blockchain Developer",
     image: "/reviewers/alex.jpg",
   },
   {
     id: "bottom",
     text: "The user interface is incredibly smooth and intuitive. We have been able to complete tasks faster and more efficiently. The platform's features are really well thought out and help us manage our projects seamlessly, even under tight deadlines.",
-    name: "Denzel",
+    name: "Denzel Something",
     role: "Product Manager",
     image: "/reviewers/sara.jpg",
   },
@@ -283,6 +282,28 @@ export const forms: FormsData = {
       spareImg: "",
     },
   ];
+
+  export const imageCards = [
+    {
+      title: "Web3 Hackathon",
+      date: "July 15-17, 2023",
+      description: "Join us for a weekend of building innovative Web3 projects.",
+      imageSrc: "/Events/8.png", 
+    },
+    {
+      title: "Blockchain Basics Workshop",
+      date: "August 5, 2023",
+      description: "Learn the fundamentals of blockchain technology and its applications.",
+      imageSrc: "/Events/2.png", 
+    },
+    {
+      title: "DeFi Deep Dive",
+      date: "September 10, 2023",
+      description: "Explore the world of decentralized finance and its potential.",
+      imageSrc: "/Events/1.png",
+    },
+  ];
+  
   
   export const projects = [
     {
@@ -323,7 +344,7 @@ export const forms: FormsData = {
     {
       quote:
           "Hello",
-      name: "Karabo",
+      name: "Karabo Kayak",
       title: "Software Dev",
     },
     {
