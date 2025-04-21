@@ -18,6 +18,8 @@ const ContactUs = () => {
 
   return (
     <div className="w-full px-8 py-16 flex justify-center">
+            <div className="h-[100vh]" />
+
       <div
         className="w-full max-w-[240rem] border-[0.5px] border-yellow-400 rounded-[12px] flex gap-10"
         style={{
