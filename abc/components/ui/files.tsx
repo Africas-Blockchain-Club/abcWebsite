@@ -65,21 +65,21 @@ export default function ProjectsDrawer() {
               <div
                 key={index}
                 className={clsx(
-                  "flex-shrink-0 h-[100%] bg-[#1B1B1B] rounded-xl transition-all duration-300 ease-in-out border-2 border-gray-700 p-4 relative",
+                  "flex-shrink-0 h-[100%] bg-[#1B1B1B] rounded-xl transition-all duration-300 ease-in-out border-2 border-gray-700 p-8 relative",
                   {
                     "z-50": isHovered,
                   }
                 )}
                 style={{
-                  width: "25rem",
-                  marginLeft: index === 0 ? "0" : "-2cm",
+                  width: "27rem",
+                  marginLeft: index === 0 ? "0" : "-5cm",
                   zIndex: index + 10,
-                  transform: isNextCard ? "translateX(4rem)" : "none",
+                  transform: isNextCard ? "translateX(10rem)" : "none",
                   transformStyle: "preserve-3d",
                   transformOrigin: "bottom left",
                   boxShadow: `
-          0 80px 160px rgba(184, 209, 20, 0.95),
-          0 40px 100px rgba(0, 0, 0, 0.8),
+          0 80px 160px rgb(15, 1, 1),
+          0 40px 100px rgba(2, 0, 0, 0.8),
           0 0 100px rgba(0, 0, 0, 1),
           inset 0 0 60px rgba(0, 0, 0, 0.9)
         `,
