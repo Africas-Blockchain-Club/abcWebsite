@@ -31,7 +31,7 @@ const EducationalResourcesSection = () => {
           padding: "90px 104px 104px",
         }}
       >
-        <h2 className="text-6xl font-semibold mb-16 bg-gradient-to-t from-yellow-400 to-white text-transparent bg-clip-text">
+        <h2 className="text-6xl font-semibold mb-16 bg-white text-transparent bg-clip-text">
           Educational Resources
         </h2>
 
