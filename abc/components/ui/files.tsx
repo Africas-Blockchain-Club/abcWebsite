@@ -24,15 +24,10 @@ export default function ProjectsDrawer() {
 
       {/* Main modal moved down */}
       <div
-      className="w-full bg-[#1B1B1B] flex py-10 gap-8 w-[680px] items-stretch min-h-[30vh] h-[80vh] relative z-10 rounded-xl"
+      className="w-full bg-[#262626] flex py-10 gap-8 w-[680px] items-stretch min-h-[30vh] h-[80vh] relative z-10 rounded-xl"
       style={{
         marginTop: '4cm',
-        boxShadow: `
-          0 80px 160px rgba(0, 0, 0, 0.95),
-          0 40px 100px rgba(0, 0, 0, 0.8),
-          0 0 100px rgba(0, 0, 0, 1),
-          inset 0 0 60px rgba(0, 0, 0, 0.9)
-        `,
+        
       }}
     >
 
@@ -44,7 +39,7 @@ export default function ProjectsDrawer() {
             borderRadius: "0.5rem",
             background: 
               "linear-gradient(#111, #111) padding-box, " +
-              "linear-gradient(135deg,rgb(219, 242, 14),rgb(6, 17, 171)) border-box"
+              "linear-gradient(135deg,rgb(33, 16, 126),rgb(6, 17, 171)) border-box"
           }}
         >
           <div>
@@ -56,8 +51,8 @@ export default function ProjectsDrawer() {
         </div>
 
         {/* Scrollable modals */}
-        <div className="flex overflow-x-auto pr-6">
-          {projectsData.map((project, index) => {
+<div className="flex overflow-x-auto pr-6 scrollbar-thin scrollbar-thumb-yellow-500 hover:scrollbar-thumb-yellow-400">
+        {projectsData.map((project, index) => {
             const isHovered = hoveredIndex === index;
             const isNextCard = hoveredIndex !== null && index === hoveredIndex + 1;
 
@@ -65,7 +60,7 @@ export default function ProjectsDrawer() {
               <div
                 key={index}
                 className={clsx(
-                  "flex-shrink-0 h-[100%] bg-[#1B1B1B] rounded-xl transition-all duration-300 ease-in-out border-2 border-gray-700 p-8 relative",
+                  "flex-shrink-0 h-[100%] bg-[#262626] rounded-xl transition-all duration-300 ease-in-out border-2 border-gray-700 p-8 relative",
                   {
                     "z-50": isHovered,
                   }
@@ -102,7 +97,7 @@ export default function ProjectsDrawer() {
                     src={project.image}
                     alt={project.title}
                     layout="fill"
-                    className="z-10 bg-cover sm:w-64 w-[60vw] overflow-hidden h-full lg:h-[15vh] lg:rounded-lg absolute object-cover"
+                    className="z-10 bg-[#262626] sm:w-64 w-[60vw] overflow-hidden h-full lg:h-[15vh] lg:rounded-lg absolute object-cover"
                   />
                 </div>
               )}

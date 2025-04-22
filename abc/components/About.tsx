@@ -6,9 +6,9 @@ import { aboutText, aboutImages } from "@/data";
 
 export default function FullscreenCarousel() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen ">
       {/* Header Section */}
-      <div className="flex flex-col items-center justify-center text-center py-18">
+      <div className="flex flex-col items-center justify-center text-center py-18 ">
         <h2 className="text-6xl font-extrabold text-white sm:text-6xl py-4">
           About Africa's Blockchain Club
         </h2>
@@ -19,13 +19,13 @@ export default function FullscreenCarousel() {
       </div>
 
       {/* Islands Section */}
-      <div className="flex justify-center gap-28 px-8">
+      <div className="flex justify-center gap-28 px-8 ">
         {aboutText.map((item, index) => {
 
           return (
             <div
   key={index}
-  className="min-w-[400px] max-w-[550px] h-full flex flex-col items-center justify-center snap-start pt-16 pb-10 rounded-2xl overflow-hidden border-2 border-yellow-500 shadow-[0_0_30px_10px_rgba(234,179,8,0.75)] bg-transparent text-white"
+  className="min-w-[400px] max-w-[550px] h-full flex flex-col items-center justify-center snap-start pt-16 pb-10 rounded-2xl overflow-hidden border-2 border-yellow-500 shadow-[0_0_30px_10px_rgba(234,179,8,0.75)] bg-[#59544F] text-white"
 >
   <div className="mb-6  overflow-hidden">
     <Image
@@ -37,7 +37,7 @@ export default function FullscreenCarousel() {
     />
   </div>
 
-  <dt className="text-5xl font-Plush text-center">
+  <dt className="text-5xl font-Plush text-center ">
     {item.title1}
   </dt>
   <dt className="text-5xl font-Plush text-center mt-4">
