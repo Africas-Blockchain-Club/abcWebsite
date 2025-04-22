@@ -17,25 +17,25 @@ const EducationalResourcesSection = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <div className="w-full px-8 py-16 flex justify-center">
+    <div className="w-full px-8 py-16 flex justify-center ">
       <div className="h-[100vh]" />
 
       <div
-        className="w-full max-w-[240rem] border-[0.5px] border-yellow-400 rounded-[12px] flex flex-col gap-10"
-        style={{
-          backgroundColor: "transparent",
-          boxShadow: `inset 0 0 74px 2px #facc15`,
-          textAlign: "center",
-          alignItems: "center",
-          minHeight: "590px",
-          padding: "90px 104px 104px",
-        }}
-      >
-        <h2 className="text-6xl font-semibold mb-16 bg-white text-transparent bg-clip-text">
+  className="w-full max-w-[240rem] border-[0.5px] border-yellow-400 rounded-[12px] flex flex-col gap-10"
+  style={{
+    boxShadow: `inset 0 0 74px 2px #facc15`,
+    textAlign: "center",
+    alignItems: "center",
+    minHeight: "590px",
+    padding: "90px 104px 104px",
+  }}
+>
+
+        <h2 className="text-6xl font-semibold mb-16 bg-white text-transparent bg-clip-text ">
           Educational Resources
         </h2>
 
-        <div className="flex w-full gap-10 justify-center">
+        <div className="flex w-full gap-10 justify-center ">
           {contactUsData.map((item, index) => {
             const isHovered = hoveredIndex === index;
             const isOtherHovered = hoveredIndex !== null && hoveredIndex !== index;
@@ -45,7 +45,7 @@ const EducationalResourcesSection = () => {
             return (
               <motion.div
                 key={index}
-                className="relative flex-1 rounded-2xl p-6 text-white cursor-pointer transition-all duration-300 shadow-lg bg-[#1B1B1B] overflow-hidden"
+                className="relative flex-1 rounded-2xl p-6 text-white cursor-pointer transition-all duration-300 shadow-lg bg-[#262626] overflow-hidden "
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 animate={{
@@ -59,12 +59,12 @@ const EducationalResourcesSection = () => {
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <span
-                  className={`absolute bottom-0 left-0 w-full transition-all duration-300 bg-gradient-to-t from-yellow-300/40 to-transparent ${
+                  className={`absolute bottom-0 left-0 w-full transition-all duration-300 bg-gradient-to-t from-yellow-300/40 to-transparent  ${
                     isHovered ? "h-10" : "h-[3px]"
                   }`}
                 />
 
-                <div className="flex items-center mb-6">
+                <div className="flex items-center mb-6 ">
                   <motion.div
                     className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md mr-2"
                     initial={{ scale: 0, opacity: 0 }}
@@ -86,7 +86,7 @@ const EducationalResourcesSection = () => {
                   </motion.h2>
                 </div>
 
-                <p className="text-base text-gray-300 z-10 relative transition-all duration-300">
+                <p className="text-base text-gray-300 z-10 relative transition-all duration-300 ">
                   {item.text}
                 </p>
               </motion.div>

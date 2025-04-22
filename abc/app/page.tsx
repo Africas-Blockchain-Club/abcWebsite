@@ -15,7 +15,7 @@ import Footer from "@/components/ui/footer";
 export default function Home() {
   return (
     <div className="relative">
-      <main className="relative z-0" style={{ background: "#1B1B1B" }}>
+      <main className="relative z-0" style={{ background: "#716D67" }}>
         {/* Circle Background + Stronger Fade */}
         <div className="absolute top-[9.5%] left-1/2 w-[80vw] h-[80vw] bg-yellow-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 z-0 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-[#1B1B1B00] via-[#1B1B1B99] to-[#1B1B1B]" />
