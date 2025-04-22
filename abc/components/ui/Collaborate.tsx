@@ -74,13 +74,13 @@ export default function Collaborate() {
         {/* Header and subtitle */}
         <div className="text-center max-w-xl text-lg relative z-20">
           <h2 className="text-4xl font-extrabold mb-6 flex gap-4 justify-center">
-            <span className="bg-white text-black px-3 py-1">Work</span>
-            <span className="bg-white text-black px-3 py-1">With</span>
-            <span className="bg-white text-black px-3 py-1">Us</span>
+            <span className="text-black px-3 py-1">Work</span>
+            <span className=" text-black px-3 py-1">With</span>
+            <span className=" text-black px-3 py-1">Us</span>
           </h2>
 
           <p className="text-2xl font-semibold mt-2 whitespace-nowrap">
-            <span className="inline-block bg-white text-black px-4 py-2" style={{ lineHeight: "1.3" }}>
+            <span className="inline-block  text-black px-4 py-2" style={{ lineHeight: "1.3" }}>
               Choose an option below to get started.
             </span>
           </p>
