@@ -18,7 +18,7 @@ export default function ProjectsDrawer() {
 
       {/* Main modal moved down */}
       <div
-        className="w-full flex py-10 gap-8 w-[680px] items-stretch min-h-[30vh] h-[80vh] relative z-10 rounded-xl bg-black"
+        className="w-full flex py-10 gap-8 w-[680px] items-stretch min-h-[30vh] h-[80vh] relative z-10 rounded-xl bg-[#555555]"
         style={{
           marginTop: '4cm',
           boxShadow: `
