@@ -25,7 +25,7 @@ export default function FullscreenCarousel() {
           return (
             <div
   key={index}
-  className="min-w-[400px] max-w-[550px] h-full flex flex-col items-center justify-center snap-start pt-16 pb-10 rounded-2xl overflow-hidden border-2 border-yellow-500 shadow-[0_0_30px_10px_rgba(234,179,8,0.75)] bg-[#59544F] text-white"
+  className="min-w-[400px] max-w-[550px] h-full flex flex-col items-center justify-center snap-start pt-16 pb-10 rounded-2xl overflow-hidden border-2 border-yellow-500 shadow-[0_0_30px_10px_rgba(234,179,8,0.75)] bg-[#555555] text-white"
 >
   <div className="mb-6  overflow-hidden">
     <Image
