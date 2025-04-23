@@ -11,25 +11,24 @@ export default function ProjectsDrawer() {
   return (
     <div className="relative w-full left-0 right-0 px-10 z-50 overflow-hidden">
       
-      {/* Giant Scrolling Text - Now with smooth infinite scroll */}
-      <div className="absolute top-0 left-0 w-full overflow-hidden z-0 pointer-events-none">
-        <div className="scrolling-text animate-marquee-fast text-yellow-500 font-bold  whitespace-nowrap">
-          {Array(4).fill("Projects & Research Papers /").map((text, i) => (
-            <span key={i} className="mx-8 text-[17vw] leading-[0.8]">
-              {text}
-            </span>
-          ))}
-        </div>
+      {/* Large text above the modal */}
+      <div className="absolute top-[-1.8cm] left-0 w-full text-center z-10">
+        <h1 className="lg:text-[13rem] text-bold font-extrabold mt-8">Collections</h1>
       </div>
 
       {/* Main modal moved down */}
       <div
-      className="w-full bg-[#262626] flex py-10 gap-8 w-[680px] items-stretch min-h-[30vh] h-[80vh] relative z-10 rounded-xl"
-      style={{
-        marginTop: '4cm',
-        
-      }}
-    >
+        className="w-full flex py-10 gap-8 w-[680px] items-stretch min-h-[30vh] h-[80vh] relative z-10 rounded-xl bg-black"
+        style={{
+          marginTop: '4cm',
+          boxShadow: `
+            0 0 80px rgba(0, 0, 0, 0.8), 
+            0 40px 80px rgba(0, 0, 0, 0.6), 
+            0 20px 60px rgba(0, 0, 0, 0.5), 
+            inset 0 0 100px rgba(0, 0, 0, 0.7)
+          `,
+        }}
+      >
 
         {/* Description card */}
         <div 
@@ -51,8 +50,8 @@ export default function ProjectsDrawer() {
         </div>
 
         {/* Scrollable modals */}
-<div className="flex overflow-x-auto pr-6 scrollbar-thin scrollbar-thumb-yellow-500 hover:scrollbar-thumb-yellow-400">
-        {projectsData.map((project, index) => {
+        <div className="flex overflow-x-auto pr-6 scrollbar-thin scrollbar-thumb-yellow-500 hover:scrollbar-thumb-yellow-400">
+          {projectsData.map((project, index) => {
             const isHovered = hoveredIndex === index;
             const isNextCard = hoveredIndex !== null && index === hoveredIndex + 1;
 
@@ -73,11 +72,11 @@ export default function ProjectsDrawer() {
                   transformStyle: "preserve-3d",
                   transformOrigin: "bottom left",
                   boxShadow: `
-          0 80px 160px rgb(15, 1, 1),
-          0 40px 100px rgba(2, 0, 0, 0.8),
-          0 0 100px rgba(0, 0, 0, 1),
-          inset 0 0 60px rgba(0, 0, 0, 0.9)
-        `,
+                    0 80px 160px rgb(15, 1, 1),
+                    0 40px 100px rgba(2, 0, 0, 0.8),
+                    0 0 100px rgba(0, 0, 0, 1),
+                    inset 0 0 60px rgba(0, 0, 0, 0.9)
+                  `,
                 }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
@@ -90,18 +89,17 @@ export default function ProjectsDrawer() {
                   }}
                 />
 
-              {/* Image */}
-              {project.image && (
-                <div className="relative w-full h-[35vh] mb-4 rounded-xl overflow-hidden z-10">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    layout="fill"
-                    className="z-10 bg-[#262626] sm:w-64 w-[60vw] overflow-hidden h-full lg:h-[15vh] lg:rounded-lg absolute object-cover"
-                  />
-                </div>
-              )}
-
+                {/* Image */}
+                {project.image && (
+                  <div className="relative w-full h-[35vh] mb-4 rounded-xl overflow-hidden z-10">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      layout="fill"
+                      className="z-10 bg-[#262626] sm:w-64 w-[60vw] overflow-hidden h-full lg:h-[15vh] lg:rounded-lg absolute object-cover"
+                    />
+                  </div>
+                )}
 
                 {/* Content */}
                 <h3 className="text-xl font-semibold mb-2 text-white z-10 relative px-4">
