@@ -35,6 +35,21 @@ const EducationalResourcesSection = () => {
           padding: "90px 104px 104px",
         }}
       >
+        <div className="relative w-full max-w-[240rem] ...">
+  {/* Decorative BG image */}
+  <img
+    src="/b5.svg"
+    alt="Background"
+    className="absolute top-[-25px] left-[-65px] w-[300px] opacity-30 pointer-events-none select-none"
+    style={{ zIndex: 0 }}
+  />
+
+  {/* Your actual content */}
+  <div className="relative z-10">
+    {/* All your content goes here */}
+  </div>
+</div>
+
         {/* Section Title */}
         <h2 className="text-6xl font-semibold mb-16 bg-white text-transparent bg-clip-text">
           Educational Resources
