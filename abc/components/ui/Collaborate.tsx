@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { forms } from "@/data/index";
+import MakeUpCode from "@/components/ui/codeMakeUp";
+
 
 export default function Collaborate() {
   const [activeForm, setActiveForm] = useState("researcher");
@@ -70,6 +72,7 @@ export default function Collaborate() {
       {/* Main container */}
       <div className={`w-full flex flex-col items-center justify-center transition-all duration-700 
         ${showForm ? "mt-10" : "mt-[25vh]"}`}>
+
 
         {/* Header and subtitle */}
         <div className="text-center max-w-xl text-lg relative z-20">
