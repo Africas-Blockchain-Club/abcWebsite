@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { heroImage } from "@/data";
 import BlockchainHeroBg from "./ui/blockchain.-hero-bg";
+import BlockchainNetwork from "./ui/blockchain-network";
 
 export default function Hero() {
   return (
@@ -32,15 +33,17 @@ export default function Hero() {
             </div>
           </div>
           <div className="relative mt-10 md:mt-0">
-            <div className="absolute right-0 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-amber-500"></div>
+            <BlockchainNetwork className="w-full h-full"/>
+            <div className="absolute right-0 top-[55%]-[75vw] w-[75vw] -translate-y-1/2 rounded-full">
             <Image
               src="/header/ABC.png"
               alt="Africa's Blockchain Club Logo"
               width={500}
               height={500}
-              className="relative z-10"
+              className="w-full h-auto"
               priority
-            />
+              />
+          </div>
           </div>
         </div>
       </section>
