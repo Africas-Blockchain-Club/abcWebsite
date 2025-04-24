@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <div className="relative mt-20">
       {/* WE MOVE text positioned between sections */}
-      <div className="absolute -top-[6.4rem] left-0 w-full text-center">
+      <div className="absolute -top-[8.4rem] left-0 w-full text-center">
       <h1 className="text-[8rem] md:text-[12rem] lg:text-[15rem] font-extrabold tracking-tighter leading-none whitespace-nowrap 
               bg-[linear-gradient(to_top,black_0%,black_57%,#facc15_57%,#facc15_100%)] bg-clip-text text-transparent">
   WE MOVE

@@ -29,6 +29,7 @@ export default function Home() {
           <div className="pb-40 pt-20">  
             <Testimonials />
           </div>
+          
           <div className="pb-40 pt-20"> 
             <ProjectsDrawer />
           </div>

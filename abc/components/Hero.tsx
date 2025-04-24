@@ -34,7 +34,7 @@ export default function Hero() {
           <div className="relative mt-10 md:mt-0">
             <div className="absolute right-0 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-amber-500"></div>
             <Image
-              src="/images/abc-logo.png"
+              src="/header/ABC.png"
               alt="Africa's Blockchain Club Logo"
               width={500}
               height={500}

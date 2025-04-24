@@ -3,13 +3,15 @@
 import * as React from "react";
 import Image from "next/image";
 import { aboutText, aboutImages } from "@/data";
+import BlockchainNetwork from "./ui/blockchain-network";
 
 export default function FullscreenCarousel() {
   return (
     <div className="min-h-screen ">
       {/* Header Section */}
-      <div className="flex flex-col items-center justify-center text-center py-18 ">
+      <div className="flex flex-col items-center justify-center text-center ">
         <h2 className="text-6xl font-extrabold text-white sm:text-6xl py-4">
+      <BlockchainNetwork className="h-full w-full" />
           About Africa's Blockchain Club
         </h2>
         <p className="mt-5 max-w-4xl text-xl text-white lg:mx-auto text-6l sm:text-6l">

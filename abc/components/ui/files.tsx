@@ -4,13 +4,14 @@ import { useState } from "react";
 import { projectsData } from "@/data";
 import Image from "next/image";
 import clsx from "clsx";
+import BlockchainPattern from "./blockchain-pattern";
 
 export default function ProjectsDrawer() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <div className="relative w-full left-0 right-0 px-10 z-50 overflow-hidden">
-      
+      <BlockchainPattern />
       {/* Large text above the modal */}
       <div className="absolute top-[-1.8cm] left-0 w-full text-center z-10">
         <h1 className="lg:text-[13rem] text-bold font-extrabold mt-8">Collections</h1>

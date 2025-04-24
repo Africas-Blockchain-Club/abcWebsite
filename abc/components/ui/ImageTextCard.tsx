@@ -9,6 +9,7 @@ const ImageTextCard = () => {
     <div className="pb-40 pt-80">
       {/* Upcoming Events Header */}
       <div className="text-center mb-16">
+        
         <h2 className="text-6xl font-semibold mb-16 bg-white text-transparent bg-clip-text">Upcoming/Ongoing Events</h2>
       </div>
 
