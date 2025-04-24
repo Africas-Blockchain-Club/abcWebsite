@@ -22,7 +22,7 @@ export default function Home() {
         </div>
         {/* Floating Nav stays on top */}
         <FloatingNav navItems={navItems} />
-
+          
           <Hero />
           <Team />
           <About />

@@ -4,67 +4,45 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { heroImage } from "@/data";
+import BlockchainHeroBg from "./ui/blockchain.-hero-bg";
 
 export default function Hero() {
   return (
-    <div className="relative overflow-hidden px-40 py-4">
-      <div className="relative max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          
-          {/* Text Section */}
-          <div className="text-center lg:text-left " style={{ transform: "translateX(-80px)" }}>
-            <div className="inline-block">
-              <p className="mb-4 inline-block backdrop-blur-lg bg-orange-100/50 text-white px-4 py-1.5 rounded-full text-sm font-Plush">
-                The Future of Web3 in Africa
-              </p>
+<section className="relative overflow-hidden bg-neutral-800 text-white">
+        <BlockchainHeroBg />
+        <div className="container mx-auto grid grid-cols-1 items-center px-4 py-16 md:grid-cols-2 md:py-24 lg:py-32">
+          <div className="z-10 space-y-6">
+            <div className="inline-block rounded-full bg-neutral-600/80 px-4 py-1 text-sm font-medium">
+              The Future of Web3 in Africa
             </div>
-
-            <h1 className="text-4xl font-Plush tracking-tight sm:text-5xl lg:text-6xl mb-4 bg-clip-text text-white">
-              Building Africa&apos;s
-              <span className="block">Blockchain Future</span>
+            <h1 className="font-mono text-5xl font-bold leading-tight md:text-6xl lg:text-7xl">
+              Building <br />
+              Africa&apos;s <br />
+              Blockchain <br />
+              Future
             </h1>
-            <p className="mt-4 text-xl max-w-3xl text-white">
+            <p className="max-w-md text-lg text-neutral-200">
               Join our community of passionate developers and innovators shaping the decentralized web across Africa.
             </p>
-            
-            <div className="mt-10 flex gap-4 justify-center lg:justify-start">
-              <Link href="/#events" passHref>
-                <Button
-                  size="lg"
-                  className="bg-black text-white hover:bg-yellow-500 transition-colors duration-300"
-                >
-                  Get Started
-                </Button>
-              </Link>
-              <Link href="/#events" passHref>
-                <Button
-                  size="lg"
-                  className="bg-black text-white hover:bg-yellow-500 transition-colors duration-300"
-                >
-                  Learn More
-                </Button>
-              </Link>
+            <div className="flex flex-wrap gap-4">
+              <Button className="bg-black text-white hover:bg-black/80">Get Started</Button>
+              <Button variant="outline" className="border-white text-white hover:bg-white hover:text-black">
+                Learn More
+              </Button>
             </div>
           </div>
-
-
-
-          {/* Image Section */}
-          <div className="flex justify-center lg:justify-end">
-          <div className="absolute top-[55%] -translate-y-1/2 w-[75vw] h-[75vw] flex left-40">
+          <div className="relative mt-10 md:mt-0">
+            <div className="absolute right-0 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-amber-500"></div>
             <Image
-              src={heroImage.src}
-              alt={heroImage.alt}
-              width={heroImage.width}
-              height={heroImage.height}
-              className="w-full h-auto object-contain"
+              src="/images/abc-logo.png"
+              alt="Africa's Blockchain Club Logo"
+              width={500}
+              height={500}
+              className="relative z-10"
               priority
             />
           </div>
-          </div>
-          
         </div>
-      </div>
-    </div>
+      </section>
   );
 }
