@@ -41,9 +41,50 @@ export async function POST(request: Request) {
       console.error('Error sending email via Resend:', sendError);
       return NextResponse.json({ message: 'Error sending email', error: sendError.message }, { status: 500 });
     }
+    console.log('Notification email sent successfully via Resend:', data);
 
-    console.log('Email sent successfully via Resend:', data);
-    return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
+    const submitterEmail = body.email; // Get submitter's email
+    const submitterName = body.name; // Get submitter's name
+
+    if (submitterEmail && typeof submitterEmail === 'string') {
+      const ackSubject = "Submission Received - Africa's Blockchain Club"; // Professional subject
+      // Add a professional greeting using the submitter's name if available
+      const greeting = submitterName && typeof submitterName === 'string' ? `Dear ${submitterName},` : 'Greetings,';
+
+      const ackHtmlContent = `
+        <div style="font-family: sans-serif; line-height: 1.6;">
+          <p>${greeting}</p>
+          <p>Thank you for your submission regarding the <strong>${formType}</strong> opportunity; we confirm its receipt.</p>
+          <p>Our team will review your information and contact you if necessary.</p>
+          <br/>
+          <p>Regards,</p>
+          <p><strong>The Africa's Blockchain Club Team</strong></p>
+        </div>
+      `;
+
+      try {
+        const { data: ackData, error: ackSendError } = await resend.emails.send({
+          from: senderEmail,
+          to: submitterEmail,
+          subject: ackSubject,
+          html: ackHtmlContent,
+        });
+
+        if (ackSendError) {
+          // Log error but don't necessarily fail the whole request if notification succeeded
+          console.error('Error sending acknowledgment email via Resend:', ackSendError);
+        } else {
+          console.log('Acknowledgment email sent successfully via Resend:', ackData);
+        }
+      } catch (ackCatchError) {
+         console.error('Caught error sending acknowledgment email:', ackCatchError);
+      }
+    } else {
+      console.warn('Submitter email not found or invalid in form data. Cannot send acknowledgment.');
+    }
+
+    // Return success even if acknowledgment failed (notification succeeded)
+    return NextResponse.json({ message: 'Submission processed successfully' }, { status: 200 });
 
   } catch (error) {
     console.error('Error processing request:', error);

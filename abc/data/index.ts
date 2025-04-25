@@ -147,18 +147,22 @@ export const aboutImages = [
       title: "Web3 Fundamentals",
       text: "A comprehensive guide to the basics of Web3 development.",
       avatarType: "BookOpen",
+      link: "https://stablecoin.gitbook.io/africas-blockchain-club-abc",
     },
     {
       title: "Smart Contract Development",
       text: "Learn how to write and deploy smart contracts on various blockchains.",
       avatarType: "Code",
+      link: "https://stablecoin.gitbook.io/africas-blockchain-club-abc/defi/decentralised-exchange-dex/create-a-dapp",
     },
     {
       title: "DApp Architecture",
       text: "Understand the architecture of decentralized applications.",
       avatarType: "Video",
+      link: "/resources/dapp-architecture",
     },
   ];
+  
 
 interface Field {
   name: string;
