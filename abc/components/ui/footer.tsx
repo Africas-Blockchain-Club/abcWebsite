@@ -33,7 +33,7 @@ const Footer = () => {
             <a href="https://www.linkedin.com/company/africa-s-blockchain-club/" target="_blank" rel="noopener noreferrer">
               <Linkedin className="w-6 h-6 hover:text-white transition" />
             </a>
-            <a href="https://telegram.org" target="_blank" rel="noopener noreferrer">
+            <a href="https://x.com/africasblock" target="_blank" rel="noopener noreferrer">
               <Send className="w-6 h-6 hover:text-white transition" />
             </a>
           </div>
