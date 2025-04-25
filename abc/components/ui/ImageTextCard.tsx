@@ -2,7 +2,14 @@
 
 import Image from "next/image";
 import { imageCards } from "@/data";
-import { useState, useRef } from "react";
+import { useState, useRef, MouseEvent } from "react";
+
+// Define an interface for the card data structure
+interface CardData {
+  imageSrc: string;
+  title: string;
+  description: string;
+}
 
 const ImageTextCard = () => {
   return (
@@ -22,8 +29,13 @@ const ImageTextCard = () => {
   );
 };
 
-const FinalCard = ({ card }) => {
-  const cardRef = useRef(null);
+// Define props for FinalCard
+interface FinalCardProps {
+  card: CardData;
+}
+
+const FinalCard = ({ card }: FinalCardProps) => {
+  const cardRef = useRef<HTMLDivElement>(null);
   const [transform, setTransform] = useState({
     x: 0,
     y: 0,
@@ -36,9 +48,9 @@ const FinalCard = ({ card }) => {
   const maxTilt = 12;
   const maxMove = 30;
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
-    
+
     const rect = cardRef.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
@@ -108,16 +120,14 @@ const FinalCard = ({ card }) => {
       <div className="w-full h-full bg-[#1B1B1B] rounded-xl overflow-hidden shadow-lg flex flex-col relative z-10">
         {/* Image Section */}
         <div className="h-[60%] w-full relative">
-          <Image
-            src={card.imageSrc}
-            alt={card.title}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center top"
-            className="brightness-95 hover:brightness-110 transition-all duration-300"
-          />
-          <div className="absolute bottom-0 left-0 w-full h-[80%] bg-gradient-to-t from-black to-transparent" />
-        </div>
+            <Image
+              src={card.imageSrc}
+              alt={card.title}
+              fill // Use fill instead of layout="fill"
+              className="object-cover object-top brightness-95 hover:brightness-110 transition-all duration-300" // Apply object-fit/position via classes
+            />
+            <div className="absolute bottom-0 left-0 w-full h-[80%] bg-gradient-to-t from-black to-transparent" />
+          </div>
 
         {/* Extended Dark Area */}
         <div className="h-[40%] bg-black relative">
