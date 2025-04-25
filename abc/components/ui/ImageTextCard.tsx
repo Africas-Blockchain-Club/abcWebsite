@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { imageCards } from "@/data";
 import { useState, useRef, MouseEvent } from "react";
+import ImageTextCardPopUp from "./ImageTextCardPopUp"; // Import the modal component
 
 // Define an interface for the card data structure
 interface CardData {
@@ -12,6 +13,21 @@ interface CardData {
 }
 
 const ImageTextCard = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCard, setSelectedCard] = useState<CardData | null>(null);
+
+  // Function to open the modal with specific card data
+  const handleRegisterClick = (card: CardData) => {
+    setSelectedCard(card);
+    setIsModalOpen(true);
+  };
+
+  // Function to close the modal
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedCard(null); // Clear selected card data on close
+  };
+
   return (
     <div className="pb-40 pt-80">
       {/* Upcoming Events Header */}
@@ -22,19 +38,27 @@ const ImageTextCard = () => {
       {/* Cards Container */}
       <div className="flex gap-10 justify-center flex-wrap">
         {imageCards.map((card, idx) => (
-          <FinalCard key={idx} card={card} />
+          <FinalCard key={idx} card={card} onRegisterClick={handleRegisterClick} /> // Pass handler
         ))}
       </div>
+
+      {/* Render the Modal */}
+      <ImageTextCardPopUp 
+        isOpen={isModalOpen} 
+        onClose={handleCloseModal} 
+        card={selectedCard} 
+      />
     </div>
   );
 };
 
-// Define props for FinalCard
+// Define props for FinalCard, including the click handler
 interface FinalCardProps {
   card: CardData;
+  onRegisterClick: (card: CardData) => void; // Add prop for the click handler
 }
 
-const FinalCard = ({ card }: FinalCardProps) => {
+const FinalCard = ({ card, onRegisterClick }: FinalCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [transform, setTransform] = useState({
     x: 0,
@@ -138,10 +162,13 @@ const FinalCard = ({ card }: FinalCardProps) => {
               <p className="text-md text-gray-300 line-clamp-2 mt-2 leading-relaxed">{card.description}</p>
             </div>
             
-            {/* Wider yellow Register Button */}
-            <button className="bg-yellow-400 hover:bg-yellow-500 text-white font-medium py-3 px-10 rounded-full 
+            {/* Wider yellow Register Button - Added onClick */}
+            <button 
+              onClick={() => onRegisterClick(card)} // Trigger the handler passed from parent
+              className="bg-yellow-400 hover:bg-yellow-500 text-black font-medium py-3 px-10 rounded-full 
                             transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-yellow-400/30
-                            w-[180px] transform hover:scale-105">
+                            w-[180px] transform hover:scale-105"
+            >
               Register
             </button>
           </div>
