@@ -227,6 +227,6 @@ const Collaborate: React.FC = () => {
       )}
     </div>
   );
-}; // Close component arrow function
+}; 
 
-export default Collaborate; // Export default
+export default Collaborate; 
