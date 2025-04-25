@@ -1,18 +1,46 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react"; // Import React
 import { forms } from "@/data/index";
-import MakeUpCode from "@/components/ui/codeMakeUp";
 
+// Define interfaces for state and props if needed, and for complex objects
+interface AlertState {
+  message: string;
+  type: 'success' | 'error' | ''; // More specific type
+  visible: boolean;
+}
 
-export default function Collaborate() {
-  const [activeForm, setActiveForm] = useState("researcher");
-  const [formData, setFormData] = useState({});
-  const [alert, setAlert] = useState({ message: "", type: "", visible: false });
-  const [isInitialLoad, setIsInitialLoad] = useState(true);
-  const [showForm, setShowForm] = useState(false);
+interface FormDataState {
+  [key: string]: string; // Assuming form values are strings
+}
 
-  const handleButtonClick = (key) => {
+// Define type for form fields based on usage in the component
+interface FormField {
+    name: string;
+    type: 'select' | 'textarea' | 'text' | 'email' | 'tel'; // Add other relevant types
+    placeholder: string;
+    options?: string[]; // Optional for select type
+}
+
+// Define type for the forms data structure imported from @/data/index
+// This is an assumption based on usage, adjust if the actual structure differs
+interface FormsData {
+    [key: string]: {
+        text: string;
+        fields: FormField[];
+    };
+}
+
+// Use React.FC for functional component type
+const Collaborate: React.FC = () => {
+  const [activeForm, setActiveForm] = useState<string>("researcher"); // Explicit type for key
+  const [formData, setFormData] = useState<FormDataState>({});
+  const [alert, setAlert] = useState<AlertState>({ message: "", type: "", visible: false });
+  const [isInitialLoad, setIsInitialLoad] = useState<boolean>(true);
+  const [showForm, setShowForm] = useState<boolean>(false);
+
+  // Add type for the key parameter
+  const handleButtonClick = (key: string): void => {
     if (activeForm === key) {
       setShowForm(!showForm);
     } else {
@@ -23,12 +51,16 @@ export default function Collaborate() {
     setIsInitialLoad(false);
   };
 
-  const handleChange = (e) => {
+  // Add type for the event parameter
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>): void => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  // Add type for the event parameter and return type Promise<void>
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
+    // Ensure forms data is treated with the defined type
+    const typedForms = forms as FormsData;
     const dataToSend = { formType: activeForm, ...formData };
 
     try {
@@ -67,6 +99,9 @@ export default function Collaborate() {
     partner: "Partner with Us",
   };
 
+  // Ensure forms data is treated with the defined type
+  const typedForms = forms as FormsData;
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-start text-white p-4 sm:p-10 transition-all duration-700">
       {/* Main container */}
@@ -98,7 +133,7 @@ export default function Collaborate() {
 
           {/* Buttons - centered with the glow */}
           <div className="flex flex-wrap justify-center gap-4 z-10">
-            {Object.keys(forms).map((key) => {
+            {Object.keys(typedForms).map((key: string) => { // Add type for key
               const isActive = activeForm === key;
               const isResearcher = key === "researcher";
 
@@ -111,11 +146,11 @@ export default function Collaborate() {
                 <button
                   key={key}
                   onClick={() => handleButtonClick(key)}
-                  className={`${baseClass} ${extraClass}`}
-                >
-                  {buttonLabels[key]}
-                </button>
-              );
+                   className={`${baseClass} ${extraClass}`}
+                 >
+                   {buttonLabels[key as keyof typeof buttonLabels]} {/* Add type assertion */}
+                 </button>
+               );
             })}
           </div>
 
@@ -123,11 +158,11 @@ export default function Collaborate() {
           <div className={`mt-6 w-full max-w-[600px] transition-all duration-700 ease-in-out overflow-hidden ${
             showForm ? "opacity-100 scale-100 max-h-[2000px]" : "opacity-0 scale-95 max-h-0"
           }`}>
-            {showForm && activeForm && (
+            {showForm && activeForm && typedForms[activeForm] && ( // Check if typedForms[activeForm] exists
               <div className="p-6 rounded-2xl border border-[#F4F4F4] bg-black/40">
-                <h1 className="text-2xl font-bold mb-4">{forms[activeForm]?.text}</h1>
+                <h1 className="text-2xl font-bold mb-4">{typedForms[activeForm]?.text}</h1>
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  {forms[activeForm]?.fields.map((field) =>
+                  {typedForms[activeForm]?.fields.map((field: FormField) => // Add type for field
                     field.type === "select" ? (
                       <select
                         key={field.name}
@@ -136,9 +171,9 @@ export default function Collaborate() {
                         className="w-full p-3 bg-[#6B7280] rounded-lg"
                       >
                         <option value="" disabled selected>
-                          {field.placeholder}
+                           {field.placeholder}
                         </option>
-                        {field.options.map((option) => (
+                        {field.options?.map((option: string) => ( // Add type for option, check if options exists
                           <option key={option} value={option}>
                             {option}
                           </option>
@@ -192,4 +227,6 @@ export default function Collaborate() {
       )}
     </div>
   );
-}
+}; // Close component arrow function
+
+export default Collaborate; // Export default
