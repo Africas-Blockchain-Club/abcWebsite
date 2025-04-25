@@ -23,10 +23,7 @@ export default function Home() {
         {/* Floating Nav stays on top */}
         <FloatingNav navItems={navItems} />
 
-        <div className="px-8">
           <Hero />
-        </div>
-
           <Team />
           <About />
           <div className="pb-40 pt-20">  
