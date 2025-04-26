@@ -13,9 +13,9 @@ export default function Team() {
       {/* Giant Text Overlay */}
       <div className="absolute inset-0 z-10 flex items-center justify-start ml-[50px] pointer-events-none py-[20vh] pt-[43vh]">
   <h2 className="text-white text-6xl md:text-8xl font-text opacity-90 drop-shadow-lg leading-tight">
-    <span>Meet the</span>
-    <br />
-    <span>Team</span>
+    {/* <span>Meet the</span> */}
+    {/* <br /> */}
+    {/* <span>Team</span> */}
   </h2>
 </div>
       {/* Dark Overlay over Carousel */}

@@ -4,6 +4,8 @@ import * as React from "react";
 import Image from "next/image";
 import { aboutText, aboutImages } from "@/data";
 import BlockchainNetwork from "./ui/blockchain-network";
+import BlockchainModel from "./ui/blockchain-modal";
+import BlockchainTerms from "./ui/blockchain-terms";
 
 export default function FullscreenCarousel() {
   return (
@@ -14,14 +16,24 @@ export default function FullscreenCarousel() {
       <BlockchainNetwork className="h-full w-full" />
           About Africa's Blockchain Club
         </h2>
-        <p className="mt-5 max-w-4xl text-xl text-white lg:mx-auto text-6l sm:text-6l">
+        <p className="mt-5 max-w-4xl text-xl text-white py-8 lg:mx-auto text-6l sm:text-6l">
           We are a community-driven organization dedicated to advancing Web3 technology and fostering innovation in
           the blockchain space across Africa.
         </p>
       </div>
 
       {/* Islands Section */}
-      <div className="flex justify-center gap-28 px-8 ">
+
+      <div className="flex justify-center px-8 ">
+      <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
+            <div className="flex justify-center">
+              <div className="relative ">
+                <BlockchainModel />
+                <BlockchainTerms />
+              </div>
+            </div>
+          
+        </div>
         {aboutText.map((item, index) => {
 
           return (
@@ -29,7 +41,7 @@ export default function FullscreenCarousel() {
   key={index}
   className="min-w-[400px] max-w-[550px] h-full flex flex-col items-center justify-center snap-start pt-16 pb-10 rounded-2xl overflow-hidden border-2 border-yellow-500 shadow-[0_0_30px_10px_rgba(234,179,8,0.75)] bg-[#555555] text-white"
 >
-  <div className="mb-6  overflow-hidden">
+  <div className="mb-6 overflow-hidden">
     <Image
       src={aboutImages[index].src}
       alt={aboutImages[index].alt}
@@ -54,5 +66,6 @@ export default function FullscreenCarousel() {
         })}
       </div>
     </div>
+    
   );
 }
