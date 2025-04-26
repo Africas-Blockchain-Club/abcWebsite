@@ -8,7 +8,6 @@ import About from "@/components/About";
 import Hero from "@/components/Hero";
 import Testimonials from "@/components/aWordFromOurSponsor";
 import ProjectsDrawer from "@/components/ui/files";
-import MakeUpCode from "@/components/ui/codeMakeUp";
 import ImageTextCard from "@/components/ui/ImageTextCard";
 import Footer from "@/components/ui/footer";
 
