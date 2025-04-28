@@ -39,10 +39,10 @@ export const testimonials = [
 
 
   export const heroImage = {
-    src: "/header/ABC.png",
+    src: "/About/whiteABC.png",
     alt: "Africa's Blockchain Club",
-    width: 1000, 
-    height: 10000,
+    width: 100, 
+    height: 1000,
   };
 
   export const logoImage = {
