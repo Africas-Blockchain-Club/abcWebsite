@@ -44,6 +44,13 @@ export const testimonials = [
     width: 1000, 
     height: 10000,
   };
+
+  export const logoImage = {
+    src: "/header/ABC.png",
+    alt: "Africa's Blockchain Club",
+    width: 1000, 
+    height: 1000,
+  };
   
   export const projectsData = [
     {
