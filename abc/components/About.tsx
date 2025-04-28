@@ -51,6 +51,7 @@ export default function FullscreenCarousel() {
           );
         })}
       </div>
+      
     </div>
   );
 }

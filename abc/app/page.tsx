@@ -38,6 +38,17 @@ export default function Home() {
           <ImageTextCard />
 
           <Footer />
+          <div className="fixed bottom-4 right-4 flex items-center space-x-2">
+        <div className="w-12 h-12">
+          <Image
+            src="/header/ABC.png" 
+            alt="ABC Spirit Animal"
+            width={100}
+            height={100}
+          />
+        </div>
+
+      </div>
       </main>
     </div>
   );
