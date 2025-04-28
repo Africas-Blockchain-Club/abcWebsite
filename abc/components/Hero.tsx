@@ -51,7 +51,7 @@ export default function Hero() {
 
           {/* Image Section */}
           <div className="flex justify-center lg:justify-end">
-          <div className="absolute top-[55%] -translate-y-1/2 w-[75vw] h-[75vw] flex left-40">
+          <div className="absolute top-[50%] -translate-y-1/2 w-[40vw] h-[40vw] flex ">
             <Image
               src={heroImage.src}
               alt={heroImage.alt}
