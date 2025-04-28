@@ -39,7 +39,7 @@ export default function Hero() {
   <Link href="/#events" passHref>
     <Button
       size="lg"
-      className=" text-white hover:bg-yellow-500 transition-transform duration-500 hover:scale-105 animate-pulse cursor-pointer"
+      className="bg-black text-white hover:bg-yellow-500 transition-transform duration-500 hover:scale-105 animate-pulse cursor-pointer"
     >
       Learn More
     </Button>
