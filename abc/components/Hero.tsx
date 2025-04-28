@@ -28,23 +28,24 @@ export default function Hero() {
             </p>
             
             <div className="mt-10 flex gap-4 justify-center lg:justify-start">
-              <Link href="/#events" passHref>
-                <Button
-                  size="lg"
-                  className="bg-black text-white hover:bg-yellow-500 transition-colors duration-300"
-                >
-                  Get Started
-                </Button>
-              </Link>
-              <Link href="/#events" passHref>
-                <Button
-                  size="lg"
-                  className="bg-black text-white hover:bg-yellow-500 transition-colors duration-300"
-                >
-                  Learn More
-                </Button>
-              </Link>
-            </div>
+  <Link href="/#events" passHref>
+    <Button
+      size="lg"
+      className="bg-black text-white hover:bg-yellow-500 transition-colors duration-300 cursor-pointer"
+    >
+      Get Started
+    </Button>
+  </Link>
+  <Link href="/#events" passHref>
+    <Button
+      size="lg"
+      className="bg-black text-white hover:bg-yellow-500 transition-colors duration-300 cursor-pointer"
+    >
+      Learn More
+    </Button>
+  </Link>
+</div>
+
           </div>
 
 
