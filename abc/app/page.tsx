@@ -40,16 +40,17 @@ export default function Home() {
           <ImageTextCard />
 
           <Footer />
-          <div className="fixed bottom-[-20] right-[-10] flex items-center space-x-2">
-  <div className="w-52 h-52 relative"> 
+          <div className="fixed bottom-[-20px] right-[-10px] flex items-center space-x-2 z-[9999]">
+  <div className="w-52 h-52 relative">
     <Image
       src="/header/ABC.png"
       alt="ABC Spirit Animal"
       fill
-      className="object-contain" 
+      className="object-contain"
     />
   </div>
 </div>
+
 
       </main>
     </div>
