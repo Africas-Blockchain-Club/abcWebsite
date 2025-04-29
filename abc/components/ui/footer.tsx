@@ -4,7 +4,7 @@ import { Mail, X, Github, Linkedin, Send } from "lucide-react";
 
 const Footer = () => {
   return (
-    <div className=" mt-20">
+    <div className="relative mt-20">
       {/* WE MOVE text positioned between sections */}
       <div className="absolute -top-[6.4rem] left-0 w-full text-center">
       <h1 className="text-[8rem] md:text-[12rem] lg:text-[15rem] font-extrabold tracking-tighter leading-none whitespace-nowrap 
