@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <div className="relative overflow-hidden px-40 py-4">
       <div className="relative max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2  items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
           {/* Text Section */}
           <div className="text-center lg:text-left " style={{ transform: "translateX(-80px)" }}>
