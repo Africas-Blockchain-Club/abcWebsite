@@ -38,7 +38,7 @@ export default function PageWithModals() {
       <CodeModal />
 
       {/* Cards grid */}
-      <div className="flex gap-8 flex-wrap justify-center p-16 z-10 relative">
+      <div className="flex gap-8 justify-center p-16 z-10 relative">
         {imageCards.map((card, idx) => (
           <div key={idx} onClick={() => openCardModal(card)}>
             <img src={card.imageSrc} alt={card.title} className="w-[200px] h-[120px] object-cover rounded-lg cursor-pointer" />
