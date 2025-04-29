@@ -36,7 +36,7 @@ export default function Hero() {
       Get Started
     </Button>
   </Link>
-  <Link href="/#events" passHref>
+  <Link href="/#" passHref>
     <Button
       size="lg"
       className="bg-black text-white hover:bg-yellow-500 transition-transform duration-500 hover:scale-105 animate-pulse cursor-pointer"
