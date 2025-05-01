@@ -1,6 +1,9 @@
 "use client";
 
-import { Mail, X, Github, Linkedin, Send } from "lucide-react";
+import { Mail, X, Github, Linkedin, Send, Facebook, Instagram, Twitter } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   return (
@@ -15,50 +18,138 @@ const Footer = () => {
       </div>
 
       {/* Footer */}
-      <footer className="relative bg-yellow-400 text-black px-6 sm:px-10 pt-36 pb-10 border-t-2 border-black">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* Contact */}
-          <div className="flex items-center gap-4 text-lg font-medium group">
-            <Mail className="w-6 h-6" />
-            <span className="relative inline-block after:absolute after:left-0 after:bottom-0 after:w-0 after:h-0.5 after:bg-black after:transition-all after:duration-300 group-hover:after:w-full">
-              contact@abcplatform.io
-            </span>
+      <footer className="relative bg-gray-900 text-white px-4 pt-36 pb-10">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <Image
+                  src="/About/AbcmapLogo.png"
+                  alt="Africa Blockchain Club"
+                  width={40}
+                  height={40}
+                  className="object-contain"
+                />
+                <span className="font-bold text-xl">ABC</span>
+              </div>
+              <p className="text-gray-400 mb-4">Empowering Africa through blockchain innovation and education.</p>
+              <div className="flex gap-4">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full h-8 w-8 text-gray-400 hover:text-teal-400 hover:bg-gray-800"
+                >
+                  <Twitter className="h-4 w-4" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full h-8 w-8 text-gray-400 hover:text-teal-400 hover:bg-gray-800"
+                >
+                  <Facebook className="h-4 w-4" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full h-8 w-8 text-gray-400 hover:text-teal-400 hover:bg-gray-800"
+                >
+                  <Instagram className="h-4 w-4" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full h-8 w-8 text-gray-400 hover:text-teal-400 hover:bg-gray-800"
+                >
+                  <Linkedin className="h-4 w-4" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full h-8 w-8 text-gray-400 hover:text-teal-400 hover:bg-gray-800"
+                >
+                  <Github className="h-4 w-4" />
+                </Button>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-lg mb-4">Quick Links</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/" className="text-gray-400 hover:text-teal-400 transition-colors">
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#about" className="text-gray-400 hover:text-teal-400 transition-colors">
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#projects" className="text-gray-400 hover:text-teal-400 transition-colors">
+                    Projects
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#team" className="text-gray-400 hover:text-teal-400 transition-colors">
+                    Team
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="text-gray-400 hover:text-teal-400 transition-colors">
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-lg mb-4">Resources</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
+                    Blog
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
+                    Tutorials
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
+                    Documentation
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
+                    Events
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
+                    FAQs
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-lg mb-4">Subscribe</h3>
+              <p className="text-gray-400 mb-4">Stay updated with our latest news and events.</p>
+              <div className="flex gap-2">
+                <input
+                  type="email"
+                  placeholder="Your email"
+                  className="bg-gray-800 border border-gray-700 text-white rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent w-full"
+                />
+                <Button className="bg-teal-600 text-white hover:bg-teal-700">Subscribe</Button>
+              </div>
+            </div>
           </div>
 
-          {/* Socials */}
-          <div className="flex gap-6">
-            <a
-              href="https://x.com/africasblock"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:scale-110 transition-transform duration-300"
-            >
-              <X className="w-6 h-6 hover:text-white transition-colors" />
-            </a>
-            <a
-              href="https://github.com/Africas-Blockchain-Club"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:scale-110 transition-transform duration-300"
-            >
-              <Github className="w-6 h-6 hover:text-white transition-colors" />
-            </a>
-            <a
-              href="https://www.linkedin.com/company/africa-s-blockchain-club/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:scale-110 transition-transform duration-300"
-            >
-              <Linkedin className="w-6 h-6 hover:text-white transition-colors" />
-            </a>
-            <a
-              href="https://x.com/africasblock"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:scale-110 transition-transform duration-300"
-            >
-              <Send className="w-6 h-6 hover:text-white transition-colors" />
-            </a>
+          <div className="border-t border-gray-800 mt-12 pt-6 text-center text-gray-400 text-sm">
+            <p>© {new Date().getFullYear()} Africa Blockchain Club. All rights reserved.</p>
           </div>
         </div>
       </footer>
