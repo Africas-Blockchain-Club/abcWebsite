@@ -23,6 +23,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
+                
                 <Image
                   src="/About/AbcmapLogo.png"
                   alt="Africa Blockchain Club"
