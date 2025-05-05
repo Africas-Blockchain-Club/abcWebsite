@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { navItems } from "@/data";
-import { FloatingNav } from "@/components/ui/FloatingNavbar";
 import Learn from "@/components/ui/EducationalResourcesSection";
 import Collaborate from "@/components/ui/Collaborate"; 
 import Team from "@/components/Team";
@@ -16,13 +15,9 @@ import { aboutImages } from "@/data";
 export default function Home() {
   return (
     <div className="relative">
-      <main className="relative z-0" style={{ background: "#1f2937" }}>
-        {/* Circle Background + Stronger Fade */}
-        <div className="absolute top-[9.5%] left-1/2 w-[80vw] h-[80vw] bg-yellow-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 z-0 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#1B1B1B00] via-[#1B1B1B99] to-[#1B1B1B]" />
-        </div>
+      <main className="relative z-0" style={{ background: "#1B1B1B" }}>
+        
         {/* Floating Nav stays on top */}
-        <FloatingNav navItems={navItems} />
 
           <Hero />
           <Team />
