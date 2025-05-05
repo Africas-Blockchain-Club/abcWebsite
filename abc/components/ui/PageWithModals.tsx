@@ -21,7 +21,7 @@ export default function CodeModal({ onClose }: CodeModalProps) {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm z-50">
-      <div className="relative bg-gray-900 text-white p-8 rounded-xl max-w-xl w-full shadow-lg border border-yellow-500/20">
+      <div className=" bg-gray-900 text-white p-8 rounded-xl max-w-xl w-full shadow-lg border border-yellow-500/20">
         {/* Close Button */}
         <button
           onClick={onClose}
