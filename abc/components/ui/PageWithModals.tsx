@@ -15,7 +15,7 @@ export default function CodeModal({ onClose }: CodeModalProps) {
       }
     };
 
-    window.("keydown", handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [onClose]);
 
