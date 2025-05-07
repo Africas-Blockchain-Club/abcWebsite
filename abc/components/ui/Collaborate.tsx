@@ -111,7 +111,6 @@ const Collaborate: React.FC = () => {
       {/* Main container */}
       <div className={`w-full flex flex-col items-center justify-center transition-all duration-700 
         ${showForm ? "mt-10" : "mt-[25vh]"}`}>
-                <ParticleBackground /> 
 
 
         {/* Header and subtitle */}
@@ -134,6 +133,8 @@ const Collaborate: React.FC = () => {
           {/* Glow backdrop - centered */}
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 pointer-events-none w-[610px] h-[450px]">
             <div className="w-full h-full bg-yellow-500 opacity-80 blur-[100px] rounded-2xl shadow-[0_0_300px_180px_rgba(234,179,8,0.75)]" />
+            <ParticleBackground /> 
+
           </div>
 
           {/* Buttons - centered with the glow */}

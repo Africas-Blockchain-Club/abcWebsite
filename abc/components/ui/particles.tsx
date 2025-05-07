@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react"
 
-export default function ExpansiveNetworkBackground({ className = "" }: { className?: string }) {
+export default function BlockchainNetwork({ className = "" }: { className?: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
@@ -14,129 +14,65 @@ export default function ExpansiveNetworkBackground({ className = "" }: { classNa
 
     let animationFrameId: number
 
-    // Set canvas to cover entire viewport
+    // Set canvas dimensions to match parent container
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
+      canvas.width = canvas.clientWidth
+      canvas.height = canvas.clientHeight
     }
 
-    // Color palette with modern tech colors
-    const colors = ["#3b82f6", "#8b5cf6", "#ec4899", "#10b981", "#f59e0b"]
-    
-    // Create more nodes for expansive feel
-    const nodeCount = Math.min(80, Math.max(40, Math.floor(window.innerWidth / 15)))
-    const nodes = Array.from({ length: nodeCount }, (_, i) => {
-      const isHub = i % 7 === 0 // Hub nodes
-      return {
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: isHub ? Math.random() * 6 + 6 : Math.random() * 4 + 2,
-        color: isHub ? colors[Math.floor(Math.random() * colors.length)] : "#64748b",
-        vx: (Math.random() - 0.5) * 1.2,
-        vy: (Math.random() - 0.5) * 1.2,
-        connections: [] as number[],
-        pulse: Math.random() * Math.PI * 2,
-        isHub,
-      }
-    })
-
-    // Create meaningful connections
-    nodes.forEach((node, i) => {
-      // Hubs connect to more nodes
-      const connectionCount = node.isHub ? 
-        Math.floor(Math.random() * 5) + 5 : 
-        Math.floor(Math.random() * 3) + 2
-        
-      for (let j = 0; j < connectionCount; j++) {
-        // Prefer connecting to hubs
-        const target = node.isHub ? 
-          Math.floor(Math.random() * nodes.length) :
-          nodes.findIndex(n => n.isHub && n !== node) > -1 ? 
-            nodes.findIndex(n => n.isHub && n !== node) :
-            Math.floor(Math.random() * nodes.length)
-            
-        if (target !== i && !node.connections.includes(target)) {
-          node.connections.push(target)
-          // Make it bidirectional
-          if (!nodes[target].connections.includes(i)) {
-            nodes[target].connections.push(i)
-          }
-        }
-      }
-    })
+    // Create nodes - all black with slight variations
+    const nodeCount = 30
+    const nodes = Array.from({ length: nodeCount }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 3 + 2,
+      color: "#000000", // Pure black
+      vx: (Math.random() - 0.5) * 0.8,
+      vy: (Math.random() - 0.5) * 0.8,
+      pulse: Math.random() * Math.PI * 2,
+    }))
 
     // Animation loop
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
-      
-      // Draw connections with depth effect
-      nodes.forEach((node, i) => {
-        node.connections.forEach((targetIndex) => {
-          const target = nodes[targetIndex]
-          const dx = node.x - target.x
-          const dy = node.y - target.y
+
+      // Draw connections first (behind nodes)
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[i].x - nodes[j].x
+          const dy = nodes[i].y - nodes[j].y
           const distance = Math.sqrt(dx * dx + dy * dy)
-          
-          if (distance < 300) { // Increased connection range
-            const alpha = node.isHub || target.isHub ? 
-              0.4 - distance/800 : 
-              0.2 - distance/1000
-            
+
+          if (distance < 120) {
             ctx.beginPath()
-            ctx.moveTo(node.x, node.y)
-            ctx.lineTo(target.x, target.y)
-            ctx.strokeStyle = `rgba(100, 116, 139, ${alpha})`
-            ctx.lineWidth = node.isHub || target.isHub ? 1.2 : 0.6
+            ctx.moveTo(nodes[i].x, nodes[i].y)
+            ctx.lineTo(nodes[j].x, nodes[j].y)
+            ctx.strokeStyle = `rgba(0, 0, 0, ${0.3 - distance / 400})`
+            ctx.lineWidth = 0.7
             ctx.stroke()
           }
-        })
-      })
+        }
+      }
 
       // Update and draw nodes
       nodes.forEach((node) => {
-        // Update position with fluid movement
+        // Update position
         node.x += node.vx
         node.y += node.vy
-        
-        // Elastic boundary with momentum preservation
-        const bounceFactor = 0.7
-        if (node.x < 0) {
-          node.x = 0
-          node.vx *= -bounceFactor
-        } else if (node.x > canvas.width) {
-          node.x = canvas.width
-          node.vx *= -bounceFactor
-        }
-        if (node.y < 0) {
-          node.y = 0
-          node.vy *= -bounceFactor
-        } else if (node.y > canvas.height) {
-          node.y = canvas.height
-          node.vy *= -bounceFactor
-        }
-        
-        // Pulsing effect for hub nodes
-        node.pulse += 0.03
-        const pulseFactor = node.isHub ? 
-          Math.sin(node.pulse) * 0.3 + 1 : 1
 
-        // Glow effect for hubs
-        if (node.isHub) {
-          ctx.beginPath()
-          ctx.arc(node.x, node.y, node.radius * pulseFactor * 2, 0, Math.PI * 2)
-          const gradient = ctx.createRadialGradient(
-            node.x, node.y, node.radius * pulseFactor,
-            node.x, node.y, node.radius * pulseFactor * 2
-          )
-          gradient.addColorStop(0, `${node.color}60`)
-          gradient.addColorStop(1, `${node.color}00`)
-          ctx.fillStyle = gradient
-          ctx.fill()
-        }
-        
-        // Main node body
+        // Bounce off edges
+        if (node.x < 0 || node.x > canvas.width) node.vx *= -1
+        if (node.y < 0 || node.y > canvas.height) node.vy *= -1
+
+        // Subtle pulsing effect
+        node.pulse += 0.02
+        const pulseFactor = Math.sin(node.pulse) * 0.1 + 1
+
+        // Draw node with slight highlight for depth
         ctx.beginPath()
         ctx.arc(node.x, node.y, node.radius * pulseFactor, 0, Math.PI * 2)
+        
+        // Create gradient for subtle highlight
         const gradient = ctx.createRadialGradient(
           node.x - node.radius * 0.3,
           node.y - node.radius * 0.3,
@@ -145,8 +81,9 @@ export default function ExpansiveNetworkBackground({ className = "" }: { classNa
           node.y,
           node.radius * pulseFactor
         )
-        gradient.addColorStop(0, node.isHub ? "white" : "#e2e8f0")
+        gradient.addColorStop(0, "rgba(80, 80, 80, 0.8)")
         gradient.addColorStop(1, node.color)
+        
         ctx.fillStyle = gradient
         ctx.fill()
       })
@@ -154,18 +91,12 @@ export default function ExpansiveNetworkBackground({ className = "" }: { classNa
       animationFrameId = requestAnimationFrame(animate)
     }
 
-    // Handle window resize
-    const handleResize = () => {
-      resizeCanvas()
-      // Don't recreate nodes on resize to maintain connections
-    }
-
-    window.addEventListener("resize", handleResize)
+    window.addEventListener("resize", resizeCanvas)
     resizeCanvas()
     animate()
 
     return () => {
-      window.removeEventListener("resize", handleResize)
+      window.removeEventListener("resize", resizeCanvas)
       cancelAnimationFrame(animationFrameId)
     }
   }, [])
@@ -173,9 +104,13 @@ export default function ExpansiveNetworkBackground({ className = "" }: { classNa
   return (
     <canvas 
       ref={canvasRef} 
-      className={`fixed top-0 left-0 w-full h-full -z-10 opacity-30 ${className}`}
+      className={`absolute inset-0 w-full h-full ${className}`}
       style={{
-        position: 'fixed',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: '610px',
+        height: '450px',
         pointerEvents: 'none',
       }}
     />
