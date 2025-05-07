@@ -20,7 +20,7 @@ export const FloatingNav = ({
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 100); // Activate floating after 100px scroll
+      setScrolled(window.scrollY > 100);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -30,9 +30,9 @@ export const FloatingNav = ({
   return (
     <nav
       className={cn(
-        "fixed z-[5000] w-full px-8 py-5 transition-all duration-500", // Increased padding
+        "fixed z-[5000] w-full px-8 py-3 transition-all duration-500",
         scrolled
-          ? "top-6 mx-auto w-fit rounded-xl shadow-md border border-white/20 backdrop-blur-lg" // Larger rounded corners
+          ? "top-6 mx-auto w-fit rounded-xl shadow-md border border-white/20 backdrop-blur-lg"
           : "top-0 border-b border-white/10 backdrop-blur-sm",
         className
       )}
@@ -41,38 +41,36 @@ export const FloatingNav = ({
         transform: scrolled ? "translateX(-50%)" : "none",
       }}
     >
-      <div className="flex items-center justify-between w-full">
-        {/* Logo - only visible when not scrolled */}
-        {!scrolled && (
-          <div className="flex items-center">
-            <Link href="/" className="mr-8"> {/* Increased margin */}
-              <Image
-                src="/header/ABC.png"
-                alt="ABC Logo"
-                width={60} // Increased size
-                height={60} // Increased size
-                className="object-contain"
-              />
-            </Link>
-          </div>
-        )}
-
-        {/* Center nav items - now larger */}
-        <div className="flex items-center justify-center space-x-8"> {/* Increased gap */}
+      <div className={cn(
+        "flex items-center w-full",
+        scrolled ? "justify-center" : "justify-end"
+      )}>
+        {/* Navigation items - right aligned when regular, centered when floating */}
+        <div className="flex items-center space-x-8">
           {navItems.map((navItem, idx) => (
             <Link
               key={`nav-${idx}`}
               href={navItem.link}
-              className="flex items-center space-x-2 text-lg font-semibold text-white hover:text-neutral-300 transition" // Larger text
+              className="flex items-center space-x-2 text-sm font-semibold text-white hover:text-neutral-300 transition"
             >
-              {navItem.icon && <span className="text-xl">{navItem.icon}</span>} {/* Larger icon */}
+              {navItem.icon && <span className="text-sm">{navItem.icon}</span>}
               <span>{navItem.name}</span>
             </Link>
           ))}
+          
+          {/* Logo - only visible when not scrolled and positioned after nav items */}
+          {!scrolled && (
+            <Link href="/" className="flex items-center ml-8">
+              <Image
+                src="/About/whiteABC.png"
+                alt="ABC Logo"
+                width={60}
+                height={60}
+                className="object-contain"
+              />
+            </Link>
+          )}
         </div>
-
-        {/* Right side spacer to balance the layout when not scrolled */}
-        {!scrolled && <div className="flex-1" />}
       </div>
     </nav>
   );
