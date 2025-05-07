@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { imageCards } from "@/data";
 import { useState, useRef, MouseEvent } from "react";
-import ImageTextCardPopUp from "./ImageTextCardPopUp"; // Modal component
+import ImageTextCardPopUp from "./ImageTextCardPopUp";
 
 // Card data interface
 interface CardData {

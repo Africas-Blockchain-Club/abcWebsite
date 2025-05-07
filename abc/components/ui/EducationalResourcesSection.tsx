@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { contactUsData } from "@/data";
 import { BookOpen, Video, Code } from "lucide-react";
+import CodeMakeUp from "@/components/ui/CodeModal";
 
 const iconMap = {
   BookOpen: BookOpen,
@@ -23,7 +24,7 @@ const EducationalResourcesSection = () => {
       <div className="h-[100vh]" />
 
       <div
-        className="w-full max-w-[240rem] border-[0.5px] border-yellow-400 rounded-[12px] flex flex-col gap-10"
+        className="relative w-full max-w-[240rem] border border-yellow-400 rounded-[12px] flex flex-col gap-10 overflow-hidden"
         style={{
           background: "linear-gradient(135deg, #2d2d2d, #1c1c1c, #1e3a8a)",
           boxShadow: "inset 0 0 74px 2px #facc15",
@@ -33,21 +34,24 @@ const EducationalResourcesSection = () => {
           padding: "90px 104px 104px",
         }}
       >
-        <div className="relative w-full max-w-[240rem]">
+        {/* Code Background Inside the Modal */}
+        <div className="absolute inset-0 z-0 opacity-10 pointer-events-none select-none">
+          <CodeMakeUp />
+        </div>
+
+        <div className="relative w-full max-w-[240rem] z-10">
           <img
             src="/b5.svg"
             alt="Background"
             className="absolute top-[-25px] left-[-65px] w-[300px] opacity-30 pointer-events-none select-none"
-            style={{ zIndex: 0 }}
           />
-          <div className="relative z-10" />
         </div>
 
-        <h2 className="text-6xl font-semibold mb-16 bg-white text-transparent bg-clip-text">
+        <h2 className="relative z-10 text-6xl font-semibold mb-16 bg-white text-transparent bg-clip-text">
           Educational Resources
         </h2>
 
-        <div className="flex w-full gap-10 justify-center">
+        <div className="relative z-10 flex w-full gap-10 justify-center">
           {contactUsData.map((item, index) => {
             const isHovered = hoveredIndex === index;
             const isOtherHovered = hoveredIndex !== null && hoveredIndex !== index;

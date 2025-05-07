@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import CodeModal from "./CodeModal";  // <-- import CodeModal
+import CodeModal from "./CodeModal"; 
 
 interface CardData {
   title: string;
