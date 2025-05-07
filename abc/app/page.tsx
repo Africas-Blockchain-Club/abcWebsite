@@ -15,7 +15,7 @@ import { aboutImages } from "@/data";
 export default function Home() {
   return (
     <div className="relative">
-      <main className="relative z-0" style={{ background: "#1B1B1B" }}>
+      <main className="relative z-0" style={{ background: "#2B2B2B" }}>
         
         {/* Floating Nav stays on top */}
 
