@@ -1,129 +1,137 @@
-import React, { useRef, useEffect, useState } from 'react';
+"use client";
+import React, { useRef, useEffect } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
-import { EffectComposer, DepthOfField, Bloom } from '@react-three/postprocessing';
 
-// Enhanced Particle component
-const Particle = ({ position }: { position: THREE.Vector3 }) => {
-  const meshRef = useRef<THREE.Mesh>(null);
-  const materialRef = useRef<THREE.MeshBasicMaterial>(null);
-  
-  // Store original position for smooth animation
-  const originalPosition = useRef(position.clone());
-  
-  // Smoother animation loop
-  useFrame(({ clock }) => {
-    if (meshRef.current) {
-      const time = clock.getElapsedTime();
-      
-      // Smoother floating animation with easing
-      meshRef.current.position.x = originalPosition.current.x + Math.cos(time * 0.2 + originalPosition.current.z) * 1.5;
-      meshRef.current.position.y = originalPosition.current.y + Math.sin(time * 0.25 + originalPosition.current.x) * 1.5;
-      meshRef.current.position.z = originalPosition.current.z + Math.sin(time * 0.15 + originalPosition.current.y) * 1.5;
-      
-      // Subtle pulsing with smoother transitions
-      const scale = 1.2 + Math.sin(time * 1.5) * 0.3;
-      meshRef.current.scale.set(scale, scale, scale);
-      
-      // Gentle opacity variation
-      if (materialRef.current) {
-        materialRef.current.opacity = 0.7 + Math.sin(time * 0.5) * 0.2;
-      }
-    }
-  });
-
+const ParticleNetwork = () => {
   return (
-    <mesh ref={meshRef} position={position}>
-      <circleGeometry args={[0.3, 32]} /> {/* Larger circle geometry */}
-      <meshBasicMaterial 
-        ref={materialRef}
-        color="#00a8ff" 
-        transparent 
-        opacity={0.8}
-        depthWrite={false} // Better for background elements
-      />
-    </mesh>
+    <div className="fixed inset-0 -z-10 bg-[#0f0c29]">
+      <Canvas camera={{ position: [0, 0, 25], fov: 60 }} gl={{ antialias: true }}>
+        <color attach="background" args={["#0f0c29"]} />
+        <ambientLight intensity={0.5} />
+        <ConnectedParticles count={40} /> {/* Optimal number for 3 connections each */}
+      </Canvas>
+    </div>
   );
 };
 
-// Enhanced Particle System
-const ParticleSystem = ({ count = 120 }: { count?: number }) => {
-  const particles = useRef<THREE.Vector3[]>([]);
-  
-  // Initialize particles with more spread
+const ConnectedParticles = ({ count = 40 }) => {
+  const particles = useRef<THREE.Mesh[]>([]);
+  const lines = useRef<{line: THREE.Line, startIdx: number, endIdx: number}[]>([]);
+  const { scene } = useThree();
+
+  // Initialize connections
   useEffect(() => {
-    particles.current = Array.from({ length: count }, () => {
-      return new THREE.Vector3(
-        (Math.random() - 0.5) * 20, // Wider spread
-        (Math.random() - 0.5) * 20,
-        (Math.random() - 0.5) * 20
-      );
+    // Create initial connections (3 per particle)
+    const connections = new Map<number, number[]>();
+    
+    // First create a basic connected graph
+    for (let i = 0; i < count; i++) {
+      if (!connections.has(i)) connections.set(i, []);
+      
+      // Connect to next 3 particles (with wrap-around)
+      for (let j = 1; j <= 3; j++) {
+        const target = (i + j) % count;
+        if (!connections.get(i)?.includes(target) && !connections.get(target)?.includes(i)) {
+          connections.get(i)?.push(target);
+        }
+      }
+    }
+
+    // Create Three.js lines for connections
+    lines.current.forEach(l => scene.remove(l.line));
+    lines.current = [];
+
+    connections.forEach((targets, i) => {
+      targets.forEach(targetIdx => {
+        if (particles.current[i] && particles.current[targetIdx]) {
+          const startPos = new THREE.Vector3();
+          const endPos = new THREE.Vector3();
+          
+          particles.current[i].getWorldPosition(startPos);
+          particles.current[targetIdx].getWorldPosition(endPos);
+          
+          const geometry = new THREE.BufferGeometry().setFromPoints([startPos, endPos]);
+          const material = new THREE.LineBasicMaterial({
+            color: '#3b82f6',
+            transparent: true,
+            opacity: 0.3
+          });
+          
+          const line = new THREE.Line(geometry, material);
+          scene.add(line);
+          lines.current.push({ line, startIdx: i, endIdx: targetIdx });
+        }
+      });
     });
-  }, [count]);
-  
+
+    return () => {
+      lines.current.forEach(l => scene.remove(l.line));
+    };
+  }, [count, scene]);
+
   return (
     <>
-      {particles.current.map((pos, i) => (
-        <Particle key={i} position={pos} />
-      ))}
+      {Array.from({ length: count }).map((_, i) => {
+        // Position particles in a spherical distribution
+        const phi = Math.acos(-1 + (2 * i) / count);
+        const theta = Math.sqrt(count * Math.PI) * phi;
+        const radius = 12;
+        
+        const x = radius * Math.sin(phi) * Math.cos(theta);
+        const y = radius * Math.sin(phi) * Math.sin(theta);
+        const z = radius * Math.cos(phi);
+
+        return (
+          <ParticleNode
+            key={i}
+            position={[x, y, z]}
+            ref={(el: THREE.Mesh) => (particles.current[i] = el)}
+            index={i}
+          />
+        );
+      })}
     </>
   );
 };
 
-// Main component with enhanced effects
-const ParticleBackground = () => {
-  const [focusPoint, setFocusPoint] = useState([0, 0, 5]);
-  const { camera } = useThree();
+const ParticleNode = React.forwardRef<THREE.Mesh, {
+  position: [number, number, number];
+  index: number;
+}>(({ position, index }, ref) => {
+  const meshRef = useRef<THREE.Mesh>(null);
+  const originalPos = useRef(new THREE.Vector3(...position));
+  const materialRef = useRef<THREE.MeshBasicMaterial>(null);
   
-  // Smoother focus point transition
-  useFrame(({ clock }) => {
-    const time = clock.getElapsedTime();
-    if (time % 8 < 0.1) {
-      setFocusPoint([
-        (Math.random() - 0.5) * 10,
-        (Math.random() - 0.5) * 10,
-        5 + (Math.random() - 0.5) * 5
-      ]);
-    }
-  });
-  
-  return (
-    <EffectComposer>
-      <DepthOfField
-        focusDistance={0.1}
-        focalLength={0.05} // More subtle blur
-        bokehScale={3}
-        target={new THREE.Vector3(...focusPoint)}
-      />
-      <Bloom
-        luminanceThreshold={0.1} // More sensitive to brightness
-        luminanceSmoothing={1.2} // Smoother bloom
-        intensity={2} // Stronger glow
-      />
-      <ParticleSystem count={150} />
-    </EffectComposer>
-  );
-};
+  React.useImperativeHandle(ref, () => meshRef.current!);
 
-// Scene setup optimized for background
-export const FloatingParticleBackground = () => {
+  useFrame(({ clock }) => {
+    if (!meshRef.current) return;
+    
+    const time = clock.getElapsedTime();
+    const offset = index * 100;
+    
+    // Organic floating motion
+    meshRef.current.position.x = originalPos.current.x + Math.sin(time * 0.12 + offset) * 1.5;
+    meshRef.current.position.y = originalPos.current.y + Math.cos(time * 0.15 + offset) * 1.5;
+    meshRef.current.position.z = originalPos.current.z + Math.sin(time * 0.1 + offset * 1.2) * 1.5;
+    
+    // Subtle pulsing
+    const scale = 0.6 + Math.sin(time * 0.8 + offset) * 0.1;
+    meshRef.current.scale.set(scale, scale, scale);
+  });
+
   return (
-    <Canvas 
-      camera={{ position: [0, 0, 25], fov: 60 }}
-      gl={{ antialias: true, alpha: true }}
-      style={{ 
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100vw',
-        height: '100vh',
-        zIndex: -1, // Ensure it stays in background
-        background: 'linear-gradient(to bottom, #0f0c29, #302b63, #24243e)'
-      }}
-    >
-      <ambientLight intensity={0.8} />
-      <pointLight position={[15, 15, 15]} intensity={1.5} />
-      <ParticleBackground />
-    </Canvas>
+    <mesh ref={meshRef} position={originalPos.current}>
+      <sphereGeometry args={[0.2, 16, 16]} /> {/* Slightly larger for visibility */}
+      <meshBasicMaterial
+        ref={materialRef}
+        color="#60a5fa"
+        transparent
+        opacity={0.9}
+      />
+    </mesh>
   );
-};
+});
+
+export default ParticleNetwork;

@@ -2,7 +2,9 @@
 
 import React, { useState } from "react";
 import { forms } from "@/data/index";
-import { FloatingParticleBackground } from "./particles"; // Import the enhanced version
+import ParticleBackground from "./particles"; 
+import BlockchainNetwork from '@/components/ui/blockchain-network';
+
 
 
 // Define interfaces for state and props if needed, and for complex objects
@@ -107,7 +109,7 @@ const Collaborate: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-start text-white p-4 sm:p-10 transition-all duration-700">
       {/* Main container */}
-      <FloatingParticleBackground /> 
+      <ParticleBackground /> 
       <div className={`w-full flex flex-col items-center justify-center transition-all duration-700 
         ${showForm ? "mt-10" : "mt-[25vh]"}`}>
 
