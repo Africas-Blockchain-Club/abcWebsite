@@ -7,7 +7,6 @@ import BlockchainNetwork from '@/components/ui/blockchain-network';
 
 
 
-// Define interfaces for state and props if needed, and for complex objects
 interface AlertState {
   message: string;
   type: 'success' | 'error' | ''; // More specific type
@@ -133,8 +132,7 @@ const Collaborate: React.FC = () => {
           {/* Glow backdrop - centered */}
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 pointer-events-none w-[610px] h-[450px]">
             <div className="w-full h-full bg-yellow-500 opacity-80 blur-[100px] rounded-2xl shadow-[0_0_300px_180px_rgba(234,179,8,0.75)]" />
-            <ParticleBackground /> 
-
+            <ParticleBackground className="mx-auto" />
           </div>
 
           {/* Buttons - centered with the glow */}
