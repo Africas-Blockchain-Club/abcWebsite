@@ -85,7 +85,7 @@ export default function BlockchainCodeRain({ className = "" }: { className?: str
         }
 
         // Background of code block
-        ctx.fillStyle = "rgba(40, 44, 52, 0.85)";
+        ctx.fillStyle = "rgba(10, 230, 36, 0.85)";
         ctx.fillRect(block.x, block.y, block.width, block.height);
 
         // Code lines
