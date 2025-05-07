@@ -1,137 +1,183 @@
-"use client";
-import React, { useRef, useEffect } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import * as THREE from 'three';
+"use client"
 
-const ParticleNetwork = () => {
-  return (
-    <div className="fixed inset-0 -z-10 bg-[#0f0c29]">
-      <Canvas camera={{ position: [0, 0, 25], fov: 60 }} gl={{ antialias: true }}>
-        <color attach="background" args={["#0f0c29"]} />
-        <ambientLight intensity={0.5} />
-        <ConnectedParticles count={40} /> {/* Optimal number for 3 connections each */}
-      </Canvas>
-    </div>
-  );
-};
+import { useEffect, useRef } from "react"
 
-const ConnectedParticles = ({ count = 40 }) => {
-  const particles = useRef<THREE.Mesh[]>([]);
-  const lines = useRef<{line: THREE.Line, startIdx: number, endIdx: number}[]>([]);
-  const { scene } = useThree();
+export default function ExpansiveNetworkBackground({ className = "" }: { className?: string }) {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
 
-  // Initialize connections
   useEffect(() => {
-    // Create initial connections (3 per particle)
-    const connections = new Map<number, number[]>();
-    
-    // First create a basic connected graph
-    for (let i = 0; i < count; i++) {
-      if (!connections.has(i)) connections.set(i, []);
-      
-      // Connect to next 3 particles (with wrap-around)
-      for (let j = 1; j <= 3; j++) {
-        const target = (i + j) % count;
-        if (!connections.get(i)?.includes(target) && !connections.get(target)?.includes(i)) {
-          connections.get(i)?.push(target);
-        }
-      }
+    const canvas = canvasRef.current
+    if (!canvas) return
+
+    const ctx = canvas.getContext("2d")
+    if (!ctx) return
+
+    let animationFrameId: number
+
+    // Set canvas to cover entire viewport
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
     }
 
-    // Create Three.js lines for connections
-    lines.current.forEach(l => scene.remove(l.line));
-    lines.current = [];
+    // Color palette with modern tech colors
+    const colors = ["#3b82f6", "#8b5cf6", "#ec4899", "#10b981", "#f59e0b"]
+    
+    // Create more nodes for expansive feel
+    const nodeCount = Math.min(80, Math.max(40, Math.floor(window.innerWidth / 15)))
+    const nodes = Array.from({ length: nodeCount }, (_, i) => {
+      const isHub = i % 7 === 0 // Hub nodes
+      return {
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: isHub ? Math.random() * 6 + 6 : Math.random() * 4 + 2,
+        color: isHub ? colors[Math.floor(Math.random() * colors.length)] : "#64748b",
+        vx: (Math.random() - 0.5) * 1.2,
+        vy: (Math.random() - 0.5) * 1.2,
+        connections: [] as number[],
+        pulse: Math.random() * Math.PI * 2,
+        isHub,
+      }
+    })
 
-    connections.forEach((targets, i) => {
-      targets.forEach(targetIdx => {
-        if (particles.current[i] && particles.current[targetIdx]) {
-          const startPos = new THREE.Vector3();
-          const endPos = new THREE.Vector3();
-          
-          particles.current[i].getWorldPosition(startPos);
-          particles.current[targetIdx].getWorldPosition(endPos);
-          
-          const geometry = new THREE.BufferGeometry().setFromPoints([startPos, endPos]);
-          const material = new THREE.LineBasicMaterial({
-            color: '#3b82f6',
-            transparent: true,
-            opacity: 0.3
-          });
-          
-          const line = new THREE.Line(geometry, material);
-          scene.add(line);
-          lines.current.push({ line, startIdx: i, endIdx: targetIdx });
+    // Create meaningful connections
+    nodes.forEach((node, i) => {
+      // Hubs connect to more nodes
+      const connectionCount = node.isHub ? 
+        Math.floor(Math.random() * 5) + 5 : 
+        Math.floor(Math.random() * 3) + 2
+        
+      for (let j = 0; j < connectionCount; j++) {
+        // Prefer connecting to hubs
+        const target = node.isHub ? 
+          Math.floor(Math.random() * nodes.length) :
+          nodes.findIndex(n => n.isHub && n !== node) > -1 ? 
+            nodes.findIndex(n => n.isHub && n !== node) :
+            Math.floor(Math.random() * nodes.length)
+            
+        if (target !== i && !node.connections.includes(target)) {
+          node.connections.push(target)
+          // Make it bidirectional
+          if (!nodes[target].connections.includes(i)) {
+            nodes[target].connections.push(i)
+          }
         }
-      });
-    });
+      }
+    })
+
+    // Animation loop
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      
+      // Draw connections with depth effect
+      nodes.forEach((node, i) => {
+        node.connections.forEach((targetIndex) => {
+          const target = nodes[targetIndex]
+          const dx = node.x - target.x
+          const dy = node.y - target.y
+          const distance = Math.sqrt(dx * dx + dy * dy)
+          
+          if (distance < 300) { // Increased connection range
+            const alpha = node.isHub || target.isHub ? 
+              0.4 - distance/800 : 
+              0.2 - distance/1000
+            
+            ctx.beginPath()
+            ctx.moveTo(node.x, node.y)
+            ctx.lineTo(target.x, target.y)
+            ctx.strokeStyle = `rgba(100, 116, 139, ${alpha})`
+            ctx.lineWidth = node.isHub || target.isHub ? 1.2 : 0.6
+            ctx.stroke()
+          }
+        })
+      })
+
+      // Update and draw nodes
+      nodes.forEach((node) => {
+        // Update position with fluid movement
+        node.x += node.vx
+        node.y += node.vy
+        
+        // Elastic boundary with momentum preservation
+        const bounceFactor = 0.7
+        if (node.x < 0) {
+          node.x = 0
+          node.vx *= -bounceFactor
+        } else if (node.x > canvas.width) {
+          node.x = canvas.width
+          node.vx *= -bounceFactor
+        }
+        if (node.y < 0) {
+          node.y = 0
+          node.vy *= -bounceFactor
+        } else if (node.y > canvas.height) {
+          node.y = canvas.height
+          node.vy *= -bounceFactor
+        }
+        
+        // Pulsing effect for hub nodes
+        node.pulse += 0.03
+        const pulseFactor = node.isHub ? 
+          Math.sin(node.pulse) * 0.3 + 1 : 1
+
+        // Glow effect for hubs
+        if (node.isHub) {
+          ctx.beginPath()
+          ctx.arc(node.x, node.y, node.radius * pulseFactor * 2, 0, Math.PI * 2)
+          const gradient = ctx.createRadialGradient(
+            node.x, node.y, node.radius * pulseFactor,
+            node.x, node.y, node.radius * pulseFactor * 2
+          )
+          gradient.addColorStop(0, `${node.color}60`)
+          gradient.addColorStop(1, `${node.color}00`)
+          ctx.fillStyle = gradient
+          ctx.fill()
+        }
+        
+        // Main node body
+        ctx.beginPath()
+        ctx.arc(node.x, node.y, node.radius * pulseFactor, 0, Math.PI * 2)
+        const gradient = ctx.createRadialGradient(
+          node.x - node.radius * 0.3,
+          node.y - node.radius * 0.3,
+          node.radius * 0.1,
+          node.x,
+          node.y,
+          node.radius * pulseFactor
+        )
+        gradient.addColorStop(0, node.isHub ? "white" : "#e2e8f0")
+        gradient.addColorStop(1, node.color)
+        ctx.fillStyle = gradient
+        ctx.fill()
+      })
+
+      animationFrameId = requestAnimationFrame(animate)
+    }
+
+    // Handle window resize
+    const handleResize = () => {
+      resizeCanvas()
+      // Don't recreate nodes on resize to maintain connections
+    }
+
+    window.addEventListener("resize", handleResize)
+    resizeCanvas()
+    animate()
 
     return () => {
-      lines.current.forEach(l => scene.remove(l.line));
-    };
-  }, [count, scene]);
+      window.removeEventListener("resize", handleResize)
+      cancelAnimationFrame(animationFrameId)
+    }
+  }, [])
 
   return (
-    <>
-      {Array.from({ length: count }).map((_, i) => {
-        // Position particles in a spherical distribution
-        const phi = Math.acos(-1 + (2 * i) / count);
-        const theta = Math.sqrt(count * Math.PI) * phi;
-        const radius = 12;
-        
-        const x = radius * Math.sin(phi) * Math.cos(theta);
-        const y = radius * Math.sin(phi) * Math.sin(theta);
-        const z = radius * Math.cos(phi);
-
-        return (
-          <ParticleNode
-            key={i}
-            position={[x, y, z]}
-            ref={(el: THREE.Mesh) => (particles.current[i] = el)}
-            index={i}
-          />
-        );
-      })}
-    </>
-  );
-};
-
-const ParticleNode = React.forwardRef<THREE.Mesh, {
-  position: [number, number, number];
-  index: number;
-}>(({ position, index }, ref) => {
-  const meshRef = useRef<THREE.Mesh>(null);
-  const originalPos = useRef(new THREE.Vector3(...position));
-  const materialRef = useRef<THREE.MeshBasicMaterial>(null);
-  
-  React.useImperativeHandle(ref, () => meshRef.current!);
-
-  useFrame(({ clock }) => {
-    if (!meshRef.current) return;
-    
-    const time = clock.getElapsedTime();
-    const offset = index * 100;
-    
-    // Organic floating motion
-    meshRef.current.position.x = originalPos.current.x + Math.sin(time * 0.12 + offset) * 1.5;
-    meshRef.current.position.y = originalPos.current.y + Math.cos(time * 0.15 + offset) * 1.5;
-    meshRef.current.position.z = originalPos.current.z + Math.sin(time * 0.1 + offset * 1.2) * 1.5;
-    
-    // Subtle pulsing
-    const scale = 0.6 + Math.sin(time * 0.8 + offset) * 0.1;
-    meshRef.current.scale.set(scale, scale, scale);
-  });
-
-  return (
-    <mesh ref={meshRef} position={originalPos.current}>
-      <sphereGeometry args={[0.2, 16, 16]} /> {/* Slightly larger for visibility */}
-      <meshBasicMaterial
-        ref={materialRef}
-        color="#60a5fa"
-        transparent
-        opacity={0.9}
-      />
-    </mesh>
-  );
-});
-
-export default ParticleNetwork;
+    <canvas 
+      ref={canvasRef} 
+      className={`fixed top-0 left-0 w-full h-full -z-10 opacity-30 ${className}`}
+      style={{
+        position: 'fixed',
+        pointerEvents: 'none',
+      }}
+    />
+  )
+}

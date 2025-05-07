@@ -109,9 +109,9 @@ const Collaborate: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-start text-white p-4 sm:p-10 transition-all duration-700">
       {/* Main container */}
-      <ParticleBackground /> 
       <div className={`w-full flex flex-col items-center justify-center transition-all duration-700 
         ${showForm ? "mt-10" : "mt-[25vh]"}`}>
+                <ParticleBackground /> 
 
 
         {/* Header and subtitle */}
