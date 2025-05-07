@@ -1,7 +1,9 @@
 "use client";
 
-import React, { useState } from "react"; // Import React
+import React, { useState } from "react";
 import { forms } from "@/data/index";
+import { FloatingParticleBackground } from "./particles"; // Import the enhanced version
+
 
 // Define interfaces for state and props if needed, and for complex objects
 interface AlertState {
@@ -105,6 +107,7 @@ const Collaborate: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-start text-white p-4 sm:p-10 transition-all duration-700">
       {/* Main container */}
+      <FloatingParticleBackground /> 
       <div className={`w-full flex flex-col items-center justify-center transition-all duration-700 
         ${showForm ? "mt-10" : "mt-[25vh]"}`}>
 
