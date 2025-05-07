@@ -37,7 +37,7 @@ export default function Hero() {
             Join our community of passionate developers and innovators shaping the decentralized web across Africa.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Button className="bg-black text-white hover:bg-black/80">Get Started</Button>
+            <Button variant="outline" className="bg-black text-white hover:bg-black/80">Get Started</Button>
             <Button variant="outline" className="border-white text-white hover:bg-white hover:text-black">
               Learn More
             </Button>
