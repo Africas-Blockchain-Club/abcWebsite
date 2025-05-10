@@ -72,7 +72,7 @@ const EducationalResourcesSection = () => {
                     : "brightness(1)",
                   scale: isHovered ? 1.05 : 1,
                 }}
-                transition={{ type: "", stiffness: 300, damping: 20 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <span
                   className={`absolute bottom-0 left-0 w-full transition-all duration-300 bg-gradient-to-t from-yellow-300/40 to-transparent ${
