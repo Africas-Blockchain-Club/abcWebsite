@@ -21,7 +21,7 @@ const EducationalResourcesSection = () => {
 
   return (
     <div className="w-full px-8 py-16 flex justify-center relative">
-      <div className="h-[100vh]" />
+      <div className="h-[100vh] " />
 
       <div
         className="relative w-full max-w-[240rem] rounded-[12px] flex flex-col gap-10 overflow-hidden"
@@ -32,13 +32,9 @@ const EducationalResourcesSection = () => {
           alignItems: "center",
           minHeight: "590px",
           padding: "90px 104px 104px",
-          isolation: 'isolate' // Ensures proper z-index stacking
         }}
       >
-        {/* Polygon Border Background - now properly contained */}
-        <div className="absolute inset-0 w-full h-full overflow-hidden">
-          <PolygonBorderBackground />
-        </div>
+        <PolygonBorderBackground />
 
         <h2 className="relative z-10 text-6xl font-semibold mb-16 bg-white text-transparent bg-clip-text">
           Educational Resources
@@ -77,7 +73,7 @@ const EducationalResourcesSection = () => {
                     }}
                     transition={{ type: "spring", stiffness: 250, damping: 15 }}
                   >
-                    <AvatarIcon className="text-black" size={18}/>
+                    <AvatarIcon className="text-black" size={18} />
                   </motion.div>
 
                   <motion.h2

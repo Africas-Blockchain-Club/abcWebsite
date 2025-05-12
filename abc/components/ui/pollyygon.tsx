@@ -199,17 +199,10 @@ const PolygonBackground = () => {
 
   return (
     <div
-      ref={mountRef}
-      className="fixed inset-0 w-full h-screen pointer-events-none z-0"
-      style={{
-        overflow: 'hidden',
-        height: '100vh',
-        width: '100vw',
-        position: 'fixed',
-        top: 0,
-        left: 0
-      }}
-    />
+  ref={mountRef}
+  className="absolute inset-0 w-full h-full pointer-events-none z-0"
+  style={{ overflow: "hidden" }}
+/>
   );
 };
 
