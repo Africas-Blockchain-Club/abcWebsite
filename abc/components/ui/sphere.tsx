@@ -20,8 +20,7 @@ const PolygonBackground = () => {
       0.1,
       1000
     );
-    // Zoom in by moving camera closer and making objects larger
-    camera.position.z = 2;
+    camera.position.z = 5;
 
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
@@ -32,33 +31,33 @@ const PolygonBackground = () => {
     renderer.setSize(container.clientWidth, container.clientHeight);
     container.appendChild(renderer.domElement);
 
-    // Create larger, more numerous polygonal shapes
+    // Create more organic polygonal shapes
     const createPolygonalTerrain = () => {
       const group = new THREE.Group();
 
-      // More layers with larger sizes to fill the view
+      // More layers with varied shapes and colors
       const layers = [
         { 
           type: 'icosahedron', 
-          size: 2.5,  // Increased size
+          size: 1.2, 
           detail: 1,
           color: new THREE.Color(0xfacc15), 
           opacity: 0.25, 
-          y: -0.5,
+          y: -0.8,
           wireframe: true
         },
         { 
           type: 'dodecahedron', 
-          size: 3.0,  // Increased size
+          size: 1.5, 
           detail: 0,
           color: new THREE.Color(0xca8a04), 
           opacity: 0.2, 
-          y: 0.3,
+          y: 0,
           wireframe: true
         },
         { 
           type: 'octahedron', 
-          size: 3.5,  // Increased size
+          size: 2.0, 
           detail: 0,
           color: new THREE.Color(0x713f12), 
           opacity: 0.15, 
@@ -67,32 +66,11 @@ const PolygonBackground = () => {
         },
         {
           type: 'tetrahedron',
-          size: 2.0,  // Increased size
+          size: 1.0,
           detail: 0,
           color: new THREE.Color(0x4c1d95),
           opacity: 0.3,
-          y: -1.0,
-          wireframe: true
-        },
-        // Additional shapes to fill more space
-        {
-          type: 'icosahedron',
-          size: 2.2,
-          detail: 0,
-          color: new THREE.Color(0x3b82f6),
-          opacity: 0.2,
-          y: 0.5,
-          x: -1.5,
-          wireframe: true
-        },
-        {
-          type: 'octahedron',
-          size: 2.8,
-          detail: 0,
-          color: new THREE.Color(0x10b981),
-          opacity: 0.18,
-          y: -0.7,
-          x: 1.8,
+          y: -1.2,
           wireframe: true
         }
       ];
@@ -128,12 +106,12 @@ const PolygonBackground = () => {
 
         const mesh = new THREE.Mesh(geometry, material);
         mesh.position.y = layer.y;
-        mesh.position.x = layer.x || (Math.random() - 0.5) * 3; // Spread out more
-        mesh.position.z = (Math.random() - 0.5) * 2;
+        mesh.rotation.x = Math.PI / 4;
+        mesh.rotation.y = Math.PI / 4 * i;
         
-        // More dramatic initial rotations
-        mesh.rotation.x = Math.PI / 4 * Math.random();
-        mesh.rotation.y = Math.PI / 4 * Math.random();
+        // Add subtle position variations
+        mesh.position.x = (Math.random() - 0.5) * 2;
+        mesh.position.z = (Math.random() - 0.5) * 2;
         
         group.add(mesh);
       });
@@ -144,19 +122,25 @@ const PolygonBackground = () => {
     terrainRef.current = createPolygonalTerrain();
     scene.add(terrainRef.current);
 
-    // Animation loop with more movement
+    // Add some subtle ambient light
+    const ambientLight = new THREE.AmbientLight(0x404040, 0.5);
+    scene.add(ambientLight);
+
+    // Animation loop
     const animate = () => {
       animationRef.current = requestAnimationFrame(animate);
       
       if (terrainRef.current) {
+        // Rotate each mesh at different speeds
         terrainRef.current.children.forEach((mesh, i) => {
-          // Different rotation speeds based on position
-          mesh.rotation.x += 0.001 * (i % 3 + 1);
-          mesh.rotation.y += 0.0015 * (i % 2 + 1);
+          mesh.rotation.x += 0.001 * (i + 1);
+          mesh.rotation.y += 0.002 * (i + 1);
           
-          // Subtle floating movement
-          mesh.position.y += Math.sin(Date.now() * 0.001 + i) * 0.002;
-          mesh.position.x += Math.cos(Date.now() * 0.001 + i) * 0.002;
+          // Add subtle pulsing effect
+          if (i % 2 === 0) {
+            mesh.scale.x = mesh.scale.y = mesh.scale.z = 
+              1 + Math.sin(Date.now() * 0.001 * (i + 1)) * 0.05;
+          }
         });
       }
       
@@ -165,6 +149,7 @@ const PolygonBackground = () => {
 
     animate();
 
+    // Responsive handling
     const handleResize = () => {
       if (!container) return;
       camera.aspect = container.clientWidth / container.clientHeight;
@@ -182,6 +167,7 @@ const PolygonBackground = () => {
       }
       renderer.dispose();
       
+      // Clean up geometries and materials
       if (terrainRef.current) {
         terrainRef.current.traverse(child => {
           if (child instanceof THREE.Mesh) {
