@@ -32,7 +32,6 @@ export default function TestimonialsPage() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Remove IntersectionObserver logic as animation is no longer needed
   }, []);
 
   return (
@@ -77,19 +76,19 @@ export default function TestimonialsPage() {
         {/* Soft black fade overlays */}
       <FadeOverlay
         className="top-0 left-0 w-full h-[50%]"
-        gradient="bg-gradient-to-b from-[#716D67] to-transparent"
+        gradient="bg-gradient-to-b from-[#2B2B2B] to-transparent"
       />
       <FadeOverlay
         className="bottom-0 left-0 w-full h-[50%]"
-        gradient="bg-gradient-to-t from-[#716D67] to-transparent"
+        gradient="bg-gradient-to-t from-[#2B2B2B] to-transparent"
       />
       <FadeOverlay
         className="top-0 left-0 h-full w-[20%]"
-        gradient="bg-gradient-to-r from-[#716D67]/60 to-transparent"
+        gradient="bg-gradient-to-r from-[#2B2B2B]/60 to-transparent"
       />
       <FadeOverlay
         className="top-0 right-0 h-full w-[20%]"
-        gradient="bg-gradient-to-l from-[#716D67]/60 to-transparent"
+        gradient="bg-gradient-to-l from-[#2B2B2B]/60 to-transparent"
       />
 
       </div>

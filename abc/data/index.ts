@@ -16,7 +16,7 @@ export const testimonials = [
   {
     id: "bottom",
     text: "The user interface is incredibly smooth and intuitive. We have been able to complete tasks faster and more efficiently. The platform's features are really well thought out and help us manage our projects seamlessly, even under tight deadlines.",
-    name: "Denzel Something",
+    name: "Denzel Sokela",
     role: "Product Manager",
     image: "/reviewers/sara.jpg",
   },
