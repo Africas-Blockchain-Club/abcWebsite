@@ -21,7 +21,7 @@ export default function BlockchainNetwork({ className = "" }: { className?: stri
     }
 
     // Create nodes - all black with slight variations
-    const nodeCount = 30
+    const nodeCount = 50
     const nodes = Array.from({ length: nodeCount }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
@@ -109,8 +109,8 @@ export default function BlockchainNetwork({ className = "" }: { className?: stri
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: '610px',
-        height: '450px',
+        width: '690px',
+        height: '500px',
         pointerEvents: 'none',
       }}
     />
