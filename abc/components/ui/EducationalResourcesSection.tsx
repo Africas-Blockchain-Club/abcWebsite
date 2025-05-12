@@ -32,9 +32,13 @@ const EducationalResourcesSection = () => {
           alignItems: "center",
           minHeight: "590px",
           padding: "90px 104px 104px",
+          isolation: 'isolate' // Ensures proper z-index stacking
         }}
       >
-        <PolygonBorderBackground />
+        {/* Polygon Border Background - now properly contained */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden">
+          <PolygonBorderBackground />
+        </div>
 
         <h2 className="relative z-10 text-6xl font-semibold mb-16 bg-white text-transparent bg-clip-text">
           Educational Resources
@@ -73,7 +77,7 @@ const EducationalResourcesSection = () => {
                     }}
                     transition={{ type: "spring", stiffness: 250, damping: 15 }}
                   >
-                    <AvatarIcon className="text-black" size={18} />
+                    <AvatarIcon className="text-black" size={18}/>
                   </motion.div>
 
                   <motion.h2
