@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { contactUsData } from "@/data";
 import { BookOpen, Video, Code } from "lucide-react";
-import CodeMakeUp from "@/components/ui/CodeModal";
+import PolygonBorderBackground from "./pollyygon";
 
 const iconMap = {
   BookOpen: BookOpen,
@@ -20,32 +20,22 @@ const EducationalResourcesSection = () => {
   const router = useRouter();
 
   return (
-    <div className="w-full px-8 py-16 flex justify-center">
+    <div className="w-full px-8 py-16 flex justify-center relative">
       <div className="h-[100vh]" />
 
       <div
-        className="relative w-full max-w-[240rem] border border-yellow-400 rounded-[12px] flex flex-col gap-10 overflow-hidden"
+        className="relative w-full max-w-[240rem] rounded-[12px] flex flex-col gap-10 overflow-hidden"
         style={{
           background: "linear-gradient(135deg, #2d2d2d, #1c1c1c, #1e3a8a)",
-          boxShadow: "inset 0 0 74px 2px #facc15",
+          boxShadow: "0 0 24px rgba(250, 204, 21, 0.3)",
           textAlign: "center",
           alignItems: "center",
           minHeight: "590px",
           padding: "90px 104px 104px",
         }}
       >
-        {/* Code Background Inside the Modal */}
-        <div className="absolute inset-0 z-0 opacity-10 pointer-events-none select-none">
-          {/* <CodeMakeUp /> */}
-        </div>
-
-        <div className="relative w-full max-w-[240rem] z-10">
-          <img
-            src="/b5.svg"
-            alt="Background"
-            className="absolute top-[-25px] left-[-65px] w-[300px] opacity-30 pointer-events-none select-none"
-          />
-        </div>
+        {/* Polygon Border Background */}
+        <PolygonBorderBackground />
 
         <h2 className="relative z-10 text-6xl font-semibold mb-16 bg-white text-transparent bg-clip-text">
           Educational Resources
@@ -74,12 +64,6 @@ const EducationalResourcesSection = () => {
                 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                <span
-                  className={`absolute bottom-0 left-0 w-full transition-all duration-300 bg-gradient-to-t from-yellow-300/40 to-transparent ${
-                    isHovered ? "h-10" : "h-[3px]"
-                  }`}
-                />
-
                 <div className="flex items-center mb-6">
                   <motion.div
                     className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md mr-2"
