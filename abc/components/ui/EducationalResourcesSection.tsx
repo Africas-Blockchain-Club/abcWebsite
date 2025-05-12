@@ -34,7 +34,6 @@ const EducationalResourcesSection = () => {
           padding: "90px 104px 104px",
         }}
       >
-        {/* Polygon Border Background */}
         <PolygonBorderBackground />
 
         <h2 className="relative z-10 text-6xl font-semibold mb-16 bg-white text-transparent bg-clip-text">

@@ -3,7 +3,7 @@
 import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
 
-const PolygonBackground = () => {
+const PolygonBorderBackground = () => {
   const mountRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -12,58 +12,83 @@ const PolygonBackground = () => {
     // Scene setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
-      75, 
-      mountRef.current.clientWidth / mountRef.current.clientHeight, 
-      0.1, 
+      75,
+      mountRef.current.clientWidth / mountRef.current.clientHeight,
+      0.1,
       1000
     );
-    camera.position.z = 5;
-    
-    const renderer = new THREE.WebGLRenderer({ 
+    camera.position.z = 15;
+
+    const renderer = new THREE.WebGLRenderer({
       alpha: true,
       antialias: true
     });
     renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
     mountRef.current.appendChild(renderer.domElement);
 
-    // Create polygonal terrain with depth illusion
-    const createPolygonalTerrain = () => {
+    // Create a frame of polygonal shapes around the border
+    const createPolygonalFrame = () => {
       const group = new THREE.Group();
-      
-      // Create multiple layers of polygons with different colors
-      const layers = [
-        { size: 1.2, color: 0xfacc15, opacity: 0.3, y: -0.5 }, // Front yellow
-        { size: 1.5, color: 0xca8a04, opacity: 0.25, y: 0 },     // Middle amber
-        { size: 2.0, color: 0x713f12, opacity: 0.2, y: 0.5 }     // Back brown
-      ];
+      const frameWidth = 10;
+      const frameHeight = 5;
+      const depth = 0.5;
+      const segmentCount = 16; // Number of segments per side
 
-      layers.forEach((layer, i) => {
-        const geometry = new THREE.IcosahedronGeometry(layer.size, 1);
-        const material = new THREE.MeshBasicMaterial({
-          color: layer.color,
-          wireframe: true,
-          transparent: true,
-          opacity: layer.opacity
-        });
-        
-        const mesh = new THREE.Mesh(geometry, material);
-        mesh.position.y = layer.y;
-        mesh.rotation.x = Math.PI / 4;
-        mesh.rotation.y = Math.PI / 4 * i;
-        group.add(mesh);
+      // Create materials with gradient colors
+      const frontMaterial = new THREE.MeshBasicMaterial({
+        color: 0xfacc15,
+        wireframe: false,
+        transparent: true,
+        opacity: 0.6
       });
+
+      const backMaterial = new THREE.MeshBasicMaterial({
+        color: 0x713f12,
+        wireframe: false,
+        transparent: true,
+        opacity: 0.3
+      });
+
+      // Create segments for each side
+      const createSide = (length: number, isVertical: boolean) => {
+        const segmentLength = length / segmentCount;
+        
+        for (let i = 0; i < segmentCount; i++) {
+          const geometry = new THREE.IcosahedronGeometry(0.8, 0);
+          const material = i % 2 === 0 ? frontMaterial : backMaterial;
+          const segment = new THREE.Mesh(geometry, material);
+
+          if (isVertical) {
+            segment.position.x = -frameWidth/2 + (frameWidth * i/segmentCount);
+            segment.position.y = frameHeight/2 * (i % 2 === 0 ? 1 : -1);
+          } else {
+            segment.position.y = -frameHeight/2 + (frameHeight * i/segmentCount);
+            segment.position.x = frameWidth/2 * (i % 2 === 0 ? 1 : -1);
+          }
+
+          segment.position.z = i % 3 === 0 ? depth : -depth;
+          group.add(segment);
+        }
+      };
+
+      // Create all four sides
+      createSide(frameWidth * 2, true); // Top and bottom
+      createSide(frameHeight * 2, false); // Left and right
 
       return group;
     };
 
-    const terrain = createPolygonalTerrain();
-    scene.add(terrain);
+    const polyFrame = createPolygonalFrame();
+    scene.add(polyFrame);
 
-    // Add subtle ambient light to enhance depth
+    // Add subtle lighting
     const ambientLight = new THREE.AmbientLight(0x404040);
     scene.add(ambientLight);
+    const directionalLight = new THREE.DirectionalLight(0xfacc15, 0.5);
+    directionalLight.position.set(1, 1, 1);
+    scene.add(directionalLight);
 
-    // Static render (no animation loop needed)
+    // Static render
     renderer.render(scene, camera);
 
     // Handle resize
@@ -94,4 +119,4 @@ const PolygonBackground = () => {
   );
 };
 
-export default PolygonBackground;
+export default PolygonBorderBackground;
