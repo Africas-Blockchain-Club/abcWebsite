@@ -23,7 +23,7 @@ export default function Hero() {
       <FloatingNav navItems={navItems} />
       <BlockchainHeroBg />
 
-      <div className="container mx-auto grid grid-cols-1 items-center px-2 py-6 md:grid-cols-2 md:py-18 lg:py-30">
+      <div className="container mx-auto grid grid-cols-1 items-center px-2 py-6 md:grid-cols-2 md:py-18 lg:py-20">
         <div className="z-10 space-y-6">
           <div className="inline-block rounded-full bg-neutral-600/80 px-4 py-1 text-sm font-medium">
             The Future of Web3 in Africa
@@ -56,7 +56,7 @@ export default function Hero() {
         <div className="relative mt-10 md:mt-0">
           <BlockchainNetwork className="w-full h-full" />
           
-          <div className="absolute top-[-5%] right-[-60px] w-[460px] -translate-y-1/2 rounded-full">
+          <div className="absolute top-[35%] right-[-60px] w-[460px] -translate-y-1/2 rounded-full">
             <Image
               src="/header/ABC.png"
               alt="Africa's Blockchain Club Logo"
@@ -67,8 +67,7 @@ export default function Hero() {
             />
           </div>
 
-          <BlockchainNetwork className="w-full h-full" />
-          <div className="absolute top-[5%] left-[-20px] w-[300px] -translate-y-1/2 rounded-full">
+          <div className="absolute top-[55%] left-[-60px] w-[300px] -translate-y-1/2 rounded-full">
           <Image
             src="/About/whiteABC.png"
             alt="Africa's Blockchain Club Logo"
@@ -78,6 +77,8 @@ export default function Hero() {
             priority
           />
         </div>
+                  <BlockchainNetwork className="w-full h-full" />
+
         </div>
         
       </div>
