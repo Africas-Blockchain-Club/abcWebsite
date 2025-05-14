@@ -12,7 +12,6 @@ import WavyLines from "@/components/ui/wavylines";
 
 
 const navItems = [
-  { name: 'Home', link: '/' },
   { name: 'About', link: '#about' },
   { name: 'Projects', link: '#projects' },
   { name: 'Contact', link: '#contact' },
@@ -45,6 +44,14 @@ export default function Hero() {
             </Button>
           </div>
         </div>
+        {/* <WavyLines 
+  lineCount={7}
+  height={100}
+  amplitude={25}
+  frequency={0.015}
+  lineWidth={1}
+/> */}
+
 
         <div className="relative mt-10 md:mt-0">
           <BlockchainNetwork className="w-full h-full" />
@@ -72,14 +79,7 @@ export default function Hero() {
           />
         </div>
         </div>
-        <WavyLines 
-  lineCount={7}
-  height={100}
-  amplitude={25}
-  frequency={0.015}
-  lineWidth={1}
-/>
-
+        
       </div>
     </section>
   );

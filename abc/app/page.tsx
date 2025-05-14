@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { navItems } from "@/data";
 import Learn from "@/components/ui/EducationalResourcesSection";
@@ -9,44 +12,71 @@ import Testimonials from "@/components/aWordFromOurSponsor";
 import ProjectsDrawer from "@/components/ui/files";
 import ImageTextCard from "@/components/ui/ImageTextCard";
 import Footer from "@/components/ui/footer";
-import { aboutImages } from "@/data";
-
+import SectionDivider from "@/components/ui/SectionDivider";
 
 export default function Home() {
+  const [showFloatingImage, setShowFloatingImage] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setShowFloatingImage(scrollY > 250); 
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="relative">
       <main className="relative z-0" style={{ background: "#2B2B2B" }}>
-        
-        {/* Floating Nav stays on top */}
+        <Hero />
 
-          <Hero />
-          <Team />
-          <About />
-          <div className="pb-40 pt-20">  
-            <Testimonials />
-          </div>
-          <div className="pb-40 pt-20"> 
-            <ProjectsDrawer />
-          </div>
-          <Learn />
-          {/* <MakeUpCode /> */}
-          <Collaborate />
-
-          <ImageTextCard />
-
-          <Footer />
-          <div className="fixed bottom-[-20px] right-[-10px] flex items-center space-x-2 z-[9999]">
-  <div className="w-52 h-52 relative">
-    <Image
-      src="/header/ABC.png"
-      alt="ABC Spirit Animal"
-      fill
-      className="object-contain"
-    />
-  </div>
+<div id="team">
+  <Team />
 </div>
 
+<div id="about">
+  <About />
+</div>
 
+<div id="testimonials" className="pb-40 pt-20">  
+  <Testimonials />
+</div>
+
+<div id="projects" className="pb-40 pt-20"> 
+  <ProjectsDrawer />
+</div>
+
+<div id="learn">
+  <Learn />
+</div>
+
+<div id="contact">
+  <Collaborate />
+</div>
+
+<ImageTextCard />
+
+
+<Footer />
+
+
+        {/* Floating image after threshold */}
+        <div
+          className={`fixed bottom-[-20px] right-[-10px] z-[9999] transition-opacity duration-150 ease-out ${
+            showFloatingImage ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
+        >
+          <div className="w-52 h-52 relative">
+            <Image
+              src="/header/ABC.png"
+              alt="ABC Spirit Animal"
+              fill
+              className="object-contain"
+            />
+          </div>
+        </div>
       </main>
     </div>
   );
