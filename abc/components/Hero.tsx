@@ -8,6 +8,8 @@ import { heroImage } from '@/data';
 import BlockchainHeroBg from './ui/blockchain.-hero-bg';
 import BlockchainNetwork from './ui/blockchain-network';
 import { FloatingNav } from './ui/FloatingNav';
+import WavyLines from "@/components/ui/wavylines";
+
 
 const navItems = [
   { name: 'Home', link: '/' },
@@ -46,6 +48,7 @@ export default function Hero() {
 
         <div className="relative mt-10 md:mt-0">
           <BlockchainNetwork className="w-full h-full" />
+          
           <div className="absolute top-[-5%] right-[-60px] w-[460px] -translate-y-1/2 rounded-full">
             <Image
               src="/header/ABC.png"
@@ -69,6 +72,14 @@ export default function Hero() {
           />
         </div>
         </div>
+        <WavyLines 
+  lineCount={7}
+  height={100}
+  amplitude={25}
+  frequency={0.015}
+  lineWidth={1}
+/>
+
       </div>
     </section>
   );
