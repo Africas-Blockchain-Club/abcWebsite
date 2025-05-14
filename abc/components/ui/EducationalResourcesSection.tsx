@@ -53,7 +53,7 @@ const EducationalResourcesSection = () => {
               <motion.div
                 key={index}
                 onClick={() => router.push(item.link)}
-                className="relative flex-1 rounded-2xl p-6 text-white cursor-pointer transition-all duration-300 shadow-lg overflow-hidden bg-[#555555]"
+                className="relative flex-1 rounded-2xl p-6 text-white cursor-pointer transition-all duration-300 shadow-lg overflow-hidden bg-[#2B2B2B]"
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 animate={{
