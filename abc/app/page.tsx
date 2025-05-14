@@ -31,6 +31,7 @@ export default function Home() {
     <div className="relative">
       <main className="relative z-0" style={{ background: "#2B2B2B" }}>
         <Hero />
+      
 
 <div id="team">
   <Team />
