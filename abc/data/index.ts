@@ -57,48 +57,56 @@ export const testimonials = [
       description: "A research paper exploring blockchain-driven solutions for automating asset lifecycle management.",
       image: "/abcWork/sam6.png",
       link: "/vision",
+      message: "View Article",
     },
     {
       title: "Gamification in Blockchain Education",
       description: "This research analyzes how game mechanics can enhance blockchain learning platforms for better engagement.",
       image: "/abcWork/gameMel.png",
       link: "/vision",
+      message: "View Article",
     },
     {
       title: "BioHealth DApp",
       description: "A software prototype focused on managing personal health records securely using decentralized storage.",
       image: "/abcWork/BioHealth.jpg",
       link: "/page3",
+      message: "View Website",
     },
     {
       title: "DeFi Strategies: A Case Study",
       description: "This paper evaluates popular decentralized finance mechanisms and their economic implications.",
       image: "/abcWork/bybit.jpg",
       link: "/vision",
+      message: "View Article",
     },
     {
       title: "Decentralized Voting System",
       description: "A secure and transparent platform enabling users to cast votes on various proposals and elections.",
       image: "/abcWork/cryptovote.svg",
       link: "https://cryptovotes.vercel.app/",
+      message: "View Website",
     },
     {
       title: "SpxceDrive - Sharing Encrypted Files",
       description: "A cutting-edge platform using advanced encryption to ensure your file-sharing remains secure and private.",
       image: "/abcWork/spxcedrive.png",
       link: "https://spxce.vercel.app/",
+      message: "View Website",
     },
     {
       title: "7EduPact - Decentralized Education",
       description: "Transforming global education with a secure and decentralized platform that empowers students and educators.",
       image: "/abcWork/7edupact.svg",
       link: "https://7-edu-pact.vercel.app/",
+      message: "View Website",
     },
     {
       title: "Decentralized Agriculture Marketplace",
       description: "Empowering farmers and streamlining the supply chain through a transparent blockchain marketplace.",
       image: "/abcWork/harvestchain.svg",
       link: "/ui.apple.com",
+      message: "View Website",
     },
   ];
   
@@ -323,6 +331,7 @@ export const forms: FormsData = {
       img: "/cryptovote.svg",
       iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
       link: "https://cryptovotes.vercel.app/",
+      message: "View Website"
     },
     {
       id: 2,
@@ -331,6 +340,7 @@ export const forms: FormsData = {
       img: "/spxcedrive.png",
       iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg"],
       link: "https://spxce.vercel.app/",
+      message: "View Website"
     },
     {
       id: 3,
@@ -339,6 +349,7 @@ export const forms: FormsData = {
       img: "/7edupact.svg",
       iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
       link: "https://7-edu-pact.vercel.app/",
+      message: "View Website"
     },
     {
       id: 4,
@@ -347,6 +358,7 @@ export const forms: FormsData = {
       img: "/harvestchain.svg",
       iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
       link: "/ui.apple.com",
+      message: "View Website"
     },
   ];
   
