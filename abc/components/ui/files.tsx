@@ -102,12 +102,12 @@ export default function ProjectsDrawer() {
                 )}
 
                 {/* Content */}
-                <h3 className="text-xl font-semibold mb-2 text-white z-10 relative px-4">
+                <h3 className="text-xl font-semibold mb-2 text-white z-10 relative px-2">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 text-sm px-4 pb-4">
-                  {project.description.length > 50
-                    ? `${project.description.slice(0, 117)}...`
+                <p className="text-gray-400 text-sm px-2 ">
+                  {project.description.length > 25
+                    ? `${project.description.slice(0, 80)}...`
                     : project.description}
                 </p>
               </div>
