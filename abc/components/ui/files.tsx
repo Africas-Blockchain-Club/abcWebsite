@@ -4,6 +4,8 @@ import { useState } from "react";
 import { projectsData } from "@/data";
 import Image from "next/image";
 import clsx from "clsx";
+import { FaLocationArrow } from "react-icons/fa";
+
 
 export default function ProjectsDrawer() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -110,6 +112,12 @@ export default function ProjectsDrawer() {
                     ? `${project.description.slice(0, 80)}...`
                     : project.description}
                 </p>
+                <div className="flex justify-center items-center mt-4">
+                    <p className="flex lg:text-xl md:text-xs text-sm text-purple">
+                      {project.message}
+                    </p>
+                    <FaLocationArrow className="ms-3" color="#CBACF9" />
+                  </div>
               </div>
             );
           })}
