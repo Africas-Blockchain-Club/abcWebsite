@@ -30,7 +30,7 @@ export const FloatingNav = ({
   return (
     <nav
       className={cn(
-        "fixed z-[5000] w-full px-8 py-3 transition-all duration-500",
+        "fixed z-[5000] w-full px-8 py-1 transition-all duration-500",
         scrolled
           ? "top-6 mx-auto w-fit rounded-xl shadow-md border border-white/20 backdrop-blur-lg"
           : "top-0 border-b border-white/10 backdrop-blur-sm",
@@ -62,11 +62,11 @@ export const FloatingNav = ({
           {!scrolled && (
             <Link href="/" className="flex items-center ml-8">
               <Image
-                src="/About/whiteABC.png"
+                src="/solidity.svg"
                 alt="ABC Logo"
                 width={60}
                 height={60}
-                className="object-contain"
+                className="object-contain "
               />
             </Link>
           )}
