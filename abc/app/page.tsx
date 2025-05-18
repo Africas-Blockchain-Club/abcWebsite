@@ -13,7 +13,12 @@ import Testimonials from "@/components/aWordFromOurSponsor";
 import ProjectsDrawer from "@/components/ui/files";
 import ImageTextCard from "@/components/ui/ImageTextCard";
 import Footer from "@/components/ui/footer";
+import Timeline from "@/components/ui/blockchain-timeline";
 import SectionDivider from "@/components/ui/SectionDivider";
+import Terms from "@/components/ui/blockchain-terms";
+import Modal from "@/components/ui/blockchain-modal";
+
+
 
 export default function Home() {
   const [showFloatingImage, setShowFloatingImage] = useState(false);
@@ -33,6 +38,9 @@ export default function Home() {
       <main className="relative z-0" style={{ background: "#2B2B2B" }}>
         <Hero />
         <Logos/>
+        <Timeline/>
+        <Terms/>
+        <Modal/>
       
 
 <div id="team">
