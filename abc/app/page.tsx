@@ -8,6 +8,7 @@ import Collaborate from "@/components/ui/Collaborate";
 import Team from "@/components/Team";
 import About from "@/components/About";
 import Hero from "@/components/Hero";
+import Logos from "@/components/logos";
 import Testimonials from "@/components/aWordFromOurSponsor";
 import ProjectsDrawer from "@/components/ui/files";
 import ImageTextCard from "@/components/ui/ImageTextCard";
@@ -31,11 +32,14 @@ export default function Home() {
     <div className="relative">
       <main className="relative z-0" style={{ background: "#2B2B2B" }}>
         <Hero />
+        <Logos/>
       
 
 <div id="team">
   <Team />
 </div>
+
+
 
 <div id="about">
   <About />

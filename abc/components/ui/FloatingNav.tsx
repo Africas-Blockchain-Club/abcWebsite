@@ -62,7 +62,7 @@ export const FloatingNav = ({
           {!scrolled && (
             <Link href="/" className="flex items-center ml-8">
               <Image
-                src="/solidity.svg"
+                src="/About/whiteABC.png"
                 alt="ABC Logo"
                 width={60}
                 height={60}
