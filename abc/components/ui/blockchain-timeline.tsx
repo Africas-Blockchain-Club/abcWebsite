@@ -1,140 +1,180 @@
 "use client"
 
-import { useRef, useState } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useState } from "react"
+import { motion } from "framer-motion"
+import { Hash, Link2 } from "lucide-react"
 
 export default function BlockchainTimeline() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null)
-  const [canScrollLeft, setCanScrollLeft] = useState(false)
-  const [canScrollRight, setCanScrollRight] = useState(true)
+  const [activeBlock, setActiveBlock] = useState<number | null>(null)
 
+  // Full timeline events data
   const timelineEvents = [
     {
       year: "2008",
       title: "Bitcoin Whitepaper",
-      description: "Satoshi Nakamoto publishes the Bitcoin whitepaper",
+      description: "Satoshi Nakamoto publishes the Bitcoin whitepaper, introducing the first decentralized cryptocurrency",
     },
     {
       year: "2009",
-      title: "Bitcoin Launch",
-      description: "The first Bitcoin block is mined",
+      title: "Genesis Block Mined",
+      description: "The Bitcoin network comes into existence with the mining of the genesis block (Block 0)",
+    },
+    {
+      year: "2011",
+      title: "Altcoins Emerge",
+      description: "Litecoin and Namecoin launch, marking the beginning of alternative cryptocurrencies",
     },
     {
       year: "2015",
       title: "Ethereum Launch",
-      description: "Ethereum platform launches with smart contract functionality",
+      description: "Vitalik Buterin launches Ethereum, introducing smart contract functionality",
     },
     {
       year: "2017",
       title: "ICO Boom",
-      description: "Initial Coin Offering boom brings blockchain to mainstream attention",
+      description: "Initial Coin Offerings raise billions, driving massive blockchain innovation",
     },
     {
       year: "2020",
-      title: "DeFi Summer",
-      description: "Decentralized Finance applications gain massive adoption",
+      title: "DeFi Explosion",
+      description: "Decentralized Finance protocols reach $20B+ in locked value",
     },
     {
       year: "2021",
-      title: "NFT Explosion",
-      description: "Non-Fungible Tokens become a global phenomenon",
+      title: "NFT Mainstream",
+      description: "NFT sales surpass $24B, entering mainstream culture",
     },
     {
       year: "2023",
-      title: "Africa's Blockchain Rise",
-      description: "African blockchain adoption accelerates with local solutions",
+      title: "Institutional Adoption",
+      description: "Major financial institutions begin offering blockchain-based services",
     },
   ]
 
-  const scroll = (direction: "left" | "right") => {
-    if (!scrollContainerRef.current) return
-
-    const container = scrollContainerRef.current
-    const scrollAmount = container.clientWidth * 0.8
-
-    if (direction === "left") {
-      container.scrollBy({ left: -scrollAmount, behavior: "smooth" })
-    } else {
-      container.scrollBy({ left: scrollAmount, behavior: "smooth" })
-    }
-
-    // Check scroll position after animation
-    setTimeout(() => {
-      if (!scrollContainerRef.current) return
-      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current
-      setCanScrollLeft(scrollLeft > 0)
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10)
-    }, 300)
-  }
-
-  const handleScroll = () => {
-    if (!scrollContainerRef.current) return
-    const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current
-    setCanScrollLeft(scrollLeft > 0)
-    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10)
-  }
-
   return (
-    <div className="w-full">
-      <h3 className="mb-6 text-center font-mono text-xl font-bold">Blockchain Evolution</h3>
+    <div className="min-h-screen bg-[#0a0f1d] py-20 px-4 relative overflow-hidden">
+      {/* Animation styles */}
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-20px); }
+        }
+        @keyframes chainHover {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-3px); }
+        }
+      `}</style>
 
-      <div className="relative">
-        {/* Navigation buttons */}
-        <div className="absolute -left-4 top-1/2 z-10 -translate-y-1/2 md:-left-6">
-          <Button
-            variant="outline"
-            size="icon"
-            className={`rounded-full bg-white shadow-md ${!canScrollLeft ? "opacity-50 cursor-not-allowed" : ""}`}
-            onClick={() => scroll("left")}
-            disabled={!canScrollLeft}
-          >
-            <ChevronLeft className="h-5 w-5" />
-            <span className="sr-only">Scroll left</span>
-          </Button>
-        </div>
+      {/* Background pattern */}
+      <div className="absolute inset-0 opacity-10 z-0"
+           style={{ 
+             backgroundImage: `
+               linear-gradient(to right, #1a2f3a 1px, transparent 1px),
+               linear-gradient(to bottom, #1a2f3a 1px, transparent 1px)
+             `,
+             backgroundSize: '40px 40px'
+           }}>
+        <div className="absolute inset-0 bg-gradient-to-b from-green-400/5 via-blue-400/5 to-transparent" />
+      </div>
 
-        <div className="absolute -right-4 top-1/2 z-10 -translate-y-1/2 md:-right-6">
-          <Button
-            variant="outline"
-            size="icon"
-            className={`rounded-full bg-white shadow-md ${!canScrollRight ? "opacity-50 cursor-not-allowed" : ""}`}
-            onClick={() => scroll("right")}
-            disabled={!canScrollRight}
-          >
-            <ChevronRight className="h-5 w-5" />
-            <span className="sr-only">Scroll right</span>
-          </Button>
-        </div>
+      <motion.h2 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="text-4xl font-bold text-center mb-16 font-mono bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent"
+      >
+        BLOCKCHAIN EVOLUTION
+      </motion.h2>
 
-        {/* Timeline container */}
-        <div
-          ref={scrollContainerRef}
-          className="relative flex overflow-x-auto pb-10 pt-10 scrollbar-hide"
-          onScroll={handleScroll}
+      <div className="max-w-4xl mx-auto relative">
+        {/* Central blockchain line */}
+        <div 
+          className="absolute left-1/2 w-1 h-full bg-gradient-to-b from-green-400 to-blue-500 transform -translate-x-1/2"
+          style={{ boxShadow: '0 0 40px rgba(74, 222, 128, 0.2)' }}
         >
-          {/* Timeline line */}
-          <div className="absolute left-0 top-1/2 h-0.5 w-full -translate-y-1/2 bg-amber-500"></div>
+          <div className="absolute inset-0 bg-[#4ade80] animate-pulse opacity-20" />
+        </div>
 
-          {/* Timeline events */}
-          <div className="flex space-x-16 px-4">
-            {timelineEvents.map((event, index) => (
-              <div key={event.year} className="relative flex flex-col items-center" style={{ minWidth: "200px" }}>
-                {/* Center dot */}
-                <div className="absolute top-0 h-4 w-4 translate-y-[-50%] rounded-full bg-amber-500 z-10"></div>
-
-                {/* Year above the line */}
-                <div className="absolute -top-10 font-mono text-sm font-bold text-amber-600">{event.year}</div>
-
-                {/* Content below the line */}
-                <div className="mt-8 rounded-lg border bg-white p-4 shadow-sm">
-                  <h4 className="font-semibold">{event.title}</h4>
-                  <p className="text-sm text-neutral-600">{event.description}</p>
+        {/* Timeline blocks */}
+        {timelineEvents.map((event, index) => (
+          <motion.div 
+            key={event.year}
+            initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: index * 0.1 }}
+            className="relative z-10 mb-16"
+            onHoverStart={() => setActiveBlock(index)}
+            onHoverEnd={() => setActiveBlock(null)}
+          >
+            <div className={`flex ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} items-center gap-8`}>
+              
+              {/* Block number indicator */}
+              <div className="flex-1 relative h-24">
+                <div className={`absolute top-1/2 ${index % 2 === 0 ? 'right-0' : 'left-0'} -translate-y-1/2`}>
+                  <div className="relative">
+                    <motion.div
+                      animate={{ 
+                        scale: activeBlock === index ? 1.2 : 1,
+                        boxShadow: activeBlock === index ? '0 0 20px rgba(74, 222, 128, 0.5)' : 'none'
+                      }}
+                      className="h-12 w-12 rounded-lg bg-slate-800 border-2 border-green-400/50 flex items-center justify-center"
+                    >
+                      <Hash className="text-green-400" size={20} />
+                      <span className="absolute -bottom-6 font-mono text-green-400 text-sm">
+                        #{index + 1}
+                      </span>
+                    </motion.div>
+                    <div className={`absolute top-1/2 ${index % 2 === 0 ? '-right-16' : '-left-16'} -translate-y-1/2 opacity-40`}>
+                      <Link2 
+                        className="text-green-400" 
+                        style={{ animation: 'chainHover 3s ease-in-out infinite' }}
+                        size={24} 
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
+
+              {/* Content card */}
+              <motion.div
+                animate={{
+                  y: activeBlock === index ? -5 : 0,
+                  borderColor: activeBlock === index ? '#4ade80' : '#1e293b'
+                }}
+                className="flex-1 relative p-8 rounded-xl bg-slate-900 border-2 transition-all duration-300"
+                style={{ boxShadow: '0 10px 30px -10px rgba(0, 0, 0, 0.3)' }}
+              >
+                <div className="absolute top-4 font-mono text-green-400 text-lg tracking-wider">
+                  {event.year}
+                </div>
+                <h3 className="text-2xl font-bold text-green-300 mb-4 mt-8">
+                  {event.title}
+                </h3>
+                <p className="text-slate-300 leading-relaxed">
+                  {event.description}
+                </p>
+                
+                {/* Hover effects */}
+                <div className="absolute inset-0 rounded-xl opacity-0 hover:opacity-100 transition-opacity pointer-events-none">
+                  <div className="absolute inset-0 bg-gradient-to-r from-green-400/10 to-blue-500/10 rounded-xl" />
+                  <div className="absolute inset-0 border-2 border-green-400/30 rounded-xl" />
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        ))}
+
+        {/* Animated floating elements */}
+        <div 
+          className="absolute top-0 left-1/4 w-8 h-8 rounded-lg bg-green-400/20"
+          style={{ animation: 'float 8s ease-in-out infinite' }}
+        />
+        <div 
+          className="absolute top-1/3 right-1/4 w-6 h-6 rounded-lg bg-blue-400/20"
+          style={{ 
+            animation: 'float 10s ease-in-out infinite',
+            animationDelay: '2s'
+          }}
+        />
       </div>
     </div>
   )

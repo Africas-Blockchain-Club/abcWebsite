@@ -17,6 +17,8 @@ import Timeline from "@/components/ui/blockchain-timeline";
 import SectionDivider from "@/components/ui/SectionDivider";
 import Terms from "@/components/ui/blockchain-terms";
 import Modal from "@/components/ui/blockchain-modal";
+import Cube from "@/components/ui/blockchain-cube";
+import Block from "@/components/ui/blockchain-blocks";
 
 
 
@@ -35,12 +37,15 @@ export default function Home() {
 
   return (
     <div className="relative">
-      <main className="relative z-0" style={{ background: "#2B2B2B" }}>
+      <main className="relative z-0" style={{ background: "#0a0f1d" }}>
         <Hero />
         <Logos/>
         <Timeline/>
         <Terms/>
         <Modal/>
+        <Cube/>
+        <Block/>
+
       
 
 <div id="team">
