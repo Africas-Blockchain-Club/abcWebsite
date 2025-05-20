@@ -44,7 +44,7 @@ export default function Home() {
         <Logos/>
         <Timeline/>
         {/* <Terms/> */}
-        <Papers/>
+        {/* <Papers/> */}
         {/* <Modal/> */}
         {/* <Cube/> */}
         {/* <Block/> */}
