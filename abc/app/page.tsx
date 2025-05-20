@@ -19,6 +19,8 @@ import Terms from "@/components/ui/blockchain-terms";
 import Modal from "@/components/ui/blockchain-modal";
 import Cube from "@/components/ui/blockchain-cube";
 import Block from "@/components/ui/blockchain-blocks";
+import Papers from "@/components/ui/newsPaper";
+
 
 
 
@@ -37,14 +39,15 @@ export default function Home() {
 
   return (
     <div className="relative">
-      <main className="relative z-0" style={{ background: "#0a0f1d" }}>
+      <main className="relative z-0" style={{ background: "#2B2B2B" }}>
         <Hero />
         <Logos/>
         <Timeline/>
-        <Terms/>
-        <Modal/>
-        <Cube/>
-        <Block/>
+        {/* <Terms/> */}
+        <Papers/>
+        {/* <Modal/> */}
+        {/* <Cube/> */}
+        {/* <Block/> */}
 
       
 
