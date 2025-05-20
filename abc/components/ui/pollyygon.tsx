@@ -5,8 +5,8 @@ import * as THREE from 'three';
 
 const PolygonBackground = () => {
   const mountRef = useRef<HTMLDivElement>(null);
-  const animationRef = useRef<number>();
-  const terrainRef = useRef<THREE.Group>();
+  const animationRef = useRef<number | null>(null);
+  const terrainRef = useRef<THREE.Group | null>(null);
 
   useEffect(() => {
     const container = mountRef.current;
@@ -176,8 +176,9 @@ const PolygonBackground = () => {
 
     return () => {
       window.removeEventListener('resize', handleResize);
-      cancelAnimationFrame(animationRef.current);
-      if (container.contains(renderer.domElement)) {
+if (animationRef.current !== null) {
+  cancelAnimationFrame(animationRef.current);
+}      if (container.contains(renderer.domElement)) {
         container.removeChild(renderer.domElement);
       }
       renderer.dispose();

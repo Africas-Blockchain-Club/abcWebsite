@@ -11,7 +11,7 @@ export default function BlockchainPattern({ className = "" }: { className?: stri
           <defs>
             <pattern
               id="blockchain-grid"
-              width="10"BlockchainHeroBg
+              width="10"
               height="10"
               patternUnits="userSpaceOnUse"
               patternTransform="rotate(45)"

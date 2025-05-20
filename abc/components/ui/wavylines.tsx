@@ -16,7 +16,7 @@ const WavyLines: React.FC<WavyLinesProps> = ({
   frequency = 0.02
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | null>(null);
   const wavesRef = useRef<Array<{
     speed: number;
     color: string;
