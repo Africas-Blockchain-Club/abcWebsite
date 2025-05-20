@@ -52,7 +52,7 @@ export default function BlockchainTimeline() {
   ]
 
   return (
-    <div className="min-h-screen bg-[#0a0f1d] py-20 px-4 relative overflow-hidden">
+    <div className="min-h-screen  py-20 px-4 relative overflow-hidden">
       {/* Animation styles */}
       <style jsx>{`
         @keyframes float {
