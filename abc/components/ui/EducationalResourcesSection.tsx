@@ -20,7 +20,7 @@ const EducationalResourcesSection = () => {
   const router = useRouter();
 
   return (
-    <div className="w-full px-8 py-16 flex justify-center relative">
+    <div className="w-full px-8 py-4 flex justify-center relative">
       <div
         className="relative w-full max-w-[240rem] rounded-[12px] flex flex-col gap-10 overflow-hidden"
         style={{
