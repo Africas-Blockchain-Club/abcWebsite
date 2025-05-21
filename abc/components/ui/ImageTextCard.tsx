@@ -29,7 +29,7 @@ export default function ImageTextCard() {
   };
 
   return (
-    <div className="pb-40 pt-80">
+    <div className="pb-20 pt-20">
       {/* Header */}
       <div className="text-center mb-16">
         <h2 className="text-6xl font-semibold mb-16 bg-white text-transparent bg-clip-text">

@@ -61,9 +61,9 @@ export default function Home() {
   <About />
 </div>
 
-<div id="testimonials" className="pb-40 pt-20">  
+{/* <div id="testimonials" className="pb-40 pt-20">  
   <Testimonials />
-</div>
+</div> */}
 
 <div id="projects" className="pb-40 pt-20"> 
   <ProjectsDrawer />
@@ -73,11 +73,12 @@ export default function Home() {
   <Learn />
 </div>
 
+<ImageTextCard />
+
 <div id="contact">
   <Collaborate />
 </div>
 
-<ImageTextCard />
 
 
 <Footer />
