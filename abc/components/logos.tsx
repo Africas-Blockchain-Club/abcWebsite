@@ -29,7 +29,7 @@ const logos = [
 
 export default function LogosRow() {
   return (
-    <div className="w-full px-25 py-10">
+    <div className="w-full px-25 py-4">
       <div className="flex flex-wrap gap-6 justify-center items-center">
         {logos.map((logo, index) => (
           <div

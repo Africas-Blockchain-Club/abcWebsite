@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { contactUsData } from "@/data";
 import { BookOpen, Video, Code } from "lucide-react";
 import PolygonBorderBackground from "./pollyygon";
+import TechParticles from "./tech-particles";
 
 const iconMap = {
   BookOpen: BookOpen,
@@ -22,9 +23,9 @@ const EducationalResourcesSection = () => {
   return (
     <div className="w-full px-8 py-4 flex justify-center relative">
       <div
-        className="relative w-full max-w-[240rem] rounded-[12px] flex flex-col gap-10 overflow-hidden"
+        className="relative w-full max-w-full rounded-[12px] flex flex-col gap-4 overflow-hidden"
         style={{
-          background: "#2B2B2B",
+          background: "black",
           boxShadow: "0 0 24px rgba(250, 204, 21, 0.3)",
           textAlign: "center",
           alignItems: "center",
@@ -36,7 +37,8 @@ const EducationalResourcesSection = () => {
       >
         {/* Polygon Border Background - strictly inside the modal border */}
         <div className="absolute inset-0 w-full h-full overflow-hidden rounded-[12px]">
-          <PolygonBorderBackground />
+          {/* <PolygonBorderBackground /> */}
+          <TechParticles />
         </div>
 
         <h2 className="relative z-10 text-6xl font-semibold mb-16 bg-white text-transparent bg-clip-text">
