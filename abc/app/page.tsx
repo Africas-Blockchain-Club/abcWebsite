@@ -20,6 +20,8 @@ import Modal from "@/components/ui/blockchain-modal";
 import Cube from "@/components/ui/blockchain-cube";
 import Block from "@/components/ui/blockchain-blocks";
 import Papers from "@/components/ui/newsPaper";
+import About1 from "./About1/page";
+import FutureSection from "./FutureSection/page";
 
 
 
@@ -42,7 +44,13 @@ export default function Home() {
       <main className="relative z-0" style={{ background: "#2B2B2B" }}>
         <Hero />
         <Logos/>
-        <Timeline/>
+        <About1 />
+        {/* <Timeline /> */}
+      {/* <section id="blockchain-evolution" className="bg-neutral-900 py-20">
+        <div className="container mx-auto px-8">
+          <Timeline />
+        </div>
+      </section> */}
         {/* <Terms/> */}
         {/* <Papers/> */}
         {/* <Modal/> */}
@@ -57,9 +65,9 @@ export default function Home() {
 
 
 
-<div id="about">
+{/* <div id="about">
   <About />
-</div>
+</div> */}
 
 {/* <div id="testimonials" className="pb-40 pt-20">  
   <Testimonials />
@@ -72,7 +80,7 @@ export default function Home() {
 <div id="learn">
   <Learn />
 </div>
-
+{/* <FutureSection/> */}
 <ImageTextCard />
 
 <div id="contact">

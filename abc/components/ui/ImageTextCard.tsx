@@ -28,6 +28,8 @@ export default function ImageTextCard() {
     setSelectedCard(null);
   };
 
+  
+
   return (
     <div className="pb-20 pt-20">
       {/* Header */}
