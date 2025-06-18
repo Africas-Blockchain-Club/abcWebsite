@@ -22,6 +22,9 @@ import Block from "@/components/ui/blockchain-blocks";
 import Papers from "@/components/ui/newsPaper";
 import About1 from "./About1/page";
 import FutureSection from "./FutureSection/page";
+import UpcomingEvents from "@/components/upcoming-events";
+import { Button } from "@/components/ui/button";
+import CodeSnippet from "@/components/code-snippet";
 
 
 
@@ -64,14 +67,11 @@ export default function Home() {
 </div>
 
 
-
-{/* <div id="about">
+{/* 
+<div id="about">
   <About />
 </div> */}
 
-{/* <div id="testimonials" className="pb-40 pt-20">  
-  <Testimonials />
-</div> */}
 
 <div id="projects" className="pb-40 pt-20"> 
   <ProjectsDrawer />
@@ -80,14 +80,39 @@ export default function Home() {
 <div id="learn">
   <Learn />
 </div>
+
+<section className="bg-black/30 py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            <div>
+              <h2 className="mb-6 font-mono text-5xl font-bold">Build on Blockchain</h2>
+              <p className="mb-4 text-white">
+                Our community develops smart contracts and decentralized applications to solve real-world problems in
+                Africa.
+              </p>
+              <p className="mb-6 text-white">
+                Join our weekly coding sessions and learn how to write secure, efficient blockchain code with
+                experienced mentors.
+              </p>
+              <Button className="bg-amber-500 text-white hover:bg-amber-600">Join Developer Community</Button>
+            </div>
+            <div>
+              <CodeSnippet />
+            </div>
+          </div>
+        </div>
+      </section>
 {/* <FutureSection/> */}
-<ImageTextCard />
+{/* <ImageTextCard /> */}
+<section id="events" className="bg-neutral-800 py-20">
+        <div className="container mx-auto">
+          <UpcomingEvents />
+        </div>
+      </section>
 
 <div id="contact">
   <Collaborate />
 </div>
-
-
 
 <Footer />
 

@@ -8,7 +8,7 @@ export default function About1() {
       <section id="about" className="bg-black/20 py-20">
         <div className="container mx-auto px-0">
           <div className="mx-auto max-w-7xl text-center">
-            <h2 className="mb-6 font-mono text-4xl font-bold md:text-4xl">Driving Web3 Adoption Across Africa</h2>
+            <h2 className="mb-6 font-mono text-4xl font-bold md:text-5xl">Driving Web3 Adoption Across Africa</h2>
             <p className="mb-8 text-lg text-white">
               Africa's Blockchain Club (ABC) is a community dedicated to accelerating blockchain technology adoption
               throughout South Africa and the entire African continent. We bring together developers, entrepreneurs, and
