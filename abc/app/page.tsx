@@ -25,12 +25,14 @@ import FutureSection from "./FutureSection/page";
 import UpcomingEvents from "@/components/upcoming-events";
 import { Button } from "@/components/ui/button";
 import CodeSnippet from "@/components/code-snippet";
+import PageLoader from "@/components/animations/page-loader";
 
 
 
 
 export default function Home() {
   const [showFloatingImage, setShowFloatingImage] = useState(false);
+ 
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,6 +46,7 @@ export default function Home() {
 
   return (
     <div className="relative">
+      <PageLoader />
       <main className="relative z-0" style={{ background: "#2B2B2B" }}>
         <Hero />
         <Logos/>

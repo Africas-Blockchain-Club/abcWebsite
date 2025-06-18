@@ -8,6 +8,7 @@ import { heroImage } from '@/data';
 import BlockchainHeroBg from './ui/blockchain.-hero-bg';
 import BlockchainNetwork from './ui/blockchain-network';
 import { FloatingNav } from './ui/FloatingNav';
+import FloatingElements from './animations/floating-elements';
 
 
 const navItems = [
@@ -21,12 +22,17 @@ export default function Hero() {
     <section className="relative overflow-hidden text-white">
       <FloatingNav navItems={navItems} />
       <BlockchainHeroBg />
+      <FloatingElements />
+
 
       <div className="container mx-auto grid grid-cols-1 items-center px-2 py-6 md:grid-cols-2 md:py-18 lg:py-20">
+        
         <div className="space-y-4 pt-2">
+   
           <div className="inline-block rounded-full bg-neutral-600/80 px-4 py-1 text-s font-medium">
             The Future of Web3 in Africa
           </div>
+
           <h1 className="font-mono text-5xl font-bold leading-tight md:text-6xl lg:text-7xl max-w-[20ch]">
             Building <br />
             Africa&apos;s <br />
