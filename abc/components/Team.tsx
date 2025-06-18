@@ -27,7 +27,7 @@ export default function Team() {
           {[...teamImages, ...teamImages].map((img, i) => (
             <div
             key={i}
-            className="relative flex-shrink-0 mx-3 w-[280px] h-[280px]"
+            className="relative flex-shrink-0 mx-3 w-[380px] h-[280px]"
             >
               <Image
                 src={img.src}

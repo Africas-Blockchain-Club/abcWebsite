@@ -170,11 +170,18 @@ export const aboutImages = [
       link: "https://stablecoin.gitbook.io/africas-blockchain-club-abc/defi/decentralised-exchange-dex/create-a-dapp",
     },
     {
-      title: "DApp Architecture",
-      text: "Understand the architecture of decentralized applications.",
+      title: "Decentralzied Finance (DeFi)",
+      text: "Decentralized Finance, or DeFi, is a revolutionary approach to financial services that operates on decentralized networks such as blockchains. ",
       avatarType: "Video",
-      link: "/resources/dapp-architecture",
+      link: "https://stablecoin.gitbook.io/africas-blockchain-club-abc/defi/decentralized-finance-defi",
     },
+    {
+      title: "Crypto Research",
+      text: "Learn how to research in the crypto space involving a structured approach to understand the intricacies of blockchain technology, market trends, and specific cryptocurrencies or projects",
+      avatarType: "BookOpen",
+      link: "https://stablecoin.gitbook.io/africas-blockchain-club-abc/research/crypto-research",
+    },
+    
   ];
   
 

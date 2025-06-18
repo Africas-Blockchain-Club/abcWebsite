@@ -17,7 +17,6 @@ const logos = [
   { src: "/Logos/thirdweb.svg", invert: true },
   { src: "/Logos/solidity.svg", invert: true },
   { src: "/Logos/opensea.svg", invert: true },
-  { src: "/Logos/vim.svg", invert: true },
   { src: "/Logos/ethereum.svg", invert: true },
   { src: "/Logos/truffle.png", invert: false },
   { src: "/Logos/vscode.png", invert: false },
@@ -29,8 +28,8 @@ const logos = [
 
 export default function LogosRow() {
   return (
-    <div className="w-full px-25 py-4">
-      <div className="flex flex-wrap gap-6 justify-center items-center">
+    <div className="relative overflow-hidden px-2 py-4">
+      <div className=" flex flex-wrap gap-6 justify-center items-center">
         {logos.map((logo, index) => (
           <div
             key={index}
