@@ -24,10 +24,10 @@ export default function Team() {
       {/* Carousel with Skew and Perspective */}
       <div className="relative perspective-[800px] z-0">
         <div className="skewed-carousel animate-carousel-fast">
-          {[...teamImages, ...teamImages].map((img, i) => (
+          {[...teamImages].map((img, i) => (
             <div
             key={i}
-            className="relative flex-shrink-0 mx-3 w-[380px] h-[280px]"
+            className="relative flex-shrink-0 mx-3 w-[380px] h-[300px]"
             >
               <Image
                 src={img.src}

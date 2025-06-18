@@ -73,11 +73,11 @@ export default function Home() {
 </div> */}
 
 
-<div id="projects" className="pb-40 pt-20"> 
+<div id="projects" className="pb-10 pt-10"> 
   <ProjectsDrawer />
 </div>
 
-<div id="learn">
+<div id="learn" className="pb-8">
   <Learn />
 </div>
 

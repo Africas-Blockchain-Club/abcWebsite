@@ -48,7 +48,7 @@ export default function Hero() {
         <div className="relative mt-10 md:mt-0">
           <BlockchainNetwork className="w-full h-full" />
           
-          <div className="absolute top-[55%] right-[-80px] w-[750px] -translate-y-1/2 rounded-full">
+          <div className="absolute top-[65%] left-[-10%] w-[990px] -translate-y-1/2 rounded-full">
             <Image
               src="/header/ABC.png"
               alt="Africa's Blockchain Club Logo"
@@ -59,7 +59,7 @@ export default function Hero() {
             />
           </div>
 
-          <div className="absolute top-[45%] left-[-90px] w-[400px] -translate-y-1/2 rounded-full">
+          {/* <div className="absolute top-[55%] left-[100px] w-[550px] -translate-y-1/2 rounded-full">
           <Image
             src="/About/whiteABC.png"
             alt="Africa's Blockchain Club Logo"
@@ -68,7 +68,7 @@ export default function Hero() {
             className="w-full h-auto"
             priority
           />
-        </div>
+        </div> */}
           <BlockchainNetwork className="w-full h-full" />
 
         </div>
