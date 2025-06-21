@@ -1,11 +1,10 @@
-import { School, Trophy, Users } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link, School, Trophy, Users } from "lucide-react";
 
 
 export default function About1() {
     return(
-        <div>
-            {/* About Section */}
-      <section id="about" className="bg-black/20 py-20">
+      <section id="about" className="bg-black/20 py-10">
         <div className="container mx-auto px-0">
           <div className="mx-auto max-w-7xl text-center">
             <h2 className="mb-6 font-mono text-4xl font-bold md:text-5xl">Driving Web3 Adoption Across Africa</h2>
@@ -41,9 +40,13 @@ export default function About1() {
                 </p>
               </div>
             </div>
+            <div className="pt-10">
+              <Link href="/about">
+              <Button variant="outline" className="bg-black text-white items-center hover:bg-white/80 hover:text-black">Learn more About Us</Button>
+              </Link>
+            </div>
           </div>
         </div>
     </section>
-    </div>
     );
 }
