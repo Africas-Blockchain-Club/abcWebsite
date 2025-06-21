@@ -21,10 +21,9 @@ import {
   Github,
 } from "lucide-react"
 import FadeIn from "@/components/animations/fade-in"
-import SlideIn from "@/components/animations/scale-in"
+import SlideIn from "@/components/animations/slide-in"
 import ScaleIn from "@/components/animations/scale-in"
-import StaggerContainer from "@/components/animations/stagger-container"
-import BlockchainPattern from "@/components/blockchain-pattern"
+import BlockchainPattern from "@/components/blockchain-network"
 import SocialLinks from "@/components/social-links"
 
 export default function AboutPage() {
@@ -202,7 +201,7 @@ export default function AboutPage() {
       {/* Stats Section */}
       <section className="bg-amber-500 py-16">
         <div className="container mx-auto px-4">
-          <StaggerContainer staggerDelay={200} className="grid grid-cols-2 gap-8 md:grid-cols-4">
+          
             {stats.map((stat, index) => (
               <ScaleIn key={stat.label} delay={index * 200}>
                 <div className="text-center">
@@ -211,7 +210,6 @@ export default function AboutPage() {
                 </div>
               </ScaleIn>
             ))}
-          </StaggerContainer>
         </div>
       </section>
 
@@ -322,7 +320,6 @@ export default function AboutPage() {
             <FadeIn direction="up">
               <h3 className="mb-8 text-center font-mono text-2xl font-bold">Our Core Values</h3>
             </FadeIn>
-            <StaggerContainer staggerDelay={200} className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
               {values.map((value, index) => (
                 <ScaleIn key={value.title} delay={index * 200}>
                   <Card className="text-center hover:shadow-lg transition-all duration-300">
@@ -334,7 +331,7 @@ export default function AboutPage() {
                   </Card>
                 </ScaleIn>
               ))}
-            </StaggerContainer>
+           
           </div>
         </div>
       </section>
@@ -451,8 +448,6 @@ export default function AboutPage() {
               </p>
             </div>
           </FadeIn>
-
-          <StaggerContainer staggerDelay={200} className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {advisors.map((advisor, index) => (
               <ScaleIn key={advisor.name} delay={index * 200}>
                 <Card className="text-center hover:shadow-lg transition-all duration-300">
@@ -472,7 +467,7 @@ export default function AboutPage() {
                 </Card>
               </ScaleIn>
             ))}
-          </StaggerContainer>
+          
         </div>
       </section>
 
