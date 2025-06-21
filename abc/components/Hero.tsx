@@ -65,16 +65,6 @@ export default function Hero() {
             />
           </div>
 
-          {/* <div className="absolute top-[55%] left-[100px] w-[550px] -translate-y-1/2 rounded-full">
-          <Image
-            src="/About/whiteABC.png"
-            alt="Africa's Blockchain Club Logo"
-            width={400}
-            height={400}
-            className="w-full h-auto"
-            priority
-          />
-        </div> */}
           <BlockchainNetwork className="w-full h-full" />
 
         </div>
