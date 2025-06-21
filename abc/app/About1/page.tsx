@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link, School, Trophy, Users } from "lucide-react";
+import AboutPage from "../about/page";
 
 
 export default function About1() {
@@ -41,9 +42,8 @@ export default function About1() {
               </div>
             </div>
             <div className="pt-10">
-              <Link href="/about">
-              <Button variant="outline" className="bg-black text-white items-center hover:bg-white/80 hover:text-black">Learn more About Us</Button>
-              </Link>
+              
+              <Button onClick={AboutPage} variant="outline" className="bg-black text-white items-center hover:bg-white/80 hover:text-black">Learn more About Us</Button>
             </div>
           </div>
         </div>
