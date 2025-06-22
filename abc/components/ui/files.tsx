@@ -15,7 +15,7 @@ export default function ProjectsDrawer() {
       
       {/* Large text above the modal */}
       <div className="absolute top-[-1.8cm] left-0 w-full text-center z-10">
-        <h1 className="lg:text-[13rem] text-bold font-extrabold mt-8">Collections</h1>
+        <h1 className="lg:text-[10rem] text-bold font-extrabold mt-8">Projects</h1>
       </div>
 
       {/* Main modal moved down */}
@@ -44,9 +44,9 @@ export default function ProjectsDrawer() {
           }}
         >
           <div>
-            <h2 className="text-2xl font-bold mb-3">Projects & Research</h2>
+            <h2 className="text-2xl font-bold mb-3">Featured Projects</h2>
             <p className="text-sm text-gray-400">
-              Discover our latest work—cutting-edge blockchain projects and insightful research papers.
+              Discover our latest work—cutting-edge blockchain projects and insights.
             </p>
           </div>
         </div>

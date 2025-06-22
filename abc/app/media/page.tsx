@@ -161,10 +161,10 @@ export default function MediaPage() {
     },
     {
       id: "medium-2",
-      title: "Building Inclusive Financial Systems with DeFi",
+      title: "DeFi Strategies: A Case Study",
       description:
-        "How decentralized finance protocols can address financial inclusion challenges across African markets.",
-      thumbnail: "/placeholder.svg?height=200&width=350",
+        "This paper evaluates popular decentralized finance mechanisms and their economic implications.",
+      thumbnail: "/abcWork/bybit.jpg",
       url: "https://medium.com/@abc/inclusive-financial-systems-defi",
       publishedAt: "2024-02-14",
       category: "DeFi",
@@ -175,10 +175,10 @@ export default function MediaPage() {
     },
     {
       id: "medium-3",
-      title: "Smart Contract Security Best Practices",
+      title: "SAM: Smart Asset Management",
       description:
-        "Essential security considerations and best practices for developing secure smart contracts in the African context.",
-      thumbnail: "/placeholder.svg?height=200&width=350",
+        "A research paper exploring blockchain-driven solutions for automating asset lifecycle management.",
+      thumbnail: "/abcWork/sam6.png",
       url: "https://medium.com/@abc/smart-contract-security-practices",
       publishedAt: "2024-03-18",
       category: "Development",
@@ -217,10 +217,10 @@ export default function MediaPage() {
     },
     {
       id: "medium-6",
-      title: "Blockchain Research and Development in Africa",
+      title: "Gamification in Blockchain Education",
       description:
-        "Current state of blockchain research across African universities and research institutions, highlighting key innovations.",
-      thumbnail: "/placeholder.svg?height=200&width=350",
+        "This research analyzes how game mechanics can enhance blockchain learning platforms for better engagement.",
+      thumbnail: "/abcWork/gameMel.png",
       url: "https://medium.com/@abc/blockchain-research-development-africa",
       publishedAt: "2024-06-15",
       category: "Research",
