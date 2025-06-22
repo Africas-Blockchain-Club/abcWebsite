@@ -19,14 +19,17 @@ import {
   Linkedin,
   Twitter,
   Github,
+  Zap,
+  Rocket,
+  Shield,
+  Cpu,
 } from "lucide-react"
 import FadeIn from "@/components/animations/fade-in"
 import SlideIn from "@/components/animations/slide-in"
 import ScaleIn from "@/components/animations/scale-in"
-import BlockchainPattern from "@/components/blockchain-network"
+import StaggerContainer from "@/components/animations/stagger-container"
+import BlockchainPattern from "@/components/blockchain-pattern"
 import SocialLinks from "@/components/social-links"
-import { FloatingNav } from "@/components/ui/FloatingNav"
-import { navItems } from "@/data"
 
 export default function AboutPage() {
   const teamMembers = [
@@ -41,8 +44,8 @@ export default function AboutPage() {
       expertise: ["DeFi", "Smart Contracts", "Tokenomics", "Leadership"],
     },
     {
-      name: "Denzel Selokela",
-      role: "Community Manager & Technical coordinator",
+      name: "Peter Manda",
+      role: "Operations Manager",
       bio: "Full-stack developer and blockchain architect. PhD in Computer Science from University of Cape Town. Expert in Ethereum, Solidity, and Layer 2 solutions.",
       image: "/placeholder.svg?height=400&width=400",
       linkedin: "https://linkedin.com/in/zainabosei",
@@ -51,8 +54,8 @@ export default function AboutPage() {
       expertise: ["Solidity", "Web3", "Architecture", "Security"],
     },
     {
-      name: "Peter Manda",
-      role: "Operations Manager",
+      name: "Denzel Selokela",
+      role: "Community Manager",
       bio: "Community builder and educator with a passion for blockchain adoption. Former tech journalist and event organizer. Fluent in English, Swahili, and French.",
       image: "/placeholder.svg?height=400&width=400",
       linkedin: "https://linkedin.com/in/davidmwangi",
@@ -61,8 +64,8 @@ export default function AboutPage() {
       expertise: ["Community Building", "Education", "Content Creation", "Events"],
     },
     {
-      name: "Maite Lemekoana",
-      role: "CFO",
+      name: "Maite Lemakoana",
+      role: "Education Coordinator",
       bio: "Former university lecturer turned blockchain educator. Specializes in making complex blockchain concepts accessible to beginners. Speaks 5 languages.",
       image: "/placeholder.svg?height=400&width=400",
       linkedin: "https://linkedin.com/in/fatimadiallo",
@@ -71,8 +74,8 @@ export default function AboutPage() {
       expertise: ["Education", "Curriculum Design", "Research", "Mentoring"],
     },
     {
-      name: "Lethabo Molekwa",
-      role: "Partnerships Director & Logistics",
+      name: "Katlego Phele",
+      role: "Partnerships Director",
       bio: "Business development expert with extensive network across African tech ecosystem. Former consultant at McKinsey & Company with focus on emerging markets.",
       image: "/placeholder.svg?height=400&width=400",
       linkedin: "https://linkedin.com/in/kwameasante",
@@ -81,8 +84,8 @@ export default function AboutPage() {
       expertise: ["Business Development", "Strategy", "Partnerships", "Finance"],
     },
     {
-      name: "Katlego Phele",
-      role: "Technical Coordinator",
+      name: "Lethabo Mokoena",
+      role: "Research Lead",
       bio: "Blockchain researcher and academic. PhD in Cryptography from MIT. Published 20+ papers on blockchain scalability and privacy. Advisor to multiple African governments.",
       image: "/placeholder.svg?height=400&width=400",
       linkedin: "https://linkedin.com/in/amarakone",
@@ -92,50 +95,50 @@ export default function AboutPage() {
     },
   ]
 
-  // const advisors = [
-  //   {
-  //     name: "Dr. Sarah Johnson",
-  //     role: "Strategic Advisor",
-  //     company: "Former VP at Coinbase Africa",
-  //     image: "/placeholder.svg?height=300&width=300",
-  //   },
-  //   {
-  //     name: "Prof. Michael Okafor",
-  //     role: "Academic Advisor",
-  //     company: "University of Lagos",
-  //     image: "/placeholder.svg?height=300&width=300",
-  //   },
-  //   {
-  //     name: "Lisa Chen",
-  //     role: "Technical Advisor",
-  //     company: "Ethereum Foundation",
-  //     image: "/placeholder.svg?height=300&width=300",
-  //   },
-  // ]
+  const ResearchTeam = [
+    {
+      name: "Sandile Siwundla",
+      role: "Researcher",
+      company: "Former VP at Coinbase Africa",
+      image: "/placeholder.svg?height=300&width=300",
+    },
+    {
+      name: "Sandile M'remi",
+      role: "Researcher",
+      company: "University of Lagos",
+      image: "/placeholder.svg?height=300&width=300",
+    },
+    {
+      name: "Lethabo Mokoena",
+      role: "Researcher",
+      company: "Ethereum Foundation",
+      image: "/placeholder.svg?height=300&width=300",
+    },
+  ]
 
   const milestones = [
     {
-      year: "2023/03",
+      year: "2024/03",
       title: "Foundation",
       description: "ABC was founded in Johannesburg",
     },
     {
-      year: "2021",
+      year: "2024/04",
       title: "First Hackathon",
-      description: "Organized our first hackathon with 100+ participants",
+      description: "Participated our first global hackathon with 1000+ participants",
     },
     {
-      year: "2022",
+      year: "2024/",
       title: "Pan-African Expansion",
       description: "Expanded to 10 African countries with local ambassadors",
     },
     {
-      year: "2023",
-      title: "1000+ Members",
+      year: "2024",
+      title: "100+ Members",
       description: "Reached 1000+ active community members across Africa",
     },
     {
-      year: "2024",
+      year: "2025",
       title: "Research Initiative",
       description: "Launched ABC Research Lab focusing on African blockchain solutions",
     },
@@ -170,40 +173,139 @@ export default function AboutPage() {
   ]
 
   const stats = [
-    { number: "+150", label: "Community Members" },
-    { number: "2", label: "African Countries" },
+    { number: "200+", label: "Community Members" },
+    { number: "1", label: "African Countries" },
     { number: "10+", label: "Projects Built" },
     { number: "10+", label: "Events Organized" },
   ]
 
   return (
     <div className="min-h-screen bg-white">
-      <FloatingNav navItems={navItems} />
-      <section className="relative overflow-hidden bg-gradient-to-br from-neutral-900 via-neutral-800 to-amber-900 py-20 text-white">
-        <BlockchainPattern className="opacity-10" />
-        <div className="container mx-auto px-4 relative z-10">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden py-20 text-white min-h-[80vh] flex items-center">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/placeholder.svg?height=1000&width=1600&text=African+Tech+Community"
+            alt="African Tech Community Background"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Dark overlay for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/70 to-black/50"></div>
+        </div>
+
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 z-10">
+          <BlockchainPattern className="opacity-20" />
+
+          {/* Floating Tech Icons */}
+          <div className="absolute top-20 left-10 animate-bounce opacity-40">
+            <Rocket className="h-16 w-16 text-amber-500" />
+          </div>
+          <div className="absolute top-32 right-20 animate-bounce opacity-30" style={{ animationDelay: "1s" }}>
+            <Globe className="h-12 w-12 text-amber-400" />
+          </div>
+          <div className="absolute bottom-32 left-20 animate-bounce opacity-35" style={{ animationDelay: "2s" }}>
+            <Users className="h-14 w-14 text-amber-300" />
+          </div>
+          <div className="absolute bottom-20 right-10 animate-bounce opacity-30" style={{ animationDelay: "0.5s" }}>
+            <Zap className="h-18 w-18 text-amber-600" />
+          </div>
+          <div className="absolute top-1/2 left-10 animate-bounce opacity-25" style={{ animationDelay: "1.8s" }}>
+            <Shield className="h-10 w-10 text-amber-500" />
+          </div>
+          <div className="absolute top-1/3 right-1/4 animate-bounce opacity-35" style={{ animationDelay: "0.3s" }}>
+            <Cpu className="h-12 w-12 text-amber-400" />
+          </div>
+
+          {/* Geometric Shapes */}
+          <div className="absolute top-1/4 left-1/3 h-24 w-24 rotate-45 bg-amber-500/20 animate-pulse"></div>
+          <div
+            className="absolute bottom-1/3 right-1/4 h-20 w-20 rotate-12 bg-amber-400/20 animate-pulse"
+            style={{ animationDelay: "1.5s" }}
+          ></div>
+          <div
+            className="absolute top-1/2 right-1/3 h-16 w-16 rounded-full bg-amber-300/20 animate-pulse"
+            style={{ animationDelay: "0.8s" }}
+          ></div>
+          <div
+            className="absolute bottom-1/4 left-1/2 h-12 w-12 rotate-45 bg-amber-600/20 animate-pulse"
+            style={{ animationDelay: "2.2s" }}
+          ></div>
+
+          {/* Connecting Lines */}
+          <div className="absolute top-1/4 left-1/4 w-32 h-0.5 bg-amber-500/30 rotate-45 animate-pulse"></div>
+          <div
+            className="absolute bottom-1/3 right-1/3 w-24 h-0.5 bg-amber-400/30 rotate-12 animate-pulse"
+            style={{ animationDelay: "1s" }}
+          ></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-20">
           <FadeIn direction="up">
-            <div className="mx-auto max-w-4xl text-center">
-              <h1 className="mb-6 font-mono text-5xl font-bold md:text-6xl">About Africa's Blockchain Club</h1>
-              <p className="mb-8 text-xl text-neutral-200">
+            <div className="mx-auto max-w-5xl text-center">
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-amber-500/20 backdrop-blur-sm px-6 py-3 text-amber-300 border border-amber-500/30">
+                <Users className="h-5 w-5" />
+                <span className="text-sm font-medium">Building Africa's Blockchain Future</span>
+              </div>
+
+              <h1 className="mb-8 font-mono text-5xl font-bold leading-tight md:text-6xl lg:text-7xl">
+                About{" "}
+                <span className="block text-amber-400">
+                  Africa's
+                  <br />
+                  Blockchain Club
+                </span>
+              </h1>
+
+              <p className="mb-10 text-xl text-neutral-200 max-w-4xl mx-auto leading-relaxed">
                 Empowering Africa's next generation of blockchain innovators, developers, and entrepreneurs to build the
-                decentralized future of the continent.
+                decentralized future of the continent. We're more than a community—we're a movement transforming how
+                Africa engages with blockchain technology.
               </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Button className="bg-amber-500 text-black hover:bg-amber-400">Join Our Community</Button>
-                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-black">
+
+              <div className="flex flex-wrap justify-center gap-6 mb-12">
+                <Button className="bg-amber-500 text-black hover:bg-amber-400 transform hover:scale-105 transition-all duration-200 px-8 py-4 text-lg font-semibold">
+                  <Users className="mr-2 h-5 w-5" />
+                  Join Our Community
+                </Button>
+                <Button
+                  variant="outline"
+                  className="border-white text-white hover:bg-white hover:text-black transform hover:scale-105 transition-all duration-200 px-8 py-4 text-lg font-semibold backdrop-blur-sm"
+                >
+                  <Rocket className="mr-2 h-5 w-5" />
                   View Our Projects
                 </Button>
+              </div>
+
+              {/* Mission Statement */}
+              <div className="max-w-3xl mx-auto bg-black/30 backdrop-blur-sm rounded-2xl p-8 border border-amber-500/20">
+                <h3 className="text-2xl font-bold mb-4 text-amber-400">Our Mission</h3>
+                <p className="text-lg text-neutral-200 leading-relaxed">
+                  To accelerate blockchain technology adoption across Africa by building inclusive communities,
+                  providing world-class education, and fostering innovation that addresses real African challenges.
+                </p>
               </div>
             </div>
           </FadeIn>
         </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20">
+          <div className="animate-bounce">
+            <div className="h-8 w-5 rounded-full border-2 border-white/50 flex justify-center">
+              <div className="h-2 w-1 bg-white/70 rounded-full mt-2 animate-pulse"></div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Stats Section */}
-      <section className="bg-amber-500 ">
-        <div className="container mx-auto flex items-center px-4">
-          
+      <section className="bg-amber-500 py-16">
+        <div className="container mx-auto px-4">
+          <StaggerContainer staggerDelay={200} className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {stats.map((stat, index) => (
               <ScaleIn key={stat.label} delay={index * 200}>
                 <div className="text-center">
@@ -212,17 +314,18 @@ export default function AboutPage() {
                 </div>
               </ScaleIn>
             ))}
+          </StaggerContainer>
         </div>
       </section>
 
       {/* Our Story Section */}
-      <section className="py-20 bg-gray-800">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
             <SlideIn direction="left">
               <div>
                 <h2 className="mb-6 font-mono text-3xl font-bold md:text-4xl">Our Story</h2>
-                <div className="space-y-6 text-lg text-white">
+                <div className="space-y-6 text-lg text-neutral-700">
                   <p>
                     Africa's Blockchain Club (ABC) was born from a simple yet powerful vision: to position Africa at the
                     forefront of the global blockchain revolution. Founded in 2020 in Johannesburg, South Africa, we
@@ -250,34 +353,24 @@ export default function AboutPage() {
             <SlideIn direction="right">
               <div className="relative">
                 <Image
-                  src="/header/ABC.png"
+                  src="/placeholder.svg?height=600&width=800"
                   alt="ABC Community Meeting"
                   width={800}
                   height={600}
                   className="rounded-lg shadow-lg"
                 />
                 <div className="absolute -bottom-6 -right-6 rounded-lg bg-amber-500 p-6 text-black">
-                  <div className="font-mono text-2xl font-bold">2 Years</div>
+                  <div className="font-mono text-2xl font-bold">5 Years</div>
                   <div className="text-sm">of Innovation</div>
                 </div>
               </div>
-              <div className="relative">
-                <Image
-                  src="/header/ABC.png"
-                  alt="ABC Community Meeting"
-                  width={800}
-                  height={600}
-                  className="rounded-lg shadow-lg"
-                />
-              </div>
             </SlideIn>
-            
           </div>
         </div>
       </section>
 
       {/* Mission, Vision, Values */}
-      <section className="bg-gradient-to-br from-neutral-900 via-neutral-800 to-amber-900 py-20 text-white">
+      <section className="bg-neutral-50 py-20">
         <div className="container mx-auto px-4">
           <FadeIn direction="up">
             <div className="mb-16 text-center">
@@ -332,6 +425,7 @@ export default function AboutPage() {
             <FadeIn direction="up">
               <h3 className="mb-8 text-center font-mono text-2xl font-bold">Our Core Values</h3>
             </FadeIn>
+            <StaggerContainer staggerDelay={200} className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
               {values.map((value, index) => (
                 <ScaleIn key={value.title} delay={index * 200}>
                   <Card className="text-center hover:shadow-lg transition-all duration-300">
@@ -343,18 +437,18 @@ export default function AboutPage() {
                   </Card>
                 </ScaleIn>
               ))}
-           
+            </StaggerContainer>
           </div>
         </div>
       </section>
 
       {/* Timeline Section */}
-      <section className="bg-gray-800 py-20 text-white">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <FadeIn direction="up">
             <div className="mb-16 text-center">
               <h2 className="mb-4 font-mono text-3xl font-bold md:text-4xl">Our Journey</h2>
-              <p className="mx-auto max-w-2xl text-lg text-white">
+              <p className="mx-auto max-w-2xl text-lg text-neutral-600">
                 Key milestones in our mission to transform Africa through blockchain technology
               </p>
             </div>
@@ -375,7 +469,7 @@ export default function AboutPage() {
                         <CardContent className="p-6">
                           <div className="mb-2 font-mono text-2xl font-bold text-amber-600">{milestone.year}</div>
                           <h3 className="mb-2 text-xl font-semibold">{milestone.title}</h3>
-                          <p className="text-white">{milestone.description}</p>
+                          <p className="text-neutral-600">{milestone.description}</p>
                         </CardContent>
                       </Card>
                     </div>
@@ -391,7 +485,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="bg-gradient-to-br from-neutral-900 via-neutral-800 to-amber-900 py-20 text-white">
+      <section className="bg-neutral-50 py-20">
         <div className="container mx-auto px-4">
           <FadeIn direction="up">
             <div className="mb-16 text-center">
@@ -449,7 +543,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Advisors Section
+      {/* Advisors Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <FadeIn direction="up">
@@ -460,6 +554,8 @@ export default function AboutPage() {
               </p>
             </div>
           </FadeIn>
+
+          <StaggerContainer staggerDelay={200} className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {advisors.map((advisor, index) => (
               <ScaleIn key={advisor.name} delay={index * 200}>
                 <Card className="text-center hover:shadow-lg transition-all duration-300">
@@ -479,9 +575,9 @@ export default function AboutPage() {
                 </Card>
               </ScaleIn>
             ))}
-          
+          </StaggerContainer>
         </div>
-      </section> */}
+      </section>
 
       {/* What We Do Section */}
       <section className="bg-neutral-900 py-20 text-white">
@@ -602,12 +698,12 @@ export default function AboutPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="bg-gray-800 py-20 text-white">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <FadeIn direction="up">
             <div className="mb-16 text-center">
               <h2 className="mb-4 font-mono text-3xl font-bold md:text-4xl">Get In Touch</h2>
-              <p className="mx-auto max-w-2xl text-lg text-white">
+              <p className="mx-auto max-w-2xl text-lg text-neutral-600">
                 Ready to join Africa's blockchain revolution? We'd love to hear from you.
               </p>
             </div>
@@ -626,7 +722,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <h4 className="font-semibold">Headquarters</h4>
-                      <p className="text-white">Johannesburg, South Africa</p>
+                      <p className="text-neutral-600">Johannesburg, South Africa</p>
                     </div>
                   </div>
 
@@ -636,7 +732,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <h4 className="font-semibold">Email</h4>
-                      <p className="text-white">info@africasblockchainclub.org</p>
+                      <p className="text-neutral-600">info@africasblockchainclub.org</p>
                     </div>
                   </div>
 
@@ -646,7 +742,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <h4 className="font-semibold">Phone</h4>
-                      <p className="text-white">+27 11 123 4567</p>
+                      <p className="text-neutral-600">+27 11 123 4567</p>
                     </div>
                   </div>
 
@@ -656,7 +752,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <h4 className="font-semibold">Weekly Meetups</h4>
-                      <p className="text-white">Every Saturday, 2:00 PM SAST</p>
+                      <p className="text-neutral-600">Every Saturday, 2:00 PM SAST</p>
                     </div>
                   </div>
 
@@ -675,7 +771,7 @@ export default function AboutPage() {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-6">
-                    <p className="text-white">
+                    <p className="text-neutral-600">
                       Whether you're a developer, entrepreneur, student, or blockchain enthusiast, there's a place for
                       you in our community.
                     </p>
@@ -690,9 +786,9 @@ export default function AboutPage() {
                       </Button>
                     </div>
 
-                    <div className="rounded-lg bg-gray-800 border p-4">
+                    <div className="rounded-lg bg-neutral-50 p-4">
                       <h5 className="mb-2 font-semibold">Become an Ambassador</h5>
-                      <p className="text-sm text-white">
+                      <p className="text-sm text-neutral-600">
                         Help us expand ABC to your city or country. We provide training, resources, and support to
                         community leaders.
                       </p>
