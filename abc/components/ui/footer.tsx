@@ -7,11 +7,11 @@ import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   return (
-    <div className="relative mt-20">
+    <div className="relative">
       {/* WE MOVE text with animated gradient */}
-      <div className="absolute -top-[6.4rem] left-0 w-full text-center overflow-hidden">
-        <h1 className="text-[8rem] md:text-[12rem] lg:text-[15rem] font-extrabold tracking-tighter leading-none whitespace-nowrap 
-              bg-[linear-gradient(to_top,black_0%,black_57%,#facc15_57%,#facc15_100%)] 
+      <div className="absolute -top-[4.4rem] left-0 w-full text-center overflow-hidden">
+        <h1 className="text-[8rem] md:text-[12rem] lg:text-[13rem] font-extrabold tracking-tighter leading-none whitespace-nowrap 
+              bg-[linear-gradient(to_top,black_0%,gray_100%,#ff8503_57%,#facc15_100%)] 
               bg-clip-text text-transparent animate-gradient">
           WE MOVE
         </h1>
@@ -23,16 +23,15 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                
                 <Image
                   src="/About/whiteABC.png"
                   alt="Africa Blockchain Club"
-                  width={50}
-                  height={50}
+                  width={80}
+                  height={180}
                   className="object-contain"
                 />
-                <span className="font-bold text-xl">ABC</span>
               </div>
+                <span className="font-bold text-xl">Africa's Blockchain Club</span>
               <p className="text-gray-400 mb-4">Empowering Africa through blockchain innovation and education.</p>
               <div className="flex gap-4">
                 <Button

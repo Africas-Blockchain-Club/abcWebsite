@@ -4,6 +4,10 @@ import React, { useState } from "react";
 import { forms } from "@/data/index";
 import ParticleBackground from "./particles"; 
 import BlockchainNetwork from '@/components/ui/blockchain-network';
+import SlideIn from "../animations/slide-in";
+import { Card, CardContent, CardHeader, CardTitle } from "./card";
+import { Calendar, Mail, MapPin, Phone } from "lucide-react";
+import SocialLinks from "../social-links";
 
 
 
@@ -107,12 +111,11 @@ const Collaborate: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center bg-gradient-to-br from-black/90 via-black/70 to-black/50 justify-start text-white p-4 sm:p-10 transition-all duration-700">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
       {/* Main container */}
       <div className={`w-full flex flex-col items-center justify-center transition-all duration-700 
-        ${showForm ? "mt-10" : "mt-[25vh]"}`}>
+        ${showForm ? "mt-20" : "mt-[20vh]"}`}>
 
-
-        {/* Header and subtitle */}
         <div className="text-center max-w-xl text-lg relative z-20">
           <h2 className="text-4xl font-extrabold mb-6 flex gap-4 justify-center">
             <span className="text-white px-3 py-1">Work</span>
@@ -120,11 +123,63 @@ const Collaborate: React.FC = () => {
             <span className=" text-white px-3 py-1">Us</span>
           </h2>
 
-          <p className="text-2xl font-semibold mt-2 whitespace-nowrap">
-            <span className="inline-block  text-white px-4 py-2" style={{ lineHeight: "1.3" }}>
-              Choose an option below to get started.
-            </span>
-          </p>
+        {/* Header and subtitle */}
+            <SlideIn direction="left">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="font-mono text-2xl">Contact Information</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-500">
+                      <MapPin className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold">Headquarters</h4>
+                      <p className="text-neutral-600">Johannesburg, South Africa</p>
+                    </div>
+                  </div>
+    
+                  <div className="flex items-center space-x-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-500">
+                      <Mail className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold">Email</h4>
+                      <p className="text-neutral-600">info@africasblockchainclub.org</p>
+                    </div>
+                  </div>
+    
+                  <div className="flex items-center space-x-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-500">
+                      <Phone className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold">Phone</h4>
+                      <p className="text-neutral-600">+27 11 123 4567</p>
+                    </div>
+                  </div>
+    
+                  <div className="flex items-center space-x-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-500">
+                      <Calendar className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold">Weekly Meetups</h4>
+                      <p className="text-neutral-600">Every Saturday, 2:00 PM SAST</p>
+                    </div>
+                  </div>
+    
+                  <div className="pt-6">
+                    <h4 className="mb-4 font-semibold">Follow Us</h4>
+                    <SocialLinks />
+                  </div>
+                </CardContent>
+              </Card>
+            </SlideIn>
+            </div>
+
+
         </div>
 
         {/* Glow and buttons container */}
@@ -132,15 +187,19 @@ const Collaborate: React.FC = () => {
           {/* Glow backdrop - centered */}
           {/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 pointer-events-none w-[610px] h-[450px]">
             <div className="w-full h-full bg-amber-600 opacity-80 blur-[100px] rounded-2xl shadow-[0_0_300px_180px_rgba(234,179,8,0.75)]" /> */}
-            <ParticleBackground className="mx-auto" />
           {/* </div> */}
 
           {/* Buttons - centered with the glow */}
+          <p className="text-2xl font-semibold mt-2 whitespace-nowrap">
+            <span className="inline-block  text-white px-4 py-2 pb-10 " style={{ lineHeight: "1.3" }}>
+              Choose an option below to get started.
+            </span>
+          </p>
           <div className="flex flex-wrap justify-center gap-4 z-10">
             {Object.keys(typedForms).map((key: string) => { // Add type for key
               const isActive = activeForm === key;
               const isResearcher = key === "researcher";
-
+              
               const baseClass = "px-6 py-3 font-semibold rounded-lg transition-all duration-300";
               const extraClass = isActive || (isInitialLoad && isResearcher)
                 ? "bg-amber-600 shadow-md shadow-amber-500 text-white"
@@ -150,7 +209,7 @@ const Collaborate: React.FC = () => {
                 <button
                   key={key}
                   onClick={() => handleButtonClick(key)}
-                   className={`${baseClass} ${extraClass}`}
+                  className={`${baseClass} ${extraClass}`}
                  >
                    {buttonLabels[key as keyof typeof buttonLabels]} {/* Add type assertion */}
                  </button>
@@ -159,6 +218,7 @@ const Collaborate: React.FC = () => {
           </div>
 
           {/* Form - centered with the glow */}
+          <ParticleBackground className="mx-auto" />
           <div className={`mt-6 w-full max-w-[600px] transition-all duration-700 ease-in-out overflow-hidden ${
             showForm ? "opacity-100 scale-100 max-h-[2000px]" : "opacity-0 scale-95 max-h-0"
           }`}>
@@ -169,8 +229,8 @@ const Collaborate: React.FC = () => {
                   {typedForms[activeForm]?.fields.map((field: FormField) => // Add type for field
                     field.type === "select" ? (
                       <select
-                        key={field.name}
-                        name={field.name}
+                      key={field.name}
+                      name={field.name}
                         onChange={handleChange}
                         className="w-full p-3 bg-[#6B7280] rounded-lg"
                       >
@@ -185,7 +245,7 @@ const Collaborate: React.FC = () => {
                       </select>
                     ) : field.type === "textarea" ? (
                       <textarea
-                        key={field.name}
+                      key={field.name}
                         name={field.name}
                         onChange={handleChange}
                         placeholder={field.placeholder}
@@ -199,9 +259,9 @@ const Collaborate: React.FC = () => {
                         onChange={handleChange}
                         placeholder={field.placeholder}
                         className="w-full p-3 bg-[#6B7280] rounded-lg"
-                      />
-                    )
-                  )}
+                        />
+                      )
+                    )}
                   <button
                     type="submit"
                     className="w-full bg-[#1B1B1B] py-3 rounded-lg font-semibold hover:bg-amber-500 transition-all"
