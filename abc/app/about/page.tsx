@@ -25,6 +25,8 @@ import SlideIn from "@/components/animations/slide-in"
 import ScaleIn from "@/components/animations/scale-in"
 import BlockchainPattern from "@/components/blockchain-network"
 import SocialLinks from "@/components/social-links"
+import { FloatingNav } from "@/components/ui/FloatingNav"
+import { navItems } from "@/data"
 
 export default function AboutPage() {
   const teamMembers = [
@@ -176,7 +178,7 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
+      <FloatingNav navItems={navItems} />
       <section className="relative overflow-hidden bg-gradient-to-br from-neutral-900 via-neutral-800 to-amber-900 py-20 text-white">
         <BlockchainPattern className="opacity-10" />
         <div className="container mx-auto px-4 relative z-10">

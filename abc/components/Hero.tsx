@@ -1,27 +1,17 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { heroImage } from '@/data';
 import BlockchainHeroBg from './ui/blockchain.-hero-bg';
 import BlockchainNetwork from './ui/blockchain-network';
-import { FloatingNav } from './ui/FloatingNav';
 import FloatingElements from './animations/floating-elements';
 
-
-const navItems = [
-  { name: 'About', link: '/about' },
-  { name: 'Projects', link: '#projects' },
-  { name: 'Contact', link: '#contact' },
-  { name: 'Media', link: '/media' },
-];
 
 export default function Hero() {
   return (
     <section className="relative overflow-hidden text-white">
-      <FloatingNav navItems={navItems} />
+    
       <BlockchainHeroBg />
       <FloatingElements />
 
