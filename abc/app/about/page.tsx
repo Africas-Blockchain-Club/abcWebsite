@@ -704,7 +704,7 @@ export default function AboutPage() {
                   <CardTitle className="text-white">Startup Incubation</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-neutral-300">
+                  <p className="text-white">
                     Supporting blockchain startups through mentorship, funding connections, and access to our extensive
                     network of industry partners.
                   </p>
@@ -716,7 +716,7 @@ export default function AboutPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20">
+      <section className=" bg-gray-800 py-20">
         <div className="container mx-auto px-4">
           <FadeIn direction="up">
             <div className="mb-16 text-center">
