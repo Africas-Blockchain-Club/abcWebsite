@@ -44,7 +44,7 @@ export const testimonials = [
     width: 100, 
     height: 1000,
   };
-
+  
   export const logoImage = {
     src: "/header/ABC.png",
     alt: "Africa's Blockchain Club",
@@ -54,18 +54,18 @@ export const testimonials = [
   
   export const projectsData = [
     {
-      title: "SAM: Smart Asset Management",
-      description: "A research paper exploring blockchain-driven solutions for automating asset lifecycle management.",
-      image: "/abcWork/sam6.png",
-      link: "/vision",
-      message: "View Article",
+      title: "7EduPact - Decentralized Education",
+      description: "Transforming global education with a secure and decentralized platform that empowers students and educators.",
+      image: "/abcWork/7edupact.svg",
+      link: "https://7-edu-pact.vercel.app/",
+      message: "View Website",
     },
     {
-      title: "Gamification in Blockchain Education",
-      description: "This research analyzes how game mechanics can enhance blockchain learning platforms for better engagement.",
-      image: "/abcWork/gameMel.png",
-      link: "/vision",
-      message: "View Article",
+      title: "Decentralized Agriculture Marketplace",
+      description: "Empowering farmers and streamlining the supply chain through a transparent blockchain marketplace.",
+      image: "/abcWork/harvestchain.svg",
+      link: "/ui.apple.com",
+      message: "View Website",
     },
     {
       title: "BioHealth DApp",
@@ -73,13 +73,6 @@ export const testimonials = [
       image: "/abcWork/BioHealth.jpg",
       link: "/page3",
       message: "View Website",
-    },
-    {
-      title: "DeFi Strategies: A Case Study",
-      description: "This paper evaluates popular decentralized finance mechanisms and their economic implications.",
-      image: "/abcWork/bybit.jpg",
-      link: "/vision",
-      message: "View Article",
     },
     {
       title: "Decentralized Voting System",
@@ -95,20 +88,7 @@ export const testimonials = [
       link: "https://spxce.vercel.app/",
       message: "View Website",
     },
-    {
-      title: "7EduPact - Decentralized Education",
-      description: "Transforming global education with a secure and decentralized platform that empowers students and educators.",
-      image: "/abcWork/7edupact.svg",
-      link: "https://7-edu-pact.vercel.app/",
-      message: "View Website",
-    },
-    {
-      title: "Decentralized Agriculture Marketplace",
-      description: "Empowering farmers and streamlining the supply chain through a transparent blockchain marketplace.",
-      image: "/abcWork/harvestchain.svg",
-      link: "/ui.apple.com",
-      message: "View Website",
-    },
+
   ];
   
 
