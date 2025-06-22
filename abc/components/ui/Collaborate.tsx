@@ -106,7 +106,7 @@ const Collaborate: React.FC = () => {
   const typedForms = forms as FormsData;
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-start text-white p-4 sm:p-10 transition-all duration-700">
+    <div className="min-h-screen flex flex-col items-center bg-gradient-to-br from-black/90 via-black/70 to-black/50 justify-start text-white p-4 sm:p-10 transition-all duration-700">
       {/* Main container */}
       <div className={`w-full flex flex-col items-center justify-center transition-all duration-700 
         ${showForm ? "mt-10" : "mt-[25vh]"}`}>
@@ -115,13 +115,13 @@ const Collaborate: React.FC = () => {
         {/* Header and subtitle */}
         <div className="text-center max-w-xl text-lg relative z-20">
           <h2 className="text-4xl font-extrabold mb-6 flex gap-4 justify-center">
-            <span className="text-black px-3 py-1">Work</span>
-            <span className=" text-black px-3 py-1">With</span>
-            <span className=" text-black px-3 py-1">Us</span>
+            <span className="text-white px-3 py-1">Work</span>
+            <span className=" text-white px-3 py-1">With</span>
+            <span className=" text-white px-3 py-1">Us</span>
           </h2>
 
           <p className="text-2xl font-semibold mt-2 whitespace-nowrap">
-            <span className="inline-block  text-black px-4 py-2" style={{ lineHeight: "1.3" }}>
+            <span className="inline-block  text-white px-4 py-2" style={{ lineHeight: "1.3" }}>
               Choose an option below to get started.
             </span>
           </p>
@@ -130,10 +130,10 @@ const Collaborate: React.FC = () => {
         {/* Glow and buttons container */}
         <div className="relative w-full flex flex-col items-center justify-center mt-6 z-10">
           {/* Glow backdrop - centered */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 pointer-events-none w-[610px] h-[450px]">
-            <div className="w-full h-full bg-yellow-500 opacity-80 blur-[100px] rounded-2xl shadow-[0_0_300px_180px_rgba(234,179,8,0.75)]" />
+          {/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 pointer-events-none w-[610px] h-[450px]">
+            <div className="w-full h-full bg-amber-600 opacity-80 blur-[100px] rounded-2xl shadow-[0_0_300px_180px_rgba(234,179,8,0.75)]" /> */}
             <ParticleBackground className="mx-auto" />
-          </div>
+          {/* </div> */}
 
           {/* Buttons - centered with the glow */}
           <div className="flex flex-wrap justify-center gap-4 z-10">
@@ -143,7 +143,7 @@ const Collaborate: React.FC = () => {
 
               const baseClass = "px-6 py-3 font-semibold rounded-lg transition-all duration-300";
               const extraClass = isActive || (isInitialLoad && isResearcher)
-                ? "bg-yellow-500 shadow-lg shadow-yellow-500 text-white"
+                ? "bg-amber-600 shadow-md shadow-amber-500 text-white"
                 : "bg-[#1B1B1B] text-gray-300";
 
               return (
@@ -204,7 +204,7 @@ const Collaborate: React.FC = () => {
                   )}
                   <button
                     type="submit"
-                    className="w-full bg-blue-400 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all"
+                    className="w-full bg-[#1B1B1B] py-3 rounded-lg font-semibold hover:bg-amber-500 transition-all"
                   >
                     Submit
                   </button>

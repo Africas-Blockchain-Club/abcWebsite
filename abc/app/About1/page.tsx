@@ -42,8 +42,8 @@ export default function About1() {
               </div>
             </div>
             <div className="pt-10">
+              <Button variant="outline" className="bg-black text-white items-center hover:bg-white/80 hover:text-black">Learn more About Us</Button>
               
-              <Button onClick={AboutPage} variant="outline" className="bg-black text-white items-center hover:bg-white/80 hover:text-black">Learn more About Us</Button>
             </div>
           </div>
         </div>
