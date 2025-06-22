@@ -21,8 +21,8 @@ import {
 } from "lucide-react"
 import FadeIn from "@/components/animations/fade-in"
 import ScaleIn from "@/components/animations/scale-in"
-import BlockchainPattern from "@/components/blockchain-pattern"
 import StaggerContainer from "@/components/animations/stagger-container"
+import BlockchainPattern from "@/components/blockchain-pattern"
 
 type MediaItem = {
   id: string
@@ -245,65 +245,118 @@ export default function MediaPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-neutral-900 via-neutral-800 to-amber-900 py-20 text-white">
-        <BlockchainPattern className="opacity-10" />
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="relative overflow-hidden py-20 text-white min-h-[70vh] flex items-center">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/placeholder.svg?height=800&width=1600&text=Media+Studio+Background"
+            alt="Media Studio Background"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Dark overlay for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-amber-900"></div>
+        </div>
+
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 z-10">
+          <BlockchainPattern className="opacity-20" />
+
+          {/* Floating Media Icons */}
+          <div className="absolute top-20 left-10 animate-bounce opacity-30">
+            <Video className="h-12 w-12 text-amber-500" />
+          </div>
+          <div className="absolute top-32 right-20 animate-bounce opacity-30" style={{ animationDelay: "1s" }}>
+            <FileText className="h-10 w-10 text-amber-400" />
+          </div>
+          <div className="absolute bottom-32 left-20 animate-bounce opacity-30" style={{ animationDelay: "2s" }}>
+            <Play className="h-8 w-8 text-amber-300" />
+          </div>
+          <div className="absolute bottom-20 right-10 animate-bounce opacity-30" style={{ animationDelay: "0.5s" }}>
+            <BookOpen className="h-14 w-14 text-amber-600" />
+          </div>
+
+          {/* Geometric Shapes */}
+          <div className="absolute top-1/4 left-1/4 h-20 w-20 rotate-45 bg-amber-500/20 animate-pulse"></div>
+          <div
+            className="absolute bottom-1/4 right-1/4 h-16 w-16 rotate-12 bg-amber-400/20 animate-pulse"
+            style={{ animationDelay: "1.5s" }}
+          ></div>
+          <div
+            className="absolute top-1/2 right-1/3 h-12 w-12 rounded-full bg-amber-300/20 animate-pulse"
+            style={{ animationDelay: "0.8s" }}
+          ></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-20">
           <FadeIn direction="up">
             <div className="mx-auto max-w-4xl text-center">
-              <h1 className="mb-6 font-mono text-5xl font-bold md:text-6xl">Media & Resources</h1>
-              <p className="mb-8 text-xl text-neutral-200">
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-amber-500/20 backdrop-blur-sm px-6 py-2 text-amber-300 border border-amber-500/30">
+                <Video className="h-4 w-4" />
+                <span className="text-sm font-medium">Educational Content Hub</span>
+              </div>
+
+              <h1 className="mb-6 font-mono text-5xl font-bold md:text-6xl lg:text-7xl">
+                Media &<span className="block text-amber-400">Resources</span>
+              </h1>
+
+              <p className="mb-8 text-xl text-neutral-200 max-w-3xl mx-auto leading-relaxed">
                 Explore our collection of educational videos, insightful articles, and thought leadership content on
-                blockchain technology in Africa.
+                blockchain technology in Africa. Learn from experts and stay updated with the latest trends.
               </p>
+
               <div className="flex flex-wrap justify-center gap-4">
-                <Button className="bg-amber-500 text-black hover:bg-amber-400">
-                  <Video className="mr-2 h-4 w-4" />
+                <Button className="bg-amber-500 text-black hover:bg-amber-400 transform hover:scale-105 transition-all duration-200 px-8 py-3 text-lg">
+                  <Video className="mr-2 h-5 w-5" />
                   Watch Videos
                 </Button>
-                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-black">
-                  <FileText className="mr-2 h-4 w-4" />
+                <Button
+                  variant="outline"
+                  className="border-white text-white hover:bg-white hover:text-black transform hover:scale-105 transition-all duration-200 px-8 py-3 text-lg backdrop-blur-sm"
+                >
+                  <FileText className="mr-2 h-5 w-5" />
                   Read Articles
                 </Button>
+              </div>
+
+              {/* Quick Stats */}
+              <div className="mt-12 grid grid-cols-2 gap-8 md:grid-cols-4 max-w-2xl mx-auto">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-amber-400">50+</div>
+                  <div className="text-sm text-neutral-300">Videos</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-amber-400">100+</div>
+                  <div className="text-sm text-neutral-300">Articles</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-amber-400">500K+</div>
+                  <div className="text-sm text-neutral-300">Views</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-amber-400">25K+</div>
+                  <div className="text-sm text-neutral-300">Readers</div>
+                </div>
               </div>
             </div>
           </FadeIn>
         </div>
-      </section>
 
-      {/* Stats Section */}
-      <section className="bg-amber-500  ">
-        <div className="container mx-auto px-4">
-        <StaggerContainer staggerDelay={200} className="grid grid-cols-2 gap-8 md:grid-cols-4">
-            <ScaleIn delay={200}>
-              <div className="text-center">
-                <div className="mb-2 font-mono text-3xl font-bold text-black md:text-4xl">50+</div>
-                <div className="text-black/80 font-medium">Videos</div>
-              </div>
-            </ScaleIn>
-            <ScaleIn delay={400}>
-              <div className="text-center">
-                <div className="mb-2 font-mono text-3xl font-bold text-black md:text-4xl">100+</div>
-                <div className="text-black/80 font-medium">Articles</div>
-              </div>
-            </ScaleIn>
-            <ScaleIn delay={600}>
-              <div className="text-center">
-                <div className="mb-2 font-mono text-3xl font-bold text-black md:text-4xl">500K+</div>
-                <div className="text-black/80 font-medium">Views</div>
-              </div>
-            </ScaleIn>
-            <ScaleIn delay={800}>
-              <div className="text-center">
-                <div className="mb-2 font-mono text-3xl font-bold text-black md:text-4xl">25K+</div>
-                <div className="text-black/80 font-medium">Readers</div>
-              </div>
-            </ScaleIn>
-            </StaggerContainer>
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20">
+          <div className="animate-bounce">
+            <div className="h-8 w-5 rounded-full border-2 border-white/50 flex justify-center">
+              <div className="h-2 w-1 bg-white/70 rounded-full mt-2 animate-pulse"></div>
+            </div>
+          </div>
         </div>
       </section>
 
+      {/* Stats Section - Removed since it's now in hero */}
+
       {/* Search and Filter Section */}
-      <section className="bg-gray-900 py-12">
+      <section className="bg-gray-800 py-12">
         <div className="container mx-auto px-4">
           <FadeIn direction="up">
             <div className="mx-auto max-w-4xl">
@@ -353,7 +406,7 @@ export default function MediaPage() {
       </section>
 
       {/* Content Section */}
-      <section className="bg-gradient-to-br from-neutral-900 via-neutral-800 to-amber-900 py-20">
+      <section className="bg-gradient-to-br from-amber-900 via-neutral-800 to-neutral-900  py-20">
         <div className="container mx-auto px-4">
           <FadeIn direction="up">
             <div className="mb-8 text-center">
@@ -364,7 +417,7 @@ export default function MediaPage() {
                     ? "Video Content"
                     : "Articles & Insights"}
               </h2>
-              <p className="text-neutral-600">
+              <p className="text-white">
                 {filteredItems.length} {filteredItems.length === 1 ? "item" : "items"} found
                 {searchTerm && ` for "${searchTerm}"`}
               </p>
@@ -406,18 +459,18 @@ export default function MediaPage() {
       </section>
 
       {/* Categories Section */}
-      <section className="bg-gray-800 py-20">
+      <section className="bg-gray-900 py-20">
         <div className="container mx-auto px-4">
           <FadeIn direction="up">
             <div className="mb-12 text-center">
               <h2 className="mb-4 font-mono text-3xl font-bold md:text-4xl">Browse by Category</h2>
-              <p className="mx-auto max-w-2xl text-lg text-neutral-600">
+              <p className="mx-auto max-w-2xl text-lg text-white">
                 Explore content organized by topics and themes
               </p>
             </div>
           </FadeIn>
 
-          <StaggerContainer staggerDelay={200} className="grid grid-cols-2 gap-8 md:grid-cols-4">
+          <StaggerContainer staggerDelay={100} className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
             {categories.map((category, index) => (
               <ScaleIn key={category} delay={index * 100}>
                 <Card className="cursor-pointer hover:shadow-lg transition-all duration-300 group">
@@ -444,7 +497,7 @@ export default function MediaPage() {
                 </Card>
               </ScaleIn>
             ))}
-       </StaggerContainer>
+          </StaggerContainer>
         </div>
       </section>
 
