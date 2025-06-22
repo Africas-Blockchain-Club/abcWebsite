@@ -270,8 +270,8 @@ export default function MediaPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-amber-500 py-12">
-        <div className="container mx-auto px-4">
+      <section className="bg-amber-500 ">
+        <div className="container mx-auto flex items-center px-4">
             <ScaleIn delay={200}>
               <div className="text-center">
                 <div className="mb-2 font-mono text-3xl font-bold text-black md:text-4xl">50+</div>
@@ -300,7 +300,7 @@ export default function MediaPage() {
       </section>
 
       {/* Search and Filter Section */}
-      <section className="bg-neutral-50 py-12">
+      <section className="bg-gray-900 py-12">
         <div className="container mx-auto px-4">
           <FadeIn direction="up">
             <div className="mx-auto max-w-4xl">
@@ -350,7 +350,7 @@ export default function MediaPage() {
       </section>
 
       {/* Content Section */}
-      <section className="py-20">
+      <section className="bg-gradient-to-br from-neutral-900 via-neutral-800 to-amber-900 py-20">
         <div className="container mx-auto px-4">
           <FadeIn direction="up">
             <div className="mb-8 text-center">
@@ -403,7 +403,7 @@ export default function MediaPage() {
       </section>
 
       {/* Categories Section */}
-      <section className="bg-neutral-50 py-20">
+      <section className="bg-gray-800 py-20">
         <div className="container mx-auto px-4">
           <FadeIn direction="up">
             <div className="mb-12 text-center">
