@@ -199,7 +199,7 @@ export default function AboutPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-amber-500 py-2">
+      <section className="bg-amber-500 ">
         <div className="container mx-auto flex items-center px-4">
           
             {stats.map((stat, index) => (
