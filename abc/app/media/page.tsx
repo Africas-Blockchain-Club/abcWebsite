@@ -22,6 +22,7 @@ import {
 import FadeIn from "@/components/animations/fade-in"
 import ScaleIn from "@/components/animations/scale-in"
 import BlockchainPattern from "@/components/blockchain-pattern"
+import StaggerContainer from "@/components/animations/stagger-container"
 
 type MediaItem = {
   id: string
@@ -270,8 +271,9 @@ export default function MediaPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-amber-500 ">
-        <div className="container mx-auto flex items-center px-4">
+      <section className="bg-amber-500  ">
+        <div className="container mx-auto px-4">
+        <StaggerContainer staggerDelay={200} className="grid grid-cols-2 gap-8 md:grid-cols-4">
             <ScaleIn delay={200}>
               <div className="text-center">
                 <div className="mb-2 font-mono text-3xl font-bold text-black md:text-4xl">50+</div>
@@ -296,6 +298,7 @@ export default function MediaPage() {
                 <div className="text-black/80 font-medium">Readers</div>
               </div>
             </ScaleIn>
+            </StaggerContainer>
         </div>
       </section>
 
@@ -414,7 +417,7 @@ export default function MediaPage() {
             </div>
           </FadeIn>
 
-         
+          <StaggerContainer staggerDelay={200} className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {categories.map((category, index) => (
               <ScaleIn key={category} delay={index * 100}>
                 <Card className="cursor-pointer hover:shadow-lg transition-all duration-300 group">
@@ -441,7 +444,7 @@ export default function MediaPage() {
                 </Card>
               </ScaleIn>
             ))}
-       
+       </StaggerContainer>
         </div>
       </section>
 
