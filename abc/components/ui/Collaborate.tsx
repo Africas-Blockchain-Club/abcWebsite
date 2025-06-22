@@ -110,13 +110,13 @@ const Collaborate: React.FC = () => {
   const typedForms = forms as FormsData;
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gradient-to-br from-black/90 via-black/70 to-black/50 justify-start text-white p-4 sm:p-10 transition-all duration-700">
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+    <div className="min-h-screen flex flex-col items-center bg-gradient-to-br from-black/90 via-black/70 to-black/50 justify-start text-white p-0 sm:p-8 transition-all duration-700">
+      <div className="grid grid-cols-2 gap-8 lg:grid-cols-2">
       {/* Main container */}
       <div className={`w-full flex flex-col items-center justify-center transition-all duration-700 
-        ${showForm ? "mt-20" : "mt-[20vh]"}`}>
+        ${showForm ? "mt-10" : "mt-[5vh]"}`}>
 
-        <div className="text-center max-w-xl text-lg relative z-20">
+        <div className=" max-w-xl text-lg relative z-20">
           <h2 className="text-4xl font-extrabold mb-6 flex gap-4 justify-center">
             <span className="text-white px-3 py-1">Work</span>
             <span className=" text-white px-3 py-1">With</span>
@@ -146,7 +146,7 @@ const Collaborate: React.FC = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold">Email</h4>
-                      <p className="text-neutral-600">info@africasblockchainclub.org</p>
+                      <p className="text-neutral-600">africablockchainclub@gmail.com</p>
                     </div>
                   </div>
     
@@ -166,7 +166,7 @@ const Collaborate: React.FC = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold">Weekly Meetups</h4>
-                      <p className="text-neutral-600">Every Saturday, 2:00 PM SAST</p>
+                      <p className="text-neutral-600">Every Saturday, 11:00 AM SAST</p>
                     </div>
                   </div>
     
@@ -191,7 +191,7 @@ const Collaborate: React.FC = () => {
 
           {/* Buttons - centered with the glow */}
           <p className="text-2xl font-semibold mt-2 whitespace-nowrap">
-            <span className="inline-block  text-white px-4 py-2 pb-10 " style={{ lineHeight: "1.3" }}>
+            <span className="inline-block  text-white px-4 py-2 pb-10" style={{ lineHeight: "1.3" }}>
               Choose an option below to get started.
             </span>
           </p>
