@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Link, School, Trophy, Users } from "lucide-react";
-import AboutPage from "../about/page";
 
 
 export default function About1() {
@@ -10,9 +9,9 @@ export default function About1() {
           <div className="mx-auto max-w-7xl text-center">
             <h2 className="mb-6 font-mono text-4xl font-bold md:text-5xl">Driving Web3 Adoption Across Africa</h2>
             <p className="mb-8 text-lg text-white">
-              Africa's Blockchain Club (ABC) is a community dedicated to accelerating blockchain technology adoption
+              {`Africa's Blockchain Club (ABC) is a community dedicated to accelerating blockchain technology adoption
               throughout South Africa and the entire African continent. We bring together developers, entrepreneurs, and
-              enthusiasts to build the future of Web3 in Africa.
+              enthusiasts to build the future of Web3 in Africa.`}
             </p>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
               <div className="rounded-lg bg-gray-500/30 p-6 text-center">

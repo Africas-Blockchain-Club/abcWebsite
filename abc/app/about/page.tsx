@@ -266,23 +266,23 @@ export default function AboutPage() {
             <div className="mx-auto max-w-5xl text-center">
               <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-amber-500/20 backdrop-blur-sm px-6 py-3 text-amber-300 border border-amber-500/30">
                 <Users className="h-5 w-5" />
-                <span className="text-sm font-medium">Building Africa's Blockchain Future</span>
+                <span className="text-sm font-medium">{`Building Africa's Blockchain Future`}</span>
               </div>
 
               <h1 className="mb-8 font-mono text-5xl font-bold leading-tight md:text-6xl lg:text-7xl">
                 About{" "}
                 <span className="block text-amber-400">
-                  Africa's
+                  {`Africa's`}
                   <br />
                   Blockchain Club
                 </span>
               </h1>
 
               <p className="mb-10 text-xl text-neutral-200 max-w-4xl mx-auto leading-relaxed">
-                Empowering Africa's next generation of blockchain innovators, developers, and entrepreneurs to build the
+                {`Empowering Africa's next generation of blockchain innovators, developers, and entrepreneurs to build the
                 decentralized future of the continent. We're more than a community—we're a movement transforming how
                 Africa engages with blockchain technology.
-              </p>
+              `}</p>
 
               <div className="flex flex-wrap justify-center gap-6 mb-12">
                 <Button className="bg-amber-500 text-black hover:bg-amber-400 transform hover:scale-105 transition-all duration-200 px-8 py-4 text-lg font-semibold">
@@ -345,10 +345,10 @@ export default function AboutPage() {
                 <h2 className="mb-6 font-mono text-3xl font-bold md:text-4xl">Our Story</h2>
                 <div className="space-y-6 text-lg text-white">
                   <p>
-                    Africa's Blockchain Club (ABC) was born from a simple yet powerful vision: to position Africa at the
+{`                    Africa's Blockchain Club (ABC) was born from a simple yet powerful vision: to position Africa at the
                     forefront of the global blockchain revolution. Founded in 2020 in Johannesburg, South Africa, we
                     started as a small group of passionate developers and entrepreneurs who believed that blockchain
-                    technology could solve many of Africa's most pressing challenges.
+                    technology could solve many of Africa's most pressing challenges.`}
                   </p>
                   <p>
                     What began as weekend meetups in a small co-working space has grown into a pan-African movement
@@ -361,9 +361,9 @@ export default function AboutPage() {
                     financial inclusion, digital identity, and cross-border payments.
                   </p>
                   <p>
-                    Today, ABC stands as Africa's premier blockchain community, fostering innovation, education, and
+                    {`Today, ABC stands as Africa's premier blockchain community, fostering innovation, education, and
                     collaboration across the continent. We're not just building technology; we're building the future of
-                    Africa.
+                    Africa.`}
                   </p>
                 </div>
               </div>
@@ -722,7 +722,7 @@ export default function AboutPage() {
             <div className="mb-16 text-center">
               <h2 className="mb-4 font-mono text-3xl font-bold md:text-4xl">Get In Touch</h2>
               <p className="mx-auto max-w-2xl text-lg text-neutral-600">
-                Ready to join Africa's blockchain revolution? We'd love to hear from you.
+                {`Ready to join Africa's blockchain revolution? We'd love to hear from you.`}
               </p>
             </div>
           </FadeIn>
@@ -790,8 +790,8 @@ export default function AboutPage() {
                 <CardContent>
                   <div className="space-y-6">
                     <p className="text-neutral-600">
-                      Whether you're a developer, entrepreneur, student, or blockchain enthusiast, there's a place for
-                      you in our community.
+                     {` Whether you're a developer, entrepreneur, student, or blockchain enthusiast, there's a place for
+                      you in our community.`}
                     </p>
 
                     <div className="space-y-4">
