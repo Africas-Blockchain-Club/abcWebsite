@@ -114,6 +114,24 @@ export default function AboutPage() {
       company: "Ethereum Foundation",
       image: "/placeholder.svg?height=300&width=300",
     },
+    {
+      name: "Lindokuhle Mlilo",
+      role: "Researcher",
+      company: "Ethereum Foundation",
+      image: "/placeholder.svg?height=300&width=300",
+    },
+    {
+      name: "Yankho Saliji",
+      role: "Researcher",
+      company: "Ethereum Foundation",
+      image: "/placeholder.svg?height=300&width=300",
+    },
+    {
+      name: "Tshepo Shiburi",
+      role: "Researcher",
+      company: "Ethereum Foundation",
+      image: "/placeholder.svg?height=300&width=300",
+    },
   ]
 
   const milestones = [
@@ -173,7 +191,7 @@ export default function AboutPage() {
   ]
 
   const stats = [
-    { number: "200+", label: "Community Members" },
+    { number: "150+", label: "Community Members" },
     { number: "1", label: "African Countries" },
     { number: "10+", label: "Projects Built" },
     { number: "10+", label: "Events Organized" },
@@ -319,13 +337,13 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story Section */}
-      <section className="py-20">
+      <section className="bg-gradient-to-br from-amber-900 via-neutral-800 to-neutral-900 py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
             <SlideIn direction="left">
               <div>
                 <h2 className="mb-6 font-mono text-3xl font-bold md:text-4xl">Our Story</h2>
-                <div className="space-y-6 text-lg text-neutral-700">
+                <div className="space-y-6 text-lg text-white">
                   <p>
                     Africa's Blockchain Club (ABC) was born from a simple yet powerful vision: to position Africa at the
                     forefront of the global blockchain revolution. Founded in 2020 in Johannesburg, South Africa, we
@@ -360,7 +378,7 @@ export default function AboutPage() {
                   className="rounded-lg shadow-lg"
                 />
                 <div className="absolute -bottom-6 -right-6 rounded-lg bg-amber-500 p-6 text-black">
-                  <div className="font-mono text-2xl font-bold">5 Years</div>
+                  <div className="font-mono text-2xl font-bold">2 Years</div>
                   <div className="text-sm">of Innovation</div>
                 </div>
               </div>
@@ -370,7 +388,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission, Vision, Values */}
-      <section className="bg-neutral-50 py-20">
+      <section className="bg-gray-800 py-20">
         <div className="container mx-auto px-4">
           <FadeIn direction="up">
             <div className="mb-16 text-center">
@@ -443,7 +461,7 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-20">
+      <section className="bg-gradient-to-br from-neutral-900 via-neutral-800 to-amber-900 py-20">
         <div className="container mx-auto px-4">
           <FadeIn direction="up">
             <div className="mb-16 text-center">
@@ -485,7 +503,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="bg-neutral-50 py-20">
+      <section className="bg-gray-900 py-20">
         <div className="container mx-auto px-4">
           <FadeIn direction="up">
             <div className="mb-16 text-center">
@@ -544,33 +562,33 @@ export default function AboutPage() {
       </section>
 
       {/* Advisors Section */}
-      <section className="py-20">
+      <section className="bg-gradient-to-br from-black/90 via-black/70 to-black/50 py-20">
         <div className="container mx-auto px-4">
           <FadeIn direction="up">
             <div className="mb-16 text-center">
-              <h2 className="mb-4 font-mono text-3xl font-bold md:text-4xl">Our Advisors</h2>
-              <p className="mx-auto max-w-2xl text-lg text-neutral-600">
+              <h2 className="mb-4 font-mono text-3xl font-bold md:text-4xl">Our Research & Dev Teams</h2>
+              <p className="mx-auto max-w-2xl text-lg text-white">
                 Industry leaders and experts guiding our strategic direction
               </p>
             </div>
           </FadeIn>
 
           <StaggerContainer staggerDelay={200} className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            {advisors.map((advisor, index) => (
-              <ScaleIn key={advisor.name} delay={index * 200}>
+            {ResearchTeam.map((ResearchTeam, index) => (
+              <ScaleIn key={ResearchTeam.name} delay={index * 200}>
                 <Card className="text-center hover:shadow-lg transition-all duration-300">
                   <CardContent className="p-6">
                     <div className="relative mx-auto mb-4 h-24 w-24 overflow-hidden rounded-full">
                       <Image
-                        src={advisor.image || "/placeholder.svg"}
-                        alt={advisor.name}
+                        src={ResearchTeam.image || "/placeholder.svg"}
+                        alt={ResearchTeam.name}
                         fill
                         className="object-cover"
                       />
                     </div>
-                    <h3 className="font-semibold">{advisor.name}</h3>
-                    <p className="text-amber-600 text-sm font-medium">{advisor.role}</p>
-                    <p className="text-neutral-600 text-sm">{advisor.company}</p>
+                    <h3 className="font-semibold">{ResearchTeam.name}</h3>
+                    <p className="text-amber-600 text-sm font-medium">{ResearchTeam.role}</p>
+                    <p className="text-white text-sm">{ResearchTeam.company}</p>
                   </CardContent>
                 </Card>
               </ScaleIn>

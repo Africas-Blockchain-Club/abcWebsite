@@ -26,7 +26,7 @@ export default function BlockchainNetwork({ className = "" }: { className?: stri
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       radius: Math.random() * 3 + 2,
-      color: "#000000", // Pure black
+      color: "#ff8503", // Pure black
       vx: (Math.random() - 0.5) * 0.8,
       vy: (Math.random() - 0.5) * 0.8,
       pulse: Math.random() * Math.PI * 2,
