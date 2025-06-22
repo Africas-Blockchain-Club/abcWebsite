@@ -10,7 +10,7 @@ export default function FullscreenCarousel() {
       {/* Header Section */}
       <div className="flex flex-col items-center justify-center text-center py-18 ">
         <h2 className="text-6xl font-extrabold text-white sm:text-6xl py-4">
-          About Africa's Blockchain Club
+          [`About Africa's Blockchain Club`]
         </h2>
         <p className="mt-5 max-w-4xl text-xl text-white lg:mx-auto text-6l sm:text-6l">
           We are a community-driven organization dedicated to advancing Web3 technology and fostering innovation in

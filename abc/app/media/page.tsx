@@ -440,7 +440,7 @@ export default function MediaPage() {
                 </div>
                 <h3 className="mb-2 text-xl font-semibold">No content found</h3>
                 <p className="text-neutral-600">
-                  Try adjusting your search terms or filters to find what you're looking for.
+                  {`Try adjusting your search terms or filters to find what you're looking for`}.
                 </p>
                 <Button
                   variant="outline"
