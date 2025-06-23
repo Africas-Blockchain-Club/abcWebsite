@@ -14,7 +14,7 @@ import SlideIn from './animations/slide-in';
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden text-white">
+    <section className="relative overflow-hidden text-whiteb px-4 py-20 flex-col md:flex-row">
     
       <BlockchainHeroBg />
       <FloatingElements />
