@@ -51,73 +51,54 @@ export default function Home() {
         <Hero />
         <Logos/>
         <About1 />
-        {/* <Timeline /> */}
-      {/* <section id="blockchain-evolution" className="bg-neutral-900 py-20">
-        <div className="container mx-auto px-8">
-          <Timeline />
-        </div>
-      </section> */}
-        {/* <Terms/> */}
-        {/* <Papers/> */}
-        {/* <Modal/> */}
-        {/* <Cube/> */}
-        {/* <Block/> */}
-
       
 
-<div id="team">
-  <Team />
-</div>
+      <div id="team">
+        <Team />
+      </div>
 
+      <div id="projects" className="pb-10 pt-0"> 
+        <ProjectsDrawer />
+      </div>
 
-{/* 
-<div id="about">
-  <About />
-</div> */}
+      <div id="learn" className="pb-8">
+        <Learn />
+      </div>
 
+            <section className="bg-black/30 py-16">
+                    <div className="container mx-auto px-4">
+                      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                        <div>
+                          <h2 className="mb-6 font-mono text-5xl font-bold">Build on Blockchain</h2>
+                          <p className="mb-4 text-white">
+                            Our community develops smart contracts and decentralized applications to solve real-world problems in
+                            Africa.
+                          </p>
+                          <p className="mb-6 text-white">
+                            Join our weekly coding sessions and learn how to write secure, efficient blockchain code with
+                            experienced mentors.
+                          </p>
+                          <Button className="bg-amber-500 text-white hover:bg-amber-600">Join Developer Community</Button>
+                        </div>
+                        <div>
+                          <CodeSnippet />
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+            {/* <FutureSection/> */}
+            {/* <ImageTextCard /> */}
+            <section id="events" className="bg-neutral-800 py-20">
+                <div className="container mx-auto">
+                  <UpcomingEvents />
+                </div>
+            </section>
 
-<div id="projects" className="pb-10 pt-10"> 
-  <ProjectsDrawer />
-</div>
-
-<div id="learn" className="pb-8">
-  <Learn />
-</div>
-
-<section className="bg-black/30 py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            <div>
-              <h2 className="mb-6 font-mono text-5xl font-bold">Build on Blockchain</h2>
-              <p className="mb-4 text-white">
-                Our community develops smart contracts and decentralized applications to solve real-world problems in
-                Africa.
-              </p>
-              <p className="mb-6 text-white">
-                Join our weekly coding sessions and learn how to write secure, efficient blockchain code with
-                experienced mentors.
-              </p>
-              <Button className="bg-amber-500 text-white hover:bg-amber-600">Join Developer Community</Button>
+            <div id="contact">
+              <Collaborate />
             </div>
-            <div>
-              <CodeSnippet />
-            </div>
-          </div>
-        </div>
-      </section>
-{/* <FutureSection/> */}
-{/* <ImageTextCard /> */}
-<section id="events" className="bg-neutral-800 py-20">
-        <div className="container mx-auto">
-          <UpcomingEvents />
-        </div>
-      </section>
 
-<div id="contact">
-  <Collaborate />
-</div>
-
-<Footer />
+          <Footer />
 
 
         {/* Floating image after threshold */}

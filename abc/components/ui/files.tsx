@@ -15,12 +15,12 @@ export default function ProjectsDrawer() {
       
       {/* Large text above the modal */}
       <div className="absolute top-[-1.8cm] left-0 w-full text-center z-10">
-        <h1 className="lg:text-[10rem] text-bold font-extrabold mt-8">Projects</h1>
+        <h1 className="lg:text-[8rem] text-bold font-extrabold mt-8">Projects</h1>
       </div>
 
       {/* Main modal moved down */}
       <div
-        className="w-full flex py-10 gap-8 w-[680px] items-stretch min-h-[30vh] h-[85vh] relative z-10 rounded-xl bg-[#555555]"
+        className="w-full flex py-10 gap-8 w-[680px] items-stretch min-h-[30vh] h-[80vh] relative z-10 rounded-xl bg-[#555555]"
         style={{
           marginTop: '4cm',
           boxShadow: `
