@@ -53,7 +53,7 @@ export default function MediaPage() {
       description:
         "Live coding session showing how to build and deploy smart contracts on Ethereum, with practical examples.",
       thumbnail: "/placeholder.svg?height=200&width=350",
-      url: "https://youtube.com/watch?v=dQw4w9WgXcQ",
+      url: "https://www.youtube.com/watch?v=atcbzxIdVMM",
       publishedAt: "2024-03-10",
       duration: "45:18",
       views: "15.7K",
@@ -69,7 +69,7 @@ export default function MediaPage() {
       description:
         "Recap of our annual hackathon featuring the most innovative blockchain projects built by African developers.",
       thumbnail: "/placeholder.svg?height=200&width=350",
-      url: "https://youtube.com/watch?v=dQw4w9WgXcQ",
+      url: "https://www.youtube.com/watch?v=x2C7L7MVLd0&t=23s",
       publishedAt: "2024-04-05",
       duration: "12:20",
       views: "9.8K",
@@ -81,19 +81,19 @@ export default function MediaPage() {
     },
     {
       id: "yt-5",
-      title: "Web3 Career Opportunities in Africa",
+      title: "Africa's Blockchain Club x Lisk Blockchain - Closing Party/Event in Sandton, Johannesburg, SA [2024]",
       description:
         "Exploring the growing job market in blockchain and Web3 across African countries and how to prepare for these roles.",
       thumbnail: "/placeholder.svg?height=200&width=350",
-      url: "https://youtube.com/watch?v=dQw4w9WgXcQ",
-      publishedAt: "2024-05-12",
-      duration: "18:55",
-      views: "11.2K",
-      likes: "856",
+      url: "https://www.youtube.com/watch?v=d_xhC6QJyvA&t=3s",
+      publishedAt: "2024-12-12",
+      duration: "04:00",
+      views: "73",
+      likes: "19",
       category: "Career",
       tags: ["Web3", "Career", "Jobs", "Skills"],
       type: "youtube",
-      author: "Kwame Asante",
+      author: "Africa's Blockchain Club",
     },
 
     // Medium Articles
@@ -194,7 +194,7 @@ export default function MediaPage() {
             priority
           />
           {/* Dark overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-amber-900"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-amber-900/80 via-black/60 to-black/70"></div>
         </div>
 
         {/* Animated Background Elements */}
@@ -304,7 +304,7 @@ export default function MediaPage() {
                   <input
                     type="text"
                     placeholder="Search videos and articles..."
-                    className="w-full rounded-lg border border-neutral-300 bg-white py-2 pl-10 pr-4 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20"
+                    className="w-full rounded-lg border border-neutral-300 bg-black/50 py-2 pl-10 pr-4 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                   />

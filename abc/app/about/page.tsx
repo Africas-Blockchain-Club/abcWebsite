@@ -576,7 +576,7 @@ export default function AboutPage() {
           <FadeIn direction="up">
             <div className="mb-16 text-center">
               <h2 className="mb-4 font-mono text-3xl font-bold md:text-4xl">Get In Touch</h2>
-              <p className="mx-auto max-w-2xl text-lg text-neutral-600">
+              <p className="mx-auto max-w-2xl text-lg text-white">
                 {`Ready to join Africa's blockchain revolution? We'd love to hear from you.`}
               </p>
             </div>
@@ -595,7 +595,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <h4 className="font-semibold">Headquarters</h4>
-                      <p className="text-neutral-600">Johannesburg, South Africa</p>
+                      <p className="text-white">Johannesburg, South Africa</p>
                     </div>
                   </div>
 
@@ -605,7 +605,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <h4 className="font-semibold">Email</h4>
-                      <p className="text-neutral-600">info@africasblockchainclub.org</p>
+                      <p className="text-white">info@africasblockchainclub.org</p>
                     </div>
                   </div>
 
@@ -615,7 +615,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <h4 className="font-semibold">Phone</h4>
-                      <p className="text-neutral-600">+27 11 123 4567</p>
+                      <p className="text-white">+27 11 123 4567</p>
                     </div>
                   </div>
 
@@ -625,7 +625,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <h4 className="font-semibold">Weekly Meetups</h4>
-                      <p className="text-neutral-600">Every Saturday, 2:00 PM SAST</p>
+                      <p className="text-white">Every Saturday, 2:00 PM SAST</p>
                     </div>
                   </div>
 
@@ -644,7 +644,7 @@ export default function AboutPage() {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-6">
-                    <p className="text-neutral-600">
+                    <p className="text-white">
                      {` Whether you're a developer, entrepreneur, student, or blockchain enthusiast, there's a place for
                       you in our community.`}
                     </p>
@@ -659,9 +659,9 @@ export default function AboutPage() {
                       </Button>
                     </div>
 
-                    <div className="rounded-lg bg-neutral-50 p-4">
+                    <div className="rounded-lg bg-neutral-900/30 p-4">
                       <h5 className="mb-2 font-semibold">Become an Ambassador</h5>
-                      <p className="text-sm text-neutral-600">
+                      <p className="text-sm text-white">
                         Help us expand ABC to your city or country. We provide training, resources, and support to
                         community leaders.
                       </p>
@@ -676,6 +676,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      
     </div>
   )
 }
