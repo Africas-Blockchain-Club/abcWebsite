@@ -146,7 +146,7 @@ export default function AboutPage() {
       description: "Participated our first global hackathon with 1000+ participants",
     },
     {
-      year: "2024/",
+      year: "2024",
       title: "Pan-African Expansion",
       description: "Expanded to 10 African countries with local ambassadors",
     },
@@ -156,12 +156,12 @@ export default function AboutPage() {
       description: "Reached 1000+ active community members across Africa",
     },
     {
-      year: "2025",
+      year: "2024",
       title: "Research Initiative",
       description: "Launched ABC Research Lab focusing on African blockchain solutions",
     },
     {
-      year: "2025",
+      year: "2024",
       title: "Global Recognition",
       description: "Recognized as leading blockchain community in Africa",
     },
@@ -204,7 +204,7 @@ export default function AboutPage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/placeholder.svg?height=1000&width=1600&text=African+Tech+Community"
+            src="/bg.jpg"
             alt="African Tech Community Background"
             fill
             className="object-cover"

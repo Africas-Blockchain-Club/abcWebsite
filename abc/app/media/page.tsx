@@ -48,38 +48,6 @@ export default function MediaPage() {
   const mediaItems: MediaItem[] = [
     // YouTube Videos
     {
-      id: "yt-1",
-      title: "Introduction to Blockchain Technology in Africa",
-      description:
-        "A comprehensive overview of how blockchain technology is transforming various sectors across Africa, from finance to agriculture.",
-      thumbnail: "/placeholder.svg?height=200&width=350",
-      url: "https://youtube.com/watch?v=dQw4w9WgXcQ",
-      publishedAt: "2024-01-15",
-      duration: "15:32",
-      views: "12.5K",
-      likes: "892",
-      category: "Education",
-      tags: ["Blockchain", "Africa", "Technology", "Education"],
-      type: "youtube",
-      author: "Alex Nkosi",
-    },
-    {
-      id: "yt-2",
-      title: "Building DeFi Solutions for African Markets",
-      description:
-        "Deep dive into decentralized finance applications specifically designed for African financial challenges and opportunities.",
-      thumbnail: "/placeholder.svg?height=200&width=350",
-      url: "https://youtube.com/watch?v=dQw4w9WgXcQ",
-      publishedAt: "2024-02-20",
-      duration: "22:45",
-      views: "8.3K",
-      likes: "654",
-      category: "DeFi",
-      tags: ["DeFi", "Finance", "Smart Contracts", "Africa"],
-      type: "youtube",
-      author: "Zainab Osei",
-    },
-    {
       id: "yt-3",
       title: "Smart Contract Development Workshop",
       description:
@@ -127,38 +95,8 @@ export default function MediaPage() {
       type: "youtube",
       author: "Kwame Asante",
     },
-    {
-      id: "yt-6",
-      title: "Blockchain for Social Impact in Africa",
-      description:
-        "How blockchain technology is being used to address social challenges like identity, healthcare, and education across Africa.",
-      thumbnail: "/placeholder.svg?height=200&width=350",
-      url: "https://youtube.com/watch?v=dQw4w9WgXcQ",
-      publishedAt: "2024-06-08",
-      duration: "25:33",
-      views: "7.9K",
-      likes: "612",
-      category: "Social Impact",
-      tags: ["Social Impact", "Identity", "Healthcare", "Education"],
-      type: "youtube",
-      author: "Amara Kone",
-    },
 
     // Medium Articles
-    {
-      id: "medium-1",
-      title: "The Rise of Blockchain Adoption in South Africa",
-      description:
-        "An in-depth analysis of how South African businesses and individuals are embracing blockchain technology and cryptocurrency.",
-      thumbnail: "/placeholder.svg?height=200&width=350",
-      url: "https://medium.com/@abc/blockchain-adoption-south-africa",
-      publishedAt: "2024-01-22",
-      category: "Analysis",
-      tags: ["South Africa", "Adoption", "Cryptocurrency", "Business"],
-      type: "medium",
-      author: "Alex Nkosi",
-      readTime: "8 min read",
-    },
     {
       id: "medium-2",
       title: "DeFi Strategies: A Case Study",
@@ -188,6 +126,20 @@ export default function MediaPage() {
       readTime: "15 min read",
     },
     {
+      id: "medium-6",
+      title: "Gamification in Blockchain Education",
+      description:
+        "This research analyzes how game mechanics can enhance blockchain learning platforms for better engagement.",
+      thumbnail: "/abcWork/gameMel.png",
+      url: "https://medium.com/@abc/blockchain-research-development-africa",
+      publishedAt: "2024-06-15",
+      category: "Research",
+      tags: ["Research", "Universities", "Innovation", "Development"],
+      type: "medium",
+      author: "Amara Kone",
+      readTime: "14 min read",
+    },
+    {
       id: "medium-4",
       title: "The Future of Digital Identity in Africa",
       description:
@@ -215,20 +167,6 @@ export default function MediaPage() {
       author: "Kwame Asante",
       readTime: "9 min read",
     },
-    {
-      id: "medium-6",
-      title: "Gamification in Blockchain Education",
-      description:
-        "This research analyzes how game mechanics can enhance blockchain learning platforms for better engagement.",
-      thumbnail: "/abcWork/gameMel.png",
-      url: "https://medium.com/@abc/blockchain-research-development-africa",
-      publishedAt: "2024-06-15",
-      category: "Research",
-      tags: ["Research", "Universities", "Innovation", "Development"],
-      type: "medium",
-      author: "Amara Kone",
-      readTime: "14 min read",
-    },
   ]
 
   const filteredItems = mediaItems.filter((item) => {
@@ -249,7 +187,7 @@ export default function MediaPage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/placeholder.svg?height=800&width=1600&text=Media+Studio+Background"
+            src="/Bg_media.JPG"
             alt="Media Studio Background"
             fill
             className="object-cover"

@@ -143,7 +143,21 @@ export const aboutImages = [
     { src: "/team/17.jpg", alt: "Team Member 17" },
     { src: "/team/18.jpg", alt: "Team Member 18" },
     { src: "/team/19.jpg", alt: "Team Member 19" },
-    { src: "/team/20.jpg", alt: "Team Member 20" },     
+    { src: "/team/20.jpg", alt: "Team Member 20" },
+    { src: "/team/21.jpg", alt: "Team Member 21" }, 
+    { src: "/team/22.jpg", alt: "Team Member 22" },
+    { src: "/team/23.jpg", alt: "Team Member 23" }, 
+    { src: "/team/24.jpg", alt: "Team Member 24" }, 
+    { src: "/team/25.jpg", alt: "Team Member 25" }, 
+    { src: "/team/26.jpg", alt: "Team Member 26" },
+    { src: "/team/27.jpg", alt: "Team Member 27" },
+    { src: "/team/28.jpg", alt: "Team Member 28" },
+    { src: "/team/29.jpg", alt: "Team Member 29" },
+    { src: "/team/30.jpg", alt: "Team Member 30" },
+    { src: "/team/31.jpg", alt: "Team Member 31" },
+    { src: "/team/32.jpg", alt: "Team Member 32" },
+    { src: "/team/33.jpg", alt: "Team Member 33" },
+    { src: "/team/34.jpg", alt: "Team Member 34" },       
 
   ];
   
