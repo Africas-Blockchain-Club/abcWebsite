@@ -219,10 +219,10 @@ export default function AboutPage() {
             <SlideIn direction="right">
               <div className="relative">
                 <Image
-                  src="/About/ABC_HD_White.png"
+                  src="/About/bgEle.png"
                   alt="ABC Community Meeting"
-                  width={300}
-                  height={300}
+                  width={800}
+                  height={800}
                   className="rounded-lg shadow-lg"
                 />
                 <div className="absolute -bottom-6 -right-6 rounded-lg bg-amber-500 p-6 text-black">
@@ -231,10 +231,10 @@ export default function AboutPage() {
                 </div>
               </div>
                 <Image
-                  src="/About/bgEle.png"
+                  src="/About/ABC_white_resized3.png"
                   alt="ABC Community Meeting"
                   width={800}
-                  height={600}
+                  height={800}
                   className="rounded-lg shadow-lg"
                 />
             </SlideIn>
@@ -248,7 +248,7 @@ export default function AboutPage() {
           <FadeIn direction="up">
             <div className="mb-16 text-center">
               <h2 className="mb-4 font-mono text-3xl font-bold md:text-4xl">Our Mission & Vision</h2>
-              <p className="mx-auto max-w-3xl text-lg text-neutral-600">
+              <p className="mx-auto max-w-3xl text-lg text-white">
                 Driving blockchain adoption across Africa through education, innovation, and community building
               </p>
             </div>
@@ -264,7 +264,7 @@ export default function AboutPage() {
                   <CardTitle className="font-mono text-2xl">Our Mission</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-neutral-600">
+                  <p className="text-white">
                     To accelerate blockchain technology adoption across Africa by building inclusive communities,
                     providing world-class education, and fostering innovation that addresses real African challenges. We
                     empower individuals and organizations to leverage blockchain for economic growth, financial
@@ -283,7 +283,7 @@ export default function AboutPage() {
                   <CardTitle className="font-mono text-2xl">Our Vision</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-neutral-600">
+                  <p className="text-white">
                     To establish Africa as a global leader in blockchain innovation and adoption. We envision a future
                     where every African has access to decentralized financial services, where African solutions lead
                     global blockchain development, and where the continent leapfrogs traditional systems through
@@ -305,7 +305,7 @@ export default function AboutPage() {
                     <CardContent className="p-6">
                       <div className="mb-4 flex justify-center text-amber-500">{value.icon}</div>
                       <h4 className="mb-3 font-semibold">{value.title}</h4>
-                      <p className="text-sm text-neutral-600">{value.description}</p>
+                      <p className="text-sm text-white">{value.description}</p>
                     </CardContent>
                   </Card>
                 </ScaleIn>
@@ -321,7 +321,7 @@ export default function AboutPage() {
           <FadeIn direction="up">
             <div className="mb-16 text-center">
               <h2 className="mb-4 font-mono text-3xl font-bold md:text-4xl">Our Journey</h2>
-              <p className="mx-auto max-w-2xl text-lg text-neutral-600">
+              <p className="mx-auto max-w-2xl text-lg text-white">
                 Key milestones in our mission to transform Africa through blockchain technology
               </p>
             </div>
@@ -342,7 +342,7 @@ export default function AboutPage() {
                         <CardContent className="p-6">
                           <div className="mb-2 font-mono text-2xl font-bold text-amber-600">{milestone.year}</div>
                           <h3 className="mb-2 text-xl font-semibold">{milestone.title}</h3>
-                          <p className="text-neutral-600">{milestone.description}</p>
+                          <p className="text-white">{milestone.description}</p>
                         </CardContent>
                       </Card>
                     </div>
