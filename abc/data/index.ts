@@ -1,3 +1,149 @@
+export const teamMembers = [
+  {
+    name: "Karabo Kayak",
+    role: "Founder & CEO",
+    bio: "Blockchain enthusiast with 8+ years in fintech. Previously led digital transformation at major South African banks. Passionate about democratizing financial services through blockchain technology.",
+    image: "/placeholder.svg?height=400&width=400",
+    linkedin: "https://linkedin.com/in/alexnkosi",
+    twitter: "https://twitter.com/alexnkosi",
+    github: "https://github.com/alexnkosi",
+    expertise: ["DeFi", "Smart Contracts", "Tokenomics", "Leadership"],
+  },
+  {
+    name: "Peter Manda",
+    role: "Operations Manager",
+    bio: "Full-stack developer and blockchain architect. PhD in Computer Science from University of Cape Town. Expert in Ethereum, Solidity, and Layer 2 solutions.",
+    image: "/placeholder.svg?height=400&width=400",
+    linkedin: "https://linkedin.com/in/zainabosei",
+    twitter: "https://twitter.com/zainabosei",
+    github: "https://github.com/zainabosei",
+    expertise: ["Solidity", "Web3", "Architecture", "Security"],
+  },
+  {
+    name: "Denzel Selokela",
+    role: "Community Manager",
+    bio: "Community builder and educator with a passion for blockchain adoption. Former tech journalist and event organizer. Fluent in English, Swahili, and French.",
+    image: "/placeholder.svg?height=400&width=400",
+    linkedin: "https://linkedin.com/in/davidmwangi",
+    twitter: "https://twitter.com/davidmwangi",
+    github: "https://github.com/davidmwangi",
+    expertise: ["Community Building", "Education", "Content Creation", "Events"],
+  },
+  {
+    name: "Maite Lemakoana",
+    role: "Education Coordinator",
+    bio: "Former university lecturer turned blockchain educator. Specializes in making complex blockchain concepts accessible to beginners. Speaks 5 languages.",
+    image: "/placeholder.svg?height=400&width=400",
+    linkedin: "https://linkedin.com/in/fatimadiallo",
+    twitter: "https://twitter.com/fatimadiallo",
+    github: "https://github.com/fatimadiallo",
+    expertise: ["Education", "Curriculum Design", "Research", "Mentoring"],
+  },
+  {
+    name: "Katlego Phele",
+    role: "Partnerships Director",
+    bio: "Business development expert with extensive network across African tech ecosystem. Former consultant at McKinsey & Company with focus on emerging markets.",
+    image: "/placeholder.svg?height=400&width=400",
+    linkedin: "https://linkedin.com/in/kwameasante",
+    twitter: "https://twitter.com/kwameasante",
+    github: "https://github.com/kwameasante",
+    expertise: ["Business Development", "Strategy", "Partnerships", "Finance"],
+  },
+  {
+    name: "Lethabo Mokoena",
+    role: "Research Lead",
+    bio: "Blockchain researcher and academic. PhD in Cryptography from MIT. Published 20+ papers on blockchain scalability and privacy. Advisor to multiple African governments.",
+    image: "/placeholder.svg?height=400&width=400",
+    linkedin: "https://linkedin.com/in/amarakone",
+    twitter: "https://twitter.com/amarakone",
+    github: "https://github.com/amarakone",
+    expertise: ["Research", "Cryptography", "Policy", "Academia"],
+  },
+]
+
+export const ResearchTeam = [
+  {
+    name: "Sandile Siwundla",
+    role: "Researcher",
+    company: "Former VP at Coinbase Africa",
+    image: "/placeholder.svg?height=300&width=300",
+  },
+  {
+    name: "Sandile M'remi",
+    role: "Researcher",
+    company: "University of Lagos",
+    image: "/placeholder.svg?height=300&width=300",
+  },
+  {
+    name: "Lethabo Mokoena",
+    role: "Researcher",
+    company: "Ethereum Foundation",
+    image: "/placeholder.svg?height=300&width=300",
+  },
+  {
+    name: "Lindokuhle Mlilo",
+    role: "Researcher",
+    company: "Ethereum Foundation",
+    image: "/placeholder.svg?height=300&width=300",
+  },
+  {
+    name: "Yankho Saliji",
+    role: "Researcher",
+    company: "Ethereum Foundation",
+    image: "/placeholder.svg?height=300&width=300",
+  },
+  {
+    name: "Tshepo Shiburi",
+    role: "Researcher",
+    company: "Ethereum Foundation",
+    image: "/placeholder.svg?height=300&width=300",
+  },
+]
+
+export const milestones = [
+  {
+    year: "2024/03",
+    title: "Foundation",
+    description: "ABC was founded in Johannesburg",
+  },
+  {
+    year: "2024/04",
+    title: "First Hackathon",
+    description: "Participated our first global hackathon with 1000+ participants",
+  },
+  {
+    year: "2024",
+    title: "Pan-African Expansion",
+    description: "Expanded to 10 African countries with local ambassadors",
+  },
+  {
+    year: "2024",
+    title: "100+ Members",
+    description: "Reached 1000+ active community members across Africa",
+  },
+  {
+    year: "2024",
+    title: "Research Initiative",
+    description: "Launched ABC Research Lab focusing on African blockchain solutions",
+  },
+  {
+    year: "2024",
+    title: "Global Recognition",
+    description: "Recognized as leading blockchain community in Africa",
+  },
+]
+
+
+
+export const stats = [
+  { number: "150+", label: "Community Members" },
+  { number: "1", label: "African Countries" },
+  { number: "10+", label: "Projects Built" },
+  { number: "10+", label: "Events Organized" },
+]
+
+
+
 export const navItems = [
   { name: "About", link: "/about" },
   { name: "Projects", link: "#projects" },
