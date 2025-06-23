@@ -57,7 +57,7 @@ export default function Home() {
         <Team />
       </div>
 
-      <div id="projects" className="pb-10 pt-10"> 
+      <div id="projects" className="pb-10 pt-0"> 
         <ProjectsDrawer />
       </div>
 
