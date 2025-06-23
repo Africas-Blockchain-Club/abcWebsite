@@ -48,44 +48,12 @@ export default function MediaPage() {
   const mediaItems: MediaItem[] = [
     // YouTube Videos
     {
-      id: "yt-1",
-      title: "Introduction to Blockchain Technology in Africa",
-      description:
-        "A comprehensive overview of how blockchain technology is transforming various sectors across Africa, from finance to agriculture.",
-      thumbnail: "/placeholder.svg?height=200&width=350",
-      url: "https://youtube.com/watch?v=dQw4w9WgXcQ",
-      publishedAt: "2024-01-15",
-      duration: "15:32",
-      views: "12.5K",
-      likes: "892",
-      category: "Education",
-      tags: ["Blockchain", "Africa", "Technology", "Education"],
-      type: "youtube",
-      author: "Alex Nkosi",
-    },
-    {
-      id: "yt-2",
-      title: "Building DeFi Solutions for African Markets",
-      description:
-        "Deep dive into decentralized finance applications specifically designed for African financial challenges and opportunities.",
-      thumbnail: "/placeholder.svg?height=200&width=350",
-      url: "https://youtube.com/watch?v=dQw4w9WgXcQ",
-      publishedAt: "2024-02-20",
-      duration: "22:45",
-      views: "8.3K",
-      likes: "654",
-      category: "DeFi",
-      tags: ["DeFi", "Finance", "Smart Contracts", "Africa"],
-      type: "youtube",
-      author: "Zainab Osei",
-    },
-    {
       id: "yt-3",
-      title: "Smart Contract Development Workshop",
+      title: "Zero Knowledge Proofs Explained | ABC Online Class with Scroll | Episode 1 Part 1",
       description:
         "Live coding session showing how to build and deploy smart contracts on Ethereum, with practical examples.",
-      thumbnail: "/placeholder.svg?height=200&width=350",
-      url: "https://youtube.com/watch?v=dQw4w9WgXcQ",
+      thumbnail: "/media/zkThumbnail.jpg",
+      url: "https://www.youtube.com/watch?v=atcbzxIdVMM",
       publishedAt: "2024-03-10",
       duration: "45:18",
       views: "15.7K",
@@ -97,11 +65,11 @@ export default function MediaPage() {
     },
     {
       id: "yt-4",
-      title: "ABC Hackathon 2024 Highlights",
+      title: "Zero Knowledge Proofs Explained | ABC Online Class with Scroll |  Part 2",
       description:
         "Recap of our annual hackathon featuring the most innovative blockchain projects built by African developers.",
-      thumbnail: "/placeholder.svg?height=200&width=350",
-      url: "https://youtube.com/watch?v=dQw4w9WgXcQ",
+      thumbnail: "/media/zkThumbnail.jpg",
+      url: "https://www.youtube.com/watch?v=x2C7L7MVLd0&t=23s",
       publishedAt: "2024-04-05",
       duration: "12:20",
       views: "9.8K",
@@ -113,52 +81,22 @@ export default function MediaPage() {
     },
     {
       id: "yt-5",
-      title: "Web3 Career Opportunities in Africa",
+      title: "Africa's Blockchain Club x Lisk Blockchain - Closing Party/Event in Sandton, Johannesburg, SA [2024]",
       description:
         "Exploring the growing job market in blockchain and Web3 across African countries and how to prepare for these roles.",
-      thumbnail: "/placeholder.svg?height=200&width=350",
-      url: "https://youtube.com/watch?v=dQw4w9WgXcQ",
-      publishedAt: "2024-05-12",
-      duration: "18:55",
-      views: "11.2K",
-      likes: "856",
+      thumbnail: "/media/thumbnail.jpg",
+      url: "https://www.youtube.com/watch?v=d_xhC6QJyvA&t=3s",
+      publishedAt: "2024-12-12",
+      duration: "04:00",
+      views: "73",
+      likes: "19",
       category: "Career",
       tags: ["Web3", "Career", "Jobs", "Skills"],
       type: "youtube",
-      author: "Kwame Asante",
-    },
-    {
-      id: "yt-6",
-      title: "Blockchain for Social Impact in Africa",
-      description:
-        "How blockchain technology is being used to address social challenges like identity, healthcare, and education across Africa.",
-      thumbnail: "/placeholder.svg?height=200&width=350",
-      url: "https://youtube.com/watch?v=dQw4w9WgXcQ",
-      publishedAt: "2024-06-08",
-      duration: "25:33",
-      views: "7.9K",
-      likes: "612",
-      category: "Social Impact",
-      tags: ["Social Impact", "Identity", "Healthcare", "Education"],
-      type: "youtube",
-      author: "Amara Kone",
+      author: "Africa's Blockchain Club",
     },
 
     // Medium Articles
-    {
-      id: "medium-1",
-      title: "The Rise of Blockchain Adoption in South Africa",
-      description:
-        "An in-depth analysis of how South African businesses and individuals are embracing blockchain technology and cryptocurrency.",
-      thumbnail: "/placeholder.svg?height=200&width=350",
-      url: "https://medium.com/@abc/blockchain-adoption-south-africa",
-      publishedAt: "2024-01-22",
-      category: "Analysis",
-      tags: ["South Africa", "Adoption", "Cryptocurrency", "Business"],
-      type: "medium",
-      author: "Alex Nkosi",
-      readTime: "8 min read",
-    },
     {
       id: "medium-2",
       title: "DeFi Strategies: A Case Study",
@@ -188,6 +126,20 @@ export default function MediaPage() {
       readTime: "15 min read",
     },
     {
+      id: "medium-6",
+      title: "Gamification in Blockchain Education",
+      description:
+        "This research analyzes how game mechanics can enhance blockchain learning platforms for better engagement.",
+      thumbnail: "/abcWork/gameMel.png",
+      url: "https://medium.com/@abc/blockchain-research-development-africa",
+      publishedAt: "2024-06-15",
+      category: "Research",
+      tags: ["Research", "Universities", "Innovation", "Development"],
+      type: "medium",
+      author: "Amara Kone",
+      readTime: "14 min read",
+    },
+    {
       id: "medium-4",
       title: "The Future of Digital Identity in Africa",
       description:
@@ -215,20 +167,6 @@ export default function MediaPage() {
       author: "Kwame Asante",
       readTime: "9 min read",
     },
-    {
-      id: "medium-6",
-      title: "Gamification in Blockchain Education",
-      description:
-        "This research analyzes how game mechanics can enhance blockchain learning platforms for better engagement.",
-      thumbnail: "/abcWork/gameMel.png",
-      url: "https://medium.com/@abc/blockchain-research-development-africa",
-      publishedAt: "2024-06-15",
-      category: "Research",
-      tags: ["Research", "Universities", "Innovation", "Development"],
-      type: "medium",
-      author: "Amara Kone",
-      readTime: "14 min read",
-    },
   ]
 
   const filteredItems = mediaItems.filter((item) => {
@@ -249,14 +187,14 @@ export default function MediaPage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/placeholder.svg?height=800&width=1600&text=Media+Studio+Background"
+            src="/Bg_media.JPG"
             alt="Media Studio Background"
             fill
             className="object-cover"
             priority
           />
           {/* Dark overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-amber-900"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-amber-900/80 via-black/60 to-black/70"></div>
         </div>
 
         {/* Animated Background Elements */}
@@ -366,7 +304,7 @@ export default function MediaPage() {
                   <input
                     type="text"
                     placeholder="Search videos and articles..."
-                    className="w-full rounded-lg border border-neutral-300 bg-white py-2 pl-10 pr-4 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20"
+                    className="w-full rounded-lg border border-neutral-300 bg-black/50 py-2 pl-10 pr-4 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                   />
@@ -406,7 +344,7 @@ export default function MediaPage() {
       </section>
 
       {/* Content Section */}
-      <section className="bg-gradient-to-br from-amber-900 via-neutral-800 to-neutral-900  py-20">
+      <section className="bg-gradient-to-br from-amber-900 via-neutral-800 to-neutral-900 py-10">
         <div className="container mx-auto px-4">
           <FadeIn direction="up">
             <div className="mb-8 text-center">
@@ -581,7 +519,7 @@ function MediaCard({ item }: { item: MediaItem }) {
         )}
       </div>
 
-      <CardContent className="p-6">
+      <CardContent className="bg-gray-800/40 p-6">
         <div className="mb-2 flex items-center justify-between">
           <Badge variant="outline" className="text-xs">
             {item.category}
@@ -591,7 +529,7 @@ function MediaCard({ item }: { item: MediaItem }) {
 
         <h3 className="mb-2 font-semibold line-clamp-2 group-hover:text-amber-600 transition-colors">{item.title}</h3>
 
-        <p className="mb-4 text-sm text-neutral-600 line-clamp-3">{item.description}</p>
+        <p className="mb-4 text-sm text-neutral-500 line-clamp-3">{item.description}</p>
 
         <div className="mb-4 flex flex-wrap gap-1">
           {item.tags.slice(0, 3).map((tag) => (
@@ -607,21 +545,6 @@ function MediaCard({ item }: { item: MediaItem }) {
         </div>
 
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-4 text-xs text-neutral-500">
-            {item.author && <span>By {item.author}</span>}
-            {item.views && (
-              <div className="flex items-center">
-                <Eye className="mr-1 h-3 w-3" />
-                {item.views}
-              </div>
-            )}
-            {item.likes && (
-              <div className="flex items-center">
-                <ThumbsUp className="mr-1 h-3 w-3" />
-                {item.likes}
-              </div>
-            )}
-          </div>
 
           <Link href={item.url} target="_blank" rel="noopener noreferrer">
             <Button size="sm" variant="ghost" className="text-amber-600 hover:text-amber-700">
