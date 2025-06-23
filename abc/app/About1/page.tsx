@@ -9,7 +9,7 @@ import Image from "next/image";
 
 export default function About1() {
     return(
-      <section id="about" className="relative overflow-hidden py-20 text-white min-h-[90vh] flex items-center">
+      <section id="about" className="relative overflow-hidden py-4 text-white min-h-[80vh] flex items-center">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
