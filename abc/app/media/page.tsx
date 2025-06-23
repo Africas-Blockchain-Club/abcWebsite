@@ -49,10 +49,10 @@ export default function MediaPage() {
     // YouTube Videos
     {
       id: "yt-3",
-      title: "Smart Contract Development Workshop",
+      title: "Zero Knowledge Proofs Explained | ABC Online Class with Scroll | Episode 1 Part 1",
       description:
         "Live coding session showing how to build and deploy smart contracts on Ethereum, with practical examples.",
-      thumbnail: "/placeholder.svg?height=200&width=350",
+      thumbnail: "/media/zkThumbnail.jpg",
       url: "https://www.youtube.com/watch?v=atcbzxIdVMM",
       publishedAt: "2024-03-10",
       duration: "45:18",
@@ -65,10 +65,10 @@ export default function MediaPage() {
     },
     {
       id: "yt-4",
-      title: "ABC Hackathon 2024 Highlights",
+      title: "Zero Knowledge Proofs Explained | ABC Online Class with Scroll |  Part 2",
       description:
         "Recap of our annual hackathon featuring the most innovative blockchain projects built by African developers.",
-      thumbnail: "/placeholder.svg?height=200&width=350",
+      thumbnail: "/media/zkThumbnail.jpg",
       url: "https://www.youtube.com/watch?v=x2C7L7MVLd0&t=23s",
       publishedAt: "2024-04-05",
       duration: "12:20",
@@ -84,7 +84,7 @@ export default function MediaPage() {
       title: "Africa's Blockchain Club x Lisk Blockchain - Closing Party/Event in Sandton, Johannesburg, SA [2024]",
       description:
         "Exploring the growing job market in blockchain and Web3 across African countries and how to prepare for these roles.",
-      thumbnail: "/placeholder.svg?height=200&width=350",
+      thumbnail: "/media/thumbnail.jpg",
       url: "https://www.youtube.com/watch?v=d_xhC6QJyvA&t=3s",
       publishedAt: "2024-12-12",
       duration: "04:00",
@@ -344,7 +344,7 @@ export default function MediaPage() {
       </section>
 
       {/* Content Section */}
-      <section className="bg-gradient-to-br from-amber-900 via-neutral-800 to-neutral-900  py-20">
+      <section className="bg-gradient-to-br from-amber-900 via-neutral-800 to-neutral-900 py-10">
         <div className="container mx-auto px-4">
           <FadeIn direction="up">
             <div className="mb-8 text-center">
@@ -519,7 +519,7 @@ function MediaCard({ item }: { item: MediaItem }) {
         )}
       </div>
 
-      <CardContent className="p-6">
+      <CardContent className="bg-gray-800/40 p-6">
         <div className="mb-2 flex items-center justify-between">
           <Badge variant="outline" className="text-xs">
             {item.category}
@@ -529,7 +529,7 @@ function MediaCard({ item }: { item: MediaItem }) {
 
         <h3 className="mb-2 font-semibold line-clamp-2 group-hover:text-amber-600 transition-colors">{item.title}</h3>
 
-        <p className="mb-4 text-sm text-neutral-600 line-clamp-3">{item.description}</p>
+        <p className="mb-4 text-sm text-neutral-500 line-clamp-3">{item.description}</p>
 
         <div className="mb-4 flex flex-wrap gap-1">
           {item.tags.slice(0, 3).map((tag) => (
@@ -545,21 +545,6 @@ function MediaCard({ item }: { item: MediaItem }) {
         </div>
 
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-4 text-xs text-neutral-500">
-            {item.author && <span>By {item.author}</span>}
-            {item.views && (
-              <div className="flex items-center">
-                <Eye className="mr-1 h-3 w-3" />
-                {item.views}
-              </div>
-            )}
-            {item.likes && (
-              <div className="flex items-center">
-                <ThumbsUp className="mr-1 h-3 w-3" />
-                {item.likes}
-              </div>
-            )}
-          </div>
 
           <Link href={item.url} target="_blank" rel="noopener noreferrer">
             <Button size="sm" variant="ghost" className="text-amber-600 hover:text-amber-700">
