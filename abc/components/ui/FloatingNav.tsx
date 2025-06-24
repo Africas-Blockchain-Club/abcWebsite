@@ -62,10 +62,10 @@ export const FloatingNav = ({
           {!scrolled && (
             <Link href="/" className="flex items-center ml-8">
               <Image
-                src="/About/whiteABC.png"
+                src="/About/ABC_HD_White.png"
                 alt="ABC Logo"
-                width={60}
-                height={60}
+                width={35}
+                height={30}
                 className="object-contain "
               />
             </Link>
