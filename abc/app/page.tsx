@@ -81,7 +81,7 @@ export default function Home() {
                       <Button className="bg-amber-500 text-white hover:bg-amber-600">Join Developer Community</Button>
                     </div>
                     <div>
-                      <CodeSnippet />
+                    <CodeSnippet />
                     </div>
                   </div>
                 </div>
