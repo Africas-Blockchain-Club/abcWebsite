@@ -1,9 +1,10 @@
 "use client";
 
-import { Mail, X, Github, Linkedin, Send, Facebook, Instagram, Twitter } from "lucide-react";
+import { Mail, X, Github, Linkedin, Send, Facebook, Instagram, Twitter, MapPin, Calendar } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import SlideIn from "../animations/slide-in";
 
 const Footer = () => {
   return (
@@ -134,18 +135,25 @@ const Footer = () => {
               </ul>
             </div>
 
-            <div>
-              <h3 className="font-bold text-lg mb-2 pt-16">Subscribe</h3>
-              <p className="text-gray-400 mb-4">Stay updated with our latest news and events.</p>
-              <div className="flex gap-2">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="bg-gray-800 border border-gray-700 text-white rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent w-full"
-                />
-                <Button className="bg-teal-600 text-white hover:bg-teal-700">Subscribe</Button>
-              </div>
-            </div>
+            <SlideIn direction="right" delay={600}>
+                <div>
+                  <h3 className="font-bold text-lg mb-2 pt-16">Contact</h3>
+                  <p className="mb-2 text-neutral-400">
+                    <MapPin className="mr-2 inline-block h-4 w-4" />
+                    Johannesburg, South Africa
+                  </p>
+                  <p className="mb-4 text-neutral-400">
+                    <Calendar className="mr-2 inline-block h-4 w-4" />
+                    We meet every Saturday
+                  </p>
+                  <Link
+                    href="mailto:africablockchainclub@gmail.com"
+                    className="text-amber-500 hover:underline transition-all duration-200"
+                  >
+                    africablockchainclub@gmail.com
+                  </Link>
+                </div>
+              </SlideIn>
           </div>
 
           <div className="border-t border-gray-800 mt-12 pt-6 text-center text-gray-400 text-sm">
