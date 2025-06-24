@@ -18,6 +18,9 @@ import {
   FileText,
   Search,
   Filter,
+  Youtube,
+  Users,
+  Bell,
 } from "lucide-react"
 import FadeIn from "@/components/animations/fade-in"
 import ScaleIn from "@/components/animations/scale-in"
@@ -397,69 +400,66 @@ export default function MediaPage() {
         </div>
       </section>
 
-      {/* Categories Section */}
-      <section className="bg-gray-900 py-20">
+
+      {/* Stay COnnected */}
+      <section className="bg-neutral-900 py-10 text-white">
         <div className="container mx-auto px-4">
           <FadeIn direction="up">
-            <div className="mb-12 text-center">
-              <h2 className="mb-4 font-mono text-3xl font-bold md:text-4xl">Browse by Category</h2>
-              <p className="mx-auto max-w-2xl text-lg text-white">
-                Explore content organized by topics and themes
-              </p>
-            </div>
-          </FadeIn>
-
-          <StaggerContainer staggerDelay={100} className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-            {categories.map((category, index) => (
-              <ScaleIn key={category} delay={index * 100}>
-                <Card className="cursor-pointer hover:shadow-lg transition-all duration-300 group">
-                  <CardContent className="p-6 text-center">
-                    <div className="mb-3 flex justify-center">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-500 group-hover:bg-amber-400 transition-colors">
-                        {category === "Education" && <BookOpen className="h-6 w-6 text-white" />}
-                        {category === "DeFi" && <Filter className="h-6 w-6 text-white" />}
-                        {category === "Development" && <Video className="h-6 w-6 text-white" />}
-                        {category === "Events" && <Calendar className="h-6 w-6 text-white" />}
-                        {category === "Career" && <ExternalLink className="h-6 w-6 text-white" />}
-                        {(category === "Social Impact" ||
-                          category === "Analysis" ||
-                          category === "Identity" ||
-                          category === "Payments" ||
-                          category === "Research") && <FileText className="h-6 w-6 text-white" />}
-                      </div>
-                    </div>
-                    <h3 className="font-semibold group-hover:text-amber-600 transition-colors">{category}</h3>
-                    <p className="text-sm text-neutral-500">
-                      {mediaItems.filter((item) => item.category === category).length} items
-                    </p>
-                  </CardContent>
-                </Card>
-              </ScaleIn>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
-
-      {/* Newsletter Section */}
-      <section className="bg-neutral-900 py-20 text-white">
-        <div className="container mx-auto px-4">
-          <FadeIn direction="up">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="mb-4 font-mono text-3xl font-bold md:text-4xl">Stay Updated</h2>
+            <div className="mx-auto max-w-4xl text-center">
+              <h2 className="mb-4 font-mono text-3xl font-bold md:text-4xl">Stay Connected</h2>
               <p className="mb-8 text-lg text-neutral-300">
-                Subscribe to our newsletter to get notified about new videos, articles, and blockchain insights.
+                Follow our channels to get the latest blockchain insights, tutorials, and community updates
               </p>
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <input
-                  type="email"
-                  placeholder="Enter your email address"
-                  className="flex-1 rounded-lg border border-neutral-700 bg-neutral-800 px-4 py-3 text-white placeholder-neutral-400 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20"
-                />
-                <Button className="bg-amber-500 text-black hover:bg-amber-400 px-8">Subscribe</Button>
+
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                {/* YouTube Channel */}
+                <ScaleIn delay={200}>
+                  <Card className="bg-neutral-800 border-neutral-700 hover:bg-neutral-750 transition-all duration-300 group">
+                    <CardContent className="p-8 text-center">
+                      <div className="mb-4 flex justify-center">
+                        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-red-600 group-hover:bg-red-500 transition-colors">
+                          <Youtube className="h-10 w-10 text-white" />
+                        </div>
+                      </div>
+                      <h3 className="mb-4 text-xl font-bold text-white">Subscribe to Our YouTube</h3>
+                      <p className="mb-4 text-neutral-300">
+                        Get access to exclusive video tutorials, live workshops, hackathon highlights, and expert
+                        interviews on blockchain technology in Africa.
+                      </p>
+                      <Link href="https://youtube.com/@africasblockchainclub" target="_blank" rel="noopener noreferrer">
+                        <Button className="w-full bg-red-600 text-white hover:bg-red-500 transform hover:scale-105 transition-all duration-200">
+                          <Bell className="mr-2 h-5 w-5" />
+                          Subscribe & Turn on Notifications
+                        </Button>
+                      </Link>
+                    </CardContent>
+                  </Card>
+                </ScaleIn>
+
+                {/* Medium Publication */}
+                <ScaleIn delay={400}>
+                  <Card className="bg-neutral-800 border-neutral-700 hover:bg-neutral-750 transition-all duration-300 group">
+                    <CardContent className="p-8 text-center">
+                      <div className="mb-4 flex justify-center">
+                        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-green-600 group-hover:bg-green-500 transition-colors">
+                          <FileText className="h-10 w-10 text-white" />
+                        </div>
+                      </div>
+                      <h3 className="mb-4 text-2xl font-bold text-white">Follow on Medium</h3>
+                      <p className="mb-4 text-neutral-300">
+                        Read our in-depth articles, research insights, market analysis, and thought leadership pieces on
+                        blockchain adoption across Africa.
+                      </p>
+                      <Link href="https://medium.com/@africasblockchainclub" target="_blank" rel="noopener noreferrer">
+                        <Button className="w-full bg-green-600 text-white hover:bg-green-500 transform hover:scale-105 transition-all duration-200">
+                          <BookOpen className="mr-2 h-5 w-5" />
+                          Follow Our Publication
+                        </Button>
+                      </Link>
+                    </CardContent>
+                  </Card>
+                </ScaleIn>
               </div>
-              <p className="mt-4 text-sm text-neutral-400">
-                Join 5,000+ blockchain enthusiasts who get our weekly updates.
-              </p>
             </div>
           </FadeIn>
         </div>
