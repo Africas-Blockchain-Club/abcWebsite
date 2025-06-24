@@ -23,6 +23,7 @@ import {
   Rocket,
   Shield,
   Cpu,
+  Send,
 } from "lucide-react"
 import FadeIn from "@/components/animations/fade-in"
 import SlideIn from "@/components/animations/slide-in"
@@ -605,7 +606,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <h4 className="font-semibold">Email</h4>
-                      <p className="text-white">info@africasblockchainclub.org</p>
+                      <p className="text-white">africablockchainclub@gmail.com</p>
                     </div>
                   </div>
 
@@ -625,7 +626,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <h4 className="font-semibold">Weekly Meetups</h4>
-                      <p className="text-white">Every Saturday, 2:00 PM SAST</p>
+                      <p className="text-white">Every Saturday, 11:00 AM SAST</p>
                     </div>
                   </div>
 
@@ -640,6 +641,7 @@ export default function AboutPage() {
             <SlideIn direction="right">
               <Card>
                 <CardHeader>
+                  
                   <CardTitle className="font-mono text-2xl">Join Our Community</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -650,13 +652,9 @@ export default function AboutPage() {
                     </p>
 
                     <div className="space-y-4">
-                      <Button className="w-full bg-amber-500 text-black hover:bg-amber-400">Join Our Discord</Button>
-                      <Button variant="outline" className="w-full">
-                        Subscribe to Newsletter
-                      </Button>
-                      <Button variant="outline" className="w-full">
-                        Attend Next Meetup
-                      </Button>
+                    <Link href="https://t.me/africasblockchainclub">
+                      <Button className="w-full bg-amber-500 text-black hover:bg-amber-400">Join Our Telegram</Button>
+                    </Link>
                     </div>
 
                     <div className="rounded-lg bg-neutral-900/30 p-4">

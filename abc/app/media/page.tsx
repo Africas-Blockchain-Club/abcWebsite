@@ -18,6 +18,9 @@ import {
   FileText,
   Search,
   Filter,
+  Youtube,
+  Users,
+  Bell,
 } from "lucide-react"
 import FadeIn from "@/components/animations/fade-in"
 import ScaleIn from "@/components/animations/scale-in"
@@ -83,7 +86,7 @@ export default function MediaPage() {
       id: "yt-5",
       title: "Africa's Blockchain Club x Lisk Blockchain - Closing Party/Event in Sandton, Johannesburg, SA [2024]",
       description:
-        "Exploring the growing job market in blockchain and Web3 across African countries and how to prepare for these roles.",
+      "Exploring the growing job market in blockchain and Web3 across African countries and how to prepare for these roles.",
       thumbnail: "/media/thumbnail.jpg",
       url: "https://www.youtube.com/watch?v=d_xhC6QJyvA&t=3s",
       publishedAt: "2024-12-12",
@@ -95,27 +98,56 @@ export default function MediaPage() {
       type: "youtube",
       author: "Africa's Blockchain Club",
     },
-
+    
     // Medium Articles
+
     {
-      id: "medium-2",
-      title: "DeFi Strategies: A Case Study",
+      id: "medium-5",
+      title: "The breach that rocked the crypto world: Bybit’s $1.5 Billion Heist",
       description:
-        "This paper evaluates popular decentralized finance mechanisms and their economic implications.",
-      thumbnail: "/abcWork/bybit.jpg",
-      url: "https://medium.com/@abc/inclusive-financial-systems-defi",
-      publishedAt: "2024-02-14",
-      category: "DeFi",
-      tags: ["DeFi", "Financial Inclusion", "Africa", "Innovation"],
+        "Bybit fell victim to a sophisticated cyberattack that resulted in the theft of over 400,000 ETH — valued at nearly $1.5 billion at the time -unraveling critical questions about security in the DeFi space.",
+      thumbnail: "/media/Articles/ByBit.jpg",
+      url: "https://medium.com/@africablockchainclub/the-breach-that-rocked-the-crypto-world-bybits-1-5-billion-heist-9a1b0d50ebd3",
+      publishedAt: "2025-04-24",
+      category: "Exchanges",
+      tags: ["Payments", "Remittances", "Cross-border", "Cryptocurrencies"],
       type: "medium",
-      author: "Zainab Osei",
-      readTime: "12 min read",
+      author: " Lethabo Mokoena, Sandile M’remi, Sandile Siwundla and Karabo Kayak.",
+      readTime: "6 min read",
+    },
+    {
+      id: "medium-4",
+      title: "CEX or DEX? The FTX collapse disruption!",
+      description:
+        "Exploring The shocking downfall of a crypto trading platform called FTX Trading Ltd, amidst allegations of insider trading and fraud, exposed the vulnerabilities such as lack of transparency, and misuse of customer funds in centralised exchanges (CEXs).",
+      thumbnail: "/media/Articles/CEX.jpg",
+      url: "https://medium.com/@africablockchainclub/cex-or-dex-the-ftx-collapse-disruption-f20a863f416a",
+      publishedAt: "2024-08-01",
+      category: "Exchanges",
+      tags: ["CEX", "Blockchain", "DeFi", "DEX"],
+      type: "medium",
+      author: "Peter Manda, Karabo Kayak Sandile M’remi, Sandile Siwundla, Lethabo Mokoena and Yankho Saliji",
+      readTime: "8 min read",
+    },
+    {
+      id: "medium-6",
+      title: "Unlocking Value in Web3 Gaming",
+      description:
+      "The gaming world is entering an exciting new phase with the rise of Web3 technologies, especially through GameFi — a mix of online gaming and decentralised finance (DeFi). ",
+      thumbnail: "/media/Articles/gaming.jpg",
+      url: "https://medium.com/@africablockchainclub/unlocking-value-in-web3-gaming-e92401d553ff",
+      publishedAt: "2024-11-24",
+      category: "GamiFi",
+      tags: ["Research", "Universities", "Innovation", "Development"],
+      type: "medium",
+      author: "Sandile M’remi, Sandile Siwundla, Lethabo Mokoena, Rahaman Kazembe and Peter Manda,",
+      readTime: "9 min read",
     },
     {
       id: "medium-3",
       title: "SAM: Smart Asset Management",
       description:
-        "A research paper exploring blockchain-driven solutions for automating asset lifecycle management.",
+      "A research paper exploring blockchain-driven solutions for automating asset lifecycle management.",
       thumbnail: "/abcWork/sam6.png",
       url: "https://medium.com/@abc/smart-contract-security-practices",
       publishedAt: "2024-03-18",
@@ -126,46 +158,18 @@ export default function MediaPage() {
       readTime: "15 min read",
     },
     {
-      id: "medium-6",
-      title: "Gamification in Blockchain Education",
+      id: "medium-2",
+      title: "DeFi Strategies: A Case Study",
       description:
-        "This research analyzes how game mechanics can enhance blockchain learning platforms for better engagement.",
-      thumbnail: "/abcWork/gameMel.png",
-      url: "https://medium.com/@abc/blockchain-research-development-africa",
-      publishedAt: "2024-06-15",
-      category: "Research",
-      tags: ["Research", "Universities", "Innovation", "Development"],
+        "This paper evaluates popular decentralized finance mechanisms and their economic implications.",
+      thumbnail: "",
+      url: "https://medium.com/@abc/inclusive-financial-systems-defi",
+      publishedAt: "2024-02-14",
+      category: "DeFi",
+      tags: ["DeFi", "Financial Inclusion", "Africa", "Innovation"],
       type: "medium",
-      author: "Amara Kone",
-      readTime: "14 min read",
-    },
-    {
-      id: "medium-4",
-      title: "The Future of Digital Identity in Africa",
-      description:
-        "Exploring blockchain-based identity solutions and their potential to transform identity management across the continent.",
-      thumbnail: "/placeholder.svg?height=200&width=350",
-      url: "https://medium.com/@abc/future-digital-identity-africa",
-      publishedAt: "2024-04-25",
-      category: "Identity",
-      tags: ["Digital Identity", "Blockchain", "Privacy", "Africa"],
-      type: "medium",
-      author: "Fatima Diallo",
-      readTime: "10 min read",
-    },
-    {
-      id: "medium-5",
-      title: "Cross-Border Payments Revolution in Africa",
-      description:
-        "How blockchain technology is revolutionizing remittances and cross-border payments across African countries.",
-      thumbnail: "/placeholder.svg?height=200&width=350",
-      url: "https://medium.com/@abc/cross-border-payments-revolution",
-      publishedAt: "2024-05-30",
-      category: "Payments",
-      tags: ["Payments", "Remittances", "Cross-border", "Blockchain"],
-      type: "medium",
-      author: "Kwame Asante",
-      readTime: "9 min read",
+      author: "Zainab Osei",
+      readTime: "12 min read",
     },
   ]
 
@@ -396,69 +400,66 @@ export default function MediaPage() {
         </div>
       </section>
 
-      {/* Categories Section */}
-      <section className="bg-gray-900 py-20">
+
+      {/* Stay COnnected */}
+      <section className="bg-neutral-900 py-10 text-white">
         <div className="container mx-auto px-4">
           <FadeIn direction="up">
-            <div className="mb-12 text-center">
-              <h2 className="mb-4 font-mono text-3xl font-bold md:text-4xl">Browse by Category</h2>
-              <p className="mx-auto max-w-2xl text-lg text-white">
-                Explore content organized by topics and themes
-              </p>
-            </div>
-          </FadeIn>
-
-          <StaggerContainer staggerDelay={100} className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-            {categories.map((category, index) => (
-              <ScaleIn key={category} delay={index * 100}>
-                <Card className="cursor-pointer hover:shadow-lg transition-all duration-300 group">
-                  <CardContent className="p-6 text-center">
-                    <div className="mb-3 flex justify-center">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-500 group-hover:bg-amber-400 transition-colors">
-                        {category === "Education" && <BookOpen className="h-6 w-6 text-white" />}
-                        {category === "DeFi" && <Filter className="h-6 w-6 text-white" />}
-                        {category === "Development" && <Video className="h-6 w-6 text-white" />}
-                        {category === "Events" && <Calendar className="h-6 w-6 text-white" />}
-                        {category === "Career" && <ExternalLink className="h-6 w-6 text-white" />}
-                        {(category === "Social Impact" ||
-                          category === "Analysis" ||
-                          category === "Identity" ||
-                          category === "Payments" ||
-                          category === "Research") && <FileText className="h-6 w-6 text-white" />}
-                      </div>
-                    </div>
-                    <h3 className="font-semibold group-hover:text-amber-600 transition-colors">{category}</h3>
-                    <p className="text-sm text-neutral-500">
-                      {mediaItems.filter((item) => item.category === category).length} items
-                    </p>
-                  </CardContent>
-                </Card>
-              </ScaleIn>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
-
-      {/* Newsletter Section */}
-      <section className="bg-neutral-900 py-20 text-white">
-        <div className="container mx-auto px-4">
-          <FadeIn direction="up">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="mb-4 font-mono text-3xl font-bold md:text-4xl">Stay Updated</h2>
+            <div className="mx-auto max-w-4xl text-center">
+              <h2 className="mb-4 font-mono text-3xl font-bold md:text-4xl">Stay Connected</h2>
               <p className="mb-8 text-lg text-neutral-300">
-                Subscribe to our newsletter to get notified about new videos, articles, and blockchain insights.
+                Follow our channels to get the latest blockchain insights, tutorials, and community updates
               </p>
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <input
-                  type="email"
-                  placeholder="Enter your email address"
-                  className="flex-1 rounded-lg border border-neutral-700 bg-neutral-800 px-4 py-3 text-white placeholder-neutral-400 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20"
-                />
-                <Button className="bg-amber-500 text-black hover:bg-amber-400 px-8">Subscribe</Button>
+
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                {/* YouTube Channel */}
+                <ScaleIn delay={200}>
+                  <Card className="bg-neutral-800 border-neutral-700 hover:bg-neutral-750 transition-all duration-300 group">
+                    <CardContent className="p-8 text-center">
+                      <div className="mb-4 flex justify-center">
+                        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-red-600 group-hover:bg-red-500 transition-colors">
+                          <Youtube className="h-10 w-10 text-white" />
+                        </div>
+                      </div>
+                      <h3 className="mb-4 text-xl font-bold text-white">Subscribe to Our YouTube</h3>
+                      <p className="mb-4 text-neutral-300">
+                        Get access to exclusive video tutorials, live workshops, hackathon highlights, and expert
+                        interviews on blockchain technology in Africa.
+                      </p>
+                      <Link href="https://youtube.com/@africasblockchainclub" target="_blank" rel="noopener noreferrer">
+                        <Button className="w-full bg-red-600 text-white hover:bg-red-500 transform hover:scale-105 transition-all duration-200">
+                          <Bell className="mr-2 h-5 w-5" />
+                          Subscribe & Turn on Notifications
+                        </Button>
+                      </Link>
+                    </CardContent>
+                  </Card>
+                </ScaleIn>
+
+                {/* Medium Publication */}
+                <ScaleIn delay={400}>
+                  <Card className="bg-neutral-800 border-neutral-700 hover:bg-neutral-750 transition-all duration-300 group">
+                    <CardContent className="p-8 text-center">
+                      <div className="mb-4 flex justify-center">
+                        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-green-600 group-hover:bg-green-500 transition-colors">
+                          <FileText className="h-10 w-10 text-white" />
+                        </div>
+                      </div>
+                      <h3 className="mb-4 text-2xl font-bold text-white">Follow on Medium</h3>
+                      <p className="mb-4 text-neutral-300">
+                        Read our in-depth articles, research insights, market analysis, and thought leadership pieces on
+                        blockchain adoption across Africa.
+                      </p>
+                      <Link href="https://medium.com/@africasblockchainclub" target="_blank" rel="noopener noreferrer">
+                        <Button className="w-full bg-green-600 text-white hover:bg-green-500 transform hover:scale-105 transition-all duration-200">
+                          <BookOpen className="mr-2 h-5 w-5" />
+                          Follow Our Publication
+                        </Button>
+                      </Link>
+                    </CardContent>
+                  </Card>
+                </ScaleIn>
               </div>
-              <p className="mt-4 text-sm text-neutral-400">
-                Join 5,000+ blockchain enthusiasts who get our weekly updates.
-              </p>
             </div>
           </FadeIn>
         </div>

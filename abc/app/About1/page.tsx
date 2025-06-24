@@ -27,22 +27,22 @@ export default function About1() {
           <BlockchainPattern className="opacity-15" />
 
           {/* Floating Tech Icons */}
-          <div className="absolute top-20 left-10 animate-bounce opacity-30">
+          <div className="absolute top-20 left-10 animate-bounce opacity-10">
             <Users className="h-14 w-14 text-amber-500" />
           </div>
-          <div className="absolute top-32 right-20 animate-bounce opacity-25" style={{ animationDelay: "1s" }}>
+          <div className="absolute top-32 right-20 animate-bounce opacity-15" style={{ animationDelay: "1s" }}>
             <School className="h-12 w-12 text-amber-400" />
           </div>
-          <div className="absolute bottom-32 left-20 animate-bounce opacity-35" style={{ animationDelay: "2s" }}>
+          <div className="absolute bottom-32 left-20 animate-bounce opacity-15" style={{ animationDelay: "2s" }}>
             <Trophy className="h-16 w-16 text-amber-300" />
           </div>
-          <div className="absolute bottom-20 right-10 animate-bounce opacity-30" style={{ animationDelay: "0.5s" }}>
+          <div className="absolute bottom-20 right-10 animate-bounce opacity-10" style={{ animationDelay: "0.5s" }}>
             <Globe className="h-18 w-18 text-amber-600" />
           </div>
-          <div className="absolute top-1/2 left-16 animate-bounce opacity-25" style={{ animationDelay: "1.8s" }}>
+          <div className="absolute top-1/2 left-16 animate-bounce opacity-15" style={{ animationDelay: "1.8s" }}>
             <Code className="h-10 w-10 text-amber-500" />
           </div>
-          <div className="absolute top-1/3 right-1/4 animate-bounce opacity-35" style={{ animationDelay: "0.3s" }}>
+          <div className="absolute top-1/3 right-1/4 animate-bounce opacity-15" style={{ animationDelay: "0.3s" }}>
             <Lightbulb className="h-12 w-12 text-amber-400" />
           </div>
 
@@ -74,7 +74,7 @@ export default function About1() {
         <FadeIn direction="up">
           <div className="mx-auto max-w-7xl text-center">
             <h2 className="mb-6 font-mono text-4xl font-bold md:text-5xl">Driving Web3 Adoption Across Africa</h2>
-            <p className="mb-8 text-lg text-white">
+            <p className="mb-10 text-lg text-white">
               {`Africa's Blockchain Club (ABC) is a community dedicated to accelerating blockchain technology adoption
               throughout South Africa and the entire African continent. We bring together developers, entrepreneurs, and
               enthusiasts to build the future of Web3 in Africa.`}
