@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import BlockchainHeroBg from "./ui/blockchain.-hero-bg";
 
 const logos = [
   { src: "/Logos/polkadot.svg", invert: true },
@@ -29,7 +30,9 @@ const logos = [
 export default function LogosRow() {
   return (
     <div className="relative overflow-hidden px-4">
+      <BlockchainHeroBg />
       <div className=" flex flex-wrap gap-6 justify-center items-center">
+        
         {logos.map((logo, index) => (
           <div
             key={index}
