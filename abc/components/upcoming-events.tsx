@@ -14,6 +14,8 @@ type Event = {
   date: string
   location: string
   type: "upcoming" | "ongoing" | "past"
+  registrationUrl?: string
+  detailsUrl?: string
 }
 
 export default function UpcomingEvents() {
@@ -28,6 +30,8 @@ export default function UpcomingEvents() {
       date: "May 22, 2025",
       location: "The Wild Side Resurant, Ranburg",
       type: "past",
+      registrationUrl: "https://eventbrite.com/abc-web3-hackathon-2025",
+      detailsUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7329186438976004096",
     },
     {
       id: "Expeditions",
@@ -37,6 +41,8 @@ export default function UpcomingEvents() {
       date: "April 3-13, 2025",
       location: "Cape Town & Stellenbosche",
       type: "past",
+      registrationUrl: "https://eventbrite.com/abc-web3-hackathon-2025",
+      detailsUrl: "https://www.linkedin.com/posts/africa-s-blockchain-club_edgecity-africablockchainclub-blockchain-activity-7318225332753317888-2_CG?utm_source=share&utm_medium=member_desktop&rcm=ACoAADc4tN4B5Q2YdTN2Yte0JKHBi7u_DS0f5l8",
     },
     {
       id: "Party",
@@ -46,6 +52,8 @@ export default function UpcomingEvents() {
       date: "December 22, 2024",
       location: "Inanda Club Business Park, Sandton, Johannesburg",
       type: "past",
+      registrationUrl: "https://eventbrite.com/abc-web3-hackathon-2025",
+      detailsUrl: "https://www.linkedin.com/posts/africa-s-blockchain-club_blockchain-lisk-africablockchainclub-activity-7280975333825142784-AdYW?utm_source=share&utm_medium=member_desktop",
     },
     {
       id: "Blockchain Bootcamp",
@@ -154,6 +162,24 @@ export default function UpcomingEvents() {
 
 // Helper component for event cards
 function EventCard({ event }: { event: Event }) {
+  const handleRegisterClick = () => {
+    if (event.registrationUrl) {
+      window.open(event.registrationUrl, "_blank", "noopener,noreferrer")
+    } else {
+      // Fallback to internal registration page
+      window.location.href = `/events/${event.id}/register`
+    }
+  }
+
+  const handleViewDetailsClick = () => {
+    if (event.detailsUrl) {
+      window.location.href = event.detailsUrl
+    } else {
+      // Fallback to internal event details page
+      window.location.href = `/events/${event.id}`
+    }
+  }
+
   return (
     <div className="group overflow-hidden rounded-lg bg-neutral-900">
       <div className="relative h-60 w-full overflow-hidden">
@@ -194,9 +220,15 @@ function EventCard({ event }: { event: Event }) {
         </div>
 
         {event.type !== "past" ? (
-          <Button className="w-full bg-amber-500 text-black hover:bg-amber-400">Register</Button>
+          <Button className="w-full bg-amber-500 text-black hover:bg-amber-400" onClick={handleRegisterClick}>
+            Register
+          </Button>
         ) : (
-          <Button variant="outline" className="w-full border-neutral-700 text-neutral-300 hover:bg-neutral-800">
+          <Button
+            variant="outline"
+            className="w-full border-neutral-700 text-neutral-300 hover:bg-neutral-800"
+            onClick={handleViewDetailsClick}
+          >
             View Details
           </Button>
         )}
@@ -204,3 +236,4 @@ function EventCard({ event }: { event: Event }) {
     </div>
   )
 }
+
