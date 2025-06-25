@@ -1,3 +1,4 @@
+
 export const teamMembers = [
   {
     name: "Karabo Kayak",
@@ -145,9 +146,9 @@ export const stats = [
 
 
 export const navItems = [
+  { name: "Home", link: "/" },
   { name: "About", link: "/about" },
   { name: "Projects", link: "#projects" },
-  { name: "Team", link: "#team" },
   { name: "Media", link: "/media" },
   { name: "Contact", link: "#contact" },
 ];
