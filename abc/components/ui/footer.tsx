@@ -10,6 +10,7 @@ const Footer = () => {
   return (
     <div className="relative">
       {/* WE MOVE text with animated gradient */}
+      
       <div className="absolute -top-[3.4rem] left-0 w-full text-center overflow-hidden">
         <h1 className="text-[6rem] md:text-[10rem] lg:text-[12rem] font-extrabold tracking-tighter leading-none whitespace-nowrap 
               bg-[linear-gradient(to_top,black_0%,gray_100%)] 
@@ -17,11 +18,13 @@ const Footer = () => {
           WE MOVE
         </h1>
       </div>
+    
 
       {/* Footer */}
       <footer className="relative bg-gray-900 text-white px-4 pt-12 pb-4">
         <div className="container mx-auto ">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <SlideIn direction="left" delay={600}>
             <div>
               <div className=" items-center mb-4 px-15">
                 <Image
@@ -72,7 +75,8 @@ const Footer = () => {
                 </Button>
               </div>
             </div>
-
+            </SlideIn>
+            <SlideIn direction="left" delay={600}>
             <div>
               <h3 className="font-bold text-lg mb-2 pt-16">Quick Links</h3>
               <ul className="space-y-2">
@@ -103,7 +107,9 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
+            </SlideIn>
 
+            <SlideIn direction="right" delay={600}>
             <div>
               <h3 className="font-bold text-lg mb-2 pt-16">Resources</h3>
               <ul className="space-y-2">
@@ -134,6 +140,7 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
+            </SlideIn>
 
             <SlideIn direction="right" delay={600}>
                 <div>
