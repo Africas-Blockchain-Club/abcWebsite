@@ -32,8 +32,10 @@ import StaggerContainer from "@/components/animations/stagger-container"
 import BlockchainPattern from "@/components/blockchain-pattern"
 import SocialLinks from "@/components/social-links"
 import { milestones, ResearchTeam, stats, teamMembers } from "@/data"
+import JoinCommunityButton from "@/components/join-community-button"
 
 export default function AboutPage() {
+
   const values = [
     {
       icon: <Heart className="h-8 w-8" />,
@@ -56,6 +58,10 @@ export default function AboutPage() {
       description: "We focus on practical blockchain solutions that solve real African challenges.",
     },
   ]
+  const handleJoinCommunity = () => {
+    window.open("https://t.me/africasblockchainclub", "_blank", "noopener,noreferrer")
+  }
+
 
   return (
     <div className="min-h-screen bg-white">
@@ -150,10 +156,12 @@ export default function AboutPage() {
                 </p>
               </div>
               <div className="flex flex-wrap mt-8 justify-center gap-6 mb-0">
-                <Button className="bg-amber-500 text-black hover:bg-amber-400 transform hover:scale-105 transition-all duration-200 px-8 py-4 text-lg font-semibold">
-                  <Users className="mr-2 h-5 w-5" />
-                  Join Our Community
-                </Button>
+              <JoinCommunityButton
+                  variant="primary"
+                  size="large"
+                  icon={<Users className="mr-2 h-5 w-5" />}
+                  text="Join Our Community"
+                />
               </div>
             </div>
           </FadeIn>
@@ -652,9 +660,7 @@ export default function AboutPage() {
                     </p>
 
                     <div className="space-y-4">
-                    <Link href="https://t.me/africasblockchainclub">
-                      <Button className="w-full bg-amber-500 text-black hover:bg-amber-400">Join Our Telegram</Button>
-                    </Link>
+                    <JoinCommunityButton variant="primary" size="full" text="Join Our Community" />
                     </div>
 
                     <div className="rounded-lg bg-neutral-900/30 p-4">
