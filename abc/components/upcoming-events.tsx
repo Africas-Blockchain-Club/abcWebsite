@@ -30,7 +30,7 @@ export default function UpcomingEvents() {
       date: "May 22, 2025",
       location: "The Wild Side Resurant, Ranburg",
       type: "past",
-      registrationUrl: "https://eventbrite.com/abc-web3-hackathon-2025",
+      registrationUrl: "",
       detailsUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7329186438976004096",
     },
     {
@@ -39,9 +39,9 @@ export default function UpcomingEvents() {
       description: "Attended as part of the 10 days expedition in Cape Town, Networking with Industry experts from all over the world",
       image: "/Events/EdgeCity.jpg",
       date: "April 3-13, 2025",
-      location: "Cape Town & Stellenbosche",
+      location: "Cape Town & Stellenbosche, South Africa",
       type: "past",
-      registrationUrl: "https://eventbrite.com/abc-web3-hackathon-2025",
+      registrationUrl: "",
       detailsUrl: "https://www.linkedin.com/posts/africa-s-blockchain-club_edgecity-africablockchainclub-blockchain-activity-7318225332753317888-2_CG?utm_source=share&utm_medium=member_desktop&rcm=ACoAADc4tN4B5Q2YdTN2Yte0JKHBi7u_DS0f5l8",
     },
     {
@@ -52,7 +52,7 @@ export default function UpcomingEvents() {
       date: "December 22, 2024",
       location: "Inanda Club Business Park, Sandton, Johannesburg",
       type: "past",
-      registrationUrl: "https://eventbrite.com/abc-web3-hackathon-2025",
+      registrationUrl: "",
       detailsUrl: "https://www.linkedin.com/posts/africa-s-blockchain-club_blockchain-lisk-africablockchainclub-activity-7280975333825142784-AdYW?utm_source=share&utm_medium=member_desktop",
     },
     {
@@ -63,6 +63,8 @@ export default function UpcomingEvents() {
       date: "Feb - Mar 08, 2025 (4 weeks)",
       location: "University of Johannesburg (APK) and virtual",
       type: "past",
+      registrationUrl: "",
+      detailsUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7303719866069352448",
     },
     {
       id: "Partnership",
@@ -70,8 +72,10 @@ export default function UpcomingEvents() {
       description: "Launch Event Announvcing Biptap and Africa's Blockchain Club Partnership",
       image: "/Events/biptap.png",
       date: "October 5, 2024",
-      location: "132 Jan Smuts Ave, WeThinkCode, Johannesburg",
+      location: "132 Jan Smuts Ave, WeThinkCode, Rosebank, Johannesburg",
       type: "past",
+      registrationUrl: "",
+      detailsUrl: "https://www.linkedin.com/posts/africa-s-blockchain-club_we-have-exciting-big-news-to-share-activity-7246578705085435906-tZij?utm_source=share&utm_medium=member_desktop",
     },
     {
       id: "Workshop/Meetup",
@@ -79,8 +83,10 @@ export default function UpcomingEvents() {
       description: "Introduction to Avalanche blockchain and its ecosystem. ABC meetup and refreshments",
       image: "/Events/Avax.png",
       date: "July 20, 2024",
-      location: "132 Jan Smuts,WeThinkCode",
+      location: "132 Jan Smuts,WeThinkCode, Rosebank, Johannesburg",
       type: "past",
+      registrationUrl: "",
+      detailsUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7218907051127689217",
     },
     {
       id: "Zero-Knowledge-Proofs",
@@ -90,6 +96,8 @@ export default function UpcomingEvents() {
       date: "June 29, 2022",
       location: "Hybrid",
       type: "past",
+      registrationUrl: "",
+      detailsUrl: "https://www.linkedin.com/posts/africa-s-blockchain-club_blockchain-scroll-zks-activity-7213243972964524032-0r1q?utm_source=share&utm_medium=member_desktop",
     },
   ]
   
