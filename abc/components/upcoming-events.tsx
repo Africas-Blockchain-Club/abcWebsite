@@ -14,77 +14,93 @@ type Event = {
   date: string
   location: string
   type: "upcoming" | "ongoing" | "past"
+  registrationUrl?: string
+  detailsUrl?: string
 }
 
 export default function UpcomingEvents() {
   const [activeFilter, setActiveFilter] = useState<"all" | "upcoming" | "ongoing" | "past">("all")
-
+  
   const events: Event[] = [
     {
-      id: "web3-hackathon",
-      title: "Web3 Hackathon",
-      description: "Join us for a weekend of building innovative Web3 projects.",
-      image: "/images/web3-hackathon.jpg",
-      date: "June 10-12, 2025",
-      location: "Johannesburg, South Africa",
-      type: "upcoming",
-    },
-    {
-      id: "blockchain-basics",
-      title: "Blockchain Basics Workshop",
-      description: "Learn the fundamentals of blockchain technology and its applications.",
-      image: "/images/blockchain-workshop.jpg",
-      date: "May 25, 2025",
-      location: "Cape Town, South Africa",
-      type: "upcoming",
-    },
-    {
-      id: "defi-deep-dive",
-      title: "DeFi Deep Dive",
-      description: "Explore the world of decentralized finance and its potential.",
-      image: "/images/defi-workshop.jpg",
-      date: "July 5, 2025",
-      location: "Virtual Event",
-      type: "upcoming",
-    },
-    {
-      id: "smart-contract-course",
-      title: "Smart Contract Development",
-      description: "Weekly course on developing secure smart contracts on Ethereum.",
-      image: "/images/web3-hackathon.jpg",
-      date: "Every Saturday",
-      location: "Johannesburg, South Africa",
-      type: "ongoing",
-    },
-    {
-      id: "blockchain-mentorship",
-      title: "Blockchain Mentorship Program",
-      description: "Ongoing mentorship program for aspiring blockchain developers.",
-      image: "/images/blockchain-workshop.jpg",
-      date: "Monthly Intake",
-      location: "Virtual",
-      type: "ongoing",
-    },
-    {
-      id: "past-hackathon",
-      title: "Africa Blockchain Hackathon 2024",
-      description: "Our annual hackathon that brought together developers from across the continent.",
-      image: "/images/defi-workshop.jpg",
-      date: "March 15-17, 2024",
-      location: "Lagos, Nigeria",
+      id: "Party Event",
+      title: "5th Global Pizza Party 2025",
+      description: "In celebration of Bitcoin Pizza Day, join us and thousands around the world as PizzaDAO throws its 5th Global Pizza Party – and yes, it’s as legendary as it sounds!",
+      image: "/Events/PizzaDOA.png",
+      date: "May 22, 2025",
+      location: "The Wild Side Resurant, Ranburg",
       type: "past",
+      registrationUrl: "",
+      detailsUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7329186438976004096",
     },
     {
-      id: "past-conference",
-      title: "Web3 Africa Conference",
-      description: "The largest blockchain conference in Africa featuring speakers from around the world.",
-      image: "/images/web3-hackathon.jpg",
-      date: "February 5-7, 2024",
-      location: "Nairobi, Kenya",
+      id: "Expeditions",
+      title: "Edge Vity South Africa: 10 Days Expedition",
+      description: "Attended as part of the 10 days expedition in Cape Town, Networking with Industry experts from all over the world",
+      image: "/Events/EdgeCity.jpg",
+      date: "April 3-13, 2025",
+      location: "Cape Town & Stellenbosche, South Africa",
       type: "past",
+      registrationUrl: "",
+      detailsUrl: "https://www.linkedin.com/posts/africa-s-blockchain-club_edgecity-africablockchainclub-blockchain-activity-7318225332753317888-2_CG?utm_source=share&utm_medium=member_desktop&rcm=ACoAADc4tN4B5Q2YdTN2Yte0JKHBi7u_DS0f5l8",
+    },
+    {
+      id: "Party",
+      title: "ABC x Lisk Closing party",
+      description: "End of the year closing party for Africa's blockchain Club partnered with Lisk Blockchain",
+      image: "/Events/LiskClosing.jpg",
+      date: "December 22, 2024",
+      location: "Inanda Club Business Park, Sandton, Johannesburg",
+      type: "past",
+      registrationUrl: "",
+      detailsUrl: "https://www.linkedin.com/posts/africa-s-blockchain-club_blockchain-lisk-africablockchainclub-activity-7280975333825142784-AdYW?utm_source=share&utm_medium=member_desktop",
+    },
+    {
+      id: "Blockchain Bootcamp",
+      title: "UJ Blockchain Bootcamp x ABC x Alephium",
+      description: "In an exciting collaboration with Africa's Blockchain Club, the fourth week of the South Africa-Swiss Bilateral Research Chair in Blockchain Technology (hashtag#UJBlockchain) masterclass featured Maud Bannwart, the Chief Operating Officer of Alephium. ",
+      image: "/Events/UJ Kingsway campus Virtual Online(1).png",
+      date: "Feb - Mar 08, 2025 (4 weeks)",
+      location: "University of Johannesburg (APK) and virtual",
+      type: "past",
+      registrationUrl: "",
+      detailsUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7303719866069352448",
+    },
+    {
+      id: "Partnership",
+      title: "Biptap and ABC Partnership Announcement",
+      description: "Launch Event Announvcing Biptap and Africa's Blockchain Club Partnership",
+      image: "/Events/biptap.png",
+      date: "October 5, 2024",
+      location: "132 Jan Smuts Ave, WeThinkCode, Rosebank, Johannesburg",
+      type: "past",
+      registrationUrl: "",
+      detailsUrl: "https://www.linkedin.com/posts/africa-s-blockchain-club_we-have-exciting-big-news-to-share-activity-7246578705085435906-tZij?utm_source=share&utm_medium=member_desktop",
+    },
+    {
+      id: "Workshop/Meetup",
+      title: "Avalanche x ABC Worksho/MeetUp",
+      description: "Introduction to Avalanche blockchain and its ecosystem. ABC meetup and refreshments",
+      image: "/Events/Avax.png",
+      date: "July 20, 2024",
+      location: "132 Jan Smuts,WeThinkCode, Rosebank, Johannesburg",
+      type: "past",
+      registrationUrl: "",
+      detailsUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7218907051127689217",
+    },
+    {
+      id: "Zero-Knowledge-Proofs",
+      title: "Scroll x ABC : Zero-Knowledge Proofs (ZK)",
+      description: "Learn the fundamentals of Zero Knowledge proofs technology and its applications.",
+      image: "/Events/scroll.png",
+      date: "June 29, 2022",
+      location: "Hybrid",
+      type: "past",
+      registrationUrl: "",
+      detailsUrl: "https://www.linkedin.com/posts/africa-s-blockchain-club_blockchain-scroll-zks-activity-7213243972964524032-0r1q?utm_source=share&utm_medium=member_desktop",
     },
   ]
-
+  
   const filteredEvents = events.filter((event) => {
     if (activeFilter === "all") return true
     return event.type === activeFilter
@@ -148,17 +164,30 @@ export default function UpcomingEvents() {
         </TabsContent>
       </Tabs>
 
-      <div className="mt-10 text-center">
-        <Button variant="outline" className="border-white text-white hover:bg-white hover:text-neutral-900">
-          Suggest an Event
-        </Button>
-      </div>
     </div>
   )
 }
 
 // Helper component for event cards
 function EventCard({ event }: { event: Event }) {
+  const handleRegisterClick = () => {
+    if (event.registrationUrl) {
+      window.open(event.registrationUrl, "_blank", "noopener,noreferrer")
+    } else {
+      // Fallback to internal registration page
+      window.location.href = `/events/${event.id}/register`
+    }
+  }
+
+  const handleViewDetailsClick = () => {
+    if (event.detailsUrl) {
+      window.location.href = event.detailsUrl
+    } else {
+      // Fallback to internal event details page
+      window.location.href = `/events/${event.id}`
+    }
+  }
+
   return (
     <div className="group overflow-hidden rounded-lg bg-neutral-900">
       <div className="relative h-60 w-full overflow-hidden">
@@ -199,9 +228,15 @@ function EventCard({ event }: { event: Event }) {
         </div>
 
         {event.type !== "past" ? (
-          <Button className="w-full bg-amber-500 text-black hover:bg-amber-400">Register</Button>
+          <Button className="w-full bg-amber-500 text-black hover:bg-amber-400" onClick={handleRegisterClick}>
+            Register
+          </Button>
         ) : (
-          <Button variant="outline" className="w-full border-neutral-700 text-neutral-300 hover:bg-neutral-800">
+          <Button
+            variant="outline"
+            className="w-full border-neutral-700 text-neutral-300 hover:bg-neutral-800"
+            onClick={handleViewDetailsClick}
+          >
             View Details
           </Button>
         )}
@@ -209,3 +244,4 @@ function EventCard({ event }: { event: Event }) {
     </div>
   )
 }
+
