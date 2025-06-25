@@ -30,6 +30,42 @@ export default function UpcomingEvents() {
       type: "past",
     },
     {
+      id: "Expeditions",
+      title: "Edge Vity South Africa: 10 Days Expedition",
+      description: "Attended as part of the 10 days expedition in Cape Town, Networking with Industry experts from all over the world",
+      image: "/Events/EdgeCity.jpg",
+      date: "April 3-13, 2025",
+      location: "Cape Town & Stellenbosche",
+      type: "past",
+    },
+    {
+      id: "Party",
+      title: "ABC x Lisk Closing party",
+      description: "End of the year closing party for Africa's blockchain Club partnered with Lisk Blockchain",
+      image: "/Events/LiskClosing.jpg",
+      date: "December 22, 2024",
+      location: "Inanda Club Business Park, Sandton, Johannesburg",
+      type: "past",
+    },
+    {
+      id: "Blockchain Bootcamp",
+      title: "UJ Blockchain Bootcamp x ABC x Alephium",
+      description: "In an exciting collaboration with Africa's Blockchain Club, the fourth week of the South Africa-Swiss Bilateral Research Chair in Blockchain Technology (hashtag#UJBlockchain) masterclass featured Maud Bannwart, the Chief Operating Officer of Alephium. ",
+      image: "/Events/UJ Kingsway campus Virtual Online(1).png",
+      date: "Feb - Mar 08, 2025 (4 weeks)",
+      location: "University of Johannesburg (APK) and virtual",
+      type: "past",
+    },
+    {
+      id: "Partnership",
+      title: "Biptap and ABC Partnership Announcement",
+      description: "Launch Event Announvcing Biptap and Africa's Blockchain Club Partnership",
+      image: "/Events/biptap.png",
+      date: "October 5, 2024",
+      location: "132 Jan Smuts Ave, WeThinkCode, Johannesburg",
+      type: "past",
+    },
+    {
       id: "Workshop/Meetup",
       title: "Avalanche x ABC Worksho/MeetUp",
       description: "Introduction to Avalanche blockchain and its ecosystem. ABC meetup and refreshments",
@@ -47,44 +83,8 @@ export default function UpcomingEvents() {
       location: "Hybrid",
       type: "past",
     },
-    {
-      id: "Partnership",
-      title: "Biptap and ABC Partnership Announcement",
-      description: "Launch Event Announvcing Biptap and Africa's Blockchain Club Partnership",
-      image: "/Events/biptap.png",
-      date: "October 5, 2024",
-      location: "132 Jan Smuts Ave, WeThinkCode, Johannesburg",
-      type: "past",
-    },
-    {
-      id: "Blockchain Bootcamp",
-      title: "UJ Blockchain Bootcamp x ABC x Alephium",
-      description: "In an exciting collaboration with Africa's Blockchain Club, the fourth week of the South Africa-Swiss Bilateral Research Chair in Blockchain Technology (hashtag#UJBlockchain) masterclass featured Maud Bannwart, the Chief Operating Officer of Alephium. ",
-      image: "/Events/UJ Kingsway campus Virtual Online(1).png",
-      date: "Feb - Mar 08, 2025 (4 weeks)",
-      location: "University of Johannesburg (APK) and virtual",
-      type: "past",
-    },
-    {
-      id: "Expeditions",
-      title: "Edge Vity South Africa: 10 Days Expedition",
-      description: "Attended as part of the 10 days expedition in Cape Town, Networking with Industry experts from all over the world",
-      image: "/Events/EdgeCity.jpg",
-      date: "April 3-13, 2025",
-      location: "Cape Town & Stellenbosche",
-      type: "past",
-    },
-    {
-      id: "Party",
-      title: "ABC x Lisk Closing party",
-      description: "End of the year closing party for Africa's blockchain Club partnered with Lisk Blockchain",
-      image: "/Events/LiskClosing.jpg",
-      date: "February 5-7, 2024",
-      location: "Nairobi, Kenya",
-      type: "past",
-    },
   ]
-
+  
   const filteredEvents = events.filter((event) => {
     if (activeFilter === "all") return true
     return event.type === activeFilter
@@ -148,11 +148,6 @@ export default function UpcomingEvents() {
         </TabsContent>
       </Tabs>
 
-      <div className="mt-10 text-center">
-        <Button variant="outline" className="border-white text-white hover:bg-white hover:text-neutral-900">
-          Suggest an Event
-        </Button>
-      </div>
     </div>
   )
 }
