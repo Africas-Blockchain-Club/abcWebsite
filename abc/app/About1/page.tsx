@@ -71,7 +71,6 @@ export default function About1() {
 
 
         <div className="container mx-auto px-4">
-        <FadeIn direction="up">
           <div className="mx-auto max-w-7xl text-center">
             <h2 className="mb-6 font-mono text-4xl font-bold md:text-5xl">Driving Web3 Adoption Across Africa</h2>
             <p className="mb-10 text-lg text-white">
@@ -79,6 +78,7 @@ export default function About1() {
               throughout South Africa and the entire African continent. We bring together developers, entrepreneurs, and
               enthusiasts to build the future of Web3 in Africa.`}
             </p>
+            <FadeIn direction="up">
             <StaggerContainer staggerDelay={200} className="grid grid-cols-1 gap-8 md:grid-cols-3 max-w-5xl mx-auto">
             <ScaleIn delay={200}>
             <div className="rounded-lg bg-black/30 backdrop-blur-sm border border-amber-500/20 p-8 text-center hover:bg-black/40 transition-all duration-300 transform hover:-translate-y-2 group">
@@ -112,13 +112,14 @@ export default function About1() {
               </div>
               </ScaleIn>
               </StaggerContainer>
-            <div className="pt-10">
+          </FadeIn>
 
+            <div className="pt-8">
+              <Link href="/about">
               <Button variant="outline" className="bg-black text-white items-center hover:bg-white/80 hover:text-black">Learn more About Us</Button>
-              
+              </Link>
             </div>
           </div>
-          </FadeIn>
         </div>
     </section>
     );

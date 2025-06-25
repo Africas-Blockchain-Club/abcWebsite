@@ -14,13 +14,13 @@ export default function ProjectsDrawer() {
     <div className="relative w-full left-0 right-0 px-10 z-50 overflow-hidden custom-scrollbar">
       
       {/* Large text above the modal */}
-      <div className="absolute top-[-1.8cm] left-0 w-full text-center z-10">
+      <div className="absolute top-[-1.5cm] left-0 w-full text-center z-10">
         <h1 className="lg:text-[8rem] text-bold font-extrabold mt-8">Projects</h1>
       </div>
 
       {/* Main modal moved down */}
       <div
-        className="w-full flex py-10 gap-8 w-[680px] items-stretch min-h-[30vh] h-[80vh] relative z-10 rounded-xl bg-[#555555]"
+        className="w-full flex px-2 py-2 gap-8 w-[680px] items-stretch min-h-[30vh] h-[80vh] relative z-10 rounded-2xl bg-neutral-900/70"
         style={{
           marginTop: '4cm',
           boxShadow: `

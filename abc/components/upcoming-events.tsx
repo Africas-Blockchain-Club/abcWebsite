@@ -108,7 +108,7 @@ export default function UpcomingEvents() {
 
   return (
     <div className="w-full ">
-      <h2 className="mb-8 text-center font-mono text-4xl font-bold text-white md:text-5xl">Community Events</h2>
+      <h2 className="mb- text-center font-mono text-4xl font-bold text-white md:text-5xl">Community Events</h2>
       <p className="mx-auto mb-8 max-w-3xl text-xl text-center text-neutral-300">
         Join our community events to learn, build, and connect with fellow blockchain enthusiasts across Africa
       </p>
