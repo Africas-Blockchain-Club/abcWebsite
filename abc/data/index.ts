@@ -137,8 +137,8 @@ export const milestones = [
 
 
 export const stats = [
-  { number: "150+", label: "Community Members" },
-  { number: "1", label: "African Countries" },
+  { number: "200+", label: "Community Members" },
+  { number: "1", label: "African Country" },
   { number: "10+", label: "Projects Built" },
   { number: "10+", label: "Events Organized" },
 ]
@@ -208,10 +208,24 @@ export const testimonials = [
       message: "View Website",
     },
     {
-      title: "Decentralized Agriculture Marketplace",
-      description: "Empowering farmers and streamlining the supply chain through a transparent blockchain marketplace.",
-      image: "/abcWork/harvestchain.svg",
-      link: "/ui.apple.com",
+      title: "Blocksole",
+      description: "Blocksole is a revolutionary decentralised sneaker store built on the Celo blockchain, designed to transform the traditional sneaker industry by providing a secure, transparent, and user-friendly platform for buying, selling, and trading sneakers.",
+      image: "/abcWork/blacksole.png",
+      link: "https://blocksole-react-app.vercel.app/",
+      message: "View Website",
+    },
+    {
+      title: "CeloGiftCard",
+      description: "The Gift Cards project is a blockchain-powered solution integrated with MiniPay, designed to provide a seamless, secure, and decentralised platform for purchasing, redeeming, and gifting digital gift cards.",
+      image: "/abcWork/gift_card_landing.png",
+      link: "https://celo-gift-card-react-app.vercel.app/",
+      message: "View Website",
+    },
+    {
+      title: "SpxceDrive - Sharing Encrypted Files",
+      description: "A cutting-edge platform using advanced encryption to ensure your file-sharing remains secure and private.",
+      image: "/abcWork/spxcedrive.png",
+      link: "https://spxce.vercel.app/",
       message: "View Website",
     },
     {
@@ -229,10 +243,10 @@ export const testimonials = [
       message: "View Website",
     },
     {
-      title: "SpxceDrive - Sharing Encrypted Files",
-      description: "A cutting-edge platform using advanced encryption to ensure your file-sharing remains secure and private.",
-      image: "/abcWork/spxcedrive.png",
-      link: "https://spxce.vercel.app/",
+      title: "Decentralized Agriculture Marketplace",
+      description: "Empowering farmers and streamlining the supply chain through a transparent blockchain marketplace.",
+      image: "/abcWork/harvestchain.svg",
+      link: "/ui.apple.com",
       message: "View Website",
     },
 
