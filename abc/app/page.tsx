@@ -33,6 +33,9 @@ import PageLoader from "@/components/animations/page-loader";
 export default function Home() {
   const [showFloatingImage, setShowFloatingImage] = useState(false);
  
+  const handleJoinDeveloperCommunity = () => {
+    window.open("https://t.me/+a_GAuEkRdyRiNWE0", "_blank", "noopener,noreferrer")
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,7 +81,12 @@ export default function Home() {
                         Join our weekly coding sessions and learn how to write secure, efficient blockchain code with
                         experienced mentors.
                       </p>
-                      <Button className="bg-amber-500 text-white hover:bg-amber-600">Join Developer Community</Button>
+                      <Button
+                  className="bg-amber-500 text-white hover:bg-amber-600 transform hover:scale-105 transition-all duration-200"
+                  onClick={handleJoinDeveloperCommunity}
+                >
+                  Join Developer Community
+                </Button>
                     </div>
                     <div>
                     <CodeSnippet />
