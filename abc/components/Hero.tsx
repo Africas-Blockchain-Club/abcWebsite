@@ -10,6 +10,7 @@ import FadeIn from './animations/fade-in';
 import ScaleIn from './animations/scale-in';
 import StaggerContainer from './animations/stagger-container';
 import SlideIn from './animations/slide-in';
+import Link from 'next/link';
 
 
 export default function Hero() {
@@ -41,16 +42,16 @@ export default function Hero() {
             Join our community of passionate developers and innovators shaping the decentralized web across Africa.
           </p>
           </FadeIn>
-          <StaggerContainer staggerDelay={200}>
+          
           <FadeIn direction="up" delay={1100}>
           <div className="flex flex-wrap gap-4">
-            <Button variant="outline" className="bg-black text-white hover:bg-white/80 hover:text-black">Get Started</Button>
+            
             <Button variant="outline" className="bg-black text-white hover:bg-white/80 hover:text-black">
-              Learn More
+            <Link href={"/about"}> Learn More</Link>
             </Button>
           </div>
           </FadeIn>
-          </StaggerContainer>
+
         </div>
         </FadeIn>
 
