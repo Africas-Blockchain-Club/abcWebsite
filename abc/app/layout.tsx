@@ -4,6 +4,7 @@ import "./globals.css";
 import { FloatingNav } from "@/components/ui/FloatingNav";
 import { navItems } from "@/data";
 import Footer from "@/components/ui/footer";
+import FloatingImage from "@/components/floating-image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <FloatingNav navItems={navItems} />
+      <FloatingImage />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
