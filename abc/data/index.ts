@@ -295,6 +295,7 @@ export const aboutImages = [
     { src: "/team/7.jpg", alt: "Team Member 7" },
     { src: "/team/8.jpg", alt: "Team Member 8" }, 
     { src: "/team/9.jpg", alt: "Team Member 9" },
+    { src: "/team/9.jpeg", alt: "Team Member 9" },
     { src: "/team/10.jpg", alt: "Team Member 10" }, 
     { src: "/team/11.jpg", alt: "Team Member 11" },
     { src: "/team/12.jpg", alt: "Team Member 12" }, 
@@ -306,7 +307,6 @@ export const aboutImages = [
     { src: "/team/18.jpg", alt: "Team Member 18" },
     { src: "/team/19.jpg", alt: "Team Member 19" },
     { src: "/team/20.jpg", alt: "Team Member 20" },
-    { src: "/team/21.jpg", alt: "Team Member 21" }, 
     { src: "/team/22.jpg", alt: "Team Member 22" },
     { src: "/team/23.jpg", alt: "Team Member 23" }, 
     { src: "/team/24.jpg", alt: "Team Member 24" }, 
@@ -319,7 +319,13 @@ export const aboutImages = [
     { src: "/team/31.jpg", alt: "Team Member 31" },
     { src: "/team/32.jpg", alt: "Team Member 32" },
     { src: "/team/33.jpg", alt: "Team Member 33" },
-    { src: "/team/34.jpg", alt: "Team Member 34" },       
+    { src: "/team/34.jpg", alt: "Team Member 34" }, 
+    { src: "/team/35.jpg", alt: "Team Member 31" },
+    { src: "/team/36.jpg", alt: "Team Member 32" },
+    { src: "/team/37.jpg", alt: "Team Member 33" },
+    { src: "/team/38.jpeg", alt: "Team Member 34" },
+    { src: "/team/39.png", alt: "Team Member 33" },
+    { src: "/team/40.jpeg", alt: "Team Member 34" },       
 
   ];
   
