@@ -78,6 +78,17 @@ export default function UpcomingEvents() {
       detailsUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7303719866069352448",
     },
     {
+      id: "Blockchain Conf",
+      title: "Blockchain Africa Conference 2024",
+      description: "Our members had a great time ✨ enjoying the 10th annual Blockchain Africa Conference 2024 that at Council for Scientific and Industrial Research (CSIR) hosted by Bitcoin Events 🎉",
+      image: "/Events/BlockchainConf.jpg",
+      date: "Feb - Mar 08, 2025 (4 weeks)",
+      location: "University of Johannesburg (APK) and virtual",
+      type: "past",
+      registrationUrl: "",
+      detailsUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7266030468754460672/",
+    },
+    {
       id: "DevCon",
       title: "Thailand 🇹🇭 for DevCon7",
       description: "co-founder, Karabo Kayak , is currently in Thailand 🇹🇭 for DevCon7, diving into the heart of the Web3 world",
