@@ -148,9 +148,9 @@ export const stats = [
 export const navItems = [
   { name: "Home", link: "/" },
   { name: "About", link: "/about" },
-  { name: "Projects", link: "#projects" },
+  { name: "Projects", link: "/#projects" },
   { name: "Media", link: "/media" },
-  { name: "Events", link: "#events" },
+  { name: "Events", link: "/#events" },
   { name: "Contact", link: "#contact" },
 ];
 
