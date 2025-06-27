@@ -10,6 +10,7 @@ import UpcomingEvents from "@/components/upcoming-events";
 import PageLoader from "@/components/animations/page-loader";
 import BuildOnBlockchain from "@/components/BuildOnBlockchain";
 import Carousel from "@/components/Team";
+import PartnersSection from "@/components/partners";
 
 
 export default function Home() {
@@ -36,6 +37,9 @@ export default function Home() {
         </div>
         <div id="events" className="container mx-auto py-10">
           <UpcomingEvents />
+        </div>
+        <div>
+          <PartnersSection/>
         </div>
         <div id="contact">
         <Collaborate />
