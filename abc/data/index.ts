@@ -169,7 +169,7 @@ export const navItems = [
   { name: "Projects", link: "/#projects" },
   { name: "Media", link: "/media" },
   { name: "Events", link: "/#events" },
-  { name: "Contact", link: "#contact" },
+  { name: "Contact", link: "/#contact" },
 ];
 
 export const testimonials = [
