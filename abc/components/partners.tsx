@@ -33,7 +33,7 @@ export default function PartnersSection() {
     {
       id: "WeThinkCode_",
       name: "WeThinkCode_",
-      logo: "/placeholder.svg?height=80&width=200&text=UCT",
+      logo: "/partners/wtc.png",
       category: "universities",
       description: "Leading research collaboration on blockchain applications in African contexts",
       partnership: "Education Partner",
@@ -42,9 +42,9 @@ export default function PartnersSection() {
       tags: ["Research", "Education", "Innovation"],
     },
     {
-      id: "university-Johannesburg",
+      id: "University-Johannesburg",
       name: "University of Johannesburg",
-      logo: "/placeholder.svg?height=80&width=200&text=UNILAG",
+      logo: "/partners/Uj.png",
       category: "universities",
       description: "West African blockchain research hub and talent development center",
       partnership: "Education Partner",
@@ -56,7 +56,7 @@ export default function PartnersSection() {
     {
         id: "Biptap",
         name: "Biptap",
-        logo: "/placeholder.svg?height=80&width=200&text=UNILAG",
+        logo: "/partners/biptap.png",
         category: "universities",
         description: "West African blockchain research hub and talent development center",
         partnership: "DeFi",
@@ -148,17 +148,18 @@ export default function PartnersSection() {
           <div className="mb-6">
             <h3 className="mb-8 text-center font-mono text-2xl font-bold">Featured Partnerships</h3>
             <div className="relative">
-              <div className="flex overflow-x-auto justify-center items-center text-center gap-6 pb-4 ">
+              <div className="flex overflow-x-auto justify-center items-center text-center gap-6 pb-2 ">
                 {featuredPartners.map((partner, index) => (
                   <ScaleIn key={partner.id} delay={index * 100}>
                     <Card className="min-w-[350px] group hover:shadow-2xl transition-all duration-500 border-2 hover:border-amber-500/30 bg-gradient-to-br from-black to-amber-50/30">
                       <CardContent className="p-8">
-                        <div className="flex items-start justify-between mb-6">
-                          <div className="relative h-28 w-50 mx-auto overflow-hidden rounded-lg bg-white shadow-sm border">
+                        <div className="flex items-start justify-between mb-4">
+                          <div className="relative h-40 w-40 mx-auto overflow-hidden rounded-lg bg-gray shadow-sm border">
                             <Image
                               src={partner.logo || "/placeholder.svg"}
                               alt={partner.name}
-                              fill
+                              width={300}
+                              height={100}
                               className="object-contain p-2 group-hover:scale-110 transition-transform duration-300"
                             />
                           </div>
