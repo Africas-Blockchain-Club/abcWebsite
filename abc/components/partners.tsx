@@ -53,6 +53,18 @@ export default function PartnersSection() {
       
       tags: ["West Africa", "Talent", "Hub"],
     },
+    {
+        id: "Biptap",
+        name: "Biptap",
+        logo: "/placeholder.svg?height=80&width=200&text=UNILAG",
+        category: "universities",
+        description: "West African blockchain research hub and talent development center",
+        partnership: "DeFi",
+        website: "https://unilag.edu.ng",
+        featured: true,
+        
+        tags: ["West Africa", "Talent", "Hub"],
+      },
 
     // Blockchain Protocols
     // {
