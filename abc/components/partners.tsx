@@ -29,7 +29,7 @@ export default function PartnersSection() {
   const [hoveredPartner, setHoveredPartner] = useState<string | null>(null)
 
   const partners: Partner[] = [
-    // Universities
+
     {
       id: "WeThinkCode_",
       name: "WeThinkCode_",
@@ -53,32 +53,31 @@ export default function PartnersSection() {
       
       tags: ["West Africa", "Talent", "Hub"],
     },
-    {
-        id: "Biptap",
-        name: "Biptap",
-        logo: "/partners/biptap.png",
-        category: "universities",
-        description: "West African blockchain research hub and talent development center",
-        partnership: "DeFi",
-        website: "https://unilag.edu.ng",
-        featured: true,
-        
-        tags: ["West Africa", "Talent", "Hub"],
-      },
-
-    // Blockchain Protocols
     // {
-    //   id: "ethereum-foundation",
-    //   name: "Ethereum Foundation",
-    //   logo: "/placeholder.svg?height=80&width=200&text=Ethereum",
-    //   category: "protocols",
-    //   description: "Supporting African Ethereum development through grants and technical mentorship",
-    //   partnership: "Technology Partner",
-    //   website: "https://ethereum.org",
-    //   featured: true,
+    //     id: "Biptap",
+    //     name: "Biptap",
+    //     logo: "/partners/biptap.png",
+    //     category: "universities",
+    //     description: "West African blockchain research hub and talent development center",
+    //     partnership: "DeFi",
+    //     website: "https://unilag.edu.ng",
+    //     featured: true,
+        
+    //     tags: ["West Africa", "Talent", "Hub"],
+    //   },
+
+    {
+      id: "scroll",
+      name: "Scroll",
+      logo: "/partners/Scroll.png",
+      category: "protocols",
+      description: "Supporting African Ethereum development through grants and technical mentorship",
+      partnership: "Support Partner",
+      website: "https://scroll.io",
+      featured: true,
       
-    //   tags: ["Ethereum", "Grants", "Development"],
-    // },
+      tags: ["scroll", "Grants", "Development"],
+    },
 
 
     
