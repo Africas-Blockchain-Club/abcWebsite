@@ -11,6 +11,8 @@ import PageLoader from "@/components/animations/page-loader";
 import BuildOnBlockchain from "@/components/BuildOnBlockchain";
 import Carousel from "@/components/Team";
 import PartnersSection from "@/components/partners";
+import Cursor from "@/components/CircularCursor";
+
 
 
 export default function Home() {
@@ -18,6 +20,7 @@ export default function Home() {
 
   return (
     <div className="relative">
+      <Cursor/>
       <PageLoader />
       <main className="relative z-0" style={{ background: "#2B2B2B" }}>
           <Hero />
