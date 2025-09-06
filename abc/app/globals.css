@@ -219,3 +219,18 @@ body::before {
     cursor: url('/magic-icons/alembic-cursor.png'), auto;
   }
 }
+
+html, body, * {
+  cursor: none !important; /* hide native cursor everywhere */
+}
+
+.custom-cursor {
+  width: 25px;
+  height: 25px;
+  border: 2px solid #edf0f1;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
