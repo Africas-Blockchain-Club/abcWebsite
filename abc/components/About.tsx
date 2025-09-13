@@ -17,13 +17,13 @@ export default function FullscreenCarousel() {
   </p>
 </div>
       {/* Islands Section */}
-      <div className="flex justify-center gap-28 px-8 ">
+      <div className="lex flex-col md:flex-row justify-center gap-8 md:gap-12 px-4 md:px-8">
         {aboutText.map((item, index) => {
 
           return (
             <div
   key={index}
-  className="min-w-[400px] max-w-[550px] h-full flex flex-col items-center justify-center snap-start pt-16 pb-10 rounded-2xl overflow-hidden border-2 border-yellow-500 shadow-[0_0_30px_10px_rgba(234,179,8,0.75)] bg-[#2B2B2B] text-white"
+  className="w-full md:min-w-[400px] md:max-w-[550px] h-full flex flex-col items-center justify-center p-8 rounded-2xl overflow-hidden border-2 border-yellow-500 shadow-[0_0_25px_5px_rgba(234,179,8,0.6)] bg-[#2B2B2B] text-white"
 >
   <div className="mb-6  overflow-hidden">
     <Image
