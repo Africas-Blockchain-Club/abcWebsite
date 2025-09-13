@@ -23,7 +23,7 @@ export default function FullscreenCarousel() {
           return (
             <div
   key={index}
-  className="w-full md:min-w-[400px] md:max-w-[550px] h-full flex flex-col items-center justify-center p-8 rounded-2xl overflow-hidden border-2 border-yellow-500 shadow-[0_0_25px_5px_rgba(234,179,8,0.6)] bg-[#2B2B2B] text-white"
+  className="w-full md:min-w-[400px] md:max-w-[550px] h-full flex flex-col items-center justify-center p-8 rounded-2xl overflow-hidden border-2 border-yellow-500 shadow-[0_0_25px_5px_rgba(234,179,8,0.6)] bg-[#2B2B2B] text-white transition-all duration-300 hover:shadow-[0_0_35px_15px_rgba(234,179,8,0.8)] hover:scale-105"
 >
 <div className="mb-6 w-32 h-32 rounded-full overflow-hidden border-2 border-yellow-500">
   <Image
