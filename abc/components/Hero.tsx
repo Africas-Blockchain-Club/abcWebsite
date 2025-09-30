@@ -12,69 +12,85 @@ import StaggerContainer from './animations/stagger-container';
 import SlideIn from './animations/slide-in';
 import Link from 'next/link';
 
-
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden text-whiteb px-4 flex-col md:flex-row">
-    
+    <section className="relative overflow-hidden text-white px-4">
       <BlockchainHeroBg />
       <FloatingElements />
 
-
-      <div className="container mx-auto grid grid-cols-1 items-center px-2 py-6 md:grid-cols-2 md:py-18 lg:py-20">
-      <FadeIn direction="left" delay={300}>
-        <div className="space-y-4 pt-2">
-        <ScaleIn delay={500}>
-          <div className="inline-block rounded-full bg-neutral-600/80 px-4 py-1 text-s font-medium">
-            The Future of Web3 in Africa
-          </div>
-          </ScaleIn>
-          <FadeIn direction="up" delay={700}>
-          <h1 className="font-mono text-5xl font-bold leading-tight md:text-6xl lg:text-7xl max-w-[20ch]">
-            Building <br />
-            Africa&apos;s <br />
-            Blockchain <br />
-            Future
-          </h1>
+      <div className="container mx-auto grid grid-cols-1 items-center px-2 py-8 md:grid-cols-2 md:py-18 lg:py-20">
+        {/* Text Content - Mobile First */}
+        <div className="order-2 md:order-1">
+          <FadeIn direction="left" delay={300}>
+            <div className="space-y-4 pt-4 md:pt-2">
+              <ScaleIn delay={500}>
+                <div className="inline-block rounded-full bg-neutral-600/80 px-3 py-1 text-xs md:text-sm font-medium text-center w-full md:w-auto">
+                  The Future of Web3 in Africa
+                </div>
+              </ScaleIn>
+              
+              <FadeIn direction="up" delay={700}>
+                <h1 className="font-mono text-3xl font-bold leading-tight text-center md:text-left md:text-5xl lg:text-6xl xl:text-7xl max-w-[20ch] mx-auto md:mx-0">
+                  Building<br />
+                  Africa&apos;s<br />
+                  Blockchain<br />
+                  Future
+                </h1>
+              </FadeIn>
+              
+              <FadeIn direction="up" delay={900}>
+                <p className="max-w-2xl text-base md:text-lg text-neutral-200 text-center md:text-left mx-auto md:mx-0 px-2 md:px-0">
+                  Join our community of passionate developers and innovators shaping the decentralized web across Africa.
+                </p>
+              </FadeIn>
+              
+              <FadeIn direction="up" delay={1100}>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start items-center">
+                  <Button 
+                    size="lg" 
+                    className="w-full sm:w-auto bg-black text-white hover:bg-white/80 hover:text-black text-base md:text-lg px-6 py-3"
+                  >
+                    <Link href={"/about"}>Learn More</Link>
+                  </Button>
+                </div>
+              </FadeIn>
+            </div>
           </FadeIn>
-          <FadeIn direction="up" delay={900}>
-          <p className="max-w-2xl text-lg text-neutral-200">
-            Join our community of passionate developers and innovators shaping the decentralized web across Africa.
-          </p>
-          </FadeIn>
-          
-          <FadeIn direction="up" delay={1100}>
-          <div className="flex flex-wrap gap-4">
-            
-            <Button variant="outline" className="bg-black text-white hover:bg-white/80 hover:text-black">
-            <Link href={"/about"}> Learn More</Link>
-            </Button>
-          </div>
-          </FadeIn>
-
         </div>
-        </FadeIn>
 
-        <SlideIn direction="right" delay={400}>
-        <div className="relative mt-10 md:mt-0">
-          <BlockchainNetwork className="w-full h-full" />
-          
-          <div className="absolute top-[65%] left-[-10%] w-[990px] -translate-y-1/2 rounded-full">
-            <Image
-              src="/header/ABC.png"
-              alt="Africa's Blockchain Club Logo"
-              width={500}
-              height={500}
-              className="w-full h-auto"
-              priority
-            />
-          </div>
+        {/* Image/Graphics Content */}
+        <div className="order-1 md:order-2 relative mt-4 md:mt-0 mb-8 md:mb-0">
+          <SlideIn direction="right" delay={400}>
+            <div className="relative w-full h-64 md:h-96 lg:h-[500px]">
+              <BlockchainNetwork className="w-full h-full" />
+              
+              {/* Mobile-optimized logo positioning */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 md:w-64 lg:w-80">
+                <Image
+                  src="/header/ABC.png"
+                  alt="Africa's Blockchain Club Logo"
+                  width={500}
+                  height={500}
+                  className="w-full h-auto"
+                  priority
+                />
+              </div>
 
-          <BlockchainNetwork className="w-full h-full" />
-
+              <BlockchainNetwork className="w-full h-full" />
+            </div>
+          </SlideIn>
         </div>
-        </SlideIn>
       </div>
+
+      {/* Mobile-specific spacing */}
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .container {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+          }
+        }
+      `}</style>
     </section>
   );
 }
