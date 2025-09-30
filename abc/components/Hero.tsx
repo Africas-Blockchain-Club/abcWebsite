@@ -65,12 +65,12 @@ export default function Hero() {
               <BlockchainNetwork className="w-full h-full" />
               
               {/* Mobile-optimized logo positioning */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 md:w-64 lg:w-80">
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-148 md:w-154 lg:w-180">
                 <Image
                   src="/header/ABC.png"
                   alt="Africa's Blockchain Club Logo"
-                  width={500}
-                  height={500}
+                  width={1500}
+                  height={1500}
                   className="w-full h-auto"
                   priority
                 />
