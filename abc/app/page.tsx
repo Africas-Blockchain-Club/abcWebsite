@@ -13,41 +13,100 @@ import Carousel from "@/components/Team";
 import PartnersSection from "@/components/partners";
 import Cursor from "@/components/CircularCursor";
 
-
-
 export default function Home() {
-
-
   return (
     <div className="relative">
-      <Cursor/>
-      <PageLoader />
-      <main className="relative z-0" style={{ background: "#2B2B2B" }}>
+      {/* Hide cursor on mobile for better touch experience */}
+      <div className="hidden md:block">
+        <Cursor/>
+      </div>
+      
+      {/* <PageLoader /> */}
+      
+      <main className="relative z-0 overflow-x-hidden" style={{ background: "#2B2B2B" }}>
+        {/* Hero Section */}
+        <section className="relative">
           <Hero />
-          <Logos/>
+        </section>
+
+        {/* Logos Section - Mobile Optimized */}
+        {/* <section className="px-2 py-6 md:py-8">
+          <Logos />
+        </section> */}
+
+        {/* About Section */}
+        {/* <section className="px-2 py-8 md:py-12">
           <About1 />
-        <div id="team">
+        </section> */}
+
+        {/* Team Section */}
+        {/* <section id="team" className="px-2 py-8 md:py-12">
           <Carousel/>
-        </div>
-        <div id="projects" className="pb-8 pt-0"> 
+        </section> */}
+
+        {/* Projects Section */}
+        {/* <section id="projects" className="px-2 py-8 md:py-12">
           <ProjectsDrawer />
-        </div>
-        <div id="learn" className="pb-8">
+        </section> */}
+
+        {/* Learn Section */}
+        {/* <section id="learn" className="px-2 py-8 md:py-12">
           <Learn />
-        </div>
-        <div id="getStarted">
+        </section> */}
+
+        {/* Get Started Section */}
+        {/* <section id="getStarted" className="px-2 py-8 md:py-12">
           <BuildOnBlockchain />
-        </div>
-        <div id="events" className="container mx-auto py-10">
-          <UpcomingEvents />
-        </div>
-        <div>
+        </section> */}
+
+        {/* Events Section */}
+        {/* <section id="events" className="px-2 py-8 md:py-12">
+          <div className="container mx-auto">
+            <UpcomingEvents />
+          </div>
+        </section> */}
+
+        {/* Partners Section */}
+        {/* <section className="px-2 py-8 md:py-12">
           <PartnersSection/>
-        </div>
-        <div id="contact">
-        <Collaborate />
-        </div>
+        </section> */}
+
+        {/* Contact Section */}
+        {/* <section id="contact" className="px-2 py-8 md:py-12">
+          <Collaborate />
+        </section> */}
       </main>
+
+      {/* Mobile-specific styles */}
+      <style jsx global>{`
+        /* Improve touch targets for mobile */
+        @media (max-width: 768px) {
+          button, 
+          a, 
+          [role="button"] {
+            min-height: 44px;
+            min-width: 44px;
+          }
+          
+          /* Smooth scrolling for anchor links */
+          html {
+            scroll-behavior: smooth;
+          }
+          
+          /* Prevent horizontal scroll */
+          body {
+            overflow-x: hidden;
+          }
+        }
+        
+        /* Optimize animations for mobile performance */
+        @media (max-width: 768px) and (prefers-reduced-motion: no-preference) {
+          .reduce-motion-on-mobile {
+            animation-duration: 0.5s !important;
+            transition-duration: 0.3s !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }
