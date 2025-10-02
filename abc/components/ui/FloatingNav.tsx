@@ -56,7 +56,7 @@ export const FloatingNav = ({
           )}
         >
           {(!scrolled ) && (
-            <Link href="/" className="flex items-center md:ml-0 z-50">
+            <Link href="/" className="flex items-center md:ml-0 md:hidden z-50">
               <Image
                 src="/About/ABC_HD_White.png"
                 alt="ABC Logo"
@@ -85,7 +85,7 @@ export const FloatingNav = ({
             ))}
 
             {!scrolled && (
-              <Link href="/" className="flex items-center ml-8">
+              <Link href="/" className="hidden md:flex items-center ml-8">
                 <Image
                   src="/About/ABC_HD_White.png"
                   alt="ABC Logo"
