@@ -64,7 +64,6 @@ export default function Hero() {
         <div className="order-1 md:order-2 relative mt-4 md:mt-0 mb-8 md:mb-0">
   <SlideIn direction="right" delay={400}>
     <div className="relative w-full h-64 md:h-96 lg:h-[500px]">
-      {/* Single BlockchainNetwork centered behind logo */}
       <div className="absolute inset-0 flex items-center justify-center">
         <BlockchainNetwork className="w-full h-full" />
       </div>
