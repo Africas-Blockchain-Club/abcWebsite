@@ -55,7 +55,7 @@ export const FloatingNav = ({
             scrolled ? "justify-center" : "justify-between md:justify-end"
           )}
         >
-          {(!scrolled || isMobileMenuOpen) && (
+          {(!scrolled ) && (
             <Link href="/" className="flex items-center md:ml-0 z-50">
               <Image
                 src="/About/ABC_HD_White.png"
@@ -124,7 +124,7 @@ export const FloatingNav = ({
         </div>
       </nav>
 
-      {/* ---- IMPORTANT: Mobile overlay moved OUTSIDE the <nav> to avoid transform/stacking issues ---- */}
+      {/* IMPORTANT: Mobile overlay moved OUTSIDE the <nav> to avoid transform/stacking issues */}
       <div
         // overlay is hidden by default; when open we show blur + dark bg and enable pointer events
         className={cn(
@@ -133,7 +133,6 @@ export const FloatingNav = ({
             ? "opacity-100 pointer-events-auto backdrop-blur-xl bg-black/50 z-40"
             : "opacity-0 pointer-events-none -translate-y-full z-10"
         )}
-        // fallback inline style in case Tailwind blur is not present in your build
         style={{ backdropFilter: isMobileMenuOpen ? "blur(10px)" : "none" }}
         aria-hidden={!isMobileMenuOpen}
       >

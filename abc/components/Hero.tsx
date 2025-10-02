@@ -58,23 +58,22 @@ export default function Hero() {
           </FadeIn>
         </div>
 
-        {/* Image/Graphics Content */}
+        {/* Image */}
         <div className="order-1 md:order-2 relative mt-4 md:mt-0 mb-8 md:mb-0">
           <SlideIn direction="right" delay={400}>
             <div className="relative w-full h-64 md:h-96 lg:h-[500px]">
               <BlockchainNetwork className="w-full h-full" />
               
-              {/* Mobile-optimized logo positioning */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-148 md:w-154 lg:w-180">
-                <Image
-                  src="/header/ABC.png"
-                  alt="Africa's Blockchain Club Logo"
-                  width={1500}
-                  height={1500}
-                  className="w-full h-auto"
-                  priority
-                />
-              </div>
+              <div className="absolute top-[70%] md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-148 md:w-154 lg:w-180">
+  <Image
+    src="/header/ABC.png"
+    alt="Africa's Blockchain Club Logo"
+    width={1500}
+    height={1500}
+    className="w-full h-auto"
+    priority
+  />
+</div>
 
               <BlockchainNetwork className="w-full h-full" />
             </div>
