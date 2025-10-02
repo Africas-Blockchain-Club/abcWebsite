@@ -31,9 +31,9 @@ export default function Home() {
         </section>
 
         {/* About Section */}
-        {/* <section className="px-2 py-8 md:py-12">
+        <section className="px-2 py-8 md:py-12">
           <About1 />
-        </section> */}
+        </section>
 
         {/* Team Section */}
         {/* <section id="team" className="px-2 py-8 md:py-12">
