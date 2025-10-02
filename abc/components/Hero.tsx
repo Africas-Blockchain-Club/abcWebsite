@@ -45,14 +45,16 @@ export default function Hero() {
               </FadeIn>
               
               <FadeIn direction="up" delay={1100}>
-                <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start items-center">
-                  <Button 
-                    size="lg" 
-                    className="w-full sm:w-auto bg-black text-white hover:bg-white/80 hover:text-black text-base md:text-lg px-6 py-3"
-                  >
-                    <Link href={"/about"}>Learn More</Link>
-                  </Button>
-                </div>
+                <div className="flex justify-center md:justify-start">
+                <Button 
+                  size="lg" 
+                  className="w-full max-w-[280px] sm:w-auto bg-black text-white hover:bg-white/80 hover:text-black text-base md:text-lg px-8 py-4 rounded-xl sm:rounded-lg border-2 border-transparent hover:border-white transition-all duration-300 min-h-[60px] sm:min-h-0"
+                >
+                  <Link href={"/about"} className="flex items-center justify-center w-full">
+                    Learn More
+                  </Link>
+                </Button>
+              </div>
               </FadeIn>
             </div>
           </FadeIn>
@@ -60,36 +62,30 @@ export default function Hero() {
 
         {/* Image */}
         <div className="order-1 md:order-2 relative mt-4 md:mt-0 mb-8 md:mb-0">
-          <SlideIn direction="right" delay={400}>
-            <div className="relative w-full h-64 md:h-96 lg:h-[500px]">
-              <BlockchainNetwork className="w-full h-full" />
-              
-              <div className="absolute top-[70%] md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-148 md:w-154 lg:w-180">
-  <Image
-    src="/header/ABC.png"
-    alt="Africa's Blockchain Club Logo"
-    width={1500}
-    height={1500}
-    className="w-full h-auto"
-    priority
-  />
-</div>
-
-              <BlockchainNetwork className="w-full h-full" />
-            </div>
-          </SlideIn>
-        </div>
+  <SlideIn direction="right" delay={400}>
+    <div className="relative w-full h-64 md:h-96 lg:h-[500px]">
+      {/* Single BlockchainNetwork centered behind logo */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <BlockchainNetwork className="w-full h-full" />
       </div>
+      
+      {/* Logo positioned over the network */}
+      <div className="absolute top-[65%] md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-155 md:w-204 lg:w-228 xl:w-244 z-10">
+        <Image
+          src="/header/ABC.png"
+          alt="Africa's Blockchain Club Logo"
+          width={1500}
+          height={1500}
+          className="w-full h-auto"
+          priority
+        />
+      </div>
+      <BlockchainNetwork className="w-full h-full" />
 
-      {/* Mobile-specific spacing */}
-      <style jsx>{`
-        @media (max-width: 768px) {
-          .container {
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-          }
-        }
-      `}</style>
+    </div>
+  </SlideIn>
+</div>
+      </div>
     </section>
   );
 }
