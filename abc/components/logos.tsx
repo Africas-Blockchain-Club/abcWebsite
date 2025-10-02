@@ -25,6 +25,14 @@ const logos = [
   { src: "/Logos/openzeppelin.svg", invert: true },
   { src: "/Logos/metamask.png", invert: false },
   { src: "/Logos/graph.png", invert: false },
+  { src: "/Logos/nodedotjs.svg", invert: true },
+  { src: "/Logos/blockchaindotcom.svg", invert: true },
+  { src: "/Logos/ethers.svg", invert: true },
+  { src: "/Logos/javascript.svg", invert: true },
+  { src: "/Logos/optimism.svg", invert: true },
+  { src: "/Logos/polygon.svg", invert: true },
+  { src: "/Logos/rust.svg", invert: true },
+  { src: "/Logos/wagmi.svg", invert: true },
 ];
 
 export default function LogosRow() {
