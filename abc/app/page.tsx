@@ -26,7 +26,7 @@ export default function Home() {
           <Hero />
         </section>
 
-        <section className="px-2 py-6 md:py-8">
+        <section className="px-2">
           <Logos />
         </section>
 
