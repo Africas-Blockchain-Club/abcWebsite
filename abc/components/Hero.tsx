@@ -69,7 +69,7 @@ export default function Hero() {
       </div>
       
       {/* Logo positioned over the network */}
-      <div className="absolute top-[65%] md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-155 md:w-204 lg:w-228 xl:w-244 z-10">
+      <div className="absolute top-[65%] md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-155 md:w-244 lg:w-244 xl:w-244 z-10">
         <Image
           src="/header/ABC.png"
           alt="Africa's Blockchain Club Logo"

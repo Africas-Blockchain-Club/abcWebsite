@@ -29,25 +29,64 @@ const logos = [
 
 export default function LogosRow() {
   return (
-    <div className="relative overflow-hidden px-4">
+    <div className="relative overflow-hidden py-8">
       <BlockchainHeroBg />
-      <div className=" flex flex-wrap gap-6 justify-center items-center">
-        
-        {logos.map((logo, index) => (
-          <div
-            key={index}
-            className="p-4 transition-transform"
-          >
-            <Image
-              src={logo.src}
-              alt={`Logo ${index}`}
-              width={60}
-              height={60}
-              className={`object-contain ${logo.invert ? "invert" : ""}`}
-            />
-          </div>
-        ))}
+      
+      <div className="scroller-container relative max-w-7xl mx-auto">
+        <div className="logos-scroll flex gap-8 md:gap-12 py-4">
+          {/* First set */}
+          {logos.map((logo, index) => (
+            <div key={`first-${index}`} className="flex-shrink-0 transition-transform duration-300">
+              <Image
+                src={logo.src}
+                alt={`Logo ${index}`}
+                width={50}
+                height={50}
+                className={`object-contain ${logo.invert ? "invert" : ""} w-12 h-12 md:w-14 md:h-14`}
+              />
+            </div>
+          ))}
+          {/* Duplicated set for seamless loop */}
+          {logos.map((logo, index) => (
+            <div key={`second-${index}`} className="flex-shrink-0 transition-transform duration-300" aria-hidden="true">
+              <Image
+                src={logo.src}
+                alt={`Logo ${index}`}
+                width={50}
+                height={50}
+                className={`object-contain ${logo.invert ? "invert" : ""} w-12 h-12 md:w-14 md:h-14`}
+              />
+            </div>
+          ))}
+        </div>
       </div>
+
+      <style jsx>{`
+        .scroller-container {
+          mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+          -webkit-mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+        }
+
+        .logos-scroll {
+          animation: scroll 40s linear infinite;
+          width: max-content;
+        }
+
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-100% / 2));
+          }
+        }
+
+        @media (max-width: 768px) {
+          .logos-scroll {
+            animation: scroll 30s linear infinite;
+          }
+        }
+      `}</style>
     </div>
   );
 }

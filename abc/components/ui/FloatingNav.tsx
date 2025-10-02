@@ -5,7 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-export const FloatingNav = ({
+
+export const FloatingNav = (
+  {
   navItems,
   className,
 }: {
@@ -14,6 +16,7 @@ export const FloatingNav = ({
 }): JSX.Element => {
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 100);
@@ -34,99 +37,97 @@ export const FloatingNav = ({
     };
   }, [isMobileMenuOpen]);
 
-  return (
-    <>
-      <nav
+return (
+  <>
+    <nav
+      className={cn(
+        "fixed z-[5000] w-full transition-all duration-500",
+        scrolled
+          ? "top-4 mx-auto w-[95%] md:w-fit rounded-xl shadow-2xl border border-white/30 backdrop-blur-xl bg-black/70"
+          : "top-0 border-b border-white/20 bg-black/40",
+        className
+      )}
+      style={{
+        left: scrolled ? "50%" : "0",
+        transform: scrolled ? "translateX(-50%)" : "none",
+      }}
+    >
+      <div
         className={cn(
-          "fixed z-[5000] w-full transition-all duration-500",
-          scrolled
-            ? "top-4 mx-auto w-[95%] md:w-fit rounded-xl shadow-2xl border border-white/30 backdrop-blur-xl bg-black/70"
-            : "top-0 border-b border-white/20 bg-black/40",
-          className
+          "flex items-center w-full px-4 py-3 md:px-8 md:py-1",
+          scrolled ? "justify-center" : "justify-between md:justify-end"
         )}
-        style={{
-          left: scrolled ? "50%" : "0",
-          transform: scrolled ? "translateX(-50%)" : "none",
-        }}
       >
-        <div
-          className={cn(
-            "flex items-center w-full px-4 py-3 md:px-8 md:py-1",
-            scrolled ? "justify-center" : "justify-between md:justify-end"
-          )}
-        >
-          {(!scrolled ) && (
-            <Link href="/" className="flex items-center md:ml-0 md:hidden z-50">
+        {(!scrolled ) && (
+          <Link href="/" className="flex items-center md:ml-0 z-50 md:hidden">
+            <Image
+              src="/About/ABC_HD_White.png"
+              alt="ABC Logo"
+              width={35}
+              height={30}
+              className="object-contain"
+              priority
+            />
+          </Link>
+        )}
+
+        <div className="hidden md:flex items-center space-x-8">
+          {navItems.map((navItem, idx) => (
+            <Link
+              key={`nav-${idx}`}
+              href={navItem.link}
+              className={cn(
+                "flex items-center space-x-2 text-sm font-semibold transition-all duration-300 px-4 py-2 rounded-lg",
+                "text-white hover:text-white border border-transparent",
+                "hover:bg-white/10 hover:border-white/20 hover:shadow-lg"
+              )}
+            >
+              {navItem.icon && <span className="text-sm">{navItem.icon}</span>}
+              <span className="relative z-10">{navItem.name}</span>
+            </Link>
+          ))}
+
+          {!scrolled && (
+            <Link href="/" className="hidden md:flex items-center ml-8">
               <Image
                 src="/About/ABC_HD_White.png"
                 alt="ABC Logo"
                 width={35}
                 height={30}
                 className="object-contain"
-                priority
               />
             </Link>
           )}
-
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((navItem, idx) => (
-              <Link
-                key={`nav-${idx}`}
-                href={navItem.link}
-                className={cn(
-                  "flex items-center space-x-2 text-sm font-semibold transition-all duration-300 px-4 py-2 rounded-lg",
-                  "text-white hover:text-white border border-transparent",
-                  "hover:bg-white/10 hover:border-white/20 hover:shadow-lg"
-                )}
-              >
-                {navItem.icon && <span className="text-sm">{navItem.icon}</span>}
-                <span className="relative z-10">{navItem.name}</span>
-              </Link>
-            ))}
-
-            {!scrolled && (
-              <Link href="/" className="hidden md:flex items-center ml-8">
-                <Image
-                  src="/About/ABC_HD_White.png"
-                  alt="ABC Logo"
-                  width={35}
-                  height={30}
-                  className="object-contain"
-                />
-              </Link>
-            )}
-          </div>
-
-          <button
-            onClick={() => setIsMobileMenuOpen((s) => !s)}
-            className="md:hidden flex flex-col justify-center items-center w-10 h-10 z-50 ml-auto bg-white/10 rounded-lg border border-white/20 backdrop-blur-sm"
-            aria-label="Toggle menu"
-          >
-            <span
-              className={cn(
-                "bg-white h-0.5 w-6 rounded-full transition-all duration-300 shadow-sm",
-                isMobileMenuOpen ? "rotate-45 translate-y-1.5" : "-translate-y-1"
-              )}
-            />
-            <span
-              className={cn(
-                "bg-white h-0.5 w-6 rounded-full transition-all duration-300 my-1.5 shadow-sm",
-                isMobileMenuOpen ? "opacity-0" : "opacity-100"
-              )}
-            />
-            <span
-              className={cn(
-                "bg-white h-0.5 w-6 rounded-full transition-all duration-300 shadow-sm",
-                isMobileMenuOpen ? "-rotate-45 -translate-y-1.5" : "translate-y-1"
-              )}
-            />
-          </button>
         </div>
-      </nav>
 
-      {/* IMPORTANT: Mobile overlay moved OUTSIDE the <nav> to avoid transform/stacking issues */}
+        <button
+          onClick={() => setIsMobileMenuOpen((s) => !s)}
+          className="md:hidden flex flex-col justify-center items-center w-10 h-10 z-50 ml-auto bg-white/10 rounded-lg border border-white/20 backdrop-blur-sm"
+          aria-label="Toggle menu"
+        >
+          <span
+            className={cn(
+              "bg-white h-0.5 w-6 rounded-full transition-all duration-300 shadow-sm",
+              isMobileMenuOpen ? "rotate-45 translate-y-1.5" : "-translate-y-1"
+            )}
+          />
+          <span
+            className={cn(
+              "bg-white h-0.5 w-6 rounded-full transition-all duration-300 my-1.5 shadow-sm",
+              isMobileMenuOpen ? "opacity-0" : "opacity-100"
+            )}
+          />
+          <span
+            className={cn(
+              "bg-white h-0.5 w-6 rounded-full transition-all duration-300 shadow-sm",
+              isMobileMenuOpen ? "-rotate-45 -translate-y-1.5" : "translate-y-1"
+            )}
+          />
+        </button>
+      </div>
+
+      {/* Mobile overlay - NOW INSIDE THE <nav> */}
       <div
-        // overlay is hidden by default; when open we show blur + dark bg and enable pointer events
         className={cn(
           "md:hidden fixed inset-0 transition-all duration-300 flex items-center justify-center",
           isMobileMenuOpen
@@ -154,13 +155,14 @@ export const FloatingNav = ({
           ))}
         </div>
       </div>
+    </nav>
 
-      <style jsx global>{`
-        @media (max-width: 768px) {
-          .mobile-nav-item { min-height: 60px; min-width: 60px; display: flex; align-items: center; justify-content: flex-start; padding-left: 20px; }
-          .backdrop-blur-xl { backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); }
-        }
-      `}</style>
-    </>
-  );
+    <style jsx global>{`
+      @media (max-width: 768px) {
+        .mobile-nav-item { min-height: 60px; min-width: 60px; display: flex; align-items: center; justify-content: flex-start; padding-left: 20px; }
+        .backdrop-blur-xl { backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); }
+      }
+    `}</style>
+  </>
+);
 };

@@ -28,14 +28,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <FloatingNav navItems={navItems} />
-      <FloatingImage />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <FloatingNav navItems={navItems} />
+        <FloatingImage />
         {children}
       </body>
-      {/* <Footer/> */}
     </html>
   );
 }

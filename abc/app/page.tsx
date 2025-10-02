@@ -21,18 +21,14 @@ export default function Home() {
         <Cursor/>
       </div>
       
-      {/* <PageLoader /> */}
-      
       <main className="relative z-0 overflow-x-hidden" style={{ background: "#2B2B2B" }}>
-        {/* Hero Section */}
         <section className="relative">
           <Hero />
         </section>
 
-        {/* Logos Section - Mobile Optimized */}
-        {/* <section className="px-2 py-6 md:py-8">
+        <section className="px-2 py-6 md:py-8">
           <Logos />
-        </section> */}
+        </section>
 
         {/* About Section */}
         {/* <section className="px-2 py-8 md:py-12">
