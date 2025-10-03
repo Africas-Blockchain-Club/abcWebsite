@@ -36,14 +36,14 @@ export default function Home() {
         </section>
 
         {/* Team Section */}
-        {/* <section id="team" className="px-2 py-8 md:py-12">
+        <section id="team" className="px-2 py-8 md:py-12">
           <Carousel/>
-        </section> */}
+        </section>
 
         {/* Projects Section */}
-        {/* <section id="projects" className="px-2 py-8 md:py-12">
+        <section id="projects" className="px-2 py-8 md:py-12">
           <ProjectsDrawer />
-        </section> */}
+        </section>
 
         {/* Learn Section */}
         {/* <section id="learn" className="px-2 py-8 md:py-12">
