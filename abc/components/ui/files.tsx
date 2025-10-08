@@ -357,16 +357,6 @@ export default function ProjectsDrawer() {
           </DraggableCardContainer>
         </div>
       </div>
-
-      {/* Mobile instructions */}
-      <div className="lg:hidden flex justify-center mt-4">
-        <div className="bg-black/40 backdrop-blur-sm rounded-full px-4 py-2 border border-gray-600/50">
-          <p className="text-white/80 text-xs flex items-center gap-2">
-            <span>← →</span>
-            Swipe or use arrows • Card <div className="w-3 h-3 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-[8px] text-white">1</div> of {projectsData.length}
-          </p>
-        </div>
-      </div>
     </div>
   );
 }
