@@ -32,7 +32,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <FloatingNav navItems={navItems} />
-        <FloatingImage />
+        {/* <FloatingImage /> */}
         {children}
       </body>
     </html>
