@@ -133,21 +133,21 @@ export default function ProjectsDrawer() {
 <div className="lg:hidden flex-1 relative mt-8"> {/* Added mt-8 for top spacing */}
   {/* Navigation arrows */}
   <div className="absolute top-1/2 transform -translate-y-1/2 left-1 z-30">
-    <button
-      onClick={prevProject}
-      className="bg-black/40 hover:bg-black/60 backdrop-blur-sm rounded-full p-2 transition-all active:scale-95 border border-gray-600"
-    >
-      <FaChevronLeft className="text-white text-xs" />
-    </button>
+<button
+  onClick={prevProject}
+  className="bg-black/40 hover:bg-black/60 backdrop-blur-sm rounded-full w-8 h-8 flex items-center justify-center transition-all active:scale-95 border border-gray-600"
+>
+  <FaChevronLeft className="text-white text-sm" />
+</button>
   </div>
   
   <div className="absolute top-1/2 transform -translate-y-1/2 right-1 z-30">
-    <button
-      onClick={nextProject}
-      className="bg-black/40 hover:bg-black/60 backdrop-blur-sm rounded-full p-2 transition-all active:scale-95 border border-gray-600"
-    >
-      <FaChevronRight className="text-white text-xs" />
-    </button>
+<button
+  onClick={nextProject}
+  className="bg-black/40 hover:bg-black/60 backdrop-blur-sm rounded-full w-8 h-8 flex items-center justify-center transition-all active:scale-95 border border-gray-600"
+>
+  <FaChevronRight className="text-white text-sm" />
+</button>
   </div>
 
   <div
@@ -192,7 +192,7 @@ export default function ProjectsDrawer() {
 
           {/* Image */}
           {project.image && (
-            <div className="relative w-full h-40 rounded-xl overflow-hidden mb-4 border border-gray-700/50 mt-2"> {/* Added mt-2 */}
+            <div className="relative w-full h-40 rounded-xl overflow-hidden mb-4 border border-gray-700/50 mt-2">
               <Image
                 src={project.image}
                 alt={project.title}
@@ -207,10 +207,10 @@ export default function ProjectsDrawer() {
 
           {/* Content */}
           <div className="flex-1 flex flex-col">
-            <h3 className="text-lg font-semibold mb-2 text-white">
+            <h3 className="text-base font-semibold mb-1 text-white">
               {project.title}
             </h3>
-            <p className="text-gray-300 text-sm leading-relaxed line-clamp-3">
+            <p className="text-gray-300 text-xs leading-relaxed line-clamp-3">
               {project.description}
             </p>
           </div>
