@@ -6,7 +6,6 @@ import Image from "next/image";
 import clsx from "clsx";
 import { FaLocationArrow, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-
 // Draggable card components
 const DraggableCardContainer = ({ children, className }: { children: React.ReactNode; className?: string }) => (
   <div className={clsx("relative", className)}>{children}</div>
@@ -49,14 +48,17 @@ export default function ProjectsDrawer() {
 
   // Calculate stacked positions
   const getStackedPosition = (index: number, total: number) => {
-    const baseTop = 20;
-    const baseLeft = 20;
-    const spread = 15;
+    const baseTop = 10;
+    const baseLeft = 10;
+    const spread = 8;
     
     const topOffset = (index % 3) * spread;
     const leftOffset = (index % 2) * spread;
     
-    return `top-[${baseTop + topOffset}%] left-[${baseLeft + leftOffset}%]`;
+    return {
+      top: `${baseTop + topOffset}%`,
+      left: `${baseLeft + leftOffset}%`
+    };
   };
 
   // Calculate rotation for each card in the stack
@@ -66,7 +68,7 @@ export default function ProjectsDrawer() {
   };
 
   return (
-    <div className="relative w-full left-0 right-0 px-4 sm:px-6 lg:px-10 z-50 overflow-hidden">
+    <div className="relative w-full max-w-7xl mx-auto left-0 right-0 px-4 sm:px-6 lg:px-10 z-50 overflow-hidden">
       
       {/* Large text above the modal */}
       <div className="absolute top-[-0.5rem] sm:top-[-1rem] lg:top-[-1.5cm] left-0 w-full text-center z-10">
@@ -77,9 +79,10 @@ export default function ProjectsDrawer() {
 
       {/* Main container */}
       <div
-        className="w-full flex flex-col lg:flex-row px-3 sm:px-4 py-4 lg:py-2 gap-4 lg:gap-8 items-stretch min-h-[60vh] lg:h-[80vh] relative z-10 rounded-2xl bg-neutral-900/70 backdrop-blur-sm"
+        className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row px-3 sm:px-4 py-4 lg:py-2 gap-1 lg:gap-6 items-stretch min-h-[60vh] lg:h-[80vh] relative z-10 rounded-2xl bg-neutral-900/70 backdrop-blur-sm"
         style={{
           marginTop: '2.5rem',
+          maxWidth: '100vw',
           boxShadow: `
             0 0 60px rgba(88, 28, 135, 0.3),
             0 20px 40px rgba(0, 0, 0, 0.4), 
@@ -90,9 +93,8 @@ export default function ProjectsDrawer() {
       >
 
         {/* Description card */}
-                {/* Description card */}
         <div 
-          className="w-full lg:flex-shrink-0 h-auto lg:h-full text-white p-4 sm:p-6 lg:w-[240px] flex flex-col justify-start lg:justify-end relative overflow-hidden"
+          className="w-full lg:flex-shrink-0 h-auto lg:h-full text-white p-4 sm:p-6 lg:w-[220px] flex flex-col justify-start lg:justify-end relative overflow-hidden"
           style={{
             border: "2px solid transparent",
             borderRadius: "1rem",
@@ -111,134 +113,126 @@ export default function ProjectsDrawer() {
               Discover our latest work—cutting-edge blockchain projects and insights.
             </p>
             
-{/* Mobile navigation - Tapered moving line */}
-<div className="lg-hidden flex flex-col items-center space-y-3 mt-4">
-  {/* Track background */}
-  <div className="w-48 h-1.5 bg-gray-600/20 rounded-full relative overflow-hidden">
-    {/* Moving tapered line */}
-    <div 
-      className="absolute top-0 w-8 h-full bg-gradient-to-r from-transparent via-purple-500 to-transparent transition-all duration-500 ease-out"
-      style={{
-        left: `${(currentIndex / (projectsData.length - 1)) * 80}%`,
-      }}
-    />
+            {/* Mobile navigation - Tapered moving line */}
+            <div className="lg:hidden flex flex-col items-center space-y-3 mt-4">
+              {/* Track background */}
+              <div className="w-48 h-1.5 bg-gray-600/20 rounded-full relative overflow-hidden">
+                {/* Moving tapered line */}
+                <div 
+                  className="absolute top-0 w-8 h-full bg-gradient-to-r from-transparent via-purple-500 to-transparent transition-all duration-500 ease-out"
+                  style={{
+                    left: `${(currentIndex / (projectsData.length - 1)) * 80}%`,
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+{/* Mobile: Horizontal carousel */}
+<div className="lg:hidden flex-1 relative mt-8"> {/* Added mt-8 for top spacing */}
+  {/* Navigation arrows */}
+  <div className="absolute top-1/2 transform -translate-y-1/2 left-1 z-30">
+    <button
+      onClick={prevProject}
+      className="bg-black/40 hover:bg-black/60 backdrop-blur-sm rounded-full p-2 transition-all active:scale-95 border border-gray-600"
+    >
+      <FaChevronLeft className="text-white text-xs" />
+    </button>
   </div>
   
+  <div className="absolute top-1/2 transform -translate-y-1/2 right-1 z-30">
+    <button
+      onClick={nextProject}
+      className="bg-black/40 hover:bg-black/60 backdrop-blur-sm rounded-full p-2 transition-all active:scale-95 border border-gray-600"
+    >
+      <FaChevronRight className="text-white text-xs" />
+    </button>
+  </div>
 
+  <div
+    ref={scrollContainerRef}
+    className="flex overflow-x-auto overflow-y-hidden gap-3 h-full pb-4 scrollbar-hide px-2 pt-4"
+    style={{
+      scrollSnapType: 'x mandatory',
+      scrollPadding: '0 16px'
+    }}
+  >
+    {projectsData.map((project, index) => (
+      <div
+        key={index}
+        className="flex-shrink-0 w-[260px] h-full scroll-snap-align-start"
+      >
+        <div 
+          className={clsx(
+            "h-full bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border-2 border-gray-700/50 p-4 relative transition-all duration-300 mt-6", // Added mt-6 and changed p-3 to p-4
+            {
+              "border-purple-400/50 scale-105 shadow-2xl": currentIndex === index,
+              "hover:border-gray-600": currentIndex !== index,
+            }
+          )}
+          style={{
+            boxShadow: currentIndex === index 
+              ? '0 20px 40px rgba(139, 92, 246, 0.2), 0 0 80px rgba(59, 130, 246, 0.1)'
+              : '0 10px 30px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+          }}
+        >
+          {/* Circular position indicator - MOBILE - Fixed positioning */}
+          <div className={clsx(
+            "absolute -top-3 -right-3 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300 z-20", // Increased size and adjusted positioning
+            {
+              "bg-gradient-to-br from-pink-500 to-blue-500 text-white shadow-lg": currentIndex === index,
+              "bg-gray-700 text-gray-300 border border-gray-600": currentIndex !== index,
+            }
+          )}>
+            {index + 1}
+          </div>
+
+
+
+          {/* Image */}
+          {project.image && (
+            <div className="relative w-full h-40 rounded-xl overflow-hidden mb-4 border border-gray-700/50 mt-2"> {/* Added mt-2 */}
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                className="object-cover"
+                sizes="260px"
+                priority={index < 2}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent" />
+            </div>
+          )}
+
+          {/* Content */}
+          <div className="flex-1 flex flex-col">
+            <h3 className="text-lg font-semibold mb-2 text-white">
+              {project.title}
+            </h3>
+            <p className="text-gray-300 text-sm leading-relaxed line-clamp-3">
+              {project.description}
+            </p>
+          </div>
+
+          {/* CTA */}
+          <div className="flex justify-center items-center mt-4 pt-3 border-t border-gray-700/30">
+            <button className="flex items-center text-sm bg-gradient-to-r from-purple-500 to-blue-500 text-white px-4 py-2 rounded-full hover:from-purple-600 hover:to-blue-600 transition-all active:scale-95 cursor-pointer">
+              <span className="font-medium">{project.message}</span>
+              <FaLocationArrow className="ms-2" size={12} />
+            </button>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
 </div>
-          </div>
-        </div>
-
-        {/* Mobile: Horizontal carousel */}
-        <div className="lg:hidden flex-1 relative">
-          {/* Navigation arrows */}
-          <div className="absolute top-1/2 transform -translate-y-1/2 left-2 z-30">
-            <button
-              onClick={prevProject}
-              className="bg-black/40 hover:bg-black/60 backdrop-blur-sm rounded-full p-3 transition-all active:scale-95 border border-gray-600"
-            >
-              <FaChevronLeft className="text-white text-sm" />
-            </button>
-          </div>
-          
-          <div className="absolute top-1/2 transform -translate-y-1/2 right-2 z-30">
-            <button
-              onClick={nextProject}
-              className="bg-black/40 hover:bg-black/60 backdrop-blur-sm rounded-full p-3 transition-all active:scale-95 border border-gray-600"
-            >
-              <FaChevronRight className="text-white text-sm" />
-            </button>
-          </div>
-
-          <div
-            ref={scrollContainerRef}
-            className="flex overflow-x-auto overflow-y-hidden gap-4 h-full pb-4 scrollbar-hide"
-            style={{
-              scrollSnapType: 'x mandatory',
-              scrollPadding: '0 20px'
-            }}
-          >
-            {projectsData.map((project, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 w-[280px] h-full scroll-snap-align-start"
-              >
-                <div 
-                  className={clsx(
-                    "h-full bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border-2 border-gray-700/50 p-4 relative transition-all duration-300",
-                    {
-                      "border-purple-400/50 scale-105 shadow-2xl": currentIndex === index,
-                      "hover:border-gray-600": currentIndex !== index,
-                    }
-                  )}
-                  style={{
-                    boxShadow: currentIndex === index 
-                      ? '0 20px 40px rgba(139, 92, 246, 0.2), 0 0 80px rgba(59, 130, 246, 0.1)'
-                      : '0 10px 30px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
-                  }}
-                >
-                  {/* Circular position indicator - MOBILE */}
-                  <div className={clsx(
-                    "absolute -top-2 -right-2 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300",
-                    {
-                      "bg-gradient-to-br from-pink-500 to-blue-500 text-white shadow-lg": currentIndex === index,
-                      "bg-gray-700 text-gray-300 border border-gray-600": currentIndex !== index,
-                    }
-                  )}>
-                    {index + 1}
-                  </div>
-
-                  {/* File tab */}
-                  <div className="absolute -top-3 left-4 bg-gradient-to-r from-gray-800 to-gray-900 border-2 border-gray-700/50 border-b-0 px-3 py-1 rounded-t-lg">
-                    <span className="text-white text-xs font-medium bg-gradient-to-r from-purple-200 to-blue-200 bg-clip-text text-transparent">
-                      {project.title}
-                    </span>
-                  </div>
-
-                  {/* Image */}
-                  {project.image && (
-                    <div className="relative w-full h-40 rounded-xl overflow-hidden mb-4 border border-gray-700/50">
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        className="object-cover"
-                        sizes="280px"
-                        priority={index < 2}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent" />
-                    </div>
-                  )}
-
-                  {/* Content */}
-                  <div className="flex-1 flex flex-col">
-                    <h3 className="text-lg font-semibold mb-2 text-white">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-300 text-sm leading-relaxed line-clamp-3">
-                      {project.description}
-                    </p>
-                  </div>
-
-                  {/* CTA */}
-                  <div className="flex justify-center items-center mt-4 pt-3 border-t border-gray-700/30">
-                    <button className="flex items-center text-sm bg-gradient-to-r from-purple-500 to-blue-500 text-white px-4 py-2 rounded-full hover:from-purple-600 hover:to-blue-600 transition-all active:scale-95 cursor-pointer">
-                      <span className="font-medium">{project.message}</span>
-                      <FaLocationArrow className="ms-2" size={12} />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Desktop: Stacked Draggable Layout */}
-        <div className="hidden lg:flex flex-1 relative overflow-hidden">
-          <DraggableCardContainer className="w-full h-full">
+        <div className="hidden lg:flex flex-1 relative overflow-visible">
+          <DraggableCardContainer className="w-full h-full min-h-[400px] relative">
             {/* Background text */}
-            <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-4xl font-black text-neutral-400/20 dark:text-neutral-800/20 max-w-2xl z-0">
-              Drag to explore the stack • Click to bring forward
+            <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-2xl font-black text-neutral-400/10 dark:text-neutral-800/10 max-w-2xl z-0">
+              Drag to explore • Click to bring forward
             </p>
 
             {projectsData.map((project, index) => {
@@ -253,8 +247,7 @@ export default function ProjectsDrawer() {
                 <DraggableCardBody 
                   key={index}
                   className={clsx(
-                    "absolute w-80 transition-all duration-500 cursor-grab",
-                    position,
+                    "absolute w-72 transition-all duration-500 cursor-grab",
                     {
                       "z-50 scale-105 shadow-2xl": isActive,
                       "hover:scale-102 hover:z-45": !isActive && hoveredIndex === index,
@@ -264,6 +257,8 @@ export default function ProjectsDrawer() {
                     transform: `rotate(${rotation}deg) scale(${scale})`,
                     zIndex,
                     opacity,
+                    top: position.top,
+                    left: position.left,
                   }}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
@@ -272,7 +267,7 @@ export default function ProjectsDrawer() {
                 >
                   <div 
                     className={clsx(
-                      "bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border-2 p-6 relative transition-all duration-300",
+                      "bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border-2 p-4 relative transition-all duration-300",
                       {
                         "border-purple-400/70 shadow-2xl": isActive,
                         "border-gray-700/50 hover:border-gray-600/70": !isActive,
@@ -324,7 +319,7 @@ export default function ProjectsDrawer() {
                           alt={project.title}
                           fill
                           className="object-cover transition-transform duration-300 hover:scale-105"
-                          sizes="320px"
+                          sizes="288px"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent" />
                       </div>
