@@ -68,7 +68,7 @@ export default function ProjectsDrawer() {
   };
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto left-0 right-0 px-4 sm:px-6 lg:px-10 z-50 overflow-hidden">
+    <div className="relative w-full max-w-7xl mx-auto left-0 right-0 px-4 sm:px-6 lg:px-4 z-50 overflow-hidden">
       
       {/* Large text above the modal */}
       <div className="absolute top-[-0.5rem] sm:top-[-1rem] lg:top-[-1.5cm] left-0 w-full text-center z-10">
@@ -79,9 +79,9 @@ export default function ProjectsDrawer() {
 
       {/* Main container */}
       <div
-        className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row px-3 sm:px-4 py-4 lg:py-2 gap-1 lg:gap-6 items-stretch min-h-[60vh] lg:h-[80vh] relative z-10 rounded-2xl bg-neutral-900/70 backdrop-blur-sm"
+        className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row px-3 sm:px-4 py-4 lg:py-2 gap-1 lg:gap-2 items-stretch min-h-[60vh] lg:h-[80vh] relative z-10 rounded-2xl bg-neutral-900/70 backdrop-blur-sm"
         style={{
-          marginTop: '2.5rem',
+          marginTop: '1.5rem',
           maxWidth: '100vw',
           boxShadow: `
             0 0 60px rgba(88, 28, 135, 0.3),
@@ -130,7 +130,7 @@ export default function ProjectsDrawer() {
         </div>
 
 {/* Mobile: Horizontal carousel */}
-<div className="lg:hidden flex-1 relative mt-8"> {/* Added mt-8 for top spacing */}
+<div className="lg:hidden flex-1 relative mt-4">
   {/* Navigation arrows */}
   <div className="absolute top-1/2 transform -translate-y-1/2 left-1 z-30">
 <button
@@ -165,7 +165,7 @@ export default function ProjectsDrawer() {
       >
         <div 
           className={clsx(
-            "h-full bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border-2 border-gray-700/50 p-4 relative transition-all duration-300 mt-6", // Added mt-6 and changed p-3 to p-4
+            "h-full bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border-2 border-gray-700/50 p-4 relative transition-all duration-300 mt-2", 
             {
               "border-purple-400/50 scale-105 shadow-2xl": currentIndex === index,
               "hover:border-gray-600": currentIndex !== index,
