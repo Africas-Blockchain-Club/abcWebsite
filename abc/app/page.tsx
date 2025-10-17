@@ -4,7 +4,8 @@ import Learn from "@/components/ui/EducationalResourcesSection";
 import Collaborate from "@/components/ui/Collaborate"; 
 import Hero from "@/components/Hero";
 import Logos from "@/components/logos";
-import ProjectsDrawer from "@/components/ui/files";
+import ProjectsDrawerMobile from "@/components/ui/FilesComponentMobile";
+import ProjectsDrawerDesktop from "@/components/ui/FilesComponentDesktop";
 import About1 from "./About1/page";
 import UpcomingEvents from "@/components/upcoming-events";
 import PageLoader from "@/components/animations/page-loader";
@@ -42,7 +43,7 @@ export default function Home() {
 
         {/* Projects Section */}
         <section id="projects" className="px-2 py-8 md:py-12">
-          <ProjectsDrawer />
+          <ProjectsDrawerMobile />
         </section>
 
         {/* Learn Section */}
