@@ -13,6 +13,7 @@ import BuildOnBlockchain from "@/components/BuildOnBlockchain";
 import Carousel from "@/components/Team";
 import PartnersSection from "@/components/partners";
 import Cursor from "@/components/CircularCursor";
+import useIsMobile from "@/hooks/useIsMobile";
 
 export default function Home() {
   return (
