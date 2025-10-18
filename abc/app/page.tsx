@@ -51,16 +51,16 @@ export default function Home() {
         </section>
 
         {/* Get Started Section */}
-        {/* <section id="getStarted" className="px-2 py-8 md:py-12">
+        <section id="getStarted" className="px-2 py-8 md:py-12">
           <BuildOnBlockchain />
-        </section> */}
+        </section>
 
         {/* Events Section */}
-        {/* <section id="events" className="px-2 py-8 md:py-12">
+        <section id="events" className="px-2 py-8 md:py-12">
           <div className="container mx-auto">
             <UpcomingEvents />
           </div>
-        </section> */}
+        </section>
 
         {/* Partners Section */}
         {/* <section className="px-2 py-8 md:py-12">
