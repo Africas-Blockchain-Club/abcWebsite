@@ -19,7 +19,7 @@ export default function Home() {
   const isMobile = useIsMobile();
   return (
     <div className="relative">
-\      <div className="hidden md:block">
+\      <div className="">
         <Cursor/>
       </div>
       
@@ -63,14 +63,14 @@ export default function Home() {
         </section>
 
         {/* Partners Section */}
-        {/* <section className="px-2 py-8 md:py-12">
+        <section className="px-2 py-8 md:py-12">
           <PartnersSection/>
-        </section> */}
+        </section>
 
         {/* Contact Section */}
-        {/* <section id="contact" className="px-2 py-8 md:py-12">
+        <section id="contact" className="px-2 py-8 md:py-12">
           <Collaborate />
-        </section> */}
+        </section>
       </main>
 
       {/* Mobile-specific styles */}
