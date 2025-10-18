@@ -114,7 +114,7 @@ const Collaborate: React.FC = () => {
               </h2>
 
               <SlideIn direction="left">
-               <Card className="w-full max-w-md mx-auto lg:mx-0">
+<Card className="w-full max-w-md mx-auto lg:mx-0">
   <CardHeader>
     <CardTitle className="font-mono text-xl sm:text-2xl">Contact Information</CardTitle>
   </CardHeader>
@@ -141,11 +141,11 @@ const Collaborate: React.FC = () => {
         description: "Every Saturday, 11:00 AM SAST",
       },
     ].map((item, idx) => (
-      <div key={idx} className="flex items-center gap-4">
+      <div key={idx} className="flex items-center gap-4 min-h-[60px]">
         <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-amber-500 flex-shrink-0">
           {item.icon}
         </div>
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center h-full">
           <h4 className="font-semibold text-sm sm:text-base text-white">{item.title}</h4>
           <p className="text-gray-200 text-sm sm:text-base break-all">{item.description}</p>
         </div>
@@ -158,6 +158,7 @@ const Collaborate: React.FC = () => {
     </div>
   </CardContent>
 </Card>
+
 
               </SlideIn>
             </div>
