@@ -158,10 +158,15 @@ const Collaborate: React.FC = () => {
     </div>
 
     {/* Follow us */}
-    <div className="pt-4 sm:pt-6">
-      <h4 className="mb-3 sm:mb-4 font-semibold text-sm sm:text-base text-white">Follow Us</h4>
-      <SocialLinks />
-    </div>
+<div className="pt-4 sm:pt-6">
+  <h4 className="mb-3 sm:mb-4 font-semibold text-sm sm:text-base text-white text-center">
+    Follow Us
+  </h4>
+  <div className="flex justify-center gap-4">
+    <SocialLinks />
+  </div>
+</div>
+
   </CardContent>
 </Card>
 
