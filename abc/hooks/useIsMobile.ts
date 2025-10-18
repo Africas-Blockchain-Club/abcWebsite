@@ -6,7 +6,7 @@ export default function useIsMobile(breakpoint: number = 768) {
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < breakpoint);
-    handleResize(); // check on mount
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [breakpoint]);
