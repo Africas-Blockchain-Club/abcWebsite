@@ -118,46 +118,53 @@ const Collaborate: React.FC = () => {
   <CardHeader>
     <CardTitle className="font-mono text-xl sm:text-2xl">Contact Information</CardTitle>
   </CardHeader>
-  <CardContent className="space-y-6 sm:space-y-8">
-    {[
-      {
-        icon: <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-white" />,
-        title: "Headquarters",
-        description: "Johannesburg, South Africa",
-      },
-      {
-        icon: <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-white" />,
-        title: "Email",
-        description: "africablockchainclub@gmail.com",
-      },
-      {
-        icon: <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-white" />,
-        title: "Phone",
-        description: "+27 11 123 4567",
-      },
-      {
-        icon: <Calendar className="h-5 w-5 sm:h-6 sm:w-6 text-white" />,
-        title: "Weekly Meetups",
-        description: "Every Saturday, 11:00 AM SAST",
-      },
-    ].map((item, idx) => (
-      <div key={idx} className="flex items-center gap-4 min-h-[60px]">
-        <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-amber-500 flex-shrink-0">
-          {item.icon}
-        </div>
-        <div className="flex flex-col justify-center h-full">
-          <h4 className="font-semibold text-sm sm:text-base text-white">{item.title}</h4>
-          <p className="text-gray-200 text-sm sm:text-base break-all">{item.description}</p>
-        </div>
-      </div>
-    ))}
+  <CardContent className="space-y-4 sm:space-y-6">
+    <div className="flex flex-col gap-4">
+      {[
+        {
+          icon: <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-white" />,
+          title: "Headquarters",
+          description: "Johannesburg, South Africa",
+        },
+        {
+          icon: <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-white" />,
+          title: "Email",
+          description: "africablockchainclub@gmail.com",
+        },
+        {
+          icon: <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-white" />,
+          title: "Phone",
+          description: "+27 11 123 4567",
+        },
+        {
+          icon: <Calendar className="h-5 w-5 sm:h-6 sm:w-6 text-white" />,
+          title: "Weekly Meetups",
+          description: "Every Saturday, 11:00 AM SAST",
+        },
+      ].map((item, idx) => (
+        <div key={idx} className="flex items-stretch gap-3 sm:gap-4">
+          {/* Icon */}
+          <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-amber-500 flex-shrink-0">
+            {item.icon}
+          </div>
 
+          {/* Text container stretched */}
+          <div className="flex flex-col justify-center flex-1">
+            <h4 className="font-semibold text-sm sm:text-base text-white">{item.title}</h4>
+            <p className="text-gray-200 text-sm sm:text-base break-all">{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {/* Follow us */}
     <div className="pt-4 sm:pt-6">
       <h4 className="mb-3 sm:mb-4 font-semibold text-sm sm:text-base text-white">Follow Us</h4>
       <SocialLinks />
     </div>
   </CardContent>
 </Card>
+
 
 
               </SlideIn>
