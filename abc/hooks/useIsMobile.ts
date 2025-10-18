@@ -1,15 +1,19 @@
 "use client";
 import { useEffect, useState } from "react";
 
-export default function useIsMobile(breakpoint: number = 768) {
+export default function useIsMobile() {
   const [isMobile, setIsMobile] = useState(false);
-
+  
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < breakpoint);
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [breakpoint]);
-
+    const checkDevice = () => {
+      // > 768px = desktop (tablets landscape, laptops, desktops)
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkDevice();
+    window.addEventListener('resize', checkDevice);
+    return () => window.removeEventListener('resize', checkDevice);
+  }, []);
+  
   return isMobile;
 }
