@@ -19,37 +19,36 @@ export default function Home() {
   const isMobile = useIsMobile();
   return (
     <div className="relative">
-      {/* Hide cursor on mobile for better touch experience */}
-      {/* <div className="hidden md:block">
+\      <div className="hidden md:block">
         <Cursor/>
-      </div> */}
+      </div>
       
       <main className="relative z-0 overflow-x-hidden" style={{ background: "#2B2B2B" }}>
-        {/* <section className="relative">
+        <section className="relative">
           <Hero />
-        </section> */}
+        </section>
 
-        {/* <section className="px-2">
+        <section className="px-2">
           <Logos />
-        </section> */}
+        </section>
 
         {/* About Section */}
-        {/* <section className="px-2 py-8 md:py-12">
+        <section className="px-2 py-8 md:py-12">
           <About1 />
-        </section> */}
+        </section>
 
         {/* Team Section */}
-        {/* <section id="team" className="px-2 py-8 md:py-12">
+        <section id="team" className="px-2 py-8 md:py-12">
           <Carousel/>
-        </section> */}
+        </section>
 
         {/* Projects Section */}
         {isMobile ? <ProjectsDrawerMobile/> : <ProjectsDrawerDesktop/>}
 
         {/* Learn Section */}
-        {/* <section id="learn" className="px-2 py-8 md:py-12">
+        <section id="learn" className="px-2 py-8 md:py-12">
           <Learn />
-        </section> */}
+        </section>
 
         {/* Get Started Section */}
         {/* <section id="getStarted" className="px-2 py-8 md:py-12">
