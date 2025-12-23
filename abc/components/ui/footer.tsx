@@ -50,20 +50,6 @@ const Footer = () => {
                   size="icon"
                   className="rounded-full h-8 w-8 text-gray-400 hover:text-teal-400 hover:bg-gray-800"
                 >
-                  <Facebook className="h-4 w-4" />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="rounded-full h-8 w-8 text-gray-400 hover:text-teal-400 hover:bg-gray-800"
-                >
-                  <Instagram className="h-4 w-4" />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="rounded-full h-8 w-8 text-gray-400 hover:text-teal-400 hover:bg-gray-800"
-                >
                   <Linkedin className="h-4 w-4" />
                 </Button>
                 <Button
@@ -86,7 +72,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="#about" className="text-gray-400 hover:text-teal-400 transition-colors">
+                  <Link href="/about" className="text-gray-400 hover:text-teal-400 transition-colors">
                     About Us
                   </Link>
                 </li>
@@ -96,12 +82,12 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="#team" className="text-gray-400 hover:text-teal-400 transition-colors">
+                  <Link href="/about/#team" className="text-gray-400 hover:text-teal-400 transition-colors">
                     Team
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="text-gray-400 hover:text-teal-400 transition-colors">
+                  <Link href="#contact" className="text-gray-400 hover:text-teal-400 transition-colors">
                     Contact
                   </Link>
                 </li>
@@ -114,28 +100,18 @@ const Footer = () => {
               <h3 className="font-bold text-lg mb-2 pt-16">Resources</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
-                    Blog
+                  <Link href="/#learn" className="text-gray-400 hover:text-teal-400 transition-colors">
+                    Learn
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
-                    Tutorials
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
-                    Documentation
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
+                  <Link href="/#events" className="text-gray-400 hover:text-teal-400 transition-colors">
                     Events
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
-                    FAQs
+                  <Link href="/#projects" className="text-gray-400 hover:text-teal-400 transition-colors">
+                    Projects
                   </Link>
                 </li>
               </ul>
