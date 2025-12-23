@@ -10,12 +10,20 @@ import FadeIn from './animations/fade-in';
 import ScaleIn from './animations/scale-in';
 import StaggerContainer from './animations/stagger-container';
 import SlideIn from './animations/slide-in';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+
 
 export default function Hero() {
+  const router = useRouter();
+
   return (
     <section className="relative overflow-hidden text-white px-4">
-      <BlockchainHeroBg />
+      
+      
+      <div className="pointer-events-none">
+  <BlockchainHeroBg />
+</div>
+
       <FloatingElements />
 
       <div className="container mx-auto grid grid-cols-1 items-center px-2 py-8 md:grid-cols-2 md:py-18 lg:py-20">
@@ -47,13 +55,12 @@ export default function Hero() {
               <FadeIn direction="up" delay={1100}>
                 <div className="flex justify-center md:justify-start">
                 <Button 
-                  size="lg" 
-                  className="w-full max-w-[280px] sm:w-auto bg-black text-white hover:bg-white/80 hover:text-black text-base md:text-lg px-8 py-4 rounded-xl sm:rounded-lg border-2 border-transparent hover:border-white transition-all duration-300 min-h-[60px] sm:min-h-0"
-                >
-                  <Link href={"/about"} className="flex items-center justify-center w-full">
-                    Learn More
-                  </Link>
-                </Button>
+      size="lg" 
+      className="w-full max-w-[280px] sm:w-auto bg-black text-white hover:bg-white/80 hover:text-black text-base md:text-lg px-8 py-4 rounded-xl sm:rounded-lg border-2 border-transparent hover:border-white transition-all duration-300 min-h-[60px] sm:min-h-0"
+      onClick={() => router.push('/about')}
+    >
+      Learn More
+    </Button>
               </div>
               </FadeIn>
             </div>

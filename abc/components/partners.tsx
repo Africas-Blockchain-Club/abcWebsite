@@ -180,7 +180,7 @@ export default function PartnersSection() {
 
 
         {/* Call to Action */}
-        <FadeIn direction="up" delay={800}>
+        {/* <FadeIn direction="up" delay={800}>
           <div className="mt-6 text-center">
             <h3 className="mb-4 font-mono text-2xl font-bold">Become a Partner</h3>
             <p className="mb-8 text-neutral-400 max-w-2xl mx-auto">
@@ -194,7 +194,7 @@ export default function PartnersSection() {
               </Button>
             </div>
           </div>
-        </FadeIn>
+        </FadeIn> */}
       </div>
     </section>
   )

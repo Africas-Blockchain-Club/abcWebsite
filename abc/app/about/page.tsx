@@ -148,7 +148,7 @@ export default function AboutPage() {
 
 
               {/* Mission Statement */}
-              <div className="max-w-3xl mx-auto bg-black/30 backdrop-blur-sm rounded-2xl p-8 border border-amber-500/20">
+              <div id="mission" className="max-w-3xl mx-auto bg-black/30 backdrop-blur-sm rounded-2xl p-8 border border-amber-500/20">
                 <h3 className="text-2xl font-bold mb-4 text-amber-400">Our Mission</h3>
                 <p className="text-lg text-neutral-200 leading-relaxed">
                   To accelerate blockchain technology adoption across Africa by building inclusive communities,
