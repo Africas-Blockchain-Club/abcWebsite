@@ -8,20 +8,27 @@ import ProjectsDrawerMobile from "@/components/ui/FilesComponentMobile";
 import ProjectsDrawerDesktop from "@/components/ui/FilesComponentDesktop";
 import About1 from "./About1/page";
 import UpcomingEvents from "@/components/upcoming-events";
-import PageLoader from "@/components/animations/page-loader";
 import BuildOnBlockchain from "@/components/BuildOnBlockchain";
 import Carousel from "@/components/Team";
 import PartnersSection from "@/components/partners";
 import Cursor from "@/components/CircularCursor";
 import useIsMobile from "@/hooks/useIsMobile";
+import { FloatingNav } from "@/components/ui/FloatingNav";
+import { navItems } from "@/data";
+import Footer from "@/components/ui/footer";
 
 export default function Home() {
   const isMobile = useIsMobile();
+  
   return (
     <div className="relative">
-     <div className="absolute inset-0 z-10 pointer-events-none">
+      {/* Floating Navbar now in Home page */}
+      <FloatingNav navItems={navItems} />
+      
+      {/* Cursor */}
+      {/* <div className="absolute inset-0 z-10 pointer-events-none">
         <Cursor/>
-      </div>
+      </div> */}
       
       <main className="relative z-0 overflow-x-hidden" style={{ background: "#2B2B2B" }}>
         <section className="relative">
@@ -44,7 +51,7 @@ export default function Home() {
 
         {/* Projects Section */}
         <section id="projects" className="px-2 py-8 md:py-12">
-        {isMobile ? <ProjectsDrawerMobile/> : <ProjectsDrawerDesktop/>}
+          {isMobile ? <ProjectsDrawerMobile/> : <ProjectsDrawerDesktop/>}
         </section>
 
         {/* Learn Section */}
@@ -73,6 +80,9 @@ export default function Home() {
         <section id="contact" className="px-2 py-8 md:py-12">
           <Collaborate />
         </section>
+        
+        {/* Footer can also be moved here if you want */}
+        <Footer />
       </main>
 
       {/* Mobile-specific styles */}
