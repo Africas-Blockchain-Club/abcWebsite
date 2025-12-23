@@ -1,11 +1,13 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export default function FloatingElements() {
   const containerRef = useRef<HTMLDivElement>(null)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
     const container = containerRef.current
     if (!container) return
 
@@ -13,10 +15,19 @@ export default function FloatingElements() {
 
     elements.forEach((element, index) => {
       const htmlElement = element as HTMLElement
-      htmlElement.style.animationDelay = `${index * 0.5}s`
+      htmlElement.style.left = `${Math.random() * 100}%`
+      htmlElement.style.top = `${Math.random() * 100}%`
+      htmlElement.style.animationDelay = `${Math.random() * 2}s`
       htmlElement.style.animationDuration = `${3 + Math.random() * 2}s`
     })
   }, [])
+
+  // Don't render random values on server
+  if (!mounted) {
+    return (
+      <div ref={containerRef} className="absolute inset-0 overflow-hidden pointer-events-none" />
+    )
+  }
 
   return (
     <div ref={containerRef} className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -24,12 +35,7 @@ export default function FloatingElements() {
         <div
           key={i}
           className="floating-element absolute animate-bounce opacity-20"
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            animationDuration: `${2 + Math.random() * 3}s`,
-            animationDelay: `${Math.random() * 2}s`,
-          }}
+          // No inline styles here - they'll be set in useEffect
         >
           <div className="h-2 w-2 rounded-full bg-amber-500" />
         </div>

@@ -211,23 +211,23 @@ body::before {
       0 0 15px hsl(270, 100%, 60%);
   }
 
-  .cursor-tome {
+  /* .cursor-tome {
     cursor: url('/magic-icons/tome-cursor.png'), auto;
   }
 
   .cursor-alembic {
     cursor: url('/magic-icons/alembic-cursor.png'), auto;
-  }
+  } */
 }
 
-html, body, * {
-  cursor: none !important; /* hide native cursor everywhere */
-}
+/* html, body, * {
+  cursor: none !important;
+} */
 
 .custom-cursor {
   width: 25px;
   height: 25px;
-  border: 2px solid #edf0f1;
+  border: 2px solid #02171e;
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
