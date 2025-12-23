@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Calendar, MapPin } from "lucide-react"
+import { Calendar, MapPin, ChevronDown, ChevronUp } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 type Event = {
@@ -20,12 +20,13 @@ type Event = {
 
 export default function UpcomingEvents() {
   const [activeFilter, setActiveFilter] = useState<"all" | "upcoming" | "ongoing" | "past">("all")
+  const [showAll, setShowAll] = useState(false)
   
   const events: Event[] = [
     {
       id: "Party Event",
       title: "5th Global Pizza Party 2025",
-      description: "In celebration of Bitcoin Pizza Day, join us and thousands around the world as PizzaDAO throws its 5th Global Pizza Party – and yes, it’s as legendary as it sounds!",
+      description: "In celebration of Bitcoin Pizza Day, join us and thousands around the world as PizzaDAO throws its 5th Global Pizza Party – and yes, it's as legendary as it sounds!",
       image: "/Events/PizzaDOA.png",
       date: "May 22, 2025",
       location: "The Wild Side Resturant, Ranburg",
@@ -161,64 +162,169 @@ export default function UpcomingEvents() {
     return event.type === activeFilter
   })
 
-  return (
-    <div className="w-full ">
-      <h2 className="mb- text-center font-mono text-4xl font-bold text-white md:text-5xl">Community Events</h2>
-      <p className="mx-auto mb-8 max-w-3xl text-xl text-center text-neutral-300">
-        Join our community events to learn, build, and connect with fellow blockchain enthusiasts across Africa
-      </p>
+  // Determine how many events to show initially
+  const eventsToShow = showAll ? filteredEvents : filteredEvents.slice(0, 3)
 
-      <Tabs defaultValue="all" className="mb-12" onValueChange={(value) => setActiveFilter(value as any)}>
+  // Check if there are more events to show
+  const hasMoreEvents = filteredEvents.length > 3
+
+  return (
+    <div className="w-full">
+      <h2 className="mb-4 text-center font-mono text-4xl font-bold text-white md:text-5xl">Community Events</h2>
+      <p className="mx-auto mb-8 max-w-3xl text-center text-base text-neutral-300 md:text-lg lg:text-xl">
+      Join our community events to learn, build, and connect with fellow blockchain enthusiasts across Africa
+    </p>
+
+
+      <Tabs defaultValue="all" className="mb-12" onValueChange={(value) => {
+        setActiveFilter(value as any)
+        setShowAll(false) // Reset showAll when changing tabs
+      }}>
         <div className="flex justify-center">
-          <TabsList className="bg-neutral-700">
-            <TabsTrigger value="all" className="data-[state=active]:bg-amber-500 data-[state=active]:text-black">
-              All Events
-            </TabsTrigger>
-            <TabsTrigger value="upcoming" className="data-[state=active]:bg-amber-500 data-[state=active]:text-black">
-              Upcoming
-            </TabsTrigger>
-            <TabsTrigger value="ongoing" className="data-[state=active]:bg-amber-500 data-[state=active]:text-black">
-              Ongoing
-            </TabsTrigger>
-            <TabsTrigger value="past" className="data-[state=active]:bg-amber-500 data-[state=active]:text-black">
-              Past Events
-            </TabsTrigger>
-          </TabsList>
+          <TabsList className="bg-neutral-700 px-2 py-1 md:px-4 md:py-2">
+  <TabsTrigger 
+    value="all" 
+    className="px-2 py-1 text-xs md:px-3 md:py-2 md:text-sm lg:text-base data-[state=active]:bg-amber-500 data-[state=active]:text-black"
+  >
+    All Events
+  </TabsTrigger>
+  <TabsTrigger 
+    value="upcoming" 
+    className="px-2 py-1 text-xs md:px-3 md:py-2 md:text-sm lg:text-base data-[state=active]:bg-amber-500 data-[state=active]:text-black"
+  >
+    Upcoming
+  </TabsTrigger>
+  <TabsTrigger 
+    value="ongoing" 
+    className="px-2 py-1 text-xs md:px-3 md:py-2 md:text-sm lg:text-base data-[state=active]:bg-amber-500 data-[state=active]:text-black"
+  >
+    Ongoing
+  </TabsTrigger>
+  <TabsTrigger 
+    value="past" 
+    className="px-2 py-1 text-xs md:px-3 md:py-2 md:text-sm lg:text-base data-[state=active]:bg-amber-500 data-[state=active]:text-black"
+  >
+    Past Events
+  </TabsTrigger>
+</TabsList>
         </div>
 
         <TabsContent value="all" className="mt-8">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {filteredEvents.map((event) => (
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {eventsToShow.map((event) => (
               <EventCard key={event.id} event={event} />
             ))}
           </div>
+          {hasMoreEvents && (
+            <div className="mt-8 flex justify-center">
+              <Button
+                variant="outline"
+                className="border-amber-500 text-amber-500 hover:bg-amber-500/10"
+                onClick={() => setShowAll(!showAll)}
+              >
+                {showAll ? (
+                  <>
+                    <ChevronUp className="mr-2 h-4 w-4" />
+                    Show Less
+                  </>
+                ) : (
+                  <>
+                    <ChevronDown className="mr-2 h-4 w-4" />
+                    Show All 
+                  </>
+                )}
+              </Button>
+            </div>
+          )}
         </TabsContent>
 
         <TabsContent value="upcoming" className="mt-8">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {filteredEvents.map((event) => (
+            {eventsToShow.map((event) => (
               <EventCard key={event.id} event={event} />
             ))}
           </div>
+          {hasMoreEvents && (
+            <div className="mt-8 flex justify-center">
+              <Button
+                variant="outline"
+                className="border-amber-500 text-amber-500 hover:bg-amber-500/10"
+                onClick={() => setShowAll(!showAll)}
+              >
+                {showAll ? (
+                  <>
+                    <ChevronUp className="mr-2 h-4 w-4" />
+                    Show Less
+                  </>
+                ) : (
+                  <>
+                    <ChevronDown className="mr-2 h-4 w-4" />
+                    Show More ({filteredEvents.length - 3} more)
+                  </>
+                )}
+              </Button>
+            </div>
+          )}
         </TabsContent>
 
         <TabsContent value="ongoing" className="mt-8">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {filteredEvents.map((event) => (
+            {eventsToShow.map((event) => (
               <EventCard key={event.id} event={event} />
             ))}
           </div>
+          {hasMoreEvents && (
+            <div className="mt-8 flex justify-center">
+              <Button
+                variant="outline"
+                className="border-amber-500 text-amber-500 hover:bg-amber-500/10"
+                onClick={() => setShowAll(!showAll)}
+              >
+                {showAll ? (
+                  <>
+                    <ChevronUp className="mr-2 h-4 w-4" />
+                    Show Less
+                  </>
+                ) : (
+                  <>
+                    <ChevronDown className="mr-2 h-4 w-4" />
+                    Show More ({filteredEvents.length - 3} more)
+                  </>
+                )}
+              </Button>
+            </div>
+          )}
         </TabsContent>
 
         <TabsContent value="past" className="mt-8">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {filteredEvents.map((event) => (
+            {eventsToShow.map((event) => (
               <EventCard key={event.id} event={event} />
             ))}
           </div>
+          {hasMoreEvents && (
+            <div className="mt-8 flex justify-center">
+              <Button
+                variant="outline"
+                className="border-amber-500 text-amber-500 hover:bg-amber-500/10"
+                onClick={() => setShowAll(!showAll)}
+              >
+                {showAll ? (
+                  <>
+                    <ChevronUp className="mr-2 h-4 w-4" />
+                    Show Less
+                  </>
+                ) : (
+                  <>
+                    <ChevronDown className="mr-2 h-4 w-4" />
+                    Show More ({filteredEvents.length - 3} more)
+                  </>
+                )}
+              </Button>
+            </div>
+          )}
         </TabsContent>
       </Tabs>
-
     </div>
   )
 }
@@ -269,7 +375,10 @@ function EventCard({ event }: { event: Event }) {
       </div>
       <div className="p-6">
         <h3 className="mb-2 font-mono text-xl font-bold text-white">{event.title}</h3>
-        <p className="mb-4 text-neutral-300">{event.description}</p>
+        {/* Hide description on mobile, show on md and larger screens */}
+        <p className="mb-4 hidden text-neutral-300 md:block md:line-clamp-3">
+          {event.description}
+        </p>
 
         <div className="mb-4 space-y-2 text-sm text-neutral-400">
           <div className="flex items-center">
@@ -278,7 +387,7 @@ function EventCard({ event }: { event: Event }) {
           </div>
           <div className="flex items-center">
             <MapPin className="mr-2 h-4 w-4 text-amber-500" />
-            <span>{event.location}</span>
+            <span className="line-clamp-1">{event.location}</span>
           </div>
         </div>
 
@@ -299,4 +408,3 @@ function EventCard({ event }: { event: Event }) {
     </div>
   )
 }
-
