@@ -368,7 +368,7 @@ export default function AboutPage() {
 
       {/* Team Section */}
       <section className="bg-gray-900 py-20">
-        <div className="container mx-auto px-4">
+        <div id="team" className="container mx-auto px-4">
           <FadeIn direction="up">
             <div className="mb-16 text-center">
               <h2 className="mb-4 font-mono text-3xl font-bold md:text-4xl">Meet Our Team</h2>
@@ -581,7 +581,7 @@ export default function AboutPage() {
 
       {/* Contact Section */}
       <section className=" bg-gray-800 py-20">
-        <div className="container mx-auto px-4">
+        <div id="contact" className="container mx-auto px-4">
           <FadeIn direction="up">
             <div className="mb-16 text-center">
               <h2 className="mb-4 font-mono text-3xl font-bold md:text-4xl">Get In Touch</h2>
