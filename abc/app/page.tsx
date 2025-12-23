@@ -19,7 +19,7 @@ export default function Home() {
   const isMobile = useIsMobile();
   return (
     <div className="relative">
-\      <div className="">
+     <div className="absolute inset-0 z-10 pointer-events-none">
         <Cursor/>
       </div>
       
@@ -43,7 +43,9 @@ export default function Home() {
         </section>
 
         {/* Projects Section */}
+        <section id="projects" className="px-2 py-8 md:py-12">
         {isMobile ? <ProjectsDrawerMobile/> : <ProjectsDrawerDesktop/>}
+        </section>
 
         {/* Learn Section */}
         <section id="learn" className="px-2 py-8 md:py-12">
