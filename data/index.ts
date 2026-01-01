@@ -585,7 +585,7 @@ export const forms: FormsData = {
     fields: [
       { name: "name", placeholder: "Your Full Name", type: "text", required: true },
       { name: "email", placeholder: "Your Email", type: "email", required: true },
-      { name: "phone", placeholder: "Phone Number", type: "tel", required: true },
+      { name: "phone", placeholder: "Phone Number", type: "text", required: true },
       { name: "location", placeholder: "City & Country", type: "text", required: true },
       { name: "linkedin", placeholder: "LinkedIn Profile", type: "text", required: false },
       { name: "university", placeholder: "University/Institution", type: "text", required: false },

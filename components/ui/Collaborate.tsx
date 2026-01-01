@@ -248,7 +248,7 @@ const Collaborate: React.FC = () => {
               </p>
 
               {/* Buttons  */}
-<div className="flex flex-col gap-2 w-full max-w-md z-5">
+<div className="flex flex-col gap-2 w-72 z-10">
   {Object.keys(typedForms).map((key: string) => {
     const isActive = activeForm === key;
     const isResearcher = key === "researcher";
