@@ -539,6 +539,7 @@ type FormsData = {
   developer: Form;
   researcher: Form;
   partner: Form;
+  cohort26: Form
 };
   
 
@@ -579,6 +580,24 @@ export const forms: FormsData = {
       { name: "message", placeholder: "Additional Message", type: "textarea", required: false },
     ],
   },
+  cohort26: {
+    text: "Join Africa Blockchain Club - Cohort 2026",
+    fields: [
+      { name: "name", placeholder: "Your Full Name", type: "text", required: true },
+      { name: "email", placeholder: "Your Email", type: "email", required: true },
+      { name: "phone", placeholder: "Phone Number", type: "tel", required: true },
+      { name: "location", placeholder: "City & Country", type: "text", required: true },
+      { name: "linkedin", placeholder: "LinkedIn Profile", type: "text", required: false },
+      { name: "university", placeholder: "University/Institution", type: "text", required: false },
+      { name: "experienceLevel", placeholder: "Blockchain Experience Level", type: "select", 
+        options: ["Beginner", "Intermediate", "Advanced", "Professional"], required: true },
+      { name: "interestArea", placeholder: "Primary Area of Interest", type: "select", 
+        options: ["Web3 Development", "Blockchain Research", "Event Planning", "Startup Founder"], required: true },
+      { name: "heardAbout", placeholder: "How did you hear about us?", type: "select", 
+        options: ["Social Media", "Friend/Colleague", "University", "Event", "Online Search", "Other"], required: true },
+      { name: "motivation", placeholder: "Why do you want to join Cohort 2026?", type: "textarea", required: true },
+    ],
+  }
 };
 
   

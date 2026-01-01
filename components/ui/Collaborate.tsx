@@ -157,6 +157,8 @@ const Collaborate: React.FC = () => {
     developer: "Hire a Developer",
     researcher: "Work with a Researcher",
     partner: "Partner with Us",
+    cohort26: "Join Cohort 2026",
+
   };
 
   const typedForms = forms as FormsData;
@@ -245,30 +247,29 @@ const Collaborate: React.FC = () => {
                 </span>
               </p>
 
-              {/* Buttons */}
-              <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 w-full max-w-md z-10">
-                {Object.keys(typedForms).map((key: string) => {
-                  const isActive = activeForm === key;
-                  const isResearcher = key === "researcher";
-                  
-                  const baseClass = "px-4 sm:px-6 py-3 font-semibold rounded-lg transition-all duration-300 text-sm sm:text-base";
-                  const extraClass = isActive || (isInitialLoad && isResearcher)
-                    ? "bg-amber-600 shadow-md shadow-amber-500 text-white"
-                    : "bg-[#1B1B1B] text-gray-300";
+              {/* Buttons  */}
+<div className="flex flex-col gap-2 w-full max-w-md z-5">
+  {Object.keys(typedForms).map((key: string) => {
+    const isActive = activeForm === key;
+    const isResearcher = key === "researcher";
+    
+    const baseClass = "px-4 sm:px-2 py-3 font-semibold rounded-lg transition-all duration-300 text-sm sm:text-base";
+    const extraClass = isActive || (isInitialLoad && isResearcher)
+      ? "bg-amber-600 shadow-md shadow-amber-500 text-white"
+      : "bg-[#1B1B1B] text-gray-300";
 
-                  return (
-                    <button
-                      key={key}
-                      onClick={() => handleButtonClick(key)}
-                      className={`${baseClass} ${extraClass} w-full sm:w-auto`}
-                      type="button"
-                    >
-                      {buttonLabels[key as keyof typeof buttonLabels]}
-                    </button>
-                  );
-                })}
-              </div>
-
+    return (
+      <button
+        key={key}
+        onClick={() => handleButtonClick(key)}
+        className={`${baseClass} ${extraClass} w-full text-center`}
+        type="button"
+      >
+        {buttonLabels[key as keyof typeof buttonLabels]}
+      </button>
+    );
+  })}
+</div>
               {/* Form */}
               <ParticleBackground className="mx-auto mt-4" />
               <div className={`mt-4 sm:mt-6 w-full max-w-md transition-all duration-700 ease-in-out overflow-hidden ${
