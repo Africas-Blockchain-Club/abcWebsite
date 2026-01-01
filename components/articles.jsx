@@ -1,48 +1,96 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
-import { ChevronLeft, ChevronRight, Pause, Play, ExternalLink, Sparkles, Clock, BookOpen, MoveRight, Circle } from 'lucide-react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { Pause, Play, Sparkles, Clock, BookOpen, MoveRight, Circle, ChevronUp, ChevronDown } from 'lucide-react';
 
 const sampleArticles = [
   {
     id: 1,
-    image: '/Articles/1.jpg',
+    image: '/Articles/sam4.jpg',
     title: 'The Future of Fintech in Africa',
     description: 'Exploring how blockchain and mobile technology are revolutionizing financial services across the continent.',
     category: 'Industry Insights',
     accentColor: '#0ea5e9',
-    gradient: 'from-blue-500/80 via-cyan-400/60 to-teal-300/40',
+    gradient: 'from-blue-500 via-cyan-400 to-teal-300',
+    bgGradient: 'from-blue-900/20 via-cyan-900/15 to-teal-900/10',
     readTime: '5 min read'
   },
   {
     id: 2,
-    image: '/Articles/2.jpg',
+    image: '/Articles/gamificationArticle.webp',
     title: 'Innovative SME Lending Models',
     description: 'How peer-to-peer lending platforms are bridging the funding gap for small businesses in emerging markets.',
     category: 'Lending',
     accentColor: '#10b981',
-    gradient: 'from-emerald-500/80 via-green-400/60 to-lime-300/40',
+    gradient: 'from-emerald-500 via-green-400 to-lime-300',
+    bgGradient: 'from-emerald-900/20 via-green-900/15 to-lime-900/10',
     readTime: '4 min read'
   },
   {
     id: 3,
-    image: '/Articles/3.jpg',
+    image: '/Articles/kaito.jpeg',
     title: 'Building Trust Through Data',
     description: 'Advanced algorithms and alternative data sources creating more accurate creditworthiness assessments.',
     category: 'Technology',
     accentColor: '#8b5cf6',
-    gradient: 'from-purple-500/80 via-violet-400/60 to-fuchsia-300/40',
+    gradient: 'from-purple-500 via-violet-400 to-fuchsia-300',
+    bgGradient: 'from-purple-900/20 via-violet-900/15 to-fuchsia-900/10',
     readTime: '6 min read'
   },
   {
     id: 4,
-    image: '/Articles/4.png',
+    image: '/Articles/PENDLEimages.jpeg',
     title: 'Navigating the Regulatory Landscape',
     description: 'Understanding compliance requirements for fintech platforms in multiple African jurisdictions.',
     category: 'Compliance',
     accentColor: '#f59e0b',
-    gradient: 'from-amber-500/80 via-orange-400/60 to-yellow-300/40',
+    gradient: 'from-amber-500 via-orange-400 to-yellow-300',
+    bgGradient: 'from-amber-900/20 via-orange-900/15 to-yellow-900/10',
     readTime: '7 min read'
+  },
+  {
+    id: 5,
+    image: '/Articles/sam4.jpg',
+    title: 'The Rise of Digital Banking in Emerging Markets',
+    description: 'How mobile-first banking solutions are transforming financial inclusion across developing nations.',
+    category: 'Digital Banking',
+    accentColor: '#ef4444',
+    gradient: 'from-red-500 via-orange-400 to-yellow-300',
+    bgGradient: 'from-red-900/20 via-orange-900/15 to-yellow-900/10',
+    readTime: '8 min read'
+  },
+  {
+    id: 6,
+    image: '/Articles/gamificationArticle.webp',
+    title: 'AI-Powered Risk Assessment Models',
+    description: 'Machine learning algorithms revolutionizing credit risk evaluation in emerging markets.',
+    category: 'AI & ML',
+    accentColor: '#8b5cf6',
+    gradient: 'from-purple-500 via-violet-400 to-fuchsia-300',
+    bgGradient: 'from-purple-900/20 via-violet-900/15 to-fuchsia-900/10',
+    readTime: '6 min read'
+  },
+  {
+    id: 7,
+    image: '/Articles/kaito.jpeg',
+    title: 'Sustainable Finance and ESG Integration',
+    description: 'How fintech companies are incorporating environmental, social, and governance factors.',
+    category: 'Sustainability',
+    accentColor: '#10b981',
+    gradient: 'from-emerald-500 via-green-400 to-lime-300',
+    bgGradient: 'from-emerald-900/20 via-green-900/15 to-lime-900/10',
+    readTime: '7 min read'
+  },
+  {
+    id: 8,
+    image: '/Articles/PENDLEimages.jpeg',
+    title: 'Cross-Border Payment Innovations',
+    description: 'Revolutionizing international money transfers through blockchain and digital currencies.',
+    category: 'Payments',
+    accentColor: '#0ea5e9',
+    gradient: 'from-blue-500 via-cyan-400 to-teal-300',
+    bgGradient: 'from-blue-900/20 via-cyan-900/15 to-teal-900/10',
+    readTime: '5 min read'
   }
 ];
 
@@ -51,8 +99,11 @@ export default function ArtisticArticlesSlideshow() {
   const [isPaused, setIsPaused] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const previewRailRef = useRef(null);
 
-  const FADE_DURATION = 500; // Fade animation duration
+  const FADE_DURATION = 500;
+  const VISIBLE_ARTICLES = 4; // Show only 4 articles at a time
 
   const fadeTransition = useCallback((direction = 'next') => {
     if (isTransitioning) return;
@@ -87,15 +138,39 @@ export default function ArtisticArticlesSlideshow() {
   const goToArticle = useCallback((index) => {
     if (index === currentIndex || isTransitioning) return;
     fadeTransition(index);
+    
+    // Scroll to make the selected article visible in the preview rail
+    if (previewRailRef.current) {
+      const articleElement = previewRailRef.current.children[index];
+      if (articleElement) {
+        const scrollTop = articleElement.offsetTop - previewRailRef.current.offsetTop;
+        previewRailRef.current.scrollTo({
+          top: scrollTop,
+          behavior: 'smooth'
+        });
+      }
+    }
   }, [currentIndex, isTransitioning, fadeTransition]);
 
-  // Auto-fading effect
+  // Scroll handlers for preview rail
+  const scrollUp = () => {
+    if (previewRailRef.current) {
+      previewRailRef.current.scrollBy({ top: -100, behavior: 'smooth' });
+    }
+  };
+
+  const scrollDown = () => {
+    if (previewRailRef.current) {
+      previewRailRef.current.scrollBy({ top: 100, behavior: 'smooth' });
+    }
+  };
+
   useEffect(() => {
     if (isPaused) return;
     
     const interval = setInterval(() => {
       nextArticle();
-    }, 5000); // Auto-advance every 5 seconds
+    }, 5000);
     
     return () => clearInterval(interval);
   }, [isPaused, nextArticle]);
@@ -103,36 +178,53 @@ export default function ArtisticArticlesSlideshow() {
   const currentArticle = sampleArticles[currentIndex];
 
   return (
-    <div className="relative w-full bg-[#2B2B2B] p-4 md:p-6">
+    <div className="relative w-full p-4 md:p-6 overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className={`absolute inset-0 transition-all duration-1000 ease-in-out ${currentArticle.bgGradient}`}></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-emerald-500/10 to-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      </div>
+
       {/* Content */}
       <div className="relative z-10">
         {/* Creative Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 md:mb-8 gap-4">
           <div className="flex items-center gap-4">
-            <div className="relative">
-              <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center">
+            <div className="relative group">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/20 flex items-center justify-center backdrop-blur-sm">
                 <BookOpen size={20} className="text-white/80" />
               </div>
-              <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
+              <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 flex items-center justify-center shadow-lg shadow-blue-500/30">
                 <Sparkles size={10} className="text-white" />
               </div>
+              <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-white">Innovation Spotlight</h2>
-              <p className="text-white/60 text-sm">Discover insights shaping Africa's financial future</p>
+              <h2 className="text-2xl font-bold text-white">Articles By ABC Researchers</h2>
+              <p className="text-white/70 text-sm bg-gradient-to-r from-white/10 to-transparent px-3 py-1 rounded-full inline-block">
+                Exploring trends, history, and breakthroughs in blockchain.
+              </p>
             </div>
           </div>
           
           <div className="flex items-center gap-4">
+            <div className="hidden md:flex items-center gap-3 px-4 py-2 bg-gradient-to-r from-white/10 to-white/5 rounded-full border border-white/20 backdrop-blur-sm">
+              <div className={`w-2 h-2 rounded-full ${isPaused ? 'bg-amber-400' : 'bg-green-400 animate-pulse'}`}></div>
+              <span className="text-sm text-white/80">
+                {isPaused ? 'Paused' : 'Auto-rotating'}
+              </span>
+            </div>
+            
             <button
               onClick={() => setIsPaused(!isPaused)}
-              className="p-3 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 transition-all duration-300"
+              className="p-3 rounded-xl bg-gradient-to-br from-white/10 to-white/5 border border-white/20 hover:from-white/20 hover:to-white/10 transition-all duration-300 group backdrop-blur-sm"
               aria-label={isPaused ? "Resume rotation" : "Pause rotation"}
             >
               {isPaused ? (
-                <Play size={18} className="text-white" />
+                <Play size={18} className="text-white group-hover:scale-110 transition-transform duration-300" />
               ) : (
-                <Pause size={18} className="text-white" />
+                <Pause size={18} className="text-white group-hover:scale-110 transition-transform duration-300" />
               )}
             </button>
           </div>
@@ -140,62 +232,93 @@ export default function ArtisticArticlesSlideshow() {
 
         {/* Main Article Display */}
         <div className="relative">
-          {/* Navigation Arrows */}
-          <button
-            onClick={prevArticle}
-            className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-16 rounded-lg bg-black/60 border border-white/10 flex items-center justify-center hover:bg-black/80 transition-all duration-300"
-            aria-label="Previous article"
-          >
-            <ChevronLeft size={20} className="text-white" />
-          </button>
-
-          <button
-            onClick={nextArticle}
-            className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-16 rounded-lg bg-black/60 border border-white/10 flex items-center justify-center hover:bg-black/80 transition-all duration-300"
-            aria-label="Next article"
-          >
-            <ChevronRight size={20} className="text-white" />
-          </button>
-
           {/* Article Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            {/* Preview Rail */}
+            {/* Preview Rail with Scrollbar */}
             <div className="lg:col-span-4">
-              <div className="relative h-full rounded-xl bg-white/5 border border-white/10 p-4">
-                <h3 className="text-sm font-semibold text-white/70 mb-4 flex items-center gap-2">
-                  <Circle size={8} className="fill-current text-blue-400" />
-                  Article Series
-                </h3>
+              <div className="relative h-full rounded-xl bg-gradient-to-b from-white/10 to-white/5 border border-white/20 p-4 backdrop-blur-sm shadow-lg shadow-black/20">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-sm font-semibold text-white flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 animate-pulse"></div>
+                    <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+                      Article Series ({sampleArticles.length})
+                    </span>
+                  </h3>
+                  
+                  {/* Scroll Controls */}
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={scrollUp}
+                      className="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300"
+                      aria-label="Scroll up"
+                    >
+                      <ChevronUp size={14} className="text-white/80" />
+                    </button>
+                    <button
+                      onClick={scrollDown}
+                      className="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300"
+                      aria-label="Scroll down"
+                    >
+                      <ChevronDown size={14} className="text-white/80" />
+                    </button>
+                  </div>
+                </div>
                 
-                <div className="space-y-2">
+                {/* Scrollable Preview List */}
+                <div 
+                  ref={previewRailRef}
+                  className="space-y-3 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar"
+                  style={{ 
+                    height: `${VISIBLE_ARTICLES * 100}px`,
+                    scrollBehavior: 'smooth'
+                  }}
+                >
                   {sampleArticles.map((article, index) => (
                     <div
                       key={article.id}
                       onClick={() => goToArticle(index)}
-                      className={`relative p-3 rounded-lg cursor-pointer transition-all duration-300 ${
+                      className={`relative p-4 rounded-xl cursor-pointer transition-all duration-300 group backdrop-blur-sm ${
                         index === currentIndex
-                          ? 'bg-white/10'
-                          : 'hover:bg-white/5'
+                          ? 'bg-gradient-to-r from-white/20 to-white/10 border border-white/30 shadow-lg'
+                          : 'bg-white/5 hover:bg-gradient-to-r hover:from-white/10 hover:to-white/5 border border-transparent hover:border-white/20'
                       }`}
                     >
-                      <div className="flex items-center gap-3">
-                        <div className={`w-2 h-2 rounded-full ${
+                      {/* Active Indicator */}
+                      {index === currentIndex && (
+                        <div className="absolute -left-2 top-1/2 -translate-y-1/2 w-1 h-10 rounded-full bg-gradient-to-b from-cyan-400 to-blue-500 shadow-lg shadow-cyan-400/30"></div>
+                      )}
+                      
+                      <div className="flex items-center gap-4">
+                        <div className={`w-3 h-3 rounded-full transition-all duration-300 ${
                           index === currentIndex 
-                            ? 'bg-gradient-to-r from-blue-400 to-cyan-400'
-                            : 'bg-white/30'
+                            ? 'bg-gradient-to-r from-cyan-400 to-blue-500 scale-125 shadow-sm shadow-cyan-400/50'
+                            : 'bg-white/40 group-hover:bg-white/60'
                         }`}></div>
                         
                         <div className="flex-1 min-w-0">
-                          <div className="flex items-center justify-between mb-1">
-                            <span className={`text-xs font-medium ${
-                              index === currentIndex ? 'text-white' : 'text-white/60'
+                          <div className="flex items-center justify-between mb-2">
+                            <span className={`text-xs font-semibold px-3 py-1 rounded-full border transition-all duration-300 ${
+                              index === currentIndex 
+                                ? 'text-white bg-gradient-to-r from-blue-500/30 to-cyan-500/30 border-blue-400/30'
+                                : 'text-white/70 bg-white/10 border-white/20 group-hover:text-white'
                             }`}>
                               {article.category}
                             </span>
-                            <Clock size={10} className="text-white/40" />
+                            <div className="flex items-center gap-1">
+                              <Clock size={10} className={`transition-colors duration-300 ${
+                                index === currentIndex ? 'text-cyan-300' : 'text-white/50 group-hover:text-white/70'
+                              }`} />
+                              <span className={`text-xs transition-colors duration-300 ${
+                                index === currentIndex ? 'text-cyan-200' : 'text-white/50 group-hover:text-white/70'
+                              }`}>
+                                {article.readTime}
+                              </span>
+                            </div>
                           </div>
-                          <p className={`text-sm font-medium truncate ${
-                            index === currentIndex ? 'text-white' : 'text-white/70'
+                          <p className={`text-sm font-medium truncate transition-colors duration-300 ${
+                            index === currentIndex 
+                              ? 'text-white' 
+                              : 'text-white/80 group-hover:text-white'
                           }`}>
                             {article.title}
                           </p>
@@ -210,37 +333,44 @@ export default function ArtisticArticlesSlideshow() {
             {/* Featured Article */}
             <div className="lg:col-span-8">
               <div 
-                className="relative bg-black/20 rounded-xl border border-white/10 overflow-hidden"
+                className="relative rounded-xl border border-white/20 overflow-hidden shadow-2xl shadow-black/30"
                 style={{
                   opacity: isVisible ? 1 : 0,
-                  transition: `opacity ${FADE_DURATION}ms ease-in-out`
+                  transition: `opacity ${FADE_DURATION}ms ease-in-out`,
                 }}
               >
-                <div className="p-6">
+                {/* Dynamic Gradient Border Effect */}
+                <div className={`absolute inset-0 rounded-xl p-[1px] bg-gradient-to-r ${currentArticle.gradient} opacity-30 -z-10`}></div>
+                
+                {/* Animated Accent Bar */}
+                <div 
+                  className="absolute top-0 left-0 right-0 h-1"
+                  style={{
+                    background: `linear-gradient(90deg, transparent, ${currentArticle.accentColor}80, transparent)`,
+                    animation: 'shine 3s ease-in-out infinite'
+                  }}
+                ></div>
+                
+                <div className="p-6 backdrop-blur-sm bg-gradient-to-br from-black/40 to-black/60">
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {/* Image Section */}
+                    {/* Image Section - Fixed Ratio */}
                     <div className="md:col-span-1 relative">
-                      <div className="relative aspect-square rounded-xl overflow-hidden">
-                        <div 
-                          className="absolute inset-0 bg-cover bg-center"
-                          style={{ backgroundImage: `url(${currentArticle.image})` }}
-                        />
-                        
-                        <div className="absolute top-4 left-4">
-                          <div className="px-3 py-1.5 rounded-full bg-black/50 border border-white/20">
-                            <span className="text-xs font-semibold text-white flex items-center gap-2">
-                              <Sparkles size={10} className="text-blue-300" />
-                              {currentArticle.category}
-                            </span>
-                          </div>
+                      <div className="relative rounded-xl overflow-hidden group">
+                        {/* Container with controlled aspect ratio */}
+                        <div className="relative pt-[75%]"> {/* 4:3 aspect ratio */}
+                          <img 
+                            src={currentArticle.image} 
+                            alt={currentArticle.title}
+                            className="absolute inset-0 w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-105"
+                            onError={(e) => {
+                              e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiMxNjE2MTYiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+SW1hZ2UgTm90IEF2YWlsYWJsZTwvdGV4dD48L3N2Zz4=';
+                            }}
+                          />
+                          
+                          {/* Gradient Overlay */}
+                          <div className={`absolute inset-0 `}></div>
                         </div>
-                        
-                        <div className="absolute bottom-4 right-4">
-                          <div className="flex items-center gap-2 px-2 py-1 rounded-full bg-black/40">
-                            <Clock size={10} className="text-white/80" />
-                            <span className="text-xs text-white/90">{currentArticle.readTime}</span>
-                          </div>
-                        </div>
+                    
                       </div>
                     </div>
 
@@ -248,46 +378,60 @@ export default function ArtisticArticlesSlideshow() {
                     <div className="md:col-span-2">
                       <div className="h-full flex flex-col justify-between">
                         <div>
-                          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-white/10 mb-4">
-                            <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></div>
-                            <span className="text-sm font-medium text-white/90">Featured Analysis</span>
+                          {/* Featured Badge */}
+                          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/30 to-purple-500/30 border border-white/20 mb-6 backdrop-blur-sm group/featured">
+                            <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+                            <span className="text-sm font-semibold text-white bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+                              Featured Analysis
+                            </span>
+                            <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-xl opacity-0 group-hover/featured:opacity-100 transition-opacity duration-500 -z-10"></div>
                           </div>
                           
-                          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
+                          {/* Title */}
+                          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight bg-gradient-to-r from-white via-white/90 to-white/80 bg-clip-text text-transparent">
                             {currentArticle.title}
                           </h2>
                           
-                          <p className="text-white/80 leading-relaxed mb-6">
+                          {/* Description */}
+                          <p className="text-white/90 text-lg leading-relaxed mb-8">
                             {currentArticle.description}
                           </p>
                         </div>
 
                         {/* Action Area */}
                         <div className="space-y-6">
+                          {/* Progress Indicators */}
                           <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-1.5">
+                            <div className="flex items-center gap-2">
                               {sampleArticles.map((_, index) => (
                                 <button
                                   key={index}
                                   onClick={() => goToArticle(index)}
-                                  className={`transition-all duration-300 ${
+                                  className={`transition-all duration-300 relative ${
                                     index === currentIndex 
-                                      ? 'w-8 h-1.5 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500'
-                                      : 'w-4 h-1.5 rounded-full bg-white/30 hover:bg-white/50'
+                                      ? 'w-10 h-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 shadow-lg shadow-blue-500/30'
+                                      : 'w-4 h-2 rounded-full bg-white/40 hover:bg-white/60 hover:w-6'
                                   }`}
                                   aria-label={`Go to article ${index + 1}`}
-                                />
+                                >
+                                  {index === currentIndex && (
+                                    <div className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-cyan-400 animate-ping opacity-40"></div>
+                                  )}
+                                </button>
                               ))}
                             </div>
                             
-                            <span className="text-sm text-white/50">
+                            <span className="text-sm text-white/70 font-medium px-3 py-1 rounded-full bg-white/10 border border-white/20">
                               {currentIndex + 1} / {sampleArticles.length}
                             </span>
                           </div>
                           
-                          <button className="group w-full flex items-center justify-center gap-3 px-6 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold hover:shadow-lg transition-all duration-300">
-                            <span>Explore Full Analysis</span>
-                            <MoveRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
+                          {/* Action Button */}
+                          <button className="group relative w-full md:w-auto flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold text-lg hover:shadow-2xl hover:shadow-blue-500/40 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <span className="relative z-10">Explore Full Analysis</span>
+                            <MoveRight size={20} className="relative z-10 group-hover:translate-x-2 transition-transform duration-300" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-white/10 to-blue-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
                           </button>
                         </div>
                       </div>
@@ -299,6 +443,38 @@ export default function ArtisticArticlesSlideshow() {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes shine {
+          0% { background-position: -100px 0; }
+          100% { background-position: calc(100% + 100px) 0; }
+        }
+        
+        /* Custom scrollbar styles */
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 6px;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 10px;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: linear-gradient(to bottom, #06b6d4, #3b82f6);
+          border-radius: 10px;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(to bottom, #0891b2, #2563eb);
+        }
+        
+        /* For Firefox */
+        .custom-scrollbar {
+          scrollbar-width: thin;
+          scrollbar-color: #3b82f6 rgba(255, 255, 255, 0.1);
+        }
+      `}</style>
     </div>
   );
 }
