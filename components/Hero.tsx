@@ -55,12 +55,12 @@ export default function Hero() {
               <FadeIn direction="up" delay={1100}>
                 <div className="flex justify-center md:justify-start">
                 <Button 
-      size="lg" 
-      className="w-full max-w-[280px] sm:w-auto bg-black text-white hover:bg-white/80 hover:text-black text-base md:text-lg px-8 py-4 rounded-xl sm:rounded-lg border-2 border-transparent hover:border-white transition-all duration-300 min-h-[60px] sm:min-h-0"
-      onClick={() => router.push('/about')}
-    >
-      Learn More
-    </Button>
+  size="lg" 
+  className="w-full max-w-[240px] sm:w-auto bg-black text-white hover:bg-white/80 hover:text-black text-base md:text-lg px-8 py-4 rounded-xl sm:rounded-lg border-2 border-transparent hover:border-white transition-all duration-300 min-h-[60px] sm:min-h-0 cursor-pointer hover:scale-[1.02] active:scale-[0.98] hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+  onClick={() => router.push('/about')}
+>
+  Learn More
+</Button>
               </div>
               </FadeIn>
             </div>
