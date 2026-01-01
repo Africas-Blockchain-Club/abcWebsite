@@ -7,7 +7,7 @@ const sampleArticles = [
   {
     id: 1,
     image: '/Articles/sam4.jpg',
-    title: 'The Future of Fintech in Africa',
+    title: 'CEX or DEX? The FTX collapse disruption!',
     description: 'Exploring how blockchain and mobile technology are revolutionizing financial services across the continent.',
     category: 'Industry Insights',
     accentColor: '#0ea5e9',
@@ -103,7 +103,16 @@ export default function ArtisticArticlesSlideshow() {
   const previewRailRef = useRef(null);
 
   const FADE_DURATION = 500;
-  const VISIBLE_ARTICLES = 4; // Show only 4 articles at a time
+  const VISIBLE_ARTICLES = 4; 
+
+  // Helper function to truncate text by word count
+const truncateWords = (text, maxWords) => {
+  const words = text.split(' ');
+  if (words.length > maxWords) {
+    return words.slice(0, maxWords).join(' ') + '...';
+  }
+  return text;
+};
 
   const fadeTransition = useCallback((direction = 'next') => {
     if (isTransitioning) return;
@@ -394,7 +403,7 @@ export default function ArtisticArticlesSlideshow() {
                           
                           {/* Description */}
                           <p className="text-white/90 text-lg leading-relaxed mb-8">
-                            {currentArticle.description}
+                             {truncateWords(currentArticle.description, 25)}
                           </p>
                         </div>
 
