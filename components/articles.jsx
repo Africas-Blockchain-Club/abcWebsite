@@ -4,95 +4,64 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Pause, Play, Sparkles, Clock, BookOpen, MoveRight, Circle, ChevronUp, ChevronDown } from 'lucide-react';
 
 const sampleArticles = [
-  {
+ {
     id: 1,
-    image: '/Articles/sam4.jpg',
-    title: 'CEX or DEX? The FTX collapse disruption!',
-    description: 'Exploring how blockchain and mobile technology are revolutionizing financial services across the continent.',
-    category: 'Industry Insights',
-    accentColor: '#0ea5e9',
-    gradient: 'from-blue-500 via-cyan-400 to-teal-300',
-    bgGradient: 'from-blue-900/20 via-cyan-900/15 to-teal-900/10',
-    readTime: '5 min read'
+    image: '/Articles/PENDLEimages.jpeg',
+    title: 'Pendle Finance: Redefining Yield in DeFi',
+    description: 'The core of Pendle’s innovation begins with assets you already own, such as Ethereum (ETH). Normally, ETH sits still, but many protocols allow you to convert it into a yield-bearing asset, a “superform” that passively earns you rewards (e.g., staking ETH on Lido to get stETH, or converting a stablecoin into a version like sdeUSD, which earns from treasury yields or funding rates).',
+    category: 'DeFi Innovation',
+    accentColor: '#7c3aed', 
+    gradient: 'from-purple-500 via-violet-400 to-fuchsia-300',
+    bgGradient: 'from-purple-900/20 via-violet-900/15 to-fuchsia-900/10',
+    readTime: '11 min read'
   },
   {
     id: 2,
-    image: '/Articles/gamificationArticle.webp',
-    title: 'Innovative SME Lending Models',
-    description: 'How peer-to-peer lending platforms are bridging the funding gap for small businesses in emerging markets.',
-    category: 'Lending',
-    accentColor: '#10b981',
-    gradient: 'from-emerald-500 via-green-400 to-lime-300',
-    bgGradient: 'from-emerald-900/20 via-green-900/15 to-lime-900/10',
-    readTime: '4 min read'
-  },
-  {
-    id: 3,
     image: '/Articles/kaito.jpeg',
-    title: 'Building Trust Through Data',
-    description: 'Advanced algorithms and alternative data sources creating more accurate creditworthiness assessments.',
-    category: 'Technology',
-    accentColor: '#8b5cf6',
-    gradient: 'from-purple-500 via-violet-400 to-fuchsia-300',
-    bgGradient: 'from-purple-900/20 via-violet-900/15 to-fuchsia-900/10',
+    title: 'Kaito AI: Turning Crypto Knowledge into Earnings',
+    description: 'Kaito AI, a Web3 intelligence platform, is transforming how we access and use crypto information by combining artificial intelligence and blockchain technology. Founded in 2022 by Yu Hu (ex-Citadel portfolio manager, now CEO) and Yunzhong He in Seattle, USA, the platform is built on Base.',
+    category: 'AI & Blockchain',
+    accentColor: '#f59e0b', 
+    gradient: 'from-amber-500 via-orange-400 to-yellow-300',
+    bgGradient: 'from-amber-900/20 via-orange-900/15 to-yellow-900/10',
+    readTime: '9 min read'
+  },
+   {
+    id: 3,
+    image: '/Articles/Bybit.webp',
+    title: 'The breach that rocked the crypto world: Bybit’s $1.5 Billion Heist',
+    description: 'On February 21st, 2025, 14:13:35 UTC Bybit fell victim to a sophisticated cyberattack that resulted in the theft of over 400,000 ETH — valued at nearly $1.5 billion at the time — unraveling critical questions about security in the DeFi space.',
+    category: 'Crypto Security',
+    accentColor: '#ef4444',
+    gradient: 'from-red-500 via-orange-400 to-rose-300',
+    bgGradient: 'from-red-900/25 via-orange-900/15 to-rose-900/10',
     readTime: '6 min read'
   },
   {
     id: 4,
-    image: '/Articles/PENDLEimages.jpeg',
-    title: 'Navigating the Regulatory Landscape',
-    description: 'Understanding compliance requirements for fintech platforms in multiple African jurisdictions.',
-    category: 'Compliance',
-    accentColor: '#f59e0b',
-    gradient: 'from-amber-500 via-orange-400 to-yellow-300',
-    bgGradient: 'from-amber-900/20 via-orange-900/15 to-yellow-900/10',
-    readTime: '7 min read'
+    image: '/Articles/gamificationArticle.webp',
+    title: 'Unlocking Value in Web3 Gaming',
+    description: 'The gaming world is entering an exciting new phase with the rise of Web3 technologies, especially through GameFi — a mix of online gaming and decentralised finance (DeFi).',
+    category: 'Web3 Gaming',
+    accentColor: '#10b981', 
+    gradient: 'from-emerald-500 via-green-400 to-lime-300',
+    bgGradient: 'from-emerald-900/20 via-green-900/15 to-lime-900/10',
+    readTime: '9 min read'
   },
   {
     id: 5,
     image: '/Articles/sam4.jpg',
-    title: 'The Rise of Digital Banking in Emerging Markets',
-    description: 'How mobile-first banking solutions are transforming financial inclusion across developing nations.',
-    category: 'Digital Banking',
-    accentColor: '#ef4444',
-    gradient: 'from-red-500 via-orange-400 to-yellow-300',
-    bgGradient: 'from-red-900/20 via-orange-900/15 to-yellow-900/10',
+    title: 'CEX or DEX? The FTX collapse disruption!',
+    description: 'The shocking downfall of a crypto trading platform called FTX Trading Ltd, amidst allegations of insider trading and fraud, exposed the vulnerabilities such as lack of transparency, and misuse of customer funds in centralised exchanges (CEXs).',
+    category: 'Crypto Crash',
+    accentColor: '#1e40af', 
+    gradient: 'from-blue-600 via-indigo-500 to-sky-400',
+    bgGradient: 'from-blue-900/25 via-indigo-900/15 to-sky-900/10',
     readTime: '8 min read'
-  },
-  {
-    id: 6,
-    image: '/Articles/gamificationArticle.webp',
-    title: 'AI-Powered Risk Assessment Models',
-    description: 'Machine learning algorithms revolutionizing credit risk evaluation in emerging markets.',
-    category: 'AI & ML',
-    accentColor: '#8b5cf6',
-    gradient: 'from-purple-500 via-violet-400 to-fuchsia-300',
-    bgGradient: 'from-purple-900/20 via-violet-900/15 to-fuchsia-900/10',
-    readTime: '6 min read'
-  },
-  {
-    id: 7,
-    image: '/Articles/kaito.jpeg',
-    title: 'Sustainable Finance and ESG Integration',
-    description: 'How fintech companies are incorporating environmental, social, and governance factors.',
-    category: 'Sustainability',
-    accentColor: '#10b981',
-    gradient: 'from-emerald-500 via-green-400 to-lime-300',
-    bgGradient: 'from-emerald-900/20 via-green-900/15 to-lime-900/10',
-    readTime: '7 min read'
-  },
-  {
-    id: 8,
-    image: '/Articles/PENDLEimages.jpeg',
-    title: 'Cross-Border Payment Innovations',
-    description: 'Revolutionizing international money transfers through blockchain and digital currencies.',
-    category: 'Payments',
-    accentColor: '#0ea5e9',
-    gradient: 'from-blue-500 via-cyan-400 to-teal-300',
-    bgGradient: 'from-blue-900/20 via-cyan-900/15 to-teal-900/10',
-    readTime: '5 min read'
   }
+ 
 ];
+
 
 export default function ArtisticArticlesSlideshow() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -403,7 +372,7 @@ const truncateWords = (text, maxWords) => {
                           
                           {/* Description */}
                           <p className="text-white/90 text-lg leading-relaxed mb-8">
-                             {truncateWords(currentArticle.description, 25)}
+                             {truncateWords(currentArticle.description, 20)}
                           </p>
                         </div>
 
