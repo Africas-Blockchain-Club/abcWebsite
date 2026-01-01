@@ -16,6 +16,8 @@ import useIsMobile from "@/hooks/useIsMobile";
 import { FloatingNav } from "@/components/ui/FloatingNav";
 import { navItems } from "@/data";
 import Footer from "@/components/ui/footer";
+import Articles from "@/components/articles";
+
 
 export default function Home() {
   const isMobile = useIsMobile();
@@ -52,6 +54,11 @@ export default function Home() {
         {/* Projects Section */}
         <section id="projects" className="px-2 py-8 md:py-12">
           {isMobile ? <ProjectsDrawerMobile/> : <ProjectsDrawerDesktop/>}
+        </section>
+
+        {/* Articles Section */}
+        <section id="learn" className="px-2 py-8 md:py-12">
+          <Articles />
         </section>
 
         {/* Learn Section */}
