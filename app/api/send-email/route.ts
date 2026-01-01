@@ -10,8 +10,8 @@ export async function POST(request: NextRequest) {
     const transporter = nodemailer.createTransport({
       service: 'gmail', 
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS, 
+        user: "sandilemsiwundla@gmail.com",
+        pass: "lsbogralahwvflkp", 
       },
     });
 
@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
 
     // Email options
     const mailOptions = {
-      from: `ABC Website <${process.env.EMAIL_USER}>`,
+      from: `ABC Website <sandilemsiwundla@gmail.com>`,
       to: 'sandilemsiwundla@gmail.com',
       subject: `New ${formType} Collaboration Request - ABC Website`,
       text: emailContent,
