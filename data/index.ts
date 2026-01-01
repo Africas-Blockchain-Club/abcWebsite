@@ -526,6 +526,7 @@ interface Field {
   name: string;
   placeholder: string;
   type: "text" | "email" | "select" | "textarea";
+  required?: boolean;
   options?: string[];
 }
 
@@ -545,37 +546,37 @@ export const forms: FormsData = {
   developer: {
     text: "Hire a skilled developer for your project.",
     fields: [
-      { name: "name", placeholder: "Your Name", type: "text" },
-      { name: "email", placeholder: "Your Email", type: "email" },
-      { name: "linkedin", placeholder: "LinkedIn Profile", type: "text" },
-      { name: "association", placeholder: "Company/Organization", type: "text" },
-      { name: "developerType", placeholder: "Type of Developer", type: "select", options: ["Frontend", "Backend", "Blockchain Developer", "Fullstack"] },
-      { name: "employmentKind", placeholder: "Kind of Employment", type: "select", options: ["Remote", "On-site"] },
-      { name: "employmentDuration", placeholder: "Duration of Employment", type: "select", options: ["0-6 months", "6-12 months", "More than 1 year"] },
-      { name: "employmentType", placeholder: "Employment Type", type: "select", options: ["Part-time", "Full-time"] },
-      { name: "message", placeholder: "Additional Message", type: "textarea" },
+      { name: "name", placeholder: "Your Name", type: "text", required: true },
+      { name: "email", placeholder: "Your Email", type: "email", required: true },
+      { name: "linkedin", placeholder: "LinkedIn Profile", type: "text", required: false },
+      { name: "association", placeholder: "Company/Organization", type: "text", required: false },
+      { name: "developerType", placeholder: "Type of Developer", type: "select", options: ["Frontend", "Backend", "Blockchain Developer", "Fullstack"], required: true },
+      { name: "employmentKind", placeholder: "Kind of Employment", type: "select", options: ["Remote", "On-site"], required: true },
+      { name: "employmentDuration", placeholder: "Duration of Employment", type: "select", options: ["0-6 months", "6-12 months", "More than 1 year"], required: true },
+      { name: "employmentType", placeholder: "Employment Type", type: "select", options: ["Part-time", "Full-time"], required: true },
+      { name: "message", placeholder: "Additional Message", type: "textarea", required: false },
     ],
   },
   researcher: {
     text: "Collaborate with top researchers in your field.",
     fields: [
-      { name: "name", placeholder: "Your Name", type: "text" },
-      { name: "email", placeholder: "Your Email", type: "email" },
-      { name: "linkedin", placeholder: "LinkedIn Profile", type: "text" },
-      { name: "association", placeholder: "Company/Organization", type: "text" },
-      { name: "workType", placeholder: "Type of Work", type: "select", options: ["Test Product", "Research Market", "Teach Blockchain", "Design a Curriculum", "Conduct Case Studies", "Analyze Blockchain Trends", "Develop Educational Content"] },
-      { name: "message", placeholder: "Additional Message", type: "textarea" },
+      { name: "name", placeholder: "Your Name", type: "text", required: true },
+      { name: "email", placeholder: "Your Email", type: "email", required: true },
+      { name: "linkedin", placeholder: "LinkedIn Profile", type: "text", required: false },
+      { name: "association", placeholder: "Company/Organization", type: "text", required: false },
+      { name: "workType", placeholder: "Type of Work", type: "select", options: ["Test Product", "Research Market", "Teach Blockchain", "Design a Curriculum", "Conduct Case Studies", "Analyze Blockchain Trends", "Develop Educational Content"], required: true },
+      { name: "message", placeholder: "Additional Message", type: "textarea", required: false },
     ],
   },
   partner: {
     text: "Build strong partnerships with us.",
     fields: [
-      { name: "name", placeholder: "Your Name", type: "text" },
-      { name: "email", placeholder: "Your Email", type: "email" },
-      { name: "linkedin", placeholder: "LinkedIn Profile", type: "text" },
-      { name: "association", placeholder: "Company/Organization", type: "text" },
-      { name: "partnershipType", placeholder: "Type of Partnership", type: "select", options: ["Host a Blockchain Function", "Be a Guest Speaker", "Sponsor Us", "Collaborate on Research", "Offer Internship Programs", "Provide Funding"] },
-      { name: "message", placeholder: "Additional Message", type: "textarea" },
+      { name: "name", placeholder: "Your Name", type: "text", required: true },
+      { name: "email", placeholder: "Your Email", type: "email", required: true },
+      { name: "linkedin", placeholder: "LinkedIn Profile", type: "text", required: false },
+      { name: "association", placeholder: "Company/Organization", type: "text", required: false },
+      { name: "partnershipType", placeholder: "Type of Partnership", type: "select", options: ["Host a Blockchain Function", "Be a Guest Speaker", "Sponsor Us", "Collaborate on Research", "Offer Internship Programs", "Provide Funding"], required: true },
+      { name: "message", placeholder: "Additional Message", type: "textarea", required: false },
     ],
   },
 };

@@ -1,12 +1,11 @@
-"use client";
+'use client';
 
 import React, { useState } from "react";
 import { forms } from "@/data/index";
 import ParticleBackground from "./particles"; 
-import BlockchainNetwork from '@/components/ui/blockchain-network';
 import SlideIn from "../animations/slide-in";
 import { Card, CardContent, CardHeader, CardTitle } from "./card";
-import { Calendar, Mail, MapPin, Phone } from "lucide-react";
+import { Calendar, Mail, MapPin, Phone, Loader2, CheckCircle, XCircle } from "lucide-react";
 import SocialLinks from "../social-links";
 
 interface AlertState {
@@ -23,6 +22,7 @@ interface FormField {
     name: string;
     type: 'select' | 'textarea' | 'text' | 'email' | 'tel';
     placeholder: string;
+    required?: boolean;
     options?: string[];
 }
 
@@ -39,6 +39,8 @@ const Collaborate: React.FC = () => {
   const [alert, setAlert] = useState<AlertState>({ message: "", type: "", visible: false });
   const [isInitialLoad, setIsInitialLoad] = useState<boolean>(true);
   const [showForm, setShowForm] = useState<boolean>(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [formErrors, setFormErrors] = useState<{ [key: string]: string }>({});
 
   const handleButtonClick = (key: string): void => {
     if (activeForm === key) {
@@ -48,34 +50,93 @@ const Collaborate: React.FC = () => {
       setShowForm(true);
     }
     setFormData({});
+    setFormErrors({});
     setIsInitialLoad(false);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>): void => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    
+    // Clear error for this field if it exists
+    if (formErrors[name]) {
+      setFormErrors({ ...formErrors, [name]: '' });
+    }
+  };
+
+  const validateForm = (): boolean => {
+    const typedForms = forms as FormsData;
+    const currentForm = typedForms[activeForm];
+    const errors: { [key: string]: string } = {};
+
+    currentForm.fields.forEach((field: FormField) => {
+      if (field.required && !formData[field.name]?.trim()) {
+        errors[field.name] = 'This field is required';
+      }
+      
+      if (field.type === 'email' && formData[field.name]) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData[field.name])) {
+          errors[field.name] = 'Please enter a valid email address';
+        }
+      }
+    });
+
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
+    
+    if (!validateForm()) {
+      setAlert({
+        message: "Please fill in all required fields correctly.",
+        type: "error",
+        visible: true,
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
     const typedForms = forms as FormsData;
-    const dataToSend = { formType: activeForm, ...formData };
+    
+    // Prepare form data with additional info
+    const submissionData = {
+      formType: activeForm,
+      submissionDate: new Date().toISOString(),
+      formName: typedForms[activeForm]?.text || activeForm,
+      ...formData,
+    };
 
     try {
       const response = await fetch("/api/send-email", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(dataToSend),
+        headers: { 
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(submissionData),
       });
+
+      const result = await response.json();
 
       if (response.ok) {
         setAlert({
-          message: "Thank you for reaching out! Your submission was successful.",
+          message: "Thank you for reaching out! We've received your submission and will contact you soon.",
           type: "success",
           visible: true,
         });
+        // Reset form on successful submission
+        setFormData({});
+        setFormErrors({});
+        
+        // Auto-hide success message after 5 seconds
+        setTimeout(() => {
+          setAlert({ message: "", type: "", visible: false });
+        }, 5000);
       } else {
         setAlert({
-          message: "Your request has failed. Please check your email and try again.",
+          message: result.error || "Failed to submit form. Please try again.",
           type: "error",
           visible: true,
         });
@@ -83,10 +144,12 @@ const Collaborate: React.FC = () => {
     } catch (error) {
       console.error("Error submitting form:", error);
       setAlert({
-        message: "Something went wrong. Please try again later.",
+        message: "Network error. Please check your connection and try again.",
         type: "error",
         visible: true,
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -114,64 +177,60 @@ const Collaborate: React.FC = () => {
               </h2>
 
               <SlideIn direction="left">
-<Card className="w-full max-w-md mx-auto lg:mx-0">
-  <CardHeader>
-    <CardTitle className="font-mono text-xl sm:text-2xl">Contact Information</CardTitle>
-  </CardHeader>
-  <CardContent className="space-y-4 sm:space-y-6">
-    <div className="flex flex-col gap-4">
-      {[
-        {
-          icon: <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-white" />,
-          title: "Headquarters",
-          description: "Johannesburg, South Africa",
-        },
-        {
-          icon: <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-white" />,
-          title: "Email",
-          description: "africablockchainclub@gmail.com",
-        },
-        {
-          icon: <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-white" />,
-          title: "Phone",
-          description: "+27 11 123 4567",
-        },
-        {
-          icon: <Calendar className="h-5 w-5 sm:h-6 sm:w-6 text-white" />,
-          title: "Weekly Meetups",
-          description: "Every Saturday, 11:00 AM SAST",
-        },
-      ].map((item, idx) => (
-        <div key={idx} className="flex items-stretch gap-3 sm:gap-4">
-          {/* Icon */}
-          <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-amber-500 flex-shrink-0">
-            {item.icon}
-          </div>
+                <Card className="w-full max-w-md mx-auto lg:mx-0">
+                  <CardHeader>
+                    <CardTitle className="font-mono text-xl sm:text-2xl">Contact Information</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4 sm:space-y-6">
+                    <div className="flex flex-col gap-4">
+                      {[
+                        {
+                          icon: <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-white" />,
+                          title: "Headquarters",
+                          description: "Johannesburg, South Africa",
+                        },
+                        {
+                          icon: <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-white" />,
+                          title: "Email",
+                          description: "africablockchainclub@gmail.com",
+                        },
+                        {
+                          icon: <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-white" />,
+                          title: "Phone",
+                          description: "+27 11 123 4567",
+                        },
+                        {
+                          icon: <Calendar className="h-5 w-5 sm:h-6 sm:w-6 text-white" />,
+                          title: "Weekly Meetups",
+                          description: "Every Saturday, 11:00 AM SAST",
+                        },
+                      ].map((item, idx) => (
+                        <div key={idx} className="flex items-stretch gap-3 sm:gap-4">
+                          {/* Icon */}
+                          <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-amber-500 flex-shrink-0">
+                            {item.icon}
+                          </div>
 
-          {/* Text container stretched */}
-          <div className="flex flex-col justify-center flex-1">
-            <h4 className="font-semibold text-sm sm:text-base text-white">{item.title}</h4>
-            <p className="text-gray-200 text-sm sm:text-base break-all">{item.description}</p>
-          </div>
-        </div>
-      ))}
-    </div>
+                          {/* Text container stretched */}
+                          <div className="flex flex-col justify-center flex-1">
+                            <h4 className="font-semibold text-sm sm:text-base text-white">{item.title}</h4>
+                            <p className="text-gray-200 text-sm sm:text-base break-all">{item.description}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
 
-    {/* Follow us */}
-<div className="pt-4 sm:pt-6">
-  <h4 className="mb-3 sm:mb-4 font-semibold text-sm sm:text-base text-white text-center">
-    Follow Us
-  </h4>
-  <div className="flex justify-center gap-4">
-    <SocialLinks />
-  </div>
-</div>
-
-  </CardContent>
-</Card>
-
-
-
+                    {/* Follow us */}
+                    <div className="pt-4 sm:pt-6">
+                      <h4 className="mb-3 sm:mb-4 font-semibold text-sm sm:text-base text-white text-center">
+                        Follow Us
+                      </h4>
+                      <div className="flex justify-center gap-4">
+                        <SocialLinks />
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
               </SlideIn>
             </div>
           </div>
@@ -202,6 +261,7 @@ const Collaborate: React.FC = () => {
                       key={key}
                       onClick={() => handleButtonClick(key)}
                       className={`${baseClass} ${extraClass} w-full sm:w-auto`}
+                      type="button"
                     >
                       {buttonLabels[key as keyof typeof buttonLabels]}
                     </button>
@@ -220,49 +280,86 @@ const Collaborate: React.FC = () => {
                       {typedForms[activeForm]?.text}
                     </h1>
                     <form onSubmit={handleSubmit} className="space-y-4">
-                      {typedForms[activeForm]?.fields.map((field: FormField) =>
-                        field.type === "select" ? (
-                          <select
-                            key={field.name}
-                            name={field.name}
-                            onChange={handleChange}
-                            className="w-full p-3 bg-gray-600 text-white rounded-lg text-sm sm:text-base"
-                            defaultValue=""
-                          >
-                            <option value="" disabled>
-                              {field.placeholder}
-                            </option>
-                            {field.options?.map((option: string) => (
-                              <option key={option} value={option}>
-                                {option}
-                              </option>
-                            ))}
-                          </select>
-                        ) : field.type === "textarea" ? (
-                          <textarea
-                            key={field.name}
-                            name={field.name}
-                            onChange={handleChange}
-                            placeholder={field.placeholder}
-                            className="w-full p-3 bg-gray-600 text-white rounded-lg h-32 text-sm sm:text-base"
-                            rows={4}
-                          />
-                        ) : (
-                          <input
-                            key={field.name}
-                            name={field.name}
-                            type={field.type}
-                            onChange={handleChange}
-                            placeholder={field.placeholder}
-                            className="w-full p-3 bg-gray-600 text-white rounded-lg text-sm sm:text-base"
-                          />
-                        )
-                      )}
+                      {typedForms[activeForm]?.fields.map((field: FormField) => (
+                        <div key={field.name}>
+                          {field.type === "select" ? (
+                            <div>
+                              <select
+                                name={field.name}
+                                value={formData[field.name] || ''}
+                                onChange={handleChange}
+                                className={`w-full p-3 bg-gray-800 text-white rounded-lg text-sm sm:text-base border ${
+                                  formErrors[field.name] ? 'border-red-500' : 'border-gray-700'
+                                }`}
+                                required={field.required}
+                              >
+                                <option value="" disabled>
+                                  {field.placeholder}
+                                </option>
+                                {field.options?.map((option: string) => (
+                                  <option key={option} value={option}>
+                                    {option}
+                                  </option>
+                                ))}
+                              </select>
+                              {formErrors[field.name] && (
+                                <p className="text-red-400 text-xs mt-1">{formErrors[field.name]}</p>
+                              )}
+                            </div>
+                          ) : field.type === "textarea" ? (
+                            <div>
+                              <textarea
+                                name={field.name}
+                                value={formData[field.name] || ''}
+                                onChange={handleChange}
+                                placeholder={field.placeholder}
+                                className={`w-full p-3 bg-gray-800 text-white rounded-lg h-32 text-sm sm:text-base border ${
+                                  formErrors[field.name] ? 'border-red-500' : 'border-gray-700'
+                                }`}
+                                rows={4}
+                                required={field.required}
+                              />
+                              {formErrors[field.name] && (
+                                <p className="text-red-400 text-xs mt-1">{formErrors[field.name]}</p>
+                              )}
+                            </div>
+                          ) : (
+                            <div>
+                              <input
+                                name={field.name}
+                                type={field.type}
+                                value={formData[field.name] || ''}
+                                onChange={handleChange}
+                                placeholder={field.placeholder}
+                                className={`w-full p-3 bg-gray-800 text-white rounded-lg text-sm sm:text-base border ${
+                                  formErrors[field.name] ? 'border-red-500' : 'border-gray-700'
+                                }`}
+                                required={field.required}
+                              />
+                              {formErrors[field.name] && (
+                                <p className="text-red-400 text-xs mt-1">{formErrors[field.name]}</p>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      ))}
                       <button
                         type="submit"
-                        className="w-full bg-[#1B1B1B] py-3 rounded-lg font-semibold hover:bg-amber-500 transition-all text-sm sm:text-base"
+                        disabled={isSubmitting}
+                        className={`w-full py-3 rounded-lg font-semibold transition-all text-sm sm:text-base flex items-center justify-center gap-2 ${
+                          isSubmitting 
+                            ? 'bg-amber-700 cursor-not-allowed' 
+                            : 'bg-amber-600 hover:bg-amber-500'
+                        }`}
                       >
-                        Submit
+                        {isSubmitting ? (
+                          <>
+                            <Loader2 className="h-4 w-4 animate-spin" />
+                            Sending...
+                          </>
+                        ) : (
+                          'Submit Request'
+                        )}
                       </button>
                     </form>
                   </div>
@@ -276,10 +373,19 @@ const Collaborate: React.FC = () => {
       {/* Alert */}
       {alert.visible && (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50 p-4">
-          <div className={`px-6 py-4 rounded-lg shadow-lg text-center w-full max-w-sm ${alert.type === "success" ? "bg-[#D8CFC4]" : "bg-[#D8CFC4]"}`}>
-            <p className="text-sm sm:text-base">{alert.message}</p>
+          <div className={`px-6 py-4 rounded-lg shadow-lg text-center w-full max-w-sm ${
+            alert.type === "success" ? "bg-emerald-900 border border-emerald-700" : "bg-red-900 border border-red-700"
+          }`}>
+            <div className="flex items-center justify-center gap-3 mb-3">
+              {alert.type === "success" ? (
+                <CheckCircle className="h-6 w-6 text-emerald-400" />
+              ) : (
+                <XCircle className="h-6 w-6 text-red-400" />
+              )}
+              <p className="text-sm sm:text-base font-medium">{alert.message}</p>
+            </div>
             <button
-              className="mt-3 px-4 py-2 bg-white text-black rounded-lg hover:bg-gray-200 text-sm sm:text-base"
+              className="mt-3 px-4 py-2 bg-white text-black rounded-lg hover:bg-gray-200 text-sm sm:text-base font-medium"
               onClick={() => setAlert({ ...alert, visible: false })}
             >
               Close
