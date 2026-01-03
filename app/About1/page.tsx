@@ -3,12 +3,15 @@ import ScaleIn from "@/components/animations/scale-in";
 import StaggerContainer from "@/components/animations/stagger-container";
 import BlockchainPattern from "@/components/blockchain-pattern";
 import { Button } from "@/components/ui/button";
+import { FloatingNav } from "@/components/ui/FloatingNav";
+import { navItems } from "@/data";
 import { Code, Globe, Lightbulb, Link, School, Trophy, Users } from "lucide-react";
 import Image from "next/image";
 
 export default function About1() {
     return(
       <section id="about" className="relative overflow-hidden py-8 md:py-16 text-white min-h-[70vh] md:min-h-[80vh] flex items-center">
+        
         {/* Background Image - Optimized for mobile */}
         <div className="absolute inset-0 z-0">
           <Image
