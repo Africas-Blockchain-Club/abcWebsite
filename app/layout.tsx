@@ -5,6 +5,7 @@ import "./globals.css";
 import PageLoader from "@/components/animations/page-loader";
 import { FloatingNav } from "@/components/ui/FloatingNav";
 import { navItems } from "@/data";
+import Footer from "@/components/ui/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,6 +36,7 @@ export default function RootLayout({
         <PageLoader />
         {children}
       </body>
+       <Footer />
     </html>
   );
 }
