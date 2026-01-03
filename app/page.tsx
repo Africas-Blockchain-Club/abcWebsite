@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <div className="relative">
       {/* Floating Navbar now in Home page */}
-      <FloatingNav navItems={navItems} />
+      {/* <FloatingNav navItems={navItems} /> */}
       
       {/* Cursor */}
       {/* <div className="absolute inset-0 z-10 pointer-events-none">
